@@ -4,7 +4,11 @@ const app = poker();
 
 function main() {
   app.onEstimate(routeTo);
+  bindEvents();
+  showView();
+}
 
+function bindEvents() {
   const backButton = document.querySelector('button.back');
   backButton && backButton.addEventListener('click', () => routeTo(null));
 
@@ -12,8 +16,6 @@ function main() {
   estimateButtons && estimateButtons.forEach(button => {
     button.addEventListener('click', makeEstimate)
   });
-
-  showView();
 }
 
 function makeEstimate(e) {
