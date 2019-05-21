@@ -1,9 +1,9 @@
 export default function poker() {
-  let state = {
+  const state = {
     size: null
   };
 
-  let observers = [];
+  const observers = [];
 
   function publish() {
     observers.forEach(observer => observer(state.size));

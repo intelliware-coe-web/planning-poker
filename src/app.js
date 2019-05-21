@@ -7,7 +7,7 @@ function main() {
   app.onEstimate(routeTo);
 
   document.querySelector('button.back')
-    .addEventListener('click', () => routeTo(null));
+    .addEventListener('click', makeEstimate.bind(null, app, null));
 
   document.querySelectorAll('.estimate button').forEach(button => {
     button.addEventListener('click', makeEstimate.bind(null, app))
@@ -15,7 +15,11 @@ function main() {
 }
 
 function makeEstimate(app, e) {
-  app.estimate(parseInt(e.target.textContent, 10));
+  if (e) {
+    app.estimate(parseInt(e.target.textContent, 10));
+  } else {
+    app.estimate(null);
+  }
 }
 
 function routeTo(estimate) {
