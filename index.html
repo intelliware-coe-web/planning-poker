@@ -2,13 +2,41 @@
 <html class="no-js" lang="">
 
 <head>
-  <meta charset="utf-8">
-  <title>Planning Poker</title>
-  <meta name="description" content="">
+    <meta charset="utf-8">
+    <title>Planning Poker</title>
+    <meta name="description" content="">
+    <style>
+        button {
+            color: black;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .size {
+            font-size: xx-large;
+        }
+    </style>
+    <script type="module" src="./src/app.js"></script>
 </head>
 
 <body>
-  <h1>Hellow World</h1>
+<div class="estimate">
+    <h1>Estimate</h1>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>5</button>
+    <button>8</button>
+    <button>13</button>
+</div>
+
+<div class="sizing hide">
+    <button class="back">Back</button>
+    <div class="size">Size</div>
+</div>
+
 </body>
 
 </html>
