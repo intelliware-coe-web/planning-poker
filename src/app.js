@@ -1,24 +1,24 @@
 import poker from './poker.js';
 
-const app = poker();
-
 function main() {
-  app.onEstimate(routeTo);
   bindEvents();
   showView();
 }
 
 function bindEvents() {
+  const app = poker();
+  app.onEstimate(routeTo);
+
   const backButton = document.querySelector('button.back');
   backButton && backButton.addEventListener('click', () => routeTo(null));
 
   const estimateButtons = document.querySelectorAll('.estimate button');
   estimateButtons && estimateButtons.forEach(button => {
-    button.addEventListener('click', makeEstimate)
+    button.addEventListener('click', makeEstimate.bind(null, app))
   });
 }
 
-function makeEstimate(e) {
+function makeEstimate(app, e) {
   app.estimate(parseInt(e.target.textContent, 10));
 }
 
