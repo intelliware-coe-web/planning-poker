@@ -1,11 +1,8 @@
 import poker from './poker.js';
 
-function main() {
-  bindEvents();
-  showView();
-}
+main();
 
-function bindEvents() {
+function main() {
   const app = poker();
   app.onEstimate(routeTo);
 
@@ -23,29 +20,22 @@ function makeEstimate(app, e) {
 }
 
 function routeTo(estimate) {
-  const params = searchParams();
   if (estimate !== null) {
-    params.set('size', estimate);
+    showSizing(estimate)
   } else {
-    params.delete('size');
-  }
-  window.location.search = params;
-}
-
-function showView() {
-  const params = searchParams();
-  if (params.get('size')) {
-    const sizingView = document.querySelector('.sizing');
-    sizingView.classList.remove('hide');
-    sizingView.querySelector('.size').textContent = params.get('size');
-
-    document.querySelector('.estimate').classList.add('hide');
+    showEstimates()
   }
 }
 
-function searchParams() {
-  const url = new URL(window.location.href);
-  return new URLSearchParams(url.search);
+function showSizing(size) {
+  const sizingView = document.querySelector('.sizing');
+  sizingView.classList.remove('hide');
+  sizingView.querySelector('.size').textContent = size;
+  document.querySelector('.estimate').classList.add('hide');
 }
 
-main();
+function showEstimates() {
+  const sizingView = document.querySelector('.sizing');
+  sizingView.classList.add('hide');
+  document.querySelector('.estimate').classList.remove('hide');
+}
