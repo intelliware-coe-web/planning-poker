@@ -6,11 +6,10 @@ function main() {
   const app = poker();
   app.onEstimate(routeTo);
 
-  const backButton = document.querySelector('button.back');
-  backButton && backButton.addEventListener('click', () => routeTo(null));
+  document.querySelector('button.back')
+    .addEventListener('click', () => routeTo(null));
 
-  const estimateButtons = document.querySelectorAll('.estimate button');
-  estimateButtons && estimateButtons.forEach(button => {
+  document.querySelectorAll('.estimate button').forEach(button => {
     button.addEventListener('click', makeEstimate.bind(null, app))
   });
 }
