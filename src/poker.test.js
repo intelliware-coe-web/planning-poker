@@ -1,10 +1,12 @@
-import estimate from './poker';
+import poker from './poker';
 
 describe('Poker', () => {
-  test('should create an immutable estimate object', () => {
-    expect(() => {
-      const actual = estimate(5);
-      actual.size = 10;
-    }).toThrow();
+  const fixture = poker();
+
+  test('should notify subscribers', () => {
+    const mockSub = jest.fn();
+    fixture.onEstimate(mockSub);
+    fixture.estimate(5);
+    expect(mockSub).toHaveBeenCalledWith(5);
   });
 });

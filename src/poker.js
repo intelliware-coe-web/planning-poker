@@ -1,7 +1,21 @@
-export default function estimate(size) {
+export default function poker() {
+  let state = {
+    size: null
+  };
+
+  let observers = [];
+
+  function publish() {
+    observers.forEach(observer => observer(state.size));
+  }
+
   return {
-    get size() {
-      return size;
+    estimate(size) {
+      state.size = size;
+      publish();
+    },
+    onEstimate(callback) {
+      observers.push(callback);
     }
   }
 }
