@@ -1,5 +1,5 @@
 import Rooms from "./Rooms";
 
-it('renders correctly', () => {
-    expect(new Rooms()).toMatchSnapshot(); 
+it('Rooms renders correctly', () => {
+    expect(Rooms()).toMatchSnapshot(); 
 });

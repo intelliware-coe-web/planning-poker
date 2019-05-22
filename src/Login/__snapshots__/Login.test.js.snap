@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Login renders correctly 1`] = `
+<div
+  className="uk-flex uk-flex-column uk-flex-middle"
+>
+  <img
+    alt="logo"
+    className="uk-animation-kenburns"
+    data-uk-img={true}
+    height="40vmin"
+    src="logo.png"
+  />
+  <input
+    className="uk-margin-top"
+    placeholder="EMAIL"
+  />
+  <input
+    className="uk-margin"
+    placeholder="PASSWORD"
+  />
+  <Link
+    className="uk-button uk-button-secondary"
+    to="/rooms/"
+  >
+    LOGIN
+  </Link>
+</div>
+`;
+
 exports[`renders correctly 1`] = `
 Login {
   "context": undefined,
