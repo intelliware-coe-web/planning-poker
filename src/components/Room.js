@@ -10,13 +10,17 @@ export function Room({ match }) {
 
   return (
     <>
-      <h1>Room {match.params.roomId}</h1>
+      <h1>Room { match.params.roomId }</h1>
       <RoomsLink/>
-      <Route path={match.path} render={() => <StackedItems items={estimates} component={FullWidthButton}/>}/>
+      <Route path={ match.path } render={ Estimates(estimates) } />
     </>
   )
 }
 
 function FullWidthButton({ label }) {
-  return (<button className="uk-button uk-button-default uk-width-1-1">{label}</button>)
+  return (<button className="uk-button uk-button-default uk-width-1-1">{ label }</button>)
+}
+
+function Estimates(estimates) {
+  return () => <StackedItems items={ estimates } component={ FullWidthButton }/>
 }
