@@ -1,18 +1,18 @@
 import React from 'react';
+import StackedLinks from './StackedLinks';
 
-export default function Rooms({ rooms = [] }) {
+export default function Rooms() {
+  const rooms = [
+    { 'href': '/room/A', 'label': 'A' },
+    { 'href': '/room/B', 'label': 'B' },
+    { 'href': '/room/C', 'label': 'C' },
+  ];
+
   return (
     <>
       <h1>Rooms</h1>
-      <div className="container">
-        {rooms.map((room, index) => (
-            <div className="uk-margin" key={index}>
-              <button className="uk-button uk-width-1-1 uk-button-default">
-                {room}
-              </button>
-            </div>
-          )
-        )}
+      <div className="uk-container">
+        <StackedLinks links={rooms} />
       </div>
     </>
   );
