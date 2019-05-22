@@ -8,24 +8,36 @@ exports[`Component: Rooms should render 1`] = `
   <div
     className="uk-container"
   >
-    <StackedLinks
-      links={
-        Array [
-          Object {
-            "href": "/room/A",
-            "label": "A",
-          },
-          Object {
-            "href": "/room/B",
-            "label": "B",
-          },
-          Object {
-            "href": "/room/C",
-            "label": "C",
-          },
-        ]
-      }
-    />
+    <div
+      className="uk-margin"
+    >
+      <Link
+        className="uk-button uk-button-default uk-width-1-1"
+        to="/room/A"
+      >
+        A
+      </Link>
+    </div>
+    <div
+      className="uk-margin"
+    >
+      <Link
+        className="uk-button uk-button-default uk-width-1-1"
+        to="/room/B"
+      >
+        B
+      </Link>
+    </div>
+    <div
+      className="uk-margin"
+    >
+      <Link
+        className="uk-button uk-button-default uk-width-1-1"
+        to="/room/C"
+      >
+        C
+      </Link>
+    </div>
   </div>
 </React.Fragment>
 `;

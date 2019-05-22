@@ -1,5 +1,5 @@
 import React from 'react';
-import StackedLinks from './StackedLinks';
+import { Link } from 'react-router-dom';
 
 export default function Rooms() {
   const rooms = [
@@ -12,7 +12,13 @@ export default function Rooms() {
     <>
       <h1>Rooms</h1>
       <div className="uk-container">
-        <StackedLinks links={rooms} />
+        { rooms.map((room, index) =>
+          <div className="uk-margin" key={index}>
+            <Link to={room.href} className="uk-button uk-button-default uk-width-1-1">
+              {room.label}
+            </Link>
+          </div>
+        )}
       </div>
     </>
   );
