@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Rooms should render 1`] = `
+<React.Fragment>
+  <h1>
+    Rooms
+  </h1>
+  <div
+    className="container"
+  >
+    <div
+      className="uk-margin"
+    >
+      <button
+        className="uk-button uk-width-1-1 uk-button-default"
+      >
+        A
+      </button>
+    </div>
+    <div
+      className="uk-margin"
+    >
+      <button
+        className="uk-button uk-width-1-1 uk-button-default"
+      >
+        B
+      </button>
+    </div>
+    <div
+      className="uk-margin"
+    >
+      <button
+        className="uk-button uk-width-1-1 uk-button-default"
+      >
+        C
+      </button>
+    </div>
+  </div>
+</React.Fragment>
+`;
