@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rooms should match snapshot 1`] = `
+<div
+  className="rooms"
+>
+  <p
+    className="test"
+  >
+    Choose a Room!
+  </p>
+  <Button
+    name="A"
+  />
+  <Button
+    name="B"
+  />
+  <Button
+    name="C"
+  />
+  <Button
+    name="D"
+  />
+  <Button
+    name="E"
+  />
+  <Button
+    name="F"
+  />
+  <Button
+    name="G"
+  />
+  <Button
+    name="+"
+  />
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login should match snapshot 1`] = `
+<div
+  className="login"
+>
+  <p>
+    Welcome to Planning Poker
+  </p>
+  <img
+    alt="logo"
+    className="login-logo"
+    src="logo.svg"
+  />
+  <form>
+    <EmailInput />
+    <PasswordInput />
+    <Link
+      to="/rooms"
+    >
+      <Button
+        name="Login"
+      />
+    </Link>
+  </form>
+</div>
+`;

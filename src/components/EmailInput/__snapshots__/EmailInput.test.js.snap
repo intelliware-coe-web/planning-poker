@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`email input should match snapshot 1`] = `
+<div
+  className="uk-margin"
+>
+  <div
+    className="uk-inline"
+  >
+    <span
+      className="uk-form-icon"
+      uk-icon="icon: mail"
+    />
+    <input
+      className="uk-input"
+      placeholder="Email"
+      type="email"
+    />
+  </div>
+</div>
+`;
