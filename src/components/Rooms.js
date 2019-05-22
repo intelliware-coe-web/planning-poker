@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Rooms() {
-  const rooms = [
-    { 'href': '/room/A', 'label': 'A' },
-    { 'href': '/room/B', 'label': 'B' },
-    { 'href': '/room/C', 'label': 'C' },
-  ];
-
+function Rooms({rooms}) {
   return (
     <>
       <h1>Rooms</h1>
@@ -23,3 +17,11 @@ export default function Rooms() {
     </>
   );
 }
+
+const rooms = [
+  { 'href': '/room/A', 'label': 'A' },
+  { 'href': '/room/B', 'label': 'B' },
+  { 'href': '/room/C', 'label': 'C' },
+];
+
+export default Rooms.bind(null, {rooms})

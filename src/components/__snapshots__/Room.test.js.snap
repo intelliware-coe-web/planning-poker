@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Room should render 1`] = `
+<React.Fragment>
+  <h1>
+    Room 
+    B
+  </h1>
+  <Link
+    className="uk-link-muted"
+    to="/rooms/"
+  >
+    <span
+      data-uk-icon="home"
+    />
+    <span
+      className="uk-text-middle"
+    >
+      Rooms
+    </span>
+  </Link>
+  <Route
+    render={[Function]}
+  />
+</React.Fragment>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: Estimate should render 1`] = `
+Array [
+  <div
+    className="uk-margin"
+  >
+    <button
+      className="uk-button uk-button-default uk-width-1-1"
+    >
+      A
+    </button>
+  </div>,
+  <div
+    className="uk-margin"
+  >
+    <button
+      className="uk-button uk-button-default uk-width-1-1"
+    >
+      B
+    </button>
+  </div>,
+  <div
+    className="uk-margin"
+  >
+    <button
+      className="uk-button uk-button-default uk-width-1-1"
+    >
+      C
+    </button>
+  </div>,
+]
+`;
