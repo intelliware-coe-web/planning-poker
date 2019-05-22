@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export function Login() {
   return (
@@ -20,7 +21,7 @@ export function Login() {
         </div>
 
         <div className="uk-margin">
-          <button className="uk-button uk-button-primary uk-width-1-1">Login</button>
+          <Link to="/rooms/" className="uk-button uk-button-primary uk-width-1-1">Login</Link>
         </div>
       </form>
     </>
