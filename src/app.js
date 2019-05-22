@@ -15,11 +15,7 @@ function main() {
 }
 
 function makeEstimate(app, e) {
-  if (e) {
-    app.estimate(parseInt(e.target.textContent, 10));
-  } else {
-    app.estimate(null);
-  }
+  app.estimate(e && parseInt(e.target.textContent, 10));
 }
 
 function routeTo(estimate) {
