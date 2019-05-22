@@ -1,8 +1,12 @@
 import React from 'react';
+import { Login } from './components/Login';
 
 function App() {
   return (
-    <h1>Hello, World!</h1>
+    <div className="uk-position-center">
+      <h1>Planning Poker</h1>
+      <Login/>
+    </div>
   );
 }
 
