@@ -3,8 +3,10 @@ import { Route, withRouter } from 'react-router-dom';
 import { StackedItems } from './StackedItems';
 import { RoomsLink } from './Rooms';
 
+export default withRouter(Room);
+
 export function Room({ match }) {
-  const estimates = Array.from({ length: 10 }, (v, i) => ({ 'label': i + 1 }));
+  const estimates = Array.from({ length: 5 }, (v, i) => ({ 'label': i + 1 }));
 
   return (
     <>
@@ -18,5 +20,3 @@ export function Room({ match }) {
 function FullWidthButton({ label }) {
   return (<button className="uk-button uk-button-default uk-width-1-1">{label}</button>)
 }
-
-export default withRouter(Room);

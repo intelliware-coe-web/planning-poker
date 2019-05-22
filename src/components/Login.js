@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export function Login() {
+export default function Login() {
   return (
     <>
       <h1>Planning Poker</h1>

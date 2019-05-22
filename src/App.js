@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login } from './components/Login';
+import Login from './components/Login';
 import Rooms from './components/Rooms';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Room from './components/Room';
