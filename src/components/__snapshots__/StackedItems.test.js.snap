@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: StackedItems should render 1`] = `
+<div
+  className="uk-container"
+>
+  <div
+    className="uk-margin"
+  >
+    <component
+      href="href"
+      label="A"
+    />
+  </div>
+</div>
+`;

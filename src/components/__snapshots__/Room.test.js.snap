@@ -6,19 +6,7 @@ exports[`Component: Room should render 1`] = `
     Room 
     B
   </h1>
-  <Link
-    className="uk-link-muted"
-    to="/rooms/"
-  >
-    <span
-      data-uk-icon="home"
-    />
-    <span
-      className="uk-text-middle"
-    >
-      Rooms
-    </span>
-  </Link>
+  <RoomsLink />
   <Route
     render={[Function]}
   />

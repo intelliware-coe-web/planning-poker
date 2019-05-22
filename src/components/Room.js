@@ -1,21 +1,22 @@
 import React from 'react';
-import { Link, Route, withRouter } from 'react-router-dom';
-import Estimate from './Estimate';
+import { Route, withRouter } from 'react-router-dom';
+import { StackedItems } from './StackedItems';
+import { RoomsLink } from './Rooms';
 
 export function Room({ match }) {
-  const estimates = [
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-  ];
+  const estimates = Array.from({ length: 10 }, (v, i) => ({ 'label': i + 1 }));
+
   return (
     <>
       <h1>Room {match.params.roomId}</h1>
-      <Link to="/rooms/" className="uk-link-muted">
-        <span data-uk-icon="home"/>
-        <span className="uk-text-middle">Rooms</span>
-      </Link>
-      <Route path={match.path} render={() => <Estimate estimates={estimates}/>}/>
+      <RoomsLink/>
+      <Route path={match.path} render={() => <StackedItems items={estimates} component={FullWidthButton}/>}/>
     </>
   )
+}
+
+function FullWidthButton({ label }) {
+  return (<button className="uk-button uk-button-default uk-width-1-1">{label}</button>)
 }
 
 export default withRouter(Room);
