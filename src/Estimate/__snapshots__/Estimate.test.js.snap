@@ -29,42 +29,50 @@ exports[`should render Estimate correctly 1`] = `
       className="uk-align-center uk-width-1-2@m"
     >
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         1
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         2
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         3
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         4
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         5
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         6
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         7
       </button>
       <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+        onClick={[Function]}
       >
         8
       </button>
