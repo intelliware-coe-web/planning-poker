@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-App {
-  "context": undefined,
-  "props": undefined,
-  "refs": Object {},
-  "updater": Object {
-    "enqueueForceUpdate": [Function],
-    "enqueueReplaceState": [Function],
-    "enqueueSetState": [Function],
-    "isMounted": [Function],
-  },
-}
+<BrowserRouter>
+  <Route
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <Route
+    component={[Function]}
+    path="/rooms"
+  />
+</BrowserRouter>
 `;

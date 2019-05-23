@@ -31,17 +31,3 @@ exports[`Rooms renders correctly 1`] = `
   </button>
 </div>
 `;
-
-exports[`renders correctly 1`] = `
-Rooms {
-  "context": undefined,
-  "props": undefined,
-  "refs": Object {},
-  "updater": Object {
-    "enqueueForceUpdate": [Function],
-    "enqueueReplaceState": [Function],
-    "enqueueSetState": [Function],
-    "isMounted": [Function],
-  },
-}
-`;

@@ -3,14 +3,12 @@ import Login from './Login/Login';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Rooms from './Rooms/Rooms';
 
-export default class App extends React.Component {
+export default function App() {
   
-  render() {
-    return (
-      <Router>
-        <Route exact path="/" component={Login}/>
-        <Route path="/rooms" component={Rooms} />
-      </Router>
-    );
-  }   
+  return (
+    <Router>
+      <Route exact path="/" component={Login}/>
+      <Route path="/rooms" component={Rooms} />
+    </Router>
+  );
 }

@@ -9,5 +9,5 @@ it('renders without crashing', () => {
 });
 
 it('renders correctly', () => {
-  expect(new App()).toMatchSnapshot(); 
+  expect(App()).toMatchSnapshot(); 
 });
