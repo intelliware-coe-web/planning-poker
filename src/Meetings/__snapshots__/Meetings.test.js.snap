@@ -15,31 +15,36 @@ exports[`Meetings renders correctly 1`] = `
     <div
       className="uk-flex uk-flex-column uk-flex-middle"
     >
-      <button
+      <Link
         className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
       >
         Meeting A
-      </button>
-      <button
+      </Link>
+      <Link
         className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
       >
         Meeting B
-      </button>
-      <button
+      </Link>
+      <Link
         className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
       >
         Meeting C
-      </button>
-      <button
+      </Link>
+      <Link
         className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
       >
         Meeting D
-      </button>
-      <button
+      </Link>
+      <Link
         className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
       >
         Meeting E
-      </button>
+      </Link>
     </div>
   </div>
 </div>
