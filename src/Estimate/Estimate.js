@@ -13,24 +13,29 @@ export default function Estimate() {
           </dl>
           <div className="uk-align-center uk-width-1-2@m">
               { Array.from(points).map((number,i) =>
-                  <button key={i} onClick={estimateButtonClicked} className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button">{number}</button>)
+                  <button key={i} onClick={EstimateButtonClicked} className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline estimate-button">
+                      {number}
+                      <span className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right uk-hidden">Selected</span>
+                  </button>)
               }
           </div>
       </div>
     );
 }
 
-function estimateButtonClicked(event) {
-    var estimateButtonsNodeList = getEstimateButtons();
+function EstimateButtonClicked(event) {
+    var estimateButtonsNodeList = GetEstimateButtons();
     estimateButtonsNodeList.forEach(button => {
         if(button !== event.target){
             button.classList.remove("uk-button-secondary");
+            button.lastElementChild.classList.add("uk-hidden");
         } else {
             button.classList.toggle("uk-button-secondary");
+            button.lastElementChild.classList.toggle("uk-hidden");
         }
     });
 }
 
-function getEstimateButtons() {
+function GetEstimateButtons() {
     return document.querySelectorAll('.estimate-button');
 }
