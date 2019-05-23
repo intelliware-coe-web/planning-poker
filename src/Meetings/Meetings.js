@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 const meetings = ['Meeting A', 'Meeting B', 'Meeting C', 'Meeting D', 'Meeting E'];
 
 export default function Meetings() {
@@ -19,5 +21,5 @@ function GetButtons() {
     if(meetings.length === 0) {
         return <span>No meetings scheduled</span>
     }
-    return meetings.map((meeting, index) => <button key={index} className="uk-margin uk-button-secondary uk-button-large uk-text-large">{meeting}</button>);
+    return meetings.map((meeting, index) => <Link to="/" key={index} className="uk-margin uk-button-secondary uk-button-large uk-text-large">{meeting}</Link>);
 }
