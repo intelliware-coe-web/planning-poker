@@ -9,6 +9,10 @@ exports[`renders correctly 1`] = `
   />
   <Route
     component={[Function]}
+    path="/host"
+  />
+  <Route
+    component={[Function]}
     path="/meetings/"
   />
 </HashRouter>
