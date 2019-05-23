@@ -1,82 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Estimate correctly 1`] = `
-<React.Fragment>
-  <div
-    className="uk-container uk-text-center@m uk-margin-top"
+<div
+  className="uk-container uk-text-center@m uk-margin-top"
+>
+  <h1
+    className="uk-heading-small uk-heading-divider"
   >
-    <h1
-      className="uk-heading-small uk-heading-divider"
-    >
-      Estimate
-    </h1>
+    Estimate
+  </h1>
+  <button
+    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+  >
+    Host
+  </button>
+  <dl
+    className="uk-description-list"
+  >
+    <dt>
+      # MBNA-10567: 
+    </dt>
+    <dd>
+      Add tooltip to my accounts page
+    </dd>
+  </dl>
+  <div
+    className="uk-align-center uk-width-1-2@m"
+  >
     <button
-      className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
     >
-      Host
+      1
     </button>
-    <dl
-      className="uk-description-list"
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
     >
-      <dt>
-        # MBNA-10567: 
-      </dt>
-      <dd>
-        Add tooltip to my accounts page
-      </dd>
-    </dl>
-    <div
-      className="uk-align-center uk-width-1-2@m"
+      2
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
     >
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        1
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        2
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        3
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        4
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        5
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        6
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        7
-      </button>
-      <button
-        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
-        onClick={[Function]}
-      >
-        8
-      </button>
-    </div>
+      3
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
+    >
+      4
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
+    >
+      5
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
+    >
+      6
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
+    >
+      7
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button"
+      onClick={[Function]}
+    >
+      8
+    </button>
   </div>
-</React.Fragment>
+</div>
 `;
