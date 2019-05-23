@@ -1,7 +1,7 @@
-import React from 'react';
-import Login from './Login/Login';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Rooms from './Rooms/Rooms';
+import React from 'react';
+import Login from './../Login/Login';
+import Rooms from './../Rooms/Rooms';
 
 export default function App() {
   
