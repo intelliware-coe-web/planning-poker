@@ -1,7 +1,6 @@
 import React from 'react';
 import EmailInput from "../../components/EmailInput";
 import PasswordInput from "../../components/PasswordInput";
-import Button from "../../components/Button";
 import logo from '../../logo.svg';
 import './Login.scss';
 import {Link} from "react-router-dom";
@@ -15,7 +14,7 @@ function Login() {
                 <EmailInput/>
                 <PasswordInput/>
                 <Link to="/rooms">
-                    <Button name={'Login'}/>
+                    <button className="uk-button uk-width-1-1" type="button">Login</button>
                 </Link>
             </form>
         </div>
