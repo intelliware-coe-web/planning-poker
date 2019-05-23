@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<BrowserRouter>
+<HashRouter>
   <Route
     component={[Function]}
     exact={true}
@@ -9,11 +9,11 @@ exports[`renders correctly 1`] = `
   />
   <Route
     component={[Function]}
-    path="/rooms"
+    path="/meetings/"
   />
   <Route
     component={[Function]}
-    path="/estimate"
+    path="/estimate/"
   />
-</BrowserRouter>
+</HashRouter>
 `;

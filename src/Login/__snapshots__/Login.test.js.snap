@@ -29,7 +29,7 @@ exports[`Login renders correctly 1`] = `
     />
     <Link
       className="uk-button uk-button-primary"
-      to="/rooms/"
+      to="/meetings/"
     >
       LOGIN
     </Link>

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Meetings renders correctly 1`] = `
+<div
+  className="uk-flex uk-flex-center"
+>
+  <div
+    className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
+  >
+    <h1
+      className="uk-text-center uk-heading-divider"
+    >
+      MEETINGS
+    </h1>
+    <div
+      className="uk-flex uk-flex-column uk-flex-middle"
+    >
+      <Link
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
+      >
+        Meeting A
+      </Link>
+      <Link
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
+      >
+        Meeting B
+      </Link>
+      <Link
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
+      >
+        Meeting C
+      </Link>
+      <Link
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
+      >
+        Meeting D
+      </Link>
+      <Link
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+        to="/"
+      >
+        Meeting E
+      </Link>
+    </div>
+  </div>
+</div>
+`;
