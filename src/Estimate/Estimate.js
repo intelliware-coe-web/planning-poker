@@ -13,14 +13,14 @@ export default function Estimate() {
           </dl>
           <div className="uk-align-center uk-width-1-2@m">
               { Array.from(points).map((number,i) =>
-                  <button key={i} onClick={buttonClicked} className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button">{number}</button>)
+                  <button key={i} onClick={estimateButtonClicked} className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 estimate-button">{number}</button>)
               }
           </div>
       </div>
     );
 }
 
-function buttonClicked(event) {
+function estimateButtonClicked(event) {
     var estimateButtonsNodeList = getEstimateButtons();
     estimateButtonsNodeList.forEach(button => {
         if(button !== event.target){
