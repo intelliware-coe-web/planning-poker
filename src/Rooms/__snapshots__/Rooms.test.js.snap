@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rooms renders correctly 1`] = `
+<div
+  className="uk-flex uk-flex-column uk-flex-middle"
+>
+  <h1
+    className="uk-heading-medium uk-margin-top"
+  >
+    ROOM
+  </h1>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    A
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    B
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    C
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    D
+  </button>
+</div>
+`;
