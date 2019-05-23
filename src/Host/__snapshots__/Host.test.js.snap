@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Host renders correctly 1`] = `
+<div
+  className="uk-flex uk-flex-column uk-flex-middle"
+>
+  <h1
+    className="uk-heading-medium uk-margin-top"
+  >
+    HOST
+  </h1>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    Story 
+    A
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    Story 
+    B
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    Story 
+    C
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    Story 
+    D
+  </button>
+  <button
+    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+  >
+    +
+  </button>
+</div>
+`;
