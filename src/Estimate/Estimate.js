@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 export default function Estimate() {
 
@@ -6,7 +7,7 @@ export default function Estimate() {
     return(
       <div className="uk-container uk-text-center@m uk-margin-top">
           <h1 className="uk-heading-small uk-heading-divider">Estimate</h1>
-          <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Host</button>
+          <Link to="/host"><button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Host</button></Link>
           <dl className="uk-description-list">
               <dt># MBNA-10567: </dt>
               <dd>Add tooltip to my accounts page</dd>

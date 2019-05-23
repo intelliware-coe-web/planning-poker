@@ -9,11 +9,15 @@ exports[`should render Estimate correctly 1`] = `
   >
     Estimate
   </h1>
-  <button
-    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+  <Link
+    to="/host"
   >
-    Host
-  </button>
+    <button
+      className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+    >
+      Host
+    </button>
+  </Link>
   <dl
     className="uk-description-list"
   >
