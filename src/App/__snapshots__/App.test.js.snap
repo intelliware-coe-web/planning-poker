@@ -9,7 +9,7 @@ exports[`renders correctly 1`] = `
   />
   <Route
     component={[Function]}
-    path="/meetings"
+    path="/meetings/"
   />
 </BrowserRouter>
 `;

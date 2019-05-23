@@ -8,7 +8,7 @@ export default function App() {
   return (
     <Router>
       <Route exact path="/" component={Login}/>
-      <Route path="/meetings" component={Meetings} />
+      <Route path="/meetings/" component={Meetings} />
     </Router>
   );
 }

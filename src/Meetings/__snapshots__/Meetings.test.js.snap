@@ -2,32 +2,45 @@
 
 exports[`Meetings renders correctly 1`] = `
 <div
-  className="uk-flex uk-flex-column uk-flex-middle"
+  className="uk-flex uk-flex-center"
 >
-  <h1
-    className="uk-heading-medium uk-margin-top"
+  <div
+    className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
   >
-    MEETINGS
-  </h1>
-  <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
-  >
-    A
-  </button>
-  <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
-  >
-    B
-  </button>
-  <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
-  >
-    C
-  </button>
-  <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
-  >
-    D
-  </button>
+    <h1
+      className="uk-text-center uk-heading-divider"
+    >
+      MEETINGS
+    </h1>
+    <div
+      className="uk-flex uk-flex-column uk-flex-middle"
+    >
+      <button
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+      >
+        Meeting A
+      </button>
+      <button
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+      >
+        Meeting B
+      </button>
+      <button
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+      >
+        Meeting C
+      </button>
+      <button
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+      >
+        Meeting D
+      </button>
+      <button
+        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
+      >
+        Meeting E
+      </button>
+    </div>
+  </div>
 </div>
 `;
