@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Estimate correctly 1`] = `
+<React.Fragment>
+  <div
+    className="uk-flex uk-flex-column uk-flex-middle"
+  >
+    <h1
+      className="uk-heading-medium uk-margin-top"
+    >
+      Estimate
+    </h1>
+  </div>
+</React.Fragment>
+`;

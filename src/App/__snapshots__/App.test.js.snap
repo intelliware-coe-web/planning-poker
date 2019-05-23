@@ -11,5 +11,9 @@ exports[`renders correctly 1`] = `
     component={[Function]}
     path="/rooms"
   />
+  <Route
+    component={[Function]}
+    path="/estimate"
+  />
 </BrowserRouter>
 `;
