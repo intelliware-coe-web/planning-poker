@@ -2,41 +2,103 @@
 
 exports[`Host renders correctly 1`] = `
 <div
-  className="uk-flex uk-flex-column uk-flex-middle"
+  className="uk-flex uk-flex-column uk-flex-middle uk-width-1-1"
 >
   <h1
-    className="uk-heading-medium uk-margin-top"
+    class="uk-heading-line uk-text-center uk-margin-large-top uk-margin-large-bottom"
   >
-    HOST
+    <span>
+      Host
+    </span>
   </h1>
   <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+    className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
-    Story 
-    A
+    <div
+      class="uk-card uk-card-secondary uk-card-body"
+    >
+      <div
+        class="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        class="uk-card-title"
+      >
+        Story 
+        A
+      </h3>
+    </div>
   </button>
   <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+    className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
-    Story 
-    B
+    <div
+      class="uk-card uk-card-secondary uk-card-body"
+    >
+      <div
+        class="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        class="uk-card-title"
+      >
+        Story 
+        B
+      </h3>
+    </div>
   </button>
   <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+    className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
-    Story 
-    C
+    <div
+      class="uk-card uk-card-secondary uk-card-body"
+    >
+      <div
+        class="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        class="uk-card-title"
+      >
+        Story 
+        C
+      </h3>
+    </div>
   </button>
   <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+    className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
-    Story 
-    D
+    <div
+      class="uk-card uk-card-secondary uk-card-body"
+    >
+      <div
+        class="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        class="uk-card-title"
+      >
+        Story 
+        D
+      </h3>
+    </div>
   </button>
   <button
-    className="uk-margin uk-button-secondary uk-button-large uk-width-1-6 uk-text-large"
+    className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
-    +
+    <div
+      class="uk-card uk-card-secondary uk-card-body"
+    >
+      <h3
+        class="uk-card-title"
+      >
+        +
+      </h3>
+    </div>
   </button>
 </div>
 `;
