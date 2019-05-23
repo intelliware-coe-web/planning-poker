@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rooms renders correctly 1`] = `
+exports[`Meetings renders correctly 1`] = `
 <div
   className="uk-flex uk-flex-column uk-flex-middle"
 >
