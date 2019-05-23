@@ -5,7 +5,7 @@ exports[`Host renders correctly 1`] = `
   className="uk-flex uk-flex-column uk-flex-middle uk-width-1-1"
 >
   <h1
-    class="uk-heading-line uk-text-center uk-margin-large-top uk-margin-large-bottom"
+    className="uk-heading-line uk-text-center uk-margin-large-top uk-margin-large-bottom"
   >
     <span>
       Host
@@ -15,15 +15,15 @@ exports[`Host renders correctly 1`] = `
     className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
     <div
-      class="uk-card uk-card-secondary uk-card-body"
+      className="uk-card uk-card-secondary uk-card-body"
     >
       <div
-        class="uk-card-badge uk-label"
+        className="uk-card-badge uk-label"
       >
         Points: 3
       </div>
       <h3
-        class="uk-card-title"
+        className="uk-card-title"
       >
         Story 
         A
@@ -34,15 +34,15 @@ exports[`Host renders correctly 1`] = `
     className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
     <div
-      class="uk-card uk-card-secondary uk-card-body"
+      className="uk-card uk-card-secondary uk-card-body"
     >
       <div
-        class="uk-card-badge uk-label"
+        className="uk-card-badge uk-label"
       >
         Points: 3
       </div>
       <h3
-        class="uk-card-title"
+        className="uk-card-title"
       >
         Story 
         B
@@ -53,15 +53,15 @@ exports[`Host renders correctly 1`] = `
     className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
     <div
-      class="uk-card uk-card-secondary uk-card-body"
+      className="uk-card uk-card-secondary uk-card-body"
     >
       <div
-        class="uk-card-badge uk-label"
+        className="uk-card-badge uk-label"
       >
         Points: 3
       </div>
       <h3
-        class="uk-card-title"
+        className="uk-card-title"
       >
         Story 
         C
@@ -72,15 +72,15 @@ exports[`Host renders correctly 1`] = `
     className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
     <div
-      class="uk-card uk-card-secondary uk-card-body"
+      className="uk-card uk-card-secondary uk-card-body"
     >
       <div
-        class="uk-card-badge uk-label"
+        className="uk-card-badge uk-label"
       >
         Points: 3
       </div>
       <h3
-        class="uk-card-title"
+        className="uk-card-title"
       >
         Story 
         D
@@ -91,10 +91,10 @@ exports[`Host renders correctly 1`] = `
     className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
   >
     <div
-      class="uk-card uk-card-secondary uk-card-body"
+      className="uk-card uk-card-secondary uk-card-body"
     >
       <h3
-        class="uk-card-title"
+        className="uk-card-title"
       >
         +
       </h3>
