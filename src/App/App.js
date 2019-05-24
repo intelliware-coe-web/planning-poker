@@ -1,6 +1,5 @@
 import { HashRouter as Router, Route } from "react-router-dom";
 import React from 'react';
-import Login from './../Login/Login';
 import Host from './../Host/Host'
 import Meetings from './../Meetings/Meetings';
 import Estimate from './../Estimate/Estimate';
