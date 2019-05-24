@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
-    "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git"
+    "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
+    "redux-thunk": "^2.3.0"
   }
 }
