@@ -9,7 +9,7 @@ export default function Ticket() {
     }
 
     return (
-        <div className="uk-flex uk-flex-center">
+        <div className="uk-flex uk-flex-center">u
             <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
                 <a href="#/host/">
                     <span uk-icon="icon: arrow-left; ratio: 2"></span>

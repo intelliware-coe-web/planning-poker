@@ -4,14 +4,17 @@ exports[`Ticket renders correctly 1`] = `
 <div
   className="uk-flex uk-flex-center"
 >
+  u
   <div
     className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
   >
-    <h1
-      className="uk-heading-small uk-text-center"
+    <a
+      href="#/host/"
     >
-      Add a Ticket
-    </h1>
+      <span
+        uk-icon="icon: arrow-left; ratio: 2"
+      />
+    </a>
     <input
       className="uk-input uk-margin uk-width-1-2@m uk-align-center"
       onChange={[Function]}
