@@ -23,9 +23,11 @@ export default function Host() {
                 }
 
                 <button className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large">
-                    <div className="uk-card uk-card-secondary uk-card-body">
-                        <h3 className="uk-card-title">+</h3>
-                    </div>
+                    <Link to="/ticket/">
+                        <div className="uk-card uk-card-secondary uk-card-body">
+                            <h3 className="uk-card-title">+</h3>
+                        </div>
+                    </Link>
                 </button>
             </div>
         </div>

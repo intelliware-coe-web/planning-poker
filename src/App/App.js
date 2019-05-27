@@ -4,6 +4,7 @@ import Host from './../Host/Host'
 import Meetings from './../Meetings/Meetings';
 import Estimate from './../Estimate/Estimate';
 import CreateUser from "../User/CreateUser";
+import Ticket from "../Ticket/Ticket";
 
 export default function App() {
   
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/host" component={Host} />
       <Route path="/meetings/" component={Meetings} />
       <Route path="/estimate/" component={Estimate} />
+      <Route path="/ticket/" component={Ticket} />
     </Router>
   );
 }
