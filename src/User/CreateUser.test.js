@@ -1,5 +1,5 @@
 import CreateUser from "./CreateUser";
 
 it('CreateUser renders correctly', () => {
-    expect(CreateUser()).toMatchSnapshot(); 
+    expect(new CreateUser().render()).toMatchSnapshot(); 
 });
