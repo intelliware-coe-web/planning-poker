@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateUser renders correctly 1`] = `
+<div
+  className="uk-flex uk-flex-center"
+>
+  <div
+    className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
+  >
+    <h1
+      className="uk-heading-small"
+    >
+      Create New User
+    </h1>
+    <input
+      className="uk-input uk-margin"
+      placeholder="Name"
+    />
+    <Link
+      className="uk-button uk-button-primary"
+      to="/meetings/"
+    >
+      CREATE
+    </Link>
+  </div>
+</div>
+`;

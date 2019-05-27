@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const meetings = ['Meeting A', 'Meeting B', 'Meeting C', 'Meeting D', 'Meeting E'];
+const meetings = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
 
 export default function Meetings() {
 
