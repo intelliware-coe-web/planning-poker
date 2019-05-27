@@ -6,6 +6,8 @@ export default class CreateUser extends React.Component {
         this.state = {
             name: ''
         }
+
+        this.onSubmit = this.onSubmit.bind(this);
     }
     
     handleChange = (e) => {
@@ -21,7 +23,9 @@ export default class CreateUser extends React.Component {
         }
         // API call here
         console.log(body);
-        this.props.history.push('/meetings');      
+        this.postData('http://localhost:9000/users', body)
+            .then(this.props.history.push('/meetings'))
+            .catch(error => console.log(error));            
      }
 
     render() {
@@ -37,5 +41,28 @@ export default class CreateUser extends React.Component {
                 </div>
             </div>
         );
-    }    
+    }
+    
+    postData = (url = '', data = {}) => {
+        // Default options are marked with *
+        return fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, cors, *same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // no-referrer, *client
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        })
+        .then(response => {
+            if(!response.ok) {
+                throw new Error('HTTP status ' + response.status);
+            }
+            return response.json();
+        })
+    }
 }
