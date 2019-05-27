@@ -25,7 +25,7 @@ exports[`Meetings renders correctly 1`] = `
             <h3
               className="uk-card-title"
             >
-              Meeting A
+              First
             </h3>
           </div>
         </Link>
@@ -45,7 +45,7 @@ exports[`Meetings renders correctly 1`] = `
             <h3
               className="uk-card-title"
             >
-              Meeting B
+              Second
             </h3>
           </div>
         </Link>
@@ -65,7 +65,7 @@ exports[`Meetings renders correctly 1`] = `
             <h3
               className="uk-card-title"
             >
-              Meeting C
+              Third
             </h3>
           </div>
         </Link>
@@ -85,7 +85,7 @@ exports[`Meetings renders correctly 1`] = `
             <h3
               className="uk-card-title"
             >
-              Meeting D
+              Fourth
             </h3>
           </div>
         </Link>
@@ -105,7 +105,7 @@ exports[`Meetings renders correctly 1`] = `
             <h3
               className="uk-card-title"
             >
-              Meeting E
+              Fifth
             </h3>
           </div>
         </Link>
