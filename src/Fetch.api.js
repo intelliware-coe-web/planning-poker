@@ -18,8 +18,6 @@ export const postData = (url = '', data = {}) => {
       headers: {
           'Content-Type': 'application/json',
       },
-      redirect: 'follow',
-      referrer: 'no-referrer',
       body: JSON.stringify(data),
   })
   .then(response => {

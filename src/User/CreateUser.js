@@ -6,7 +6,7 @@ export default function CreateUser(props) {
     const [name, setName] = useState('');
     
     function handleChange(e) {
-        setName(e.target.value);
+        setName(e.target.value.trim());
     }
 
     function onSubmit(e) {
@@ -15,7 +15,7 @@ export default function CreateUser(props) {
          name: name
         }    
         UserAPI.create(body)
-        .then(this.props.history.push('/meetings'))
+        .then(props.history.push('/meetings'))
         .catch(error => console.log(error));
      }
 
