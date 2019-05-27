@@ -4,14 +4,19 @@ exports[`Ticket renders correctly 1`] = `
 <div
   className="uk-flex uk-flex-center"
 >
-  u
   <div
     className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
   >
+    <h3
+      className="uk-heading-medium uk-text-center"
+    >
+      Add a Ticket
+    </h3>
     <a
       href="#/host/"
     >
       <span
+        className="uk-position-small uk-position-top-left"
         uk-icon="icon: arrow-left; ratio: 2"
       />
     </a>
