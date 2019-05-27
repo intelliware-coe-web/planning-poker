@@ -21,16 +21,16 @@ function GetMeetingButtons() {
         return <span>No meetings scheduled</span>
     }
     return meetings.map((meeting, index) => 
-        <>
-        <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
-            <Link to="/host" key={index} >
-                <div className="uk-card uk-card-secondary uk-card-body">
-                    <h3 className="uk-card-title">{meeting}</h3>
-                </div>
-            </Link>
-        </button>
-        <br/>
-        </>
+        <div key={index}>
+            <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
+                <Link to="/host">
+                    <div className="uk-card uk-card-secondary uk-card-body">
+                        <h3 className="uk-card-title">{meeting}</h3>
+                    </div>
+                </Link>
+            </button>
+            <br/>
+        </div>
     );
 }
 

@@ -12,7 +12,7 @@ exports[`Meetings renders correctly 1`] = `
   <div
     className="uk-align-center uk-width-1-2@m"
   >
-    <React.Fragment>
+    <div>
       <button
         className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
       >
@@ -31,8 +31,8 @@ exports[`Meetings renders correctly 1`] = `
         </Link>
       </button>
       <br />
-    </React.Fragment>
-    <React.Fragment>
+    </div>
+    <div>
       <button
         className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
       >
@@ -51,8 +51,8 @@ exports[`Meetings renders correctly 1`] = `
         </Link>
       </button>
       <br />
-    </React.Fragment>
-    <React.Fragment>
+    </div>
+    <div>
       <button
         className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
       >
@@ -71,8 +71,8 @@ exports[`Meetings renders correctly 1`] = `
         </Link>
       </button>
       <br />
-    </React.Fragment>
-    <React.Fragment>
+    </div>
+    <div>
       <button
         className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
       >
@@ -91,8 +91,8 @@ exports[`Meetings renders correctly 1`] = `
         </Link>
       </button>
       <br />
-    </React.Fragment>
-    <React.Fragment>
+    </div>
+    <div>
       <button
         className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
       >
@@ -111,7 +111,7 @@ exports[`Meetings renders correctly 1`] = `
         </Link>
       </button>
       <br />
-    </React.Fragment>
+    </div>
     <button
       className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline uk-margin-bottom"
     >
