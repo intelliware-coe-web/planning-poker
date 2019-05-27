@@ -4,22 +4,44 @@ import {Link} from 'react-router-dom';
 const meetings = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
 
 export default function Meetings() {
-    
+
     return (
-        <div className="uk-flex uk-flex-center">
-            <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-                <h1 className="uk-text-center uk-heading-divider">Meetings</h1>                
-                <div className="uk-flex uk-flex-column uk-flex-middle">
-                    { GetButtons() }
-                </div>
+        <div className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom">
+            <h1 className="uk-heading-small uk-heading-divider">Meetings</h1>
+            <div className="uk-align-center uk-width-1-2@m">                
+                { GetMeetingButtons() }
+                { GetAddMeetingButton() }
             </div>
         </div>
     );
 }
 
-function GetButtons() {
-    if(meetings.length === 0) {
+function GetMeetingButtons() {
+    if (meetings.length === 0) {
         return <span>No meetings scheduled</span>
     }
-    return meetings.map((meeting, index) => <Link to="/" key={index} className="uk-button uk-button-primary uk-width-1-1 uk-margin uk-text-large">{meeting}</Link>);
+    return meetings.map((meeting, index) => 
+        <div key={index}>
+            <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
+                <Link to="/host">
+                    <div className="uk-card uk-card-secondary uk-card-body">
+                        <h3 className="uk-card-title">{meeting}</h3>
+                    </div>
+                </Link>
+            </button>
+            <br/>
+        </div>
+    );
+}
+
+function GetAddMeetingButton() {
+    return (
+        <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline uk-margin-bottom">
+            <Link to="/meetings/add">
+                <div className="uk-card uk-card-secondary uk-card-body">
+                    <h3 className="uk-card-title">+</h3>
+                </div>
+            </Link>
+        </button>
+    );
 }
