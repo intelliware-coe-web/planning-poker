@@ -16,12 +16,17 @@ exports[`CreateUser renders correctly 1`] = `
       className="uk-input uk-margin"
       placeholder="Name"
     />
-    <Link
+    <a
       className="uk-button uk-button-primary"
-      to="/meetings/"
+      href="#/meetings/"
     >
       CREATE
-    </Link>
+    </a>
   </div>
+  <button
+    onClick={[Function]}
+  >
+    Click to get user
+  </button>
 </div>
 `;
