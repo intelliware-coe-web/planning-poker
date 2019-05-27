@@ -1,5 +1,8 @@
 import Ticket from "./Ticket";
+import React from 'react';
+import renderer from 'react-test-renderer';
 
 it('Ticket renders correctly', () => {
-    expect(Ticket()).toMatchSnapshot();
+    const ticket = renderer.create(<Ticket/>).toJSON();
+    expect(ticket).toMatchSnapshot();
 });
