@@ -11,7 +11,7 @@ exports[`Host renders correctly 1`] = `
       Host
     </h1>
     <div
-      className="uk-flex uk-flex-column uk-flex-middle uk-width-1-1"
+      className="uk-align-center uk-width-1-2@m"
     >
       <Link
         to="/estimate"
@@ -23,7 +23,7 @@ exports[`Host renders correctly 1`] = `
         </button>
       </Link>
       <button
-        className="uk-margin uk-button-primary uk-width-1-2 uk-text-large"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
         <div
           className="uk-card uk-card-primary uk-card-body"
@@ -42,7 +42,7 @@ exports[`Host renders correctly 1`] = `
         </div>
       </button>
       <button
-        className="uk-margin uk-button-primary uk-width-1-2 uk-text-large"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
         <div
           className="uk-card uk-card-primary uk-card-body"
@@ -61,7 +61,7 @@ exports[`Host renders correctly 1`] = `
         </div>
       </button>
       <button
-        className="uk-margin uk-button-primary uk-width-1-2 uk-text-large"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
         <div
           className="uk-card uk-card-primary uk-card-body"
@@ -80,7 +80,7 @@ exports[`Host renders correctly 1`] = `
         </div>
       </button>
       <button
-        className="uk-margin uk-button-primary uk-width-1-2 uk-text-large"
+        className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
         <div
           className="uk-card uk-card-primary uk-card-body"
@@ -99,7 +99,7 @@ exports[`Host renders correctly 1`] = `
         </div>
       </button>
       <button
-        className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large"
+        className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
       >
         <div
           className="uk-card uk-card-secondary uk-card-body"
