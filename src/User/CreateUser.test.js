@@ -1,5 +1,8 @@
-import CreateUser from "./CreateUser";
+import CreateUser from './CreateUser';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
 it('CreateUser renders correctly', () => {
-    expect(new CreateUser().render()).toMatchSnapshot(); 
+    const createUser = renderer.create(<CreateUser/>).toJSON();
+    expect(createUser).toMatchSnapshot(); 
 });
