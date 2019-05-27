@@ -25,7 +25,15 @@ exports[`renders correctly 1`] = `
   />
   <Route
     component={[Function]}
+    path="/meetings/add"
+  />
+  <Route
+    component={[Function]}
     path="/estimate/"
+  />
+  <Route
+    component={[Function]}
+    path="/ticket/"
   />
 </HashRouter>
 `;
