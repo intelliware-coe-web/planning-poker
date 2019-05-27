@@ -2,50 +2,133 @@
 
 exports[`Meetings renders correctly 1`] = `
 <div
-  className="uk-flex uk-flex-center"
+  className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom"
 >
-  <div
-    className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
+  <h1
+    className="uk-heading-small uk-heading-divider"
   >
-    <h1
-      className="uk-text-center uk-heading-divider"
+    Meetings
+  </h1>
+  <div
+    className="uk-align-center uk-width-1-2@m"
+  >
+    <React.Fragment>
+      <button
+        className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
+      >
+        <Link
+          to="/host"
+        >
+          <div
+            className="uk-card uk-card-secondary uk-card-body"
+          >
+            <h3
+              className="uk-card-title"
+            >
+              Meeting A
+            </h3>
+          </div>
+        </Link>
+      </button>
+      <br />
+    </React.Fragment>
+    <React.Fragment>
+      <button
+        className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
+      >
+        <Link
+          to="/host"
+        >
+          <div
+            className="uk-card uk-card-secondary uk-card-body"
+          >
+            <h3
+              className="uk-card-title"
+            >
+              Meeting B
+            </h3>
+          </div>
+        </Link>
+      </button>
+      <br />
+    </React.Fragment>
+    <React.Fragment>
+      <button
+        className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
+      >
+        <Link
+          to="/host"
+        >
+          <div
+            className="uk-card uk-card-secondary uk-card-body"
+          >
+            <h3
+              className="uk-card-title"
+            >
+              Meeting C
+            </h3>
+          </div>
+        </Link>
+      </button>
+      <br />
+    </React.Fragment>
+    <React.Fragment>
+      <button
+        className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
+      >
+        <Link
+          to="/host"
+        >
+          <div
+            className="uk-card uk-card-secondary uk-card-body"
+          >
+            <h3
+              className="uk-card-title"
+            >
+              Meeting D
+            </h3>
+          </div>
+        </Link>
+      </button>
+      <br />
+    </React.Fragment>
+    <React.Fragment>
+      <button
+        className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"
+      >
+        <Link
+          to="/host"
+        >
+          <div
+            className="uk-card uk-card-secondary uk-card-body"
+          >
+            <h3
+              className="uk-card-title"
+            >
+              Meeting E
+            </h3>
+          </div>
+        </Link>
+      </button>
+      <br />
+    </React.Fragment>
+    <button
+      className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline uk-margin-bottom"
     >
-      MEETINGS
-    </h1>
-    <div
-      className="uk-flex uk-flex-column uk-flex-middle"
-    >
       <Link
-        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
-        to="/"
+        to="/meetings/add"
       >
-        Meeting A
+        <div
+          className="uk-card uk-card-secondary uk-card-body"
+        >
+          <h3
+            className="uk-card-title"
+          >
+            +
+          </h3>
+        </div>
       </Link>
-      <Link
-        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
-        to="/"
-      >
-        Meeting B
-      </Link>
-      <Link
-        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
-        to="/"
-      >
-        Meeting C
-      </Link>
-      <Link
-        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
-        to="/"
-      >
-        Meeting D
-      </Link>
-      <Link
-        className="uk-margin uk-button-secondary uk-button-large uk-text-large"
-        to="/"
-      >
-        Meeting E
-      </Link>
-    </div>
+    </button>
   </div>
 </div>
 `;

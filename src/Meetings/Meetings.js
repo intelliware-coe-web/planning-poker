@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom';
 const meetings = ['Meeting A', 'Meeting B', 'Meeting C', 'Meeting D', 'Meeting E'];
 
 export default function Meetings() {
-    
+
     return (
-        <div className="uk-container uk-text-center@m uk-margin-top">
+        <div className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom">
             <h1 className="uk-heading-small uk-heading-divider">Meetings</h1>
-            <div className="uk-flex uk-flex-column uk-flex-middle uk-width-1-1">
+            <div className="uk-align-center uk-width-1-2@m">                
                 { GetMeetingButtons() }
                 { GetAddMeetingButton() }
             </div>
@@ -21,19 +21,22 @@ function GetMeetingButtons() {
         return <span>No meetings scheduled</span>
     }
     return meetings.map((meeting, index) => 
-        <button className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large">
+        <>
+        <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
             <Link to="/host" key={index} >
                 <div className="uk-card uk-card-secondary uk-card-body">
                     <h3 className="uk-card-title">{meeting}</h3>
                 </div>
             </Link>
         </button>
+        <br/>
+        </>
     );
 }
 
 function GetAddMeetingButton() {
     return (
-        <button className="uk-margin uk-button-secondary uk-width-1-2 uk-text-large">
+        <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline uk-margin-bottom">
             <Link to="/meetings/add">
                 <div className="uk-card uk-card-secondary uk-card-body">
                     <h3 className="uk-card-title">+</h3>
