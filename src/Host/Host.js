@@ -9,7 +9,7 @@ export default function Host() {
         <>
         <div className="uk-container uk-text-center@m uk-margin-top">
             <h1 className="uk-heading-small uk-heading-divider">Host</h1>
-            <div className="uk-align-center uk-width-1-2@m"> 
+            <div className="uk-align-center uk-width-1-2@m">
                 <Link to="/estimate"><button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Estimate</button></Link>
 
                 { Array.from(alphabets).map( (letter,i) => 
@@ -23,9 +23,11 @@ export default function Host() {
                 }
 
                 <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
-                    <div className="uk-card uk-card-secondary uk-card-body">
-                        <h3 className="uk-card-title">+</h3>
-                    </div>
+                    <Link to="/ticket/">
+                        <div className="uk-card uk-card-secondary uk-card-body">
+                            <h3 className="uk-card-title">+</h3>
+                        </div>
+                    </Link>
                 </button>
             </div>
         </div>
