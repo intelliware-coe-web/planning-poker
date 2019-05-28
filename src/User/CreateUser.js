@@ -52,7 +52,7 @@ function CreateUser(props) {
     );
 
     function GetUser(){
-        props.dispatch(FetchUser());
+        props.dispatch(FetchUser('5cec4362c9606d0ac3fe402f'));
     }
 
 }
