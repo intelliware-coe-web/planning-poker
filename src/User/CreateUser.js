@@ -7,15 +7,15 @@ function CreateUser(props) {
     const {error, loading, user} = props;
 
     if(error) {
-        // console.log('Error occured', error.message);
+        console.log('Error occurred: ', error.message);
     }
 
     if(loading) {
-        // console.log('Loading...');
+        console.log('Loading...');
     }
 
     if(user) {
-        // console.log('User: ' + user);
+        console.log('User: ', user);
     }
     
     return (
@@ -32,8 +32,8 @@ function CreateUser(props) {
     function GetUser(){
         props.dispatch(FetchUser());
     }
-}
 
+}
 
 const MapStateToProps = state => ({
    user: state.user.items,
