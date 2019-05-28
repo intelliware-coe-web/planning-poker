@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './Estimate.css';
+import './Estimate.css';
 
 export default function Estimate() {
 

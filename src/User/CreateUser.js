@@ -1,5 +1,5 @@
 import loginImg from '../resources/images/learning_small.jpg';
-import styles from '../index.css';
+import '../index.css';
 import React, {useState} from 'react';
 import {UserAPI} from './User.api';
 
@@ -24,7 +24,7 @@ export default function CreateUser(props) {
     return (
         <div className="uk-flex uk-flex-middle uk-height-viewport default-background">
             <div className="uk-width-1-1">
-                <img src={loginImg}/>
+                <img src={loginImg} alt="login"/>
             </div>
             <div className="uk-container uk-width-1-1 uk-margin-small">
                 <h1>Welcome to planning poker</h1> 

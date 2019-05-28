@@ -8,6 +8,7 @@ exports[`CreateUser renders correctly 1`] = `
     className="uk-width-1-1"
   >
     <img
+      alt="login"
       src="learning_small.jpg"
     />
   </div>

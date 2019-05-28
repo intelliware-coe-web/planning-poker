@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import styles from './Meetings.css';
+import './Meetings.css';
 
 const meetings = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
 
