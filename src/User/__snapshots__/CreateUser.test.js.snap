@@ -14,14 +14,16 @@ exports[`CreateUser renders correctly 1`] = `
     </h1>
     <input
       className="uk-input uk-margin"
+      onChange={[Function]}
       placeholder="Name"
+      value=""
     />
-    <Link
+    <button
       className="uk-button uk-button-primary"
-      to="/meetings/"
+      onClick={[Function]}
     >
       CREATE
-    </Link>
+    </button>
   </div>
 </div>
 `;
