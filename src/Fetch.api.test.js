@@ -82,6 +82,5 @@ function mockFetchReturningErrorResponse() {
 }
 
 function mockFetchThrowingError() {
-    const mockFetchPromise = Promise.reject();
-    jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
+    jest.spyOn(global, 'fetch').mockImplementation(() => Promise.reject());
 }
