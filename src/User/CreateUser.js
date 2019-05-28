@@ -1,5 +1,3 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
 import loginImg from '../resources/images/learning_small.jpg';
 import styles from '../index.css';
 import React, {useState} from 'react';
