@@ -2,7 +2,7 @@
 
 exports[`Story renders correctly 1`] = `
 <div
-  className="uk-container uk-text-center@m uk-margin-top"
+  className="uk-container uk-text-center uk-margin-top"
 >
   <h1
     className="uk-heading-small uk-heading-divider"
@@ -10,17 +10,93 @@ exports[`Story renders correctly 1`] = `
     Story 
     1
   </h1>
+  <a
+    href="#/host"
+  >
+    <span
+      className="uk-position-small uk-position-top-left"
+      uk-icon="icon: arrow-left; ratio: 2"
+    />
+  </a>
   <div
     className="uk-align-center uk-width-1-2@m"
   >
-    <a
-      href="#/host"
+    <table
+      className="uk-table"
     >
-      <span
-        className="uk-position-small uk-position-top-left"
-        uk-icon="icon: arrow-left; ratio: 2"
-      />
-    </a>
+      <thead>
+        <tr>
+          <th
+            className="uk-text-center"
+          >
+            Name
+          </th>
+          <th
+            className="uk-text-center"
+          >
+            Estimate
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Anson
+          </td>
+          <td>
+            5
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nelson
+          </td>
+          <td>
+            4
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Ratul
+          </td>
+          <td>
+            3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Matt
+          </td>
+          <td>
+            2
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Raman
+          </td>
+          <td>
+            1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Linna
+          </td>
+          <td>
+            3
+          </td>
+        </tr>
+        <tr
+          className="uk-text-bold"
+        >
+          <td>
+            Average
+          </td>
+          <td />
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
