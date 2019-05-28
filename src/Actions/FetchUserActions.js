@@ -1,15 +1,13 @@
-import {getData} from '../Fetch.api';
+import {UserAPI} from '../User/User.api'
 
 export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
 export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
-const FETCH_USER_ENDPOINT = 'https://planning-poker-241613.appspot.com/users/';
-
 export function FetchUser(userID){
     return dispatch => {
         dispatch(FetchUserLoading());
-        return getData(FETCH_USER_ENDPOINT+userID)
+        return UserAPI.byId(userID)
             .then(responseJSON => {
                 dispatch(FetchUserSuccess(responseJSON));
                 return responseJSON;
