@@ -1,18 +1,26 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import styles from './Meetings.css';
 
 const meetings = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
 
 export default function Meetings() {
 
     return (
-        <div className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom">
-            <h1 className="uk-heading-divider">Meetings</h1>
-            <div className="uk-align-center uk-width-1-2@m">                
-                { GetMeetingButtons() }
-                { GetAddMeetingButton() }
+        <>
+        <div className="default-background">
+            <div className="uk-container uk-text-center@m">
+                <h1 className="uk-heading-divider uk-margin-top">Meetings</h1>
+                <a href="#/">
+                    <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
+                </a>
+                <div className="uk-align-center uk-width-1-2@m">                
+                    { GetMeetingButtons() }
+                    { GetAddMeetingButton() }
+                </div>
             </div>
         </div>
+        </>
     );
 }
 
@@ -22,13 +30,11 @@ function GetMeetingButtons() {
     }
     return meetings.map((meeting, index) => 
         <div key={index}>
-            <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
                 <Link to="/host">
-                    <div className="uk-card uk-card-secondary uk-card-body">
+                    <div className="uk-card uk-card-secondary uk-card-body meeting-card">
                         <h3 className="uk-card-title">{meeting}</h3>
                     </div>
                 </Link>
-            </button>
             <br/>
         </div>
     );
@@ -36,12 +42,10 @@ function GetMeetingButtons() {
 
 function GetAddMeetingButton() {
     return (
-        <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline uk-margin-bottom">
-            <Link to="/meetings/add">
-                <div className="uk-card uk-card-secondary uk-card-body">
-                    <h3 className="uk-card-title">+</h3>
-                </div>
-            </Link>
-        </button>
+        <Link to="/meeting/add">
+            <div className="uk-card uk-card-secondary uk-card-body add-card">
+                <h3 className="uk-card-title">+</h3>
+            </div>
+        </Link>
     );
 }

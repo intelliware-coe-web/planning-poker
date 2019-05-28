@@ -1,10 +1,10 @@
 .default-background {
-    background-color: #fafafa;
+    background-color: #ebedfc;
 }
 
 h1, h2, h3 {
     font-family: 'Capriola', serif;
-    color: #a1dbff;
+    color: #2359fa;
     margin: 2px;
 }
 
@@ -15,9 +15,9 @@ h1 {
 
 h3 {
     font-family: 'Arbutus Slab';
-    color: #eb91bb;
+    color: #c702a9;
 }
 
 .uk-button-primary {
-    background-color: #a1dbff;
+    background-color: #2359fa;
 }

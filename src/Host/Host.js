@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import styles from './Host.css';
 
 export default function Host() {
     
@@ -7,28 +8,29 @@ export default function Host() {
 
     return (
         <>
-        <div className="uk-container uk-text-center@m uk-margin-top">
-            <h1 className="uk-heading-small uk-heading-divider">Host</h1>
-            <div className="uk-align-center uk-width-1-2@m">
-                <Link to="/estimate"><button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Estimate</button></Link>
+        <div className="default-background">
+            <div className="uk-container uk-text-center@m">
+                <h1 className="uk-heading-divider uk-margin-top">Host</h1>
+                <div className="uk-align-center uk-width-1-2@m"> 
+                    <a href="#/meetings/">
+                        <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
+                    </a>  
+                    <Link to="/estimate"><button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Estimate</button></Link>
 
-                { Array.from(alphabets).map( (letter,i) => 
-                    <button key={i} className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline">
-                        <div className="uk-card uk-card-primary uk-card-body">
-                            <div className="uk-card-badge uk-label">Points: 3</div>
-                            <h3 className="uk-card-title">Story {letter}</h3>
-                        </div>
-                    </button>
-                    )
-                }
-
-                <button className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline">
+                    { Array.from(alphabets).map( (letter,i) => 
+                            <div key={i} className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card">
+                                <div className="uk-card-badge uk-label">Points: 3</div>
+                                <h3 className="uk-card-title">Story {letter}</h3>
+                            </div>
+                        )
+                    }
+                    
                     <Link to="/ticket/">
-                        <div className="uk-card uk-card-secondary uk-card-body">
+                        <div className="uk-card uk-card-secondary uk-card-body add-card">
                             <h3 className="uk-card-title">+</h3>
                         </div>
                     </Link>
-                </button>
+                </div>
             </div>
         </div>
         </>

@@ -1,14 +1,13 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import rocket from '../resources/images/radio.mp4';
+import rocket from '../resources/images/learning_small.jpg';
 import styles from './CreateUser.css';
 
 export default function CreateUser() {
     return (
         <div class="uk-flex uk-flex-middle uk-height-viewport default-background">
             <div class="uk-width-1-1">
-                <video width="600" playsinline="" muted="" autoplay="true" loop="true" data-silent="true" src={rocket}>
-                </video>
+                <img src={rocket}/>
             </div>
             <div class="uk-container uk-width-1-1 uk-margin-small">
                 <h1>Welcome to planning poker</h1> 
