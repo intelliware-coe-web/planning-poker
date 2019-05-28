@@ -1,0 +1,23 @@
+.default-background {
+    background-color: #ebedfc;
+}
+
+h1, h2, h3 {
+    font-family: 'Capriola', serif;
+    color: #2359fa;
+    margin: 2px;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Arbutus Slab';
+    color: #c702a9;
+}
+
+.uk-button-primary {
+    background-color: #2359fa;
+}

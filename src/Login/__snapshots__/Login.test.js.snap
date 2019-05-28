@@ -12,7 +12,7 @@ exports[`Login renders correctly 1`] = `
       className="uk-animation-kenburns uk-align-center"
       data-uk-img={true}
       height="40vmin"
-      src="logo.png"
+      src="login.png"
     />
     <h1>
       Planning Poker

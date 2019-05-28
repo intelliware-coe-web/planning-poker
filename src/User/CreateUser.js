@@ -1,3 +1,5 @@
+import loginImg from '../resources/images/learning_small.jpg';
+import '../index.css';
 import React, {useState} from 'react';
 import {UserAPI} from './User.api';
 
@@ -20,15 +22,23 @@ export default function CreateUser(props) {
      }
 
     return (
-        <div className="uk-flex uk-flex-center">
-            <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-                <h1 className="uk-heading-small">Create New User</h1>                
-                <input placeholder="Name" className="uk-input uk-margin" 
-                    value={name} 
-                    onChange={e => handleChange(e)}></input>
-                <button className="uk-button uk-button-primary"
-                    onClick={(e) => onSubmit(e)}>CREATE</button>
+        <div className="uk-flex uk-flex-middle uk-height-viewport default-background">
+            <div className="uk-width-1-1">
+                <img src={loginImg} alt="login"/>
             </div>
+            <div className="uk-container uk-width-1-1 uk-margin-small">
+                <h1>Welcome to planning poker</h1> 
+                <h3>Create a new user to get started!</h3>            
+                <div className="uk-inline uk-width-1-2 uk-margin">
+                    <span className="uk-form-icon" uk-icon="icon: user"></span>
+                    <input className="uk-input" placeholder="Name" type="text" value={name} 
+                    onChange={e => handleChange(e)}/>
+                </div>
+                <button className="uk-button uk-button-primary uk-width-1-4" onClick={(e) => onSubmit(e)}>
+                  CREATE
+                </button>
+            </div>
+
         </div>
     );
 }

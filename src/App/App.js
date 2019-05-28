@@ -15,7 +15,7 @@ export default function App() {
       <Route exact path="/" component={CreateUser}/>
       <Route path="/host" component={Host} />
       <Route path="/meetings/" component={Meetings} />
-      <Route path="/meetings/add" component={AddMeeting} />
+      <Route path="/meeting/add" component={AddMeeting} />
       <Route path="/estimate/" component={Estimate} />
       <Route path="/ticket/" component={Ticket} />
       <Route path="/story/:storyId" component={Story} />
