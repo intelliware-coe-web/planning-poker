@@ -36,62 +36,106 @@ exports[`Host renders correctly 1`] = `
         <div
           className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
         >
-          <div
-            className="uk-card-badge uk-label"
+          <Link
+            to={
+              Object {
+                "pathname": "/story/A",
+                "query": Object {
+                  "storyId": "A",
+                },
+              }
+            }
           >
-            Points: 3
-          </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            A
-          </h3>
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              A
+            </h3>
+          </Link>
         </div>
         <div
           className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
         >
-          <div
-            className="uk-card-badge uk-label"
+          <Link
+            to={
+              Object {
+                "pathname": "/story/B",
+                "query": Object {
+                  "storyId": "B",
+                },
+              }
+            }
           >
-            Points: 3
-          </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            B
-          </h3>
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              B
+            </h3>
+          </Link>
         </div>
         <div
           className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
         >
-          <div
-            className="uk-card-badge uk-label"
+          <Link
+            to={
+              Object {
+                "pathname": "/story/C",
+                "query": Object {
+                  "storyId": "C",
+                },
+              }
+            }
           >
-            Points: 3
-          </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            C
-          </h3>
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              C
+            </h3>
+          </Link>
         </div>
         <div
           className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
         >
-          <div
-            className="uk-card-badge uk-label"
+          <Link
+            to={
+              Object {
+                "pathname": "/story/D",
+                "query": Object {
+                  "storyId": "D",
+                },
+              }
+            }
           >
-            Points: 3
-          </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            D
-          </h3>
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              D
+            </h3>
+          </Link>
         </div>
         <Link
           to="/ticket/"
