@@ -38,7 +38,7 @@ exports[`CreateUser renders correctly 1`] = `
       to="/meetings/"
     >
       CREATE
-    </Link>
+    </button>
   </div>
 </div>
 `;
