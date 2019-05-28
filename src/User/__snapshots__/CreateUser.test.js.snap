@@ -2,22 +2,39 @@
 
 exports[`CreateUser renders correctly 1`] = `
 <div
-  className="uk-flex uk-flex-center"
+  className="uk-flex uk-flex-middle uk-height-viewport default-background"
 >
   <div
-    className="uk-card uk-card-default uk-card-body uk-width-1-2@m"
+    className="uk-width-1-1"
   >
-    <h1
-      className="uk-heading-small"
-    >
-      Create New User
-    </h1>
-    <input
-      className="uk-input uk-margin"
-      placeholder="Name"
+    <img
+      src="learning_small.jpg"
     />
+  </div>
+  <div
+    className="uk-container uk-width-1-1 uk-margin-small"
+  >
+    <h1>
+      Welcome to planning poker
+    </h1>
+    <h3>
+      Create a new user to get started!
+    </h3>
+    <div
+      className="uk-inline uk-width-1-2 uk-margin"
+    >
+      <span
+        className="uk-form-icon"
+        uk-icon="icon: user"
+      />
+      <input
+        className="uk-input"
+        placeholder="Name"
+        type="text"
+      />
+    </div>
     <Link
-      className="uk-button uk-button-primary"
+      className="uk-button uk-button-primary uk-width-1-4"
       to="/meetings/"
     >
       CREATE
