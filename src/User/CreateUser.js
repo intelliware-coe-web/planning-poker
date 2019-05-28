@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import rocket from '../resources/images/learning_small.jpg';
-import styles from './CreateUser.css';
+import styles from '../index.css';
 
 export default function CreateUser() {
     return (
