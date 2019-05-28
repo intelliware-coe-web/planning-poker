@@ -24,13 +24,14 @@ describe('Test thunk action creator', () => {
            };
            const mockJsonPromise = Promise.resolve(mockSuccessResponse);
            const mockFetchPromise = Promise.resolve({
+               ok: true,
                json: () => mockJsonPromise,
            });
            jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
            return store.dispatch(FetchUser()).then(() => {
                let actualActions = store.getActions().map(action => action.type);
-               expect(expectedActions).toEqual(actualActions);
+               expect(actualActions).toEqual(expectedActions);
                global.fetch.mockClear();
            });
    });
@@ -47,13 +48,14 @@ describe('Test thunk action creator', () => {
         };
         const mockJsonPromise = Promise.reject(mockFailureResponse);
         const mockFetchPromise = Promise.reject({
+            ok: false,
             json: () => mockJsonPromise,
         });
         jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
         return store.dispatch(FetchUser()).then(() => {
             let actualActions = store.getActions().map(action => action.type);
-            expect(expectedActions).toEqual(actualActions);
+            expect(actualActions).toEqual(expectedActions);
             global.fetch.mockClear();
         });
     });

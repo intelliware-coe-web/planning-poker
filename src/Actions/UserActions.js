@@ -1,13 +1,13 @@
-import {simpleFetch} from '../Fetch.api';
+import {getData} from '../Fetch.api';
 
 export const FETCH_USER_LOADING = 'FETCH_USER_LOADING';
-export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
+export const FETCH_USER_ERROR = 'FETCH_USER_ERROR';
 
 export function FetchUser(){
     return dispatch => {
         dispatch(FetchUserLoading());
-        return simpleFetch('https://planning-poker-241613.appspot.com/users/5cec4362c9606d0ac3fe402f')
+        return getData('https://planning-poker-241613.appspot.com/users/5cec4362c9606d0ac3fe402f')
             .then(responseJSON => {
                 dispatch(FetchUserSuccess(responseJSON));
                 return responseJSON;
