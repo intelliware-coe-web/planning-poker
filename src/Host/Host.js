@@ -14,10 +14,12 @@ export default function Host() {
 
                 { Array.from(alphabets).map( (letter,i) => 
                     <button key={i} className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline">
-                        <div className="uk-card uk-card-primary uk-card-body">
-                            <div className="uk-card-badge uk-label">Points: 3</div>
-                            <h3 className="uk-card-title">Story {letter}</h3>
-                        </div>
+                        <Link to={{pathname:'/story/' + letter, query: {storyId: letter}}}>
+                            <div className="uk-card uk-card-primary uk-card-body">
+                                <div className="uk-card-badge uk-label">Points: 3</div>
+                                <h3 className="uk-card-title">Story {letter}</h3>
+                            </div>
+                        </Link>
                     </button>
                     )
                 }

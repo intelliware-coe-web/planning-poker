@@ -1,7 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Story renders correctly 1`] = `
-<div>
-  Story
+<div
+  className="uk-container uk-text-center@m uk-margin-top"
+>
+  <h1
+    className="uk-heading-small uk-heading-divider"
+  >
+    Story 
+    1
+  </h1>
+  <div
+    className="uk-align-center uk-width-1-2@m"
+  >
+    <a
+      href="#/host"
+    >
+      <span
+        className="uk-position-small uk-position-top-left"
+        uk-icon="icon: arrow-left; ratio: 2"
+      />
+    </a>
+  </div>
 </div>
 `;

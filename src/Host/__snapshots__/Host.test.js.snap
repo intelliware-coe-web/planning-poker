@@ -25,78 +25,122 @@ exports[`Host renders correctly 1`] = `
       <button
         className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
-        <div
-          className="uk-card uk-card-primary uk-card-body"
+        <Link
+          to={
+            Object {
+              "pathname": "/story/A",
+              "query": Object {
+                "storyId": "A",
+              },
+            }
+          }
         >
           <div
-            className="uk-card-badge uk-label"
+            className="uk-card uk-card-primary uk-card-body"
           >
-            Points: 3
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              A
+            </h3>
           </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            A
-          </h3>
-        </div>
+        </Link>
       </button>
       <button
         className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
-        <div
-          className="uk-card uk-card-primary uk-card-body"
+        <Link
+          to={
+            Object {
+              "pathname": "/story/B",
+              "query": Object {
+                "storyId": "B",
+              },
+            }
+          }
         >
           <div
-            className="uk-card-badge uk-label"
+            className="uk-card uk-card-primary uk-card-body"
           >
-            Points: 3
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              B
+            </h3>
           </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            B
-          </h3>
-        </div>
+        </Link>
       </button>
       <button
         className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
-        <div
-          className="uk-card uk-card-primary uk-card-body"
+        <Link
+          to={
+            Object {
+              "pathname": "/story/C",
+              "query": Object {
+                "storyId": "C",
+              },
+            }
+          }
         >
           <div
-            className="uk-card-badge uk-label"
+            className="uk-card uk-card-primary uk-card-body"
           >
-            Points: 3
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              C
+            </h3>
           </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            C
-          </h3>
-        </div>
+        </Link>
       </button>
       <button
         className="uk-button uk-margin-small-top uk-button-primary uk-width-1-1 uk-inline"
       >
-        <div
-          className="uk-card uk-card-primary uk-card-body"
+        <Link
+          to={
+            Object {
+              "pathname": "/story/D",
+              "query": Object {
+                "storyId": "D",
+              },
+            }
+          }
         >
           <div
-            className="uk-card-badge uk-label"
+            className="uk-card uk-card-primary uk-card-body"
           >
-            Points: 3
+            <div
+              className="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              className="uk-card-title"
+            >
+              Story 
+              D
+            </h3>
           </div>
-          <h3
-            className="uk-card-title"
-          >
-            Story 
-            D
-          </h3>
-        </div>
+        </Link>
       </button>
       <button
         className="uk-button uk-margin-small-top uk-button-secondary uk-width-1-1 uk-inline"

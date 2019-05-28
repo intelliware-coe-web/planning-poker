@@ -9,7 +9,7 @@ import Ticket from '../Ticket/Ticket';
 import Story from '../Story/Story';
 
 export default function App() {
-  
+
   return (
     <Router>
       <Route exact path="/" component={CreateUser}/>
@@ -18,7 +18,7 @@ export default function App() {
       <Route path="/meetings/add" component={AddMeeting} />
       <Route path="/estimate/" component={Estimate} />
       <Route path="/ticket/" component={Ticket} />
-      <Route path="/story/" component={Story} />
+      <Route path="/story/:storyId" component={Story} />
     </Router>
   );
 }

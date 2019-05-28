@@ -29,7 +29,7 @@ exports[`renders correctly 1`] = `
   />
   <Route
     component={[Function]}
-    path="/story/"
+    path="/story/:storyId"
   />
 </HashRouter>
 `;
