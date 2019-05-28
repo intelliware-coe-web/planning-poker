@@ -32,6 +32,12 @@ export default function Story(props) {
         }
     ];
 
+    const sum = (a,b) => a + b;
+
+    function average(data) {
+        return Math.ceil(data.reduce(sum, 0)/data.length);
+    }
+
     return (
         <div className="uk-container uk-text-center uk-margin-top">
             <h1 className="uk-heading-small uk-heading-divider">Story {storyId}</h1>
@@ -56,10 +62,12 @@ export default function Story(props) {
                         )}
                         <tr className="uk-text-bold" key={'average'}>
                             <td>Average</td>
-                            <td></td>
+                            <td>{average(data.map( item => item.estimate))}</td>
                         </tr>
                     </tbody>
                 </table>
+
+                <button className="uk-button uk-button-primary uk-width-3-4">Start/Stop</button>
             </div>
         </div>
     );
