@@ -1,0 +1,19 @@
+.selected-button {
+    background-color: #c702a9;
+    color: #fff;
+}
+
+.estimate-button {
+    height: 50px;
+    background-color: #2359fa;
+    color: #fff;
+}
+
+.estimate-button:hover {
+    background-color: #c702a9;
+    color: #fff;
+}
+
+.default-button {
+    height: 50px;
+}

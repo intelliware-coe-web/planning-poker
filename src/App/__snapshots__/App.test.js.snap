@@ -17,7 +17,7 @@ exports[`renders correctly 1`] = `
   />
   <Route
     component={[Function]}
-    path="/meetings/add"
+    path="/meeting/add"
   />
   <Route
     component={[Function]}
