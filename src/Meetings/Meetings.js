@@ -7,7 +7,7 @@ export default function Meetings() {
 
     return (
         <div className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom">
-            <h1 className="uk-heading-small uk-heading-divider">Meetings</h1>
+            <h1 className="uk-heading-divider">Meetings</h1>
             <div className="uk-align-center uk-width-1-2@m">                
                 { GetMeetingButtons() }
                 { GetAddMeetingButton() }

@@ -1,16 +1,21 @@
-.login-background {
-    background-color: #37214d;
+.default-background {
+    background-color: #fafafa;
 }
 
 h1, h2, h3 {
-    font-family: 'Frank Ruhl Libre', serif;
-    color: #ffffff;
+    font-family: 'Capriola', serif;
+    color: #a1dbff;
     margin: 2px;
 }
 
 h1 {
-    font-size: 72px;
-    margin-bottom: 10px;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Arbutus Slab';
+    color: #eb91bb;
 }
 
 .uk-button-primary {
