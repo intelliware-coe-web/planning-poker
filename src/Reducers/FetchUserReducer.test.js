@@ -1,9 +1,9 @@
-import UserReducer from './UserReducer';
+import UserReducer from './FetchUserReducer';
 import {
     FETCH_USER_ERROR,
     FETCH_USER_LOADING,
     FETCH_USER_SUCCESS
-} from "../Actions/UserActions";
+} from "../Actions/FetchUserActions";
 
 describe('User Reducer ', () => {
 

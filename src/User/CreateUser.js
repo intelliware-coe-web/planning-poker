@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {FetchUser} from "../Actions/UserActions";
+import {FetchUser} from "../Actions/FetchUserActions";
 import {UserAPI} from './User.api';
 
 function CreateUser(props) {

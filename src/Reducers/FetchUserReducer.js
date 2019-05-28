@@ -2,7 +2,7 @@ import {
     FETCH_USER_LOADING,
     FETCH_USER_SUCCESS,
     FETCH_USER_ERROR
-} from "../Actions/UserActions";
+} from "../Actions/FetchUserActions";
 
 const initialState = {
     items: null,

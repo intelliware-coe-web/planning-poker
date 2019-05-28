@@ -5,7 +5,7 @@ import {
     FETCH_USER_LOADING,
     FETCH_USER_SUCCESS,
     FETCH_USER_ERROR
-} from "./UserActions";
+} from "./FetchUserActions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
