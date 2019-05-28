@@ -3,9 +3,10 @@ import React from 'react';
 import Host from './../Host/Host'
 import Meetings from './../Meetings/Meetings';
 import Estimate from './../Estimate/Estimate';
-import AddMeeting from "../Meetings/AddMeeting";
-import CreateUser from "../User/CreateUser";
-import Ticket from "../Ticket/Ticket";
+import AddMeeting from '../Meetings/AddMeeting';
+import CreateUser from '../User/CreateUser';
+import Ticket from '../Ticket/Ticket';
+import Story from '../Story/Story';
 
 export default function App() {
   
@@ -17,6 +18,7 @@ export default function App() {
       <Route path="/meetings/add" component={AddMeeting} />
       <Route path="/estimate/" component={Estimate} />
       <Route path="/ticket/" component={Ticket} />
+      <Route path="/story/" component={Story} />
     </Router>
   );
 }
