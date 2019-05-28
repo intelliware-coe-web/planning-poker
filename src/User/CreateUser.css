@@ -1,0 +1,13 @@
+.login-background {
+    background-color: #37214d;
+}
+
+h1, h2, h3 {
+    font-family: 'Frank Ruhl Libre', serif;
+    color: #ffffff;
+    margin: 2px;
+}
+
+.uk-button-primary {
+    background-color: #a1dbff;
+}
