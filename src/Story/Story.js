@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Story(props) {
+export default function Story({match}) {
 
 
-    const storyId = props.match.params.storyId;
+    const storyId = match.params.storyId;
 
     const data = [
         {
