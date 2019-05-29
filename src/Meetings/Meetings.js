@@ -15,8 +15,8 @@ export default function Meetings() {
                     <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
                 </a>
                 <div className="uk-align-center uk-width-1-2@m">                
-                    { GetMeetingButtons() }
-                    { GetAddMeetingButton() }
+                    <GetMeetingButtons />
+                    <GetAddMeetingButton />
                 </div>
             </div>
         </div>
