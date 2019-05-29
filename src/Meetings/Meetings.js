@@ -7,7 +7,6 @@ const meetings = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
 export default function Meetings() {
 
     return (
-        <>
         <div className="default-background">
             <div className="uk-container uk-text-center@m">
                 <h1 className="uk-heading-divider uk-margin-top">Meetings</h1>
@@ -20,7 +19,6 @@ export default function Meetings() {
                 </div>
             </div>
         </div>
-        </>
     );
 }
 
