@@ -1,5 +1,5 @@
 import {UserAPI} from './User.api';
-import * as FetchApi from '../Fetch.api';
+import * as FetchApi from '../../Fetch.api';
 
 describe('UserAPI', () => {
 
