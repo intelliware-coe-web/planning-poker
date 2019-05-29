@@ -1,0 +1,20 @@
+.meeting-card, .meeting-button {
+    background: #2359fa;
+    background-color: #2359fa;
+}
+
+.uk-card-title {
+    font-family: 'Mandali', sans-serif;
+}
+
+.add-card {
+    background: #c702a9;
+}
+
+.meeting-card:hover, .uk-button-secondary:hover, .add-card:hover {
+    background-color: #b1bafc;
+}
+
+a:hover {
+    text-decoration: none;
+}

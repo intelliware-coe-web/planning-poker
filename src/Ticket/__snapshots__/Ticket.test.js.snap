@@ -17,7 +17,7 @@ exports[`Ticket renders correctly 1`] = `
     >
       <span
         className="uk-position-small uk-position-top-left"
-        uk-icon="icon: arrow-left; ratio: 2"
+        uk-icon="icon: arrow-left; ratio: 3"
       />
     </a>
     <input

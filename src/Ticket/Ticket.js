@@ -13,7 +13,7 @@ export default function Ticket() {
             <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
                 <h3 className="uk-heading-medium uk-text-center">Add a Ticket</h3>
                 <a href="#/host/">
-                    <span uk-icon="icon: arrow-left; ratio: 2" className="uk-position-small uk-position-top-left"></span>
+                    <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-small uk-position-top-left"></span>
                 </a>
                 <input placeholder="Ticket #" className="uk-input uk-margin uk-width-1-2@m uk-align-center" onChange={handleChange}></input>
                 <a href="#/host/" className="uk-width-1-2@m uk-align-center">

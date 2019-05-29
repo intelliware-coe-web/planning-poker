@@ -9,7 +9,6 @@ script:
   - npm run test:coverage
   - npm run build
 deploy:
-  if: branch = master
   provider: pages
   skip_cleanup: true
   github_token: $github_token
