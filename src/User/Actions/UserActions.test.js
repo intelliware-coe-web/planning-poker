@@ -1,21 +1,16 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import {
-    GetUser,
-    GET_USER_LOADING,
-    GET_USER_SUCCESS,
-    GET_USER_ERROR
-} from "./UserActions";
+import {GetUser, USER_ERROR, USER_SUCCESS} from "./UserActions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Test thunk action creator', () => {
+
     it('expected actions should be dispatched on successful request', () => {
           const store = mockStore({});
           const expectedActions = [
-              GET_USER_LOADING,
-              GET_USER_SUCCESS
+              USER_SUCCESS
           ];
 
            const mockSuccessResponse = {
@@ -36,12 +31,10 @@ describe('Test thunk action creator', () => {
            });
    });
 
-
     it('expected actions should be dispatched on failed request', () => {
         const store = mockStore({});
         const expectedActions = [
-            GET_USER_LOADING,
-            GET_USER_ERROR
+            USER_ERROR
         ];
         const mockFailureResponse = {
             'errorMessage': 'Not Found'
@@ -59,6 +52,5 @@ describe('Test thunk action creator', () => {
             global.fetch.mockClear();
         });
     });
-
 
 });

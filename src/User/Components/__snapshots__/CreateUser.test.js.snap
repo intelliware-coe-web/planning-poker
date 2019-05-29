@@ -21,32 +21,33 @@ exports[`CreateUser renders correctly 1`] = `
     <h3>
       Create a new user to get started!
     </h3>
-    <div
-      className="uk-inline uk-width-1-2 uk-margin"
+    <form
+      onSubmit={[Function]}
     >
-      <span
-        className="uk-form-icon"
-        uk-icon="icon: user"
-      />
-      <input
-        className="uk-input"
-        onChange={[Function]}
-        placeholder="Name"
-        type="text"
-        value=""
-      />
-    </div>
-    <button
-      className="uk-button uk-button-primary uk-width-1-4"
-      onClick={[Function]}
-    >
-      CREATE
-    </button>
+      <div
+        className="uk-margin"
+      >
+        <div
+          className="uk-inline uk-width-1-2"
+        >
+          <span
+            className="uk-form-icon"
+            uk-icon="icon: user"
+          />
+          <input
+            className="uk-input"
+            name="userInputName"
+            placeholder="Name"
+            type="text"
+          />
+        </div>
+        <button
+          className="uk-button uk-button-primary uk-width-1-4"
+        >
+          CREATE
+        </button>
+      </div>
+    </form>
   </div>
-  <button
-    onClick={[Function]}
-  >
-    Click to get user
-  </button>
 </div>
 `;

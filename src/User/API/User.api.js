@@ -1,7 +1,7 @@
 import {getData, postData} from '../../Fetch.api';
 
 export const UserAPI = {
-  all: () => getData(`http://localhost:9000/users`),
+  all: () => getData(`https://planning-poker-241613.appspot.com/users`),
   byId: userId => getData(`https://planning-poker-241613.appspot.com/users/${userId}`),
-  create: (body) => postData(`http://localhost:9000/users`, body)
+  create: (body) => postData(`https://planning-poker-241613.appspot.com/users`, body)
 };
