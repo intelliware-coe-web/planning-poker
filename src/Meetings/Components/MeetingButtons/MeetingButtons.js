@@ -2,11 +2,12 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import '../Meetings.css';
 import {connect} from 'react-redux';
-import {FindMeetings} from '../../Actions/MeetingsActions';
+import {FindMeetingsAction} from '../../Actions/MeetingsActions';
 
 // const meetings = ['First', 'Second', 'Third', 'Fourth'];
 
-function MeetingButtons({meetings}) {
+function MeetingButtons({meetings, findMeetings}) {
+    findMeetings();
     if (meetings.length === 0) {
         return null;
     }
@@ -14,7 +15,7 @@ function MeetingButtons({meetings}) {
         <div key={index}>
                 <Link to="/host">
                     <div className="uk-card uk-card-secondary uk-card-body meeting-card">
-                        <h3 className="uk-card-title">{meeting}</h3>
+                        <h3 className="uk-card-title">{meeting.name}</h3>
                     </div>
                 </Link>
             <br/>
@@ -22,13 +23,14 @@ function MeetingButtons({meetings}) {
     );
 }
 
-function mapStateToProps() {
+function mapStateToProps(state) {
     return {
+        meetings: state.meetings.list
     }
  }
  function mapDispatchToProps(dispatch) {
     return {
-        meetings: () => dispatch(FindMeetings())
+        findMeetings: () => dispatch(FindMeetingsAction())
     };
  }
  

@@ -1,7 +1,7 @@
 import { UPDATE_MEETINGS, MEETINGS_ERROR } from "../Actions/MeetingsActions";
 
 const defaultState = {
-    meetings: [],
+    list: [],
     loading: false,
     error: null
 };
@@ -12,13 +12,13 @@ export default function MeetingsReducer(state = defaultState, action) {
             return {
                 ...state,
                 loading: false,
-                meetings: action.payload.meetings
+                list: action.payload.meetings
             };
         case MEETINGS_ERROR:
             return {
                 ...state,
                 loading: false,
-                meetings: action.payload.error
+                list: action.payload.error
             };
         default:
             return state;
