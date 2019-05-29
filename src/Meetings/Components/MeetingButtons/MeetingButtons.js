@@ -4,13 +4,8 @@ import '../Meetings.css';
 import {connect} from 'react-redux';
 import {FindMeetingsAction} from '../../Actions/MeetingsActions';
 
-// const meetings = ['First', 'Second', 'Third', 'Fourth'];
-
 function MeetingButtons({meetings, findMeetings}) {
-    findMeetings();
-    if (meetings.length === 0) {
-        return null;
-    }
+    findMeetings();    
     return meetings.map((meeting, index) => 
         <div key={index}>
                 <Link to="/host">
