@@ -1,7 +1,7 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {createHashHistory} from 'history';
-import createRootReducer from './Reducers/RootReducer'
+import createRootReducer from './RootReducer';
 import {routerMiddleware} from "connected-react-router";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
