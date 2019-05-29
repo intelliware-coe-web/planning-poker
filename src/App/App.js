@@ -4,7 +4,7 @@ import Host from './../Host/Host'
 import Meetings from './../Meetings/Meetings';
 import Estimate from './../Estimate/Estimate';
 import AddMeeting from '../Meetings/AddMeeting';
-import CreateUser from '../User/CreateUser';
+import CreateUser from '../User/Components/CreateUser';
 import Ticket from '../Ticket/Ticket';
 import Story from '../Story/Story';
 
