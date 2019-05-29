@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route } from "react-router-dom";
+import {Route} from "react-router-dom";
 import React from 'react';
 import Host from './../Host/Host'
 import Meetings from './../Meetings/Meetings';
@@ -14,7 +14,6 @@ export default function App() {
 
   return (
       <ConnectedRouter history={history}>
-        <Router>
           <Route exact path="/" component={CreateUser}/>
           <Route path="/host" component={Host} />
           <Route path="/meetings/" component={Meetings} />
@@ -22,7 +21,6 @@ export default function App() {
           <Route path="/estimate/" component={Estimate} />
           <Route path="/ticket/" component={Ticket} />
           <Route path="/story/:storyId" component={Story} />
-        </Router>
       </ConnectedRouter>
   );
 }
