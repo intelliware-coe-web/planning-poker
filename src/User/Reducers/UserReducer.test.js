@@ -1,9 +1,9 @@
-import UserReducer from './FetchUserReducer';
+import UserReducer from './UserReducer';
 import {
-    FETCH_USER_ERROR,
-    FETCH_USER_LOADING,
-    FETCH_USER_SUCCESS
-} from "../Actions/FetchUserActions";
+    GET_USER_ERROR,
+    GET_USER_LOADING,
+    GET_USER_SUCCESS
+} from "../Actions/UserActions";
 
 describe('User Reducer ', () => {
 
@@ -15,7 +15,7 @@ describe('User Reducer ', () => {
        };
 
        const action = {
-           type: FETCH_USER_LOADING
+           type: GET_USER_LOADING
        };
 
        const expectedNextState = {
@@ -38,7 +38,7 @@ describe('User Reducer ', () => {
         const error = "Page Not Found";
 
         const action = {
-            type: FETCH_USER_ERROR,
+            type: GET_USER_ERROR,
             payload: {
                 error: error
             }
@@ -54,7 +54,7 @@ describe('User Reducer ', () => {
         expect(expectedNextState).toEqual(actualNextState);
     });
 
-    it('should set the user into the items, and loading to false when it is a success', () => {
+    it('should set the GetUser into the items, and loading to false when it is a success', () => {
         const initialState = {
             items: null,
             loading: true,
@@ -67,7 +67,7 @@ describe('User Reducer ', () => {
         };
 
         const action = {
-            type: FETCH_USER_SUCCESS,
+            type: GET_USER_SUCCESS,
             payload: {
                 user: user
             }

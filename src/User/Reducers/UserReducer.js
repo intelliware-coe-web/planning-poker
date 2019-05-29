@@ -1,8 +1,8 @@
 import {
-    FETCH_USER_LOADING,
-    FETCH_USER_SUCCESS,
-    FETCH_USER_ERROR
-} from "../Actions/FetchUserActions";
+    GET_USER_LOADING,
+    GET_USER_SUCCESS,
+    GET_USER_ERROR
+} from "../Actions/UserActions";
 
 const initialState = {
     items: null,
@@ -12,21 +12,21 @@ const initialState = {
 
 export default function UserReducer(state = initialState, action) {
     switch(action.type) {
-        case FETCH_USER_LOADING:
+        case GET_USER_LOADING:
             return {
                 ...state,
                 loading: true,
                 error: null
             };
 
-        case FETCH_USER_SUCCESS:
+        case GET_USER_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 items: action.payload.user
             };
 
-        case FETCH_USER_ERROR:
+        case GET_USER_ERROR:
             return {
                 ...state,
                 loading: false,

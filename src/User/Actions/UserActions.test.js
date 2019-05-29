@@ -1,11 +1,11 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
-    FetchUser,
-    FETCH_USER_LOADING,
-    FETCH_USER_SUCCESS,
-    FETCH_USER_ERROR
-} from "./FetchUserActions";
+    GetUser,
+    GET_USER_LOADING,
+    GET_USER_SUCCESS,
+    GET_USER_ERROR
+} from "./UserActions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -14,8 +14,8 @@ describe('Test thunk action creator', () => {
     it('expected actions should be dispatched on successful request', () => {
           const store = mockStore({});
           const expectedActions = [
-              FETCH_USER_LOADING,
-              FETCH_USER_SUCCESS
+              GET_USER_LOADING,
+              GET_USER_SUCCESS
           ];
 
            const mockSuccessResponse = {
@@ -29,7 +29,7 @@ describe('Test thunk action creator', () => {
            });
            jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-           return store.dispatch(FetchUser()).then(() => {
+           return store.dispatch(GetUser()).then(() => {
                let actualActions = store.getActions().map(action => action.type);
                expect(actualActions).toEqual(expectedActions);
                global.fetch.mockClear();
@@ -40,8 +40,8 @@ describe('Test thunk action creator', () => {
     it('expected actions should be dispatched on failed request', () => {
         const store = mockStore({});
         const expectedActions = [
-            FETCH_USER_LOADING,
-            FETCH_USER_ERROR
+            GET_USER_LOADING,
+            GET_USER_ERROR
         ];
         const mockFailureResponse = {
             'errorMessage': 'Not Found'
@@ -53,7 +53,7 @@ describe('Test thunk action creator', () => {
         });
         jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-        return store.dispatch(FetchUser()).then(() => {
+        return store.dispatch(GetUser()).then(() => {
             let actualActions = store.getActions().map(action => action.type);
             expect(actualActions).toEqual(expectedActions);
             global.fetch.mockClear();

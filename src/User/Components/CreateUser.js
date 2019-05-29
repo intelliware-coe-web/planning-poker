@@ -2,7 +2,7 @@ import loginImg from '../../resources/images/learning_small.jpg';
 import '../../index.css';
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {FetchUser} from "../Actions/FetchUserActions";
+import {GetUser} from "../Actions/UserActions";
 import {UserAPI} from '../API/User.api';
 
 function CreateUser(props) {
@@ -54,12 +54,12 @@ function CreateUser(props) {
                   CREATE
                 </button>
             </div>
-            <button onClick={GetUser}>Click to get user</button>
+            <button onClick={GetUserById}>Click to get user</button>
         </div>
     );
 
-    function GetUser(){
-        props.dispatch(FetchUser('5ced95f80dff1a001fd8d107'));
+    function GetUserById(){
+        props.dispatch(GetUser('5ced95f80dff1a001fd8d107'));
     }
 
 }
