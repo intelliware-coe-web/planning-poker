@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MeetingButtons renders correctly 1`] = `
+Array [
+  <div>
+    <Link
+      to="/host"
+    >
+      <div
+        className="uk-card uk-card-secondary uk-card-body meeting-card"
+      >
+        <h3
+          className="uk-card-title"
+        >
+          First
+        </h3>
+      </div>
+    </Link>
+    <br />
+  </div>,
+  <div>
+    <Link
+      to="/host"
+    >
+      <div
+        className="uk-card uk-card-secondary uk-card-body meeting-card"
+      >
+        <h3
+          className="uk-card-title"
+        >
+          Second
+        </h3>
+      </div>
+    </Link>
+    <br />
+  </div>,
+  <div>
+    <Link
+      to="/host"
+    >
+      <div
+        className="uk-card uk-card-secondary uk-card-body meeting-card"
+      >
+        <h3
+          className="uk-card-title"
+        >
+          Third
+        </h3>
+      </div>
+    </Link>
+    <br />
+  </div>,
+  <div>
+    <Link
+      to="/host"
+    >
+      <div
+        className="uk-card uk-card-secondary uk-card-body meeting-card"
+      >
+        <h3
+          className="uk-card-title"
+        >
+          Fourth
+        </h3>
+      </div>
+    </Link>
+    <br />
+  </div>,
+]
+`;

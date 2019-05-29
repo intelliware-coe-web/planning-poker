@@ -1,9 +1,9 @@
 import { HashRouter as Router, Route } from "react-router-dom";
 import React from 'react';
 import Host from './../Host/Host'
-import Meetings from './../Meetings/Meetings';
+import Meetings from '../Meetings/Components/Meetings/Meetings';
 import Estimate from './../Estimate/Estimate';
-import AddMeeting from '../Meetings/AddMeeting';
+import AddMeeting from '../Meetings/Components/AddMeeting/AddMeeting';
 import CreateUser from '../User/CreateUser';
 import Ticket from '../Ticket/Ticket';
 import Story from '../Story/Story';
