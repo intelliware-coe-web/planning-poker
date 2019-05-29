@@ -16,7 +16,7 @@ export const getData = (url) => {
   .catch(error => {
      throw error ? error : Error('Get data failed from url ' + url);
   });
-}
+};
 
 export const postData = (url = '', data = {}) => {
   return fetch(url, {
@@ -38,4 +38,4 @@ export const postData = (url = '', data = {}) => {
   .catch(error => {
      throw error ? error : Error('Post data failed to url ' + url);
   });
-}
+};

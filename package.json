@@ -6,9 +6,11 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "react-test-renderer": "^16.8.6"
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,6 +48,7 @@
     "enzyme-adapter-react-16": "^1.13.1",
     "eslint-plugin-react-hooks": "^1.6.0",
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "redux-mock-store": "^1.5.3"
   }
 }

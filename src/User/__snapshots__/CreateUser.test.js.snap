@@ -43,5 +43,10 @@ exports[`CreateUser renders correctly 1`] = `
       CREATE
     </button>
   </div>
+  <button
+    onClick={[Function]}
+  >
+    Click to get user
+  </button>
 </div>
 `;
