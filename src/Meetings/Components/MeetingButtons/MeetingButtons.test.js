@@ -1,5 +1,9 @@
-import MeetingButtons from "./MeetingButtons";
+import {MeetingButtons} from "./MeetingButtons";
 
 it('MeetingButtons renders correctly', () => {
-    expect(MeetingButtons()).toMatchSnapshot(); 
+    const props = {
+        meetings: [],
+        findMeetings: jest.fn()
+    }
+    expect(MeetingButtons(props)).toMatchSnapshot();
 });

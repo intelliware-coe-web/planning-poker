@@ -4,7 +4,7 @@ import '../Meetings.css';
 import {connect} from 'react-redux';
 import {FindMeetingsAction} from '../../Actions/MeetingsActions';
 
-function MeetingButtons({meetings, findMeetings}) {
+export function MeetingButtons({meetings, findMeetings}) {
     findMeetings();    
     return meetings.map((meeting, index) => 
         <div key={index}>
