@@ -1,7 +1,8 @@
 const ESTIMATE_STORY = 'ESTIMATE_STORY';
 
 const initialState = {
-    storyId: '',
+    storyId: 'Story - ABC',
+    storyDescription: 'Describes the story',
     estimate: 0,
     estimations: [1,2,3,5,8,13]
 };

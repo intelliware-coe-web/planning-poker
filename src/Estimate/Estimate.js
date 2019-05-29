@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {viewHost, viewMeetings} from "../Navigation/route-actions";
 import {estimateStory} from "./estimate.flux";
 
-export function Estimate({goToMeetings, goToHost, estimateStory, estimate, estimation}) {
+export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate, estimation}) {
     return(
         <div className="default-background">
             <div className="uk-container uk-text-center@m">
@@ -13,8 +13,8 @@ export function Estimate({goToMeetings, goToHost, estimateStory, estimate, estim
                     <span onClick={goToMeetings} data-uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
                     <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right" onClick={goToHost}>Host</button>
                     <dl className="uk-description-list">
-                        <dt># MBNA-10567: </dt>
-                        <dd>Add tooltip to my accounts page</dd>
+                        <dt># {storyId} :</dt>
+                        <dd>{ storyDescription }</dd>
                     </dl>
                     <div className="uk-align-center uk-width-1-1@m">
                         { estimation.map((number,i) =>
@@ -32,6 +32,8 @@ export function Estimate({goToMeetings, goToHost, estimateStory, estimate, estim
 
 function mapStateToProps(state) {
     return {
+        storyId: state.story.storyId,
+        storyDescription: state.story.storyDescription,
         estimate: state.story.estimate,
         estimation: state.story.estimations
     }
