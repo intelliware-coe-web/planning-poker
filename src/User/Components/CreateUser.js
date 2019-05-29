@@ -1,9 +1,9 @@
-import loginImg from '../resources/images/learning_small.jpg';
-import '../index.css';
+import loginImg from '../../resources/images/learning_small.jpg';
+import '../../index.css';
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {FetchUser} from "../Actions/FetchUserActions";
-import {UserAPI} from './User.api';
+import {UserAPI} from '../API/User.api';
 
 function CreateUser(props) {
 

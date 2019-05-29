@@ -1,4 +1,4 @@
-import {getData, postData} from '../Fetch.api';
+import {getData, postData} from '../../Fetch.api';
 
 export const UserAPI = {
   all: () => getData(`http://localhost:9000/users`),
