@@ -1,10 +1,17 @@
+html {
+    --default-background-color: #ebedfc;
+    --primary-color: #2359fa;
+    --secondary-color: #c702a9;    
+}
+
+
 .default-background {
-    background-color: #ebedfc;
+    background-color: var(--default-background-color);
 }
 
 h1, h2, h3 {
     font-family: 'Capriola', serif;
-    color: #2359fa;
+    color: var(--primary-color);
     margin: 2px;
 }
 
@@ -15,9 +22,9 @@ h1 {
 
 h3 {
     font-family: 'Arbutus Slab';
-    color: #c702a9;
+    color: var(--secondary-color);
 }
 
 .uk-button-primary {
-    background-color: #2359fa;
+    background-color: var(--primary-color);
 }

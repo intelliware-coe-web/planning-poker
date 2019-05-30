@@ -89,6 +89,30 @@ exports[`Container: Estimate should render Estimate correctly 1`] = `
             Selected
           </span>
         </button>
+        <button
+          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
+          onClick={[Function]}
+        >
+          8
+          <span
+            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+            hidden={true}
+          >
+            Selected
+          </span>
+        </button>
+        <button
+          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
+          onClick={[Function]}
+        >
+          13
+          <span
+            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+            hidden={true}
+          >
+            Selected
+          </span>
+        </button>
       </div>
     </div>
   </div>

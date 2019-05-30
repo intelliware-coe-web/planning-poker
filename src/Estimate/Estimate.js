@@ -4,7 +4,9 @@ import {connect} from "react-redux";
 import {viewHost, viewMeetings} from "../Navigation/route-actions";
 import {estimateStory} from "./estimate.flux";
 
-export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate, estimation}) {
+export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate}) {
+
+    const estimation = [1,2,3,5,8,13];
     return(
         <div className="default-background">
             <div className="uk-container uk-text-center@m">
@@ -18,7 +20,7 @@ export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyD
                     </dl>
                     <div className="uk-align-center uk-width-1-1@m">
                         { estimation.map((number,i) =>
-                            <button key={i} onClick={() => estimateStory(number, '1234567')} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button ${estimate === number ? 'selected-button' : 'estimate-button'}`} >
+                            <button key={i} onClick={() => estimateStory(number, storyId)} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button ${estimate === number ? 'selected-button' : 'estimate-button'}`} >
                                 {number}
                                 <span className={"uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"} hidden={estimate !== number}>Selected</span>
                             </button>)
@@ -34,8 +36,7 @@ function mapStateToProps(state) {
     return {
         storyId: state.story.storyId,
         storyDescription: state.story.storyDescription,
-        estimate: state.story.estimate,
-        estimation: state.story.estimations
+        estimate: state.story.estimate
     }
 }
 
