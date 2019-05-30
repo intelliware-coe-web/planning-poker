@@ -20,7 +20,7 @@ export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyD
                     </dl>
                     <div className="uk-align-center uk-width-1-1@m">
                         { estimation.map((number,i) =>
-                            <button key={i} onClick={() => estimateStory(number, '1234567')} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button ${estimate === number ? 'selected-button' : 'estimate-button'}`} >
+                            <button key={i} onClick={() => estimateStory(number, storyId)} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button ${estimate === number ? 'selected-button' : 'estimate-button'}`} >
                                 {number}
                                 <span className={"uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"} hidden={estimate !== number}>Selected</span>
                             </button>)
