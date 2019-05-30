@@ -35,7 +35,7 @@ function CreateUser(props) {
         UserAPI.create(body)
         .then(props.history.push('/meetings'))
         .catch(error => console.log(error));
-     }
+    }
 
     return (
         <div className="uk-flex uk-flex-middle uk-height-viewport default-background">

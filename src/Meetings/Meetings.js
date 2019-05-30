@@ -4,8 +4,7 @@ import './Meetings.css';
 
 const meetings = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
 
-export default function Meetings() {
-
+export default function Meetings(props) {
     return (
         <>
         <div className="default-background">
