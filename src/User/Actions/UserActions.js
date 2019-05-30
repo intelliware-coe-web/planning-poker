@@ -44,18 +44,6 @@ export function* postUserAsync({payload: username}){
     }
 }
 
-
-// export function PostUser(username) {
-//     return dispatch => {
-//         return UserAPI.create(GenerateBody(username))
-//             .then(
-//                 response => UserSuccess(response),
-//                 error => UserError(error)
-//             )
-//             .then(dispatch)
-//     }
-// }
-
 function GenerateBody(username) {
     return  {
         name: username
