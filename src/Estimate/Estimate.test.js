@@ -12,8 +12,7 @@ describe('Container: Estimate', () => {
         const state = {
             storyId: '123',
             storyDescription: 'blah',
-            estimate: 1,
-            estimation: [1,2,3,5]
+            estimate: 1
         };
 
         expect(Estimate({...dispatches, ...state})).toMatchSnapshot();
