@@ -1,5 +1,4 @@
 import loginImg from '../../resources/images/learning_small.jpg';
-import '../../index.css';
 import React from 'react';
 import {connect} from 'react-redux';
 import {PostUser} from "../Actions/UserActions";

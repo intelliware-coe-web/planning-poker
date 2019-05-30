@@ -1,6 +1,6 @@
 .meeting-card, .meeting-button {
-    background: #2359fa;
-    background-color: #2359fa;
+    background: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
 .uk-card-title {
@@ -8,7 +8,7 @@
 }
 
 .add-card {
-    background: #c702a9;
+    background: var(--secondary-color);
 }
 
 .meeting-card:hover, .uk-button-secondary:hover, .add-card:hover {
