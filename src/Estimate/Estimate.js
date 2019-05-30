@@ -4,7 +4,9 @@ import {connect} from "react-redux";
 import {viewHost, viewMeetings} from "../Navigation/route-actions";
 import {estimateStory} from "./estimate.flux";
 
-export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate, estimation}) {
+export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate}) {
+
+    const estimation = [1,2,3,5,8,13];
     return(
         <div className="default-background">
             <div className="uk-container uk-text-center@m">
@@ -34,8 +36,7 @@ function mapStateToProps(state) {
     return {
         storyId: state.story.storyId,
         storyDescription: state.story.storyDescription,
-        estimate: state.story.estimate,
-        estimation: state.story.estimations
+        estimate: state.story.estimate
     }
 }
 
