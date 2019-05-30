@@ -1,29 +1,60 @@
 import {UserAPI} from '../API/User.api';
+import {call, put, takeLatest} from 'redux-saga/effects';
 
+export const USER_GET_REQUESTED = 'USER_GET_REQUESTED';
+export const USER_POST_REQUESTED = 'USER_POST_REQUESTED';
 export const USER_SUCCESS = 'USER_SUCCESS';
 export const USER_ERROR = 'USER_ERROR';
 
-export function GetUser(userID) {
-    return dispatch => {
-        return UserAPI.byId(userID)
-            .then(
-                response => UserSuccess(response),
-                error => UserError(error)
-            )
-            .then(dispatch)
+export function* watchUserAsync() {
+    yield takeLatest(USER_GET_REQUESTED, getUserAsync);
+    yield takeLatest(USER_POST_REQUESTED, postUserAsync);
+}
+
+export function GetUser(userId) {
+    return {
+        type: USER_GET_REQUESTED,
+        payload: userId
+    }
+}
+
+export function* getUserAsync({payload: userId}) {
+    try {
+        const user = yield call(UserAPI.byId, userId);
+        yield put(UserSuccess(user));
+    } catch (e) {
+        yield put(UserError(e));
     }
 }
 
 export function PostUser(username) {
-    return dispatch => {
-        return UserAPI.create(GenerateBody(username))
-            .then(
-                response => UserSuccess(response),
-                error => UserError(error)
-            )
-            .then(dispatch)
+    return {
+        type: USER_POST_REQUESTED,
+        payload: username
     }
 }
+
+export function* postUserAsync({payload: username}){
+    try {
+        const user = yield call(UserAPI.create, GenerateBody(username));
+        yield put(UserSuccess(user));
+    }
+    catch (e) {
+        yield put(UserError(e));
+    }
+}
+
+
+// export function PostUser(username) {
+//     return dispatch => {
+//         return UserAPI.create(GenerateBody(username))
+//             .then(
+//                 response => UserSuccess(response),
+//                 error => UserError(error)
+//             )
+//             .then(dispatch)
+//     }
+// }
 
 function GenerateBody(username) {
     return  {
@@ -31,14 +62,14 @@ function GenerateBody(username) {
     };
 }
 
-export function UserSuccess(user) {
+function UserSuccess(user) {
     return {
         type: USER_SUCCESS,
         payload: {user}
     };
 }
 
-export function UserError(error) {
+function UserError(error) {
     return {
         type: USER_ERROR,
         payload: {error}
