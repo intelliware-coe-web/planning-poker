@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreateUser renders correctly 1`] = `
+exports[`Container: User should render CreateUser correctly 1`] = `
 <div
   className="uk-flex uk-flex-middle uk-height-viewport default-background"
 >

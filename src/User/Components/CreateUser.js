@@ -3,8 +3,9 @@ import '../../index.css';
 import React from 'react';
 import {connect} from 'react-redux';
 import {PostUser} from "../Actions/UserActions";
+import {viewMeetings} from "../../Navigation/route-actions";
 
-function CreateUser(props) {
+export function CreateUser(props) {
 
     return (
         <div className="uk-flex uk-flex-middle uk-height-viewport default-background">
@@ -32,6 +33,7 @@ function CreateUser(props) {
     function PostNewUser(event) {
         event.preventDefault();
         props.postUser(event.target.userInputName.value.trim());
+        props.goToMeetings();
     }
 
 }
@@ -42,7 +44,8 @@ const MapStateToProps = state => ({
 });
 
 const MapDispatchToProps = dispatch => ({
-   postUser: (username) => dispatch(PostUser(username))
+    postUser: (username) => dispatch(PostUser(username)),
+    goToMeetings: () => dispatch(viewMeetings()),
 });
 
 export default connect(MapStateToProps, MapDispatchToProps)(CreateUser)

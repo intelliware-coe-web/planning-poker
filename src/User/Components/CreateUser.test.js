@@ -1,21 +1,19 @@
-import CreateUser from './CreateUser';
+import {CreateUser} from './CreateUser';
 import React from 'react';
-import renderer from 'react-test-renderer';
-import {Provider} from 'react-redux';
-import configureMockStore from 'redux-mock-store';
 
-const mockStore = configureMockStore();
-const store = mockStore(
-    {
-        user: {
-            user: null,
+describe('Container: User', () => {
+    it('should render CreateUser correctly', () => {
+        const dispatches = {
+            goToMeetings: jest.fn()
+        };
+
+        const state = {
+            user: {
+                name: 'Mock User'
+            },
             error: null
-        }
-    });
+        };
 
-describe('CreateUser', () => {
-    it('renders correctly', () => {
-        const createUser = renderer.create(<Provider store={store}><CreateUser/></Provider>).toJSON();
-        expect(createUser).toMatchSnapshot();
+        expect(CreateUser({...dispatches, ...state})).toMatchSnapshot();
     });
 });
