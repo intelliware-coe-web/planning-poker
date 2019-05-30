@@ -4,6 +4,9 @@
   "private": true,
   "homepage": "https://intelliware-coe-web.github.io/planning-poker/",
   "dependencies": {
+    "connected-react-router": "^6.4.0",
+    "history": "^4.9.0",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",

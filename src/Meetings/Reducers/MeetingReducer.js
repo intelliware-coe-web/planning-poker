@@ -1,6 +1,6 @@
 import {
     TICKETS_FETCH_ALL
-} from "../Actions/MeetingActions";
+} from "../../Actions/MeetingActions";
 
 const initialState = {
     tickets: []

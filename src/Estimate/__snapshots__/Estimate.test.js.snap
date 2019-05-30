@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render Estimate correctly 1`] = `
+exports[`Container: Estimate should render Estimate correctly 1`] = `
 <div
   className="default-background"
 >
@@ -15,44 +15,40 @@ exports[`should render Estimate correctly 1`] = `
     <div
       className="uk-align-center uk-width-1-2@m"
     >
-      <a
-        href="#/meetings/"
+      <span
+        className="uk-position-large uk-position-top-left"
+        data-uk-icon="icon: arrow-left; ratio: 3"
+        onClick={[MockFunction]}
+      />
+      <button
+        className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+        onClick={[MockFunction]}
       >
-        <span
-          className="uk-position-large uk-position-top-left"
-          uk-icon="icon: arrow-left; ratio: 3"
-        />
-      </a>
-      <a
-        href="#/host/"
-      >
-        <button
-          className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-        >
-          Host
-        </button>
-      </a>
+        Host
+      </button>
       <dl
         className="uk-description-list"
       >
         <dt>
-          # MBNA-10567: 
+          # 
+          123
+           :
         </dt>
         <dd>
-          Add tooltip to my accounts page
+          blah
         </dd>
       </dl>
       <div
         className="uk-align-center uk-width-1-1@m"
       >
         <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
+          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button selected-button"
           onClick={[Function]}
         >
           1
           <span
             className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
+            hidden={false}
           >
             Selected
           </span>
@@ -85,55 +81,7 @@ exports[`should render Estimate correctly 1`] = `
           className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
           onClick={[Function]}
         >
-          4
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
-          onClick={[Function]}
-        >
           5
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
-          onClick={[Function]}
-        >
-          6
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
-          onClick={[Function]}
-        >
-          7
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button estimate-button"
-          onClick={[Function]}
-        >
-          8
           <span
             className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
             hidden={true}
