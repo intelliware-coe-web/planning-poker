@@ -1,55 +1,69 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import {GetUser, USER_ERROR, USER_SUCCESS} from "./UserActions";
+import {getUserAsync, postUserAsync, USER_ERROR, USER_SUCCESS} from "./UserActions";
+import {UserAPI} from "../API/User.api";
+import {call, put} from 'redux-saga/effects';
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
 
-describe('Test thunk action creator', () => {
+describe('Test action creators', () => {
+    let fixture;
 
-    it('expected actions should be dispatched on successful request', () => {
-          const store = mockStore({});
-          const expectedActions = [
-              USER_SUCCESS
-          ];
+    describe('Post action', () => {
 
-           const mockSuccessResponse = {
-               'name': 'Username',
-               'id': '123456789'
-           };
-           const mockJsonPromise = Promise.resolve(mockSuccessResponse);
-           const mockFetchPromise = Promise.resolve({
-               ok: true,
-               json: () => mockJsonPromise,
-           });
-           jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
-
-           return store.dispatch(GetUser()).then(() => {
-               let actualActions = store.getActions().map(action => action.type);
-               expect(actualActions).toEqual(expectedActions);
-               global.fetch.mockClear();
-           });
-   });
-
-    it('expected actions should be dispatched on failed request', () => {
-        const store = mockStore({});
-        const expectedActions = [
-            USER_ERROR
-        ];
-        const mockFailureResponse = {
-            'errorMessage': 'Not Found'
-        };
-        const mockJsonPromise = Promise.reject(mockFailureResponse);
-        const mockFetchPromise = Promise.reject({
-            ok: false,
-            json: () => mockJsonPromise,
+        beforeEach(() => {
+            fixture = postUserAsync({payload: 'Fred'});
         });
-        jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
 
-        return store.dispatch(GetUser()).then(() => {
-            let actualActions = store.getActions().map(action => action.type);
-            expect(actualActions).toEqual(expectedActions);
-            global.fetch.mockClear();
+        it('should dispatch action', () => {
+            expect(fixture.next().value).toEqual(call(UserAPI.create, { name: 'Fred' }));
+            expect(fixture.next('Fred').value).toEqual(put({
+                type: USER_SUCCESS,
+                payload: {
+                    user: 'Fred'
+                }
+            }));
+            expect(fixture.next().done).toBeTruthy();
+        });
+
+        it('should handle errors', () => {
+            fixture.next();
+            let e = {message: 'Fred you\'re no good!'};
+            expect(fixture.throw(e).value).toEqual(put({
+                type: USER_ERROR,
+                payload: {
+                    error: e
+                }
+            }));
+            expect(fixture.next().done).toBeTruthy();
+        });
+    });
+
+    describe('Get action', () => {
+        const userId = '123456789';
+
+        beforeEach(() => {
+            fixture = getUserAsync({payload: userId});
+        });
+
+        it('should dispatch action', () => {
+            expect(fixture.next().value).toEqual(call(UserAPI.byId, userId));
+            expect(fixture.next('Fred').value).toEqual(put({
+                type: USER_SUCCESS,
+                payload: {
+                    user: 'Fred'
+                }
+            }));
+            expect(fixture.next().done).toBeTruthy();
+        });
+
+        it('should handle errors', () => {
+            fixture.next();
+            let e = {message: 'Fred you\'re no good!'};
+            expect(fixture.throw(e).value).toEqual(put({
+                type: USER_ERROR,
+                payload: {
+                    error: e
+                }
+            }));
+            expect(fixture.next().done).toBeTruthy();
         });
     });
 
