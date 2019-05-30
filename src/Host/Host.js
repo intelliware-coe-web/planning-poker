@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Host.css';
+import {connect} from 'react-redux';
+import {MeetingActions, fetchTickets} from "../Actions/MeetingActions";
 
-export default function Host() {
+function Host(props) {
     
     var alphabets = "ABCD";
+
+    if (props) {
+        console.log(props);
+    }
 
     return (
         <>
@@ -16,6 +22,11 @@ export default function Host() {
                         <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
                     </a>
                     <Link to="/estimate"><button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Estimate</button></Link>
+                    <button onClick={GetTickets}>Click to get tickets</button>
+
+                    <ul>
+                        {props.tickets.isArray ? props.tickets.map(ticket => <li>{ticket}</li>) : props.tickets.message}
+                    </ul>
 
                     { Array.from(alphabets).map( (letter,i) =>
                             <div key={i} className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card">
@@ -37,4 +48,15 @@ export default function Host() {
         </div>
         </>
     );
+
+    function GetTickets() {
+        props.dispatch(fetchTickets('5ceea1c4cd9e6bc7891f9c8b'));
+        console.log("tickets retrieved: ",props.tickets);
+    }
 }
+
+const MapStateToProps = state => ({
+    tickets: state.meeting.tickets
+});
+ 
+export default connect(MapStateToProps)(Host) 
