@@ -1,5 +1,5 @@
 import {ESTIMATE_STORY} from "../Actions/EstimateActions";
-import storyReducer from "./EstimateStoryReducer";
+import estimateStoryReducer from "./EstimateStoryReducer";
 
 describe('Estimate Story Reducer', () => {
 
@@ -15,7 +15,7 @@ describe('Estimate Story Reducer', () => {
             storyDescription: 'Describes the story',
             estimate: 3
         };
-        const actualNextState = storyReducer(initialState, action);
+        const actualNextState = estimateStoryReducer(initialState, action);
         expect(expectedNextState).toEqual(actualNextState);
     });
 });

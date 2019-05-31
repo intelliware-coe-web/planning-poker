@@ -6,7 +6,7 @@ const initialState = {
     estimate: 0
 };
 
-export default function storyReducer(state = initialState, action) {
+export default function estimateStoryReducer(state = initialState, action) {
     switch (action.type) {
         case ESTIMATE_STORY:
             return {
