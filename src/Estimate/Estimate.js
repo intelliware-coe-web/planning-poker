@@ -7,7 +7,7 @@ export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyD
 
     const estimation = [1,2,3,5,8,13];
     return(
-        <div className="default-background">
+        <div>
             <div className="uk-container uk-text-center@m">
                 <h1 className="uk-heading-divider uk-margin-top">Estimate</h1>
                 <div className="uk-align-center uk-width-1-2@m">  
@@ -19,7 +19,7 @@ export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyD
                     </dl>
                     <div className="uk-align-center uk-width-1-1@m">
                         { estimation.map((number,i) =>
-                            <button key={i} onClick={() => estimateStory(number, storyId)} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline default-button ${estimate === number ? 'selected-button' : 'estimate-button'}`} >
+                            <button key={i} onClick={() => estimateStory(number, storyId)} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${estimate === number ? 'selected' : ''}`} >
                                 {number}
                                 <span className={"uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"} hidden={estimate !== number}>Selected</span>
                             </button>)

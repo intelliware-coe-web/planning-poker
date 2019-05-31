@@ -1,13 +1,12 @@
 html {
-    --default-background-color: #ebedfc;
+    --app-background-color: #ebedfc;
     --primary-color: #2359fa;
     --secondary-color: #c702a9;  
     --accent-color: #b1bafc;
 }
 
-
-.default-background {
-    background-color: var(--default-background-color);
+body {
+    background-color: var(--app-background-color);
 }
 
 h1, h2, h3 {
@@ -26,60 +25,32 @@ h3 {
     color: var(--secondary-color);
 }
 
-.uk-button-primary {
-    background-color: var(--primary-color);
-}
-
-/* ESTIMATE */
-.selected-button {
-    background-color: var(--secondary-color);
-    color: #fff;
-}
-
-.estimate-button {
-    height: 50px;
-    background-color: var(--primary-color);
-    color: #fff;
-}
-
-.estimate-button:hover {
-    background-color: var(--secondary-color);
-    color: #fff;
-}
-
-.default-button {
-    height: 50px;
-}
-
-
-/* HOST */
-.ticket-card, .ticket-button {
-    background-color: var(--primary-color);
-}
-
-.ticket-card:hover, .uk-button-secondary:hover, .add-card:hover {
-    background-color: var(--accent-color);
-}
-
-
-
-/* MEETING */
-.meeting-card, .meeting-button {
-    background-color: var(--primary-color);
+a:hover {
+    text-decoration: none;
 }
 
 .uk-card-title {
     font-family: 'Mandali', sans-serif;
 }
 
-.add-card {
-    background: var(--secondary-color);
+.uk-button-primary {
+    background-color: var(--primary-color);
 }
 
-.meeting-card:hover, .uk-button-secondary:hover, .add-card:hover {
+.pp-button {
+    min-height: 50px;
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+.pp-button.selected {
+    background-color: var(--secondary-color);
+}
+
+.pp-button:hover, .pp-secondary-button:hover {
     background-color: var(--accent-color);
 }
 
-a:hover {
-    text-decoration: none;
+.pp-secondary-button {
+    background-color: var(--secondary-color);
 }

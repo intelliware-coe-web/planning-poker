@@ -2,9 +2,7 @@
 
 exports[`Host renders correctly 1`] = `
 <React.Fragment>
-  <div
-    className="default-background"
-  >
+  <div>
     <div
       className="uk-container uk-text-center@m"
     >
@@ -34,7 +32,7 @@ exports[`Host renders correctly 1`] = `
           </button>
         </Link>
         <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
+          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
         >
           <Link
             to={
@@ -60,7 +58,7 @@ exports[`Host renders correctly 1`] = `
           </Link>
         </div>
         <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
+          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
         >
           <Link
             to={
@@ -86,7 +84,7 @@ exports[`Host renders correctly 1`] = `
           </Link>
         </div>
         <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
+          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
         >
           <Link
             to={
@@ -112,7 +110,7 @@ exports[`Host renders correctly 1`] = `
           </Link>
         </div>
         <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin ticket-card"
+          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
         >
           <Link
             to={
@@ -141,7 +139,7 @@ exports[`Host renders correctly 1`] = `
           to="/ticket/"
         >
           <div
-            className="uk-card uk-card-secondary uk-card-body add-card"
+            className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
           >
             <h3
               className="uk-card-title"

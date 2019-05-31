@@ -8,7 +8,7 @@ export function MeetingButtons({meetings, findMeetings}) {
     return meetings.map((meeting, index) => 
         <div key={index}>
                 <Link to="/host">
-                    <div className="uk-card uk-card-secondary uk-card-body meeting-card">
+                    <div className="uk-card uk-card-secondary uk-card-body pp-button">
                         <h3 className="uk-card-title">{meeting.name}</h3>
                     </div>
                 </Link>
