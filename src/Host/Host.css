@@ -1,8 +1,0 @@
-.ticket-card, .ticket-button {
-    background: var(--primary-color);
-    background-color: var(--primary-color);
-}
-
-.ticket-card:hover, .uk-button-secondary:hover, .add-card:hover {
-    background-color: #b1bafc;
-}

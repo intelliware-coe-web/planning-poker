@@ -1,7 +1,8 @@
 html {
     --default-background-color: #ebedfc;
     --primary-color: #2359fa;
-    --secondary-color: #c702a9;    
+    --secondary-color: #c702a9;  
+    --accent-color: #b1bafc;
 }
 
 
@@ -27,4 +28,58 @@ h3 {
 
 .uk-button-primary {
     background-color: var(--primary-color);
+}
+
+/* ESTIMATE */
+.selected-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.estimate-button {
+    height: 50px;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.estimate-button:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.default-button {
+    height: 50px;
+}
+
+
+/* HOST */
+.ticket-card, .ticket-button {
+    background-color: var(--primary-color);
+}
+
+.ticket-card:hover, .uk-button-secondary:hover, .add-card:hover {
+    background-color: var(--accent-color);
+}
+
+
+
+/* MEETING */
+.meeting-card, .meeting-button {
+    background-color: var(--primary-color);
+}
+
+.uk-card-title {
+    font-family: 'Mandali', sans-serif;
+}
+
+.add-card {
+    background: var(--secondary-color);
+}
+
+.meeting-card:hover, .uk-button-secondary:hover, .add-card:hover {
+    background-color: var(--accent-color);
+}
+
+a:hover {
+    text-decoration: none;
 }

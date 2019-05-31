@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import './Host.css';
 
 export default function Host() {
     

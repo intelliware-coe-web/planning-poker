@@ -1,5 +1,4 @@
 import React from 'react';
-import './Estimate.css';
 import {connect} from "react-redux";
 import {viewHost, viewMeetings} from "../Navigation/route-actions";
 import {estimateStory} from "./estimate.flux";
