@@ -15,7 +15,7 @@ export default function MeetingsReducer(state = defaultState, action) {
         case MEETINGS_ERROR:
             return {
                 ...state,
-                list: action.payload.error
+                error: action.payload.error
             };
         default:
             return state;
