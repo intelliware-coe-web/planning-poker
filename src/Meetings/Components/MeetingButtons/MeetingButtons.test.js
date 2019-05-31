@@ -3,7 +3,8 @@ import {MeetingButtons} from "./MeetingButtons";
 it('MeetingButtons renders correctly', () => {
     const props = {
         meetings: [],
-        findMeetings: jest.fn()
+        error: null,
+        getMeetings: jest.fn()
     }
     expect(MeetingButtons(props)).toMatchSnapshot();
 });
