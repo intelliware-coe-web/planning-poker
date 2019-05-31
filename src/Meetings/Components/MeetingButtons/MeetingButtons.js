@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {FindMeetingsAction} from '../../Actions/MeetingsActions';
+import {GetMeetings} from '../../Actions/MeetingsActions';
 
-export function MeetingButtons({meetings, findMeetings}) {
-    findMeetings();    
+export function MeetingButtons({meetings, error, getMeetings}) {
+    getMeetings();    
     return meetings.map((meeting, index) => 
         <div key={index}>
                 <Link to="/host">
@@ -17,15 +17,17 @@ export function MeetingButtons({meetings, findMeetings}) {
     );
 }
 
-function mapStateToProps(state) {
+ function mapStateToProps(state) {
     return {
-        meetings: state.meetings.list
+        meetings: state.meetings.list,
+        error: state.meetings.error
     }
- }
+ };
+ 
  function mapDispatchToProps(dispatch) {
-    return {
-        findMeetings: () => dispatch(FindMeetingsAction())
-    };
- }
+     return {
+        getMeetings: () => dispatch(GetMeetings())
+     }
+ };
  
  export default connect(mapStateToProps, mapDispatchToProps)(MeetingButtons)

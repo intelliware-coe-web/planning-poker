@@ -5,7 +5,8 @@ import createRootReducer from './RootReducer';
 import {routerMiddleware} from "connected-react-router";
 import createSagaMiddleware from 'redux-saga';
 import {all} from 'redux-saga/effects';
-import {watchUserAsync} from "./User/Actions/UserActions";
+import {watchUserAsync} from './User/Actions/UserActions';
+import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,7 +16,8 @@ export const history = createHashHistory();
 
 function* rootSaga() {
     yield all([
-        watchUserAsync()
+        watchUserAsync(),
+        watchMeetingsAsync()
     ]);
 }
 
