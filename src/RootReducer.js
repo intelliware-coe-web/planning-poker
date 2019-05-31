@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 import { connectRouter } from 'connected-react-router';
 import user from './User/Reducers/UserReducer';
-import meetings from './Meetings/Reducers/MeetingReducers';
+import meetings from './Meetings/Reducers/MeetingsReducer';
 import story from './Estimate/estimate.flux';
 
 export default (history) => combineReducers({
