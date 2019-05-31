@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {viewHost, viewMeetings} from "../Navigation/route-actions";
-import {estimateStory} from "./estimate.flux";
+import {estimateStory} from "./Actions/EstimateActions";
 
 export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate}) {
 

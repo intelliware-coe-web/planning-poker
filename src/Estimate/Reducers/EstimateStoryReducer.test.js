@@ -1,6 +1,7 @@
-import storyReducer, {ESTIMATE_STORY} from "./estimate.flux";
+import {ESTIMATE_STORY} from "../Actions/EstimateActions";
+import storyReducer from "./EstimateStoryReducer";
 
-describe('Story Reducer', () => {
+describe('Estimate Story Reducer', () => {
 
     it('', () => {
         const initialState = {
