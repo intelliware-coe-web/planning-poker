@@ -23,7 +23,7 @@ describe('Current Meeting Reducer ', () => {
         const expectedNextState = { currentMeeting: null, error: error };
 
         const actualNextState = CurrentMeetingReducer(initialState, action);
-        expect(expectedNextState).toEqual(actualNextState);
+        expect(actualNextState).toEqual(expectedNextState);
     });
 
 });
