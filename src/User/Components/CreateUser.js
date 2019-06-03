@@ -7,7 +7,7 @@ import {viewMeetings} from "../../Navigation/route-actions";
 export function CreateUser(props) {
 
     return (
-        <div className="uk-flex uk-flex-middle uk-height-viewport default-background">
+        <div className="uk-flex uk-flex-middle uk-height-viewport">
             <div className="uk-width-1-1">
                 <img src={loginImg} alt="login"/>
             </div>

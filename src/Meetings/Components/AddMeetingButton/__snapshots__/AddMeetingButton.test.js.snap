@@ -5,7 +5,7 @@ exports[`AddMeetingButton renders correctly 1`] = `
   to="/meeting/add"
 >
   <div
-    className="uk-card uk-card-secondary uk-card-body add-card"
+    className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
   >
     <h3
       className="uk-card-title"
