@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {GetMeetings} from '../../Actions/MeetingsActions';
 
-export function MeetingButtons({meetings, error, getMeetings}) {
+export function MeetingButtons({meetings = [], error, getMeetings}) {
     getMeetings();    
     return meetings.map((meeting, index) => 
         <div key={index}>
@@ -19,15 +19,15 @@ export function MeetingButtons({meetings, error, getMeetings}) {
 
  function mapStateToProps(state) {
     return {
-        meetings: state.meetings.list,
-        error: state.meetings.error
+        meetings: state.meetings,
+        error: state.error
     }
- };
+ }
  
  function mapDispatchToProps(dispatch) {
      return {
         getMeetings: () => dispatch(GetMeetings())
      }
- };
+ }
  
  export default connect(mapStateToProps, mapDispatchToProps)(MeetingButtons)
