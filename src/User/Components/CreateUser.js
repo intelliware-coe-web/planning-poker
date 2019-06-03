@@ -37,14 +37,18 @@ export function CreateUser(props) {
 
 }
 
-const MapStateToProps = state => ({
-   user: state.user.user,
-   error: state.user.error
-});
+function mapStateToProps(state) {
+    return {
+        user: state.user.user,
+        error: state.user.error
+    }
+};
+ 
+function mapDispatchToProps(dispatch) {
+    return {
+        postUser: (username) => dispatch(PostUser(username)),
+        goToMeetings: () => dispatch(viewMeetings())
+    }
+};
 
-const MapDispatchToProps = dispatch => ({
-    postUser: (username) => dispatch(PostUser(username)),
-    goToMeetings: () => dispatch(viewMeetings()),
-});
-
-export default connect(MapStateToProps, MapDispatchToProps)(CreateUser)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateUser)

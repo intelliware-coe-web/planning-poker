@@ -1,5 +1,8 @@
-import CreateMeetingButton from './CreateMeetingButton';
+import {CreateMeetingButton} from './CreateMeetingButton';
 
 it('AddMeetingButton renders correctly', () => {
-    expect(CreateMeetingButton()).toMatchSnapshot(); 
+    const props = {
+        goToCreateMeeting: jest.fn()
+    }
+    expect(CreateMeetingButton(props)).toMatchSnapshot(); 
 });

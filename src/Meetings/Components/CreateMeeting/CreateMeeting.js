@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {PostMeeting} from '../../Actions/MeetingsActions'
+import {PostMeeting} from '../../Actions/MeetingsActions';
 import {viewMeetings} from '../../../Navigation/route-actions';
 
 export function CreateMeeting(props) {
@@ -38,13 +38,13 @@ function mapStateToProps(state) {
     return {
         error: state.meetings.error
     }
- };
+};
  
  function mapDispatchToProps(dispatch) {
-     return {
+    return {
         postMeeting: (meetingName) => dispatch(PostMeeting(meetingName)),
-        goToMeetings: () => dispatch(viewMeetings()),
-     }
- };
+        goToMeetings: () => dispatch(viewMeetings())
+    }
+};
  
- export default connect(mapStateToProps, mapDispatchToProps)(CreateMeeting)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateMeeting)
