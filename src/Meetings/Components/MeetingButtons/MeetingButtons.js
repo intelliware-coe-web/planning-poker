@@ -1,11 +1,11 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {GetMeetings} from '../../Actions/MeetingsActions';
-import {viewMeeting} from '../../../Navigation/route-actions';
+import { connect } from 'react-redux';
+import { GetMeetings } from '../../Actions/MeetingsActions';
+import { viewMeeting } from '../../../Navigation/route-actions';
 
-export function MeetingButtons(props) {
-    props.getMeetings();    
-    return props.meetings.map((meeting, index) => 
+export function MeetingButtons({meetings = [], getMeetings, goToMeeting}) {
+    getMeetings();
+    return meetings.map((meeting, index) =>
         <div key={index}>
             <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={event => GoToMeeting(event, meeting._id)}>
                 <h3 className="uk-card-title">{meeting.name}</h3>
@@ -16,16 +16,16 @@ export function MeetingButtons(props) {
 
     function GoToMeeting(event, meetingId) {
         event.preventDefault();
-        props.goToMeeting(meetingId);
+        goToMeeting();
     }
 }
 
-function mapStateToProps(state) {
+ function mapStateToProps(state) {
     return {
-        meetings: state.meetings.list,
-        error: state.meetings.error
+        meetings: state.meetings,
+        error: state.error
     }
-};
+ }
  
 function mapDispatchToProps(dispatch) {
     return {
@@ -34,4 +34,4 @@ function mapDispatchToProps(dispatch) {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MeetingButtons)
+ export default connect(mapStateToProps, mapDispatchToProps)(MeetingButtons)

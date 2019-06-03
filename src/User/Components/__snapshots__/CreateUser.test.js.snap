@@ -32,7 +32,7 @@ exports[`Container: User should render CreateUser correctly 1`] = `
         >
           <span
             className="uk-form-icon"
-            uk-icon="icon: user"
+            data-uk-icon="icon: user"
           />
           <input
             className="uk-input"

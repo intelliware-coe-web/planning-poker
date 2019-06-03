@@ -17,7 +17,7 @@ export function CreateUser(props) {
                 <form onSubmit={event => {PostNewUser(event)}}>
                     <div className="uk-margin">
                         <div className="uk-inline uk-width-1-2">
-                            <span className="uk-form-icon" uk-icon="icon: user"></span>
+                            <span className="uk-form-icon" data-uk-icon="icon: user"/>
                             <input name="userInputName" className="uk-input" placeholder="Name" type="text"/>
                         </div>
                         <button className="uk-button uk-button-primary uk-width-1-4">
@@ -37,18 +37,9 @@ export function CreateUser(props) {
 
 }
 
-function mapStateToProps(state) {
-    return {
-        user: state.user.user,
-        error: state.user.error
-    }
-};
- 
-function mapDispatchToProps(dispatch) {
-    return {
-        postUser: (username) => dispatch(PostUser(username)),
-        goToMeetings: () => dispatch(viewMeetings())
-    }
-};
+const MapDispatchToProps = dispatch => ({
+    postUser: (username) => dispatch(PostUser(username)),
+    goToMeetings: () => dispatch(viewMeetings()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateUser)
+export default connect(null, MapDispatchToProps)(CreateUser)
