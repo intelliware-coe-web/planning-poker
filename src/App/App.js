@@ -2,7 +2,7 @@ import {Route} from "react-router-dom";
 import React from 'react';
 import Host from '../Host/Host'
 import Meetings from '../Meetings/Components/Meetings/Meetings';
-import Estimate from '../Estimate/Estimate';
+import Estimate from '../Estimate/Components/Estimate';
 import CreateMeeting from '../Meetings/Components/CreateMeeting/CreateMeeting';
 import CreateUser from '../User/Components/CreateUser';
 import Ticket from '../Ticket/Ticket';
