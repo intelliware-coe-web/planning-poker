@@ -2,7 +2,7 @@
 
 exports[`AddMeetingButton renders correctly 1`] = `
 <Link
-  to="/meeting/add"
+  to="/meeting/create"
 >
   <div
     className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
