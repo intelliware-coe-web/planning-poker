@@ -1,20 +1,19 @@
 import {Estimate} from './Estimate';
-import React from 'react';
 
 describe('Container: Estimate', () => {
     it('should render Estimate correctly', () => {
-        const dispatches = {
-            goToMeetings: jest.fn(),
-            goToHost: jest.fn(),
-            estimateStory: jest.fn()
-        };
-
-        const state = {
+        const props = {
             storyId: '123',
             storyDescription: 'blah',
-            estimate: 1
-        };
+            estimate: 1,
+            goToMeetings: jest.fn(),
+            goToHost: jest.fn(),
+            estimateStory: jest.fn(),
+            location: {
+                search: 'blah'
+            }
+        }
 
-        expect(Estimate({...dispatches, ...state})).toMatchSnapshot();
+        expect(Estimate(props)).toMatchSnapshot();
     })
 });

@@ -16,7 +16,7 @@ export function MeetingButtons({meetings = [], getMeetings, goToMeeting}) {
 
     function GoToMeeting(event, meetingId) {
         event.preventDefault();
-        goToMeeting();
+        goToMeeting(meetingId);
     }
 }
 

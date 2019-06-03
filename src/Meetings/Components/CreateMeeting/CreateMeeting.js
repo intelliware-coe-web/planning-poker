@@ -15,7 +15,7 @@ export function CreateMeeting(props) {
                 <form onSubmit={event => {PostNewMeeting(event)}}>
                     <div className="uk-margin">
                         <div className="uk-inline uk-width-1-2">
-                            <span className="uk-form-icon" uk-icon="icon: user"></span>
+                            <span className="uk-form-icon" uk-icon="icon: users"></span>
                             <input name="meetingInputName" className="uk-input" placeholder="Name" type="text"/>
                         </div>
                         <button className="uk-button uk-button-primary uk-width-1-4">

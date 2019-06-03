@@ -1,21 +1,20 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {estimateStory} from "../Actions/EstimateActions";
+import {GetCurrentMeeting} from '../../Meetings/Actions/CurrentMeetingAction';
 import {viewHost, viewMeetings} from "../../Navigation/route-actions";
 import queryString from 'query-string';
 
 export function Estimate(props) {
 
     const estimation = [1,2,3,5,8,13];
-    var parsed = queryString.parse(props.location.search);
-    
     return(
         <div>
             <div className="uk-container uk-text-center@m">
                 <h1 className="uk-heading-divider uk-margin-top">Estimate</h1>
                 <div className="uk-align-center uk-width-1-2@m">  
                     <span onClick={props.goToMeetings} data-uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
-                    <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right" onClick={props.goToHost}>Host</button>
+                    {GetHostButton(queryString.parse(props.location.search))}
                     <dl className="uk-description-list">
                         <dt># {props.storyId} :</dt>
                         <dd>{ props.storyDescription }</dd>
@@ -33,15 +32,28 @@ export function Estimate(props) {
       </div>
     );
 
-    function HasHost(meetingId) {
+    function GetHostButton(meetingId) {
+        const hasHost = false;
+        console.log('hasHost: blah');
+        const meeting = props.currentMeeting(meetingId);
+        console.log(meeting);
+        if(hasHost){
+            return(
+                <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right" onClick={props.goToHost}>Host</button>
+            );
+        }
+        return(null);
     }
 }
 
+
+
 function mapStateToProps(state) {
+    console.log(state);
     return {
         storyId: state.estimateStory.storyId,
         storyDescription: state.estimateStory.storyDescription,
-        estimate: state.estimateStory.estimate,
+        estimate: state.estimateStory.estimate        
     }
 }
 
@@ -49,7 +61,8 @@ function mapDispatchToProps(dispatch) {
     return {
         goToMeetings: () => dispatch(viewMeetings()),
         goToHost: () => dispatch(viewHost()),
-        estimateStory: (estimate, storyId) => dispatch(estimateStory(estimate, storyId))
+        estimateStory: (estimate, storyId) => dispatch(estimateStory(estimate, storyId)),
+        currentMeeting: (meetingId) => dispatch(GetCurrentMeeting(meetingId))
     };
 }
 
