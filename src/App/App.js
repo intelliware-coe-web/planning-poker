@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/host" component={Host} />
           <Route path="/meetings/" component={Meetings} />
           <Route path="/meeting/create" component={CreateMeeting} />
-          <Route path="/estimate/" component={Estimate} />
+          <Route path="/estimate" component={Estimate} />
           <Route path="/tickets/add" component={AddTicket} />
           <Route path="/story/:storyId" component={Story} />
       </ConnectedRouter>
