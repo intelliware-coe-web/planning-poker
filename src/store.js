@@ -1,12 +1,13 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-import { createHashHistory } from 'history';
+import {createHashHistory} from 'history';
 import createRootReducer from './RootReducer';
-import { routerMiddleware } from 'connected-react-router';
+import {routerMiddleware} from "connected-react-router";
 import createSagaMiddleware from 'redux-saga';
-import { all } from 'redux-saga/effects';
-import { watchUserAsync } from './User/Actions/UserActions';
-import { watchMeetingsAsync } from './Meetings/Actions/MeetingsActions';
+import {all} from 'redux-saga/effects';
+import {watchUserAsync} from './User/Actions/UserActions';
+import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
+import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingAction';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -17,7 +18,8 @@ export const history = createHashHistory();
 function* rootSaga() {
     yield all([
         watchUserAsync(),
-        watchMeetingsAsync()
+        watchMeetingsAsync(),
+        watchCurrentMeetingAsync()
     ]);
 }
 

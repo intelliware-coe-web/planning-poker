@@ -7,16 +7,16 @@ export function MeetingButtons({meetings = [], getMeetings, goToMeeting}) {
     getMeetings();
     return meetings.map((meeting, index) =>
         <div key={index}>
-            <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={event => GoToMeeting(event)}>
+            <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={event => GoToMeeting(event, meeting._id)}>
                 <h3 className="uk-card-title">{meeting.name}</h3>
             </div>
             <br/>
         </div>
     );
 
-    function GoToMeeting(event) {
+    function GoToMeeting(event, meetingId) {
         event.preventDefault();
-        goToMeeting();
+        goToMeeting(meetingId);
     }
 }
 
@@ -27,11 +27,11 @@ export function MeetingButtons({meetings = [], getMeetings, goToMeeting}) {
     }
  }
  
- function mapDispatchToProps(dispatch) {
-     return {
-       getMeetings: () => dispatch(GetMeetings()),
-       goToMeeting: () => dispatch(viewMeeting())
-     }
- }
+function mapDispatchToProps(dispatch) {
+    return {
+        getMeetings: () => dispatch(GetMeetings()),
+        goToMeeting: (meetingId) => dispatch(viewMeeting(meetingId))
+    }
+};
 
  export default connect(mapStateToProps, mapDispatchToProps)(MeetingButtons)
