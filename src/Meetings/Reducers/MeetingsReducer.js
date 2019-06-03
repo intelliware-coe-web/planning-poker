@@ -1,23 +1,9 @@
-import { MEETINGS_SUCCESS, MEETINGS_ERROR } from "../Actions/MeetingsActions";
+import { MEETINGS_SUCCESS } from "../Actions/MeetingsActions";
 
-const defaultState = {
-    list: [],
-    error: null
-};
-
-export default function MeetingsReducer(state = defaultState, action) {
-    switch(action.type) {
-        case MEETINGS_SUCCESS:
-            return {
-                ...state,
-                meetings: action.payload.meetings
-            };
-        case MEETINGS_ERROR:
-            return {
-                ...state,
-                error: action.payload.error
-            };
-        default:
-            return state;
+export default function MeetingsReducer(state = [], action) {
+    if (action.type === MEETINGS_SUCCESS) {
+        return action.payload.meetings;
+    } else {
+        return state;
     }
 }
