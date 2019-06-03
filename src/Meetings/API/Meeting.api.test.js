@@ -15,9 +15,9 @@ describe('MeetingAPI', () => {
         expect(FetchApi.getData).toHaveBeenCalledTimes(1);
     });
 
-    it('add() should call postData() from FetchApi', () => {
+    it('create() should call postData() from FetchApi', () => {
         FetchApi.postData = jest.fn();
-        MeetingAPI.add({});
+        MeetingAPI.create({});
         expect(FetchApi.postData).toHaveBeenCalledTimes(1);
     });
 });

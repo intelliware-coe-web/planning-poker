@@ -136,7 +136,7 @@ exports[`Host renders correctly 1`] = `
           </Link>
         </div>
         <Link
-          to="/ticket/"
+          to="/tickets/add"
         >
           <div
             className="uk-card uk-card-secondary uk-card-body pp-secondary-button"

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {viewHost, viewMeetings} from "../Navigation/route-actions";
-import {estimateStory} from "./estimate.flux";
+import {estimateStory} from "../Actions/EstimateActions";
+import {viewHost, viewMeetings} from "../../Navigation/route-actions";
 
 export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyDescription, estimate}) {
 
@@ -33,9 +33,9 @@ export function Estimate({goToMeetings, goToHost, estimateStory, storyId, storyD
 
 function mapStateToProps(state) {
     return {
-        storyId: state.story.storyId,
-        storyDescription: state.story.storyDescription,
-        estimate: state.story.estimate
+        storyId: state.estimateStory.storyId,
+        storyDescription: state.estimateStory.storyDescription,
+        estimate: state.estimateStory.estimate
     }
 }
 

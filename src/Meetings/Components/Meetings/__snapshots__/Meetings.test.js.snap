@@ -16,7 +16,7 @@ exports[`Meetings renders correctly 1`] = `
       className="uk-align-center uk-width-1-2@m"
     >
       <Memo(ConnectFunction) />
-      <AddMeetingButton />
+      <Memo(ConnectFunction) />
     </div>
   </div>
 </div>

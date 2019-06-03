@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddMeetingButton renders correctly 1`] = `
+<div
+  className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+  onClick={[Function]}
+>
+  <h3
+    className="uk-card-title"
+  >
+    +
+  </h3>
+</div>
+`;

@@ -1,6 +1,7 @@
-import storyReducer, {ESTIMATE_STORY} from "./estimate.flux";
+import {ESTIMATE_STORY} from "../Actions/EstimateActions";
+import estimateStoryReducer from "./EstimateStoryReducer";
 
-describe('Story Reducer', () => {
+describe('Estimate Story Reducer', () => {
 
     it('', () => {
         const initialState = {
@@ -14,7 +15,7 @@ describe('Story Reducer', () => {
             storyDescription: 'Describes the story',
             estimate: 3
         };
-        const actualNextState = storyReducer(initialState, action);
+        const actualNextState = estimateStoryReducer(initialState, action);
         expect(expectedNextState).toEqual(actualNextState);
     });
 });

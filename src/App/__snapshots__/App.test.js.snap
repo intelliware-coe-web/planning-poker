@@ -45,8 +45,16 @@ exports[`renders correctly 1`] = `
     path="/meetings/"
   />
   <Route
-    component={[Function]}
-    path="/meeting/add"
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(CreateMeeting)",
+        "type": [Function],
+      }
+    }
+    path="/meeting/create"
   />
   <Route
     component={
@@ -61,8 +69,16 @@ exports[`renders correctly 1`] = `
     path="/estimate/"
   />
   <Route
-    component={[Function]}
-    path="/ticket/"
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(AddTicket)",
+        "type": [Function],
+      }
+    }
+    path="/tickets/add"
   />
   <Route
     component={[Function]}

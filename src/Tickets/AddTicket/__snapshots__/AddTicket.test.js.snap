@@ -1,26 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container: User should render CreateUser correctly 1`] = `
+exports[`AddTicket renders correctly 1`] = `
 <div
-  className="uk-flex uk-flex-middle uk-height-viewport"
+  className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom"
 >
-  <div
-    className="uk-width-1-1"
+  <h1
+    className="uk-heading-small uk-heading-divider"
   >
-    <img
-      alt="login"
-      src="learning_small.jpg"
+    Add Ticket
+  </h1>
+  <a
+    href="#/host"
+  >
+    <span
+      className="uk-position-large uk-position-top-left"
+      uk-icon="icon: arrow-left; ratio: 3"
     />
-  </div>
+  </a>
   <div
-    className="uk-container uk-width-1-1 uk-margin-small"
+    className="uk-align-center uk-width-1-2@m"
   >
-    <h1>
-      Welcome to planning poker
-    </h1>
-    <h3>
-      Create a new user to get started!
-    </h3>
     <form
       onSubmit={[Function]}
     >
@@ -32,11 +31,11 @@ exports[`Container: User should render CreateUser correctly 1`] = `
         >
           <span
             className="uk-form-icon"
-            data-uk-icon="icon: user"
+            uk-icon="icon: user"
           />
           <input
             className="uk-input"
-            name="userInputName"
+            name="ticketInputName"
             placeholder="Name"
             type="text"
           />
@@ -44,7 +43,7 @@ exports[`Container: User should render CreateUser correctly 1`] = `
         <button
           className="uk-button uk-button-primary uk-width-1-4"
         >
-          CREATE
+          ADD
         </button>
       </div>
     </form>
