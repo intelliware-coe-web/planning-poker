@@ -69,8 +69,16 @@ exports[`renders correctly 1`] = `
     path="/estimate/"
   />
   <Route
-    component={[Function]}
-    path="/ticket/"
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(AddTicket)",
+        "type": [Function],
+      }
+    }
+    path="/tickets/add"
   />
   <Route
     component={[Function]}

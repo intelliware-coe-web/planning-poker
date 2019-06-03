@@ -26,7 +26,7 @@ export default function Host() {
                         )
                     }
 
-                    <Link to="/ticket/">
+                    <Link to="/tickets/add">
                         <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button">
                             <h3 className="uk-card-title">+</h3>
                         </div>
