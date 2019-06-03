@@ -31,7 +31,7 @@ exports[`CreateMeeting renders correctly 1`] = `
         >
           <span
             className="uk-form-icon"
-            uk-icon="icon: user"
+            uk-icon="icon: users"
           />
           <input
             className="uk-input"

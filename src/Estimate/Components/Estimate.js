@@ -33,11 +33,8 @@ export function Estimate(props) {
     );
 
     function GetHostButton(meetingId) {
-        const hasHost = false;
-        console.log('hasHost: blah');
         const meeting = props.currentMeeting(meetingId);
-        console.log(meeting);
-        if(hasHost){
+        if(meeting !== undefined && meeting.host !== null){
             return(
                 <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right" onClick={props.goToHost}>Host</button>
             );
@@ -45,8 +42,6 @@ export function Estimate(props) {
         return(null);
     }
 }
-
-
 
 function mapStateToProps(state) {
     console.log(state);

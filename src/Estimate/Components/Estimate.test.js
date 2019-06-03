@@ -9,6 +9,9 @@ describe('Container: Estimate', () => {
             goToMeetings: jest.fn(),
             goToHost: jest.fn(),
             estimateStory: jest.fn(),
+            currentMeeting: jest.fn().mockReturnValue({
+                host: 'user blah'
+            }),
             location: {
                 search: 'blah'
             }
