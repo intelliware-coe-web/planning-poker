@@ -1,5 +1,6 @@
 # Planning Poker
 [![Build Status](https://travis-ci.org/intelliware-coe-web/planning-poker.svg?branch=master)](https://travis-ci.org/intelliware-coe-web/planning-poker)
+[![Coverage Status](https://coveralls.io/repos/github/intelliware-coe-web/planning-poker/badge.svg?branch=master)](https://coveralls.io/github/intelliware-coe-web/planning-poker?branch=master)
 
 ## Installation:
 - `npm install -g create-react-app`
