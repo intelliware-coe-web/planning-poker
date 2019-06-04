@@ -1,7 +1,7 @@
 import {ESTIMATE_SUCCESS} from "../Actions/EstimateActions";
 
 const initialState = {
-    storyId: 'Story not selected yet',
+    storyId: '5cf17bee1c5b5436764c5dbe',
     storyDescription: 'Story not selected yet',
     estimate: 0
 };

@@ -19,7 +19,7 @@ export function estimateStory(userId, storyId, estimate){
 
 export function* putEstimateAsync({payload: { userId, storyId, estimate } }){
     try {
-        // yield call(EstimateAPI.create, GenerateBody(userId, storyId, estimate));
+        yield call(EstimateAPI.update, GenerateBody(userId, storyId, estimate));
         yield put(estimateSuccess(estimate));
     }
     catch (e) {
