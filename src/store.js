@@ -8,6 +8,7 @@ import {watchUserAsync} from './User/Actions/UserActions';
 import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
 import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions';
 import { watchLocationAsync } from './Navigation/route-actions';
+import {watchEstimateAsync} from './Estimate/Actions/EstimateActions';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,6 +20,8 @@ function* rootSaga() {
     yield all([
         watchUserAsync(),
         watchMeetingsAsync(),
+        watchCurrentMeetingAsync(),
+        watchEstimateAsync(),
         watchCurrentMeetingAsync(),
         watchLocationAsync()
     ]);

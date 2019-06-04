@@ -21,7 +21,7 @@ export function Estimate(props) {
                     </dl>
                     <div className="uk-align-center uk-width-1-1@m">
                         { estimation.map((number,i) =>
-                            <button key={i} onClick={() => props.estimateStory(number, props.storyId)} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${props.estimate === number ? 'selected' : ''}`} >
+                            <button key={i} onClick={() => props.estimateStory(props.userId, props.storyId, number)} className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${props.estimate === number ? 'selected' : ''}`} >
                                 {number}
                                 <span className={"uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"} hidden={props.estimate !== number}>Selected</span>
                             </button>)
@@ -44,11 +44,11 @@ export function Estimate(props) {
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         storyId: state.estimateStory.storyId,
         storyDescription: state.estimateStory.storyDescription,
-        estimate: state.estimateStory.estimate        
+        estimate: state.estimateStory.estimate,
+        userId: state.user._id
     }
 }
 
@@ -56,7 +56,7 @@ function mapDispatchToProps(dispatch) {
     return {
         goToMeetings: () => dispatch(viewMeetings()),
         goToHost: () => dispatch(viewHost()),
-        estimateStory: (estimate, storyId) => dispatch(estimateStory(estimate, storyId)),
+        estimateStory: (userId, storyId, estimate) => dispatch(estimateStory(userId, storyId, estimate)),
         currentMeeting: (meetingId) => dispatch(GetCurrentMeeting(meetingId))
     };
 }

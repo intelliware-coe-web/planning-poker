@@ -1,4 +1,4 @@
-import {ESTIMATE_STORY} from "../Actions/EstimateActions";
+import {ESTIMATE_STORY_REQUESTED} from "../Actions/EstimateActions";
 import estimateStoryReducer from "./EstimateStoryReducer";
 
 describe('Estimate Story Reducer', () => {
@@ -9,7 +9,7 @@ describe('Estimate Story Reducer', () => {
             storyDescription: 'Describes the story',
             estimate: 0
         };
-        const action = {type: ESTIMATE_STORY, payload: {estimate: 3}};
+        const action = {type: ESTIMATE_STORY_REQUESTED, payload: {estimate: 3}};
         const expectedNextState = {
             storyId: 'Story - ABC',
             storyDescription: 'Describes the story',
