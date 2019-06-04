@@ -1,6 +1,12 @@
 import {EstimateAPI} from "../API/Estimate.api";
 import {call, put} from 'redux-saga/effects';
-import {ESTIMATE_ERROR, ESTIMATE_SUCCESS, putEstimateAsync} from "./EstimateActions";
+import {
+    ESTIMATE_ERROR,
+    ESTIMATE_STORY_REQUESTED,
+    ESTIMATE_SUCCESS,
+    estimateStory,
+    putEstimateAsync
+} from "./EstimateActions";
 
 describe('Estimate Actions', () => {
 
@@ -40,6 +46,22 @@ describe('Estimate Actions', () => {
                 }
             }));
             expect(fixture.next().done).toBeTruthy();
+        });
+    });
+
+    describe('Estimate story', () => {
+        it('should return json with payload', () => {
+             const estimateStoryJSON = estimateStory(userId, storyId, estimate);
+             console.log(estimateStoryJSON);
+             expect(estimateStoryJSON).toEqual({
+                 type: ESTIMATE_STORY_REQUESTED,
+                 payload: {
+                     userId: userId,
+                     storyId:storyId,
+                     estimate: estimate
+                 }
+             });
+
         });
     });
 });
