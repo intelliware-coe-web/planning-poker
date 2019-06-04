@@ -4,18 +4,12 @@ import { viewMeeting } from '../../../Navigation/route-actions';
 
 export function MeetingButtons({ meetings = [], goToMeeting }) {
   return meetings.map((meeting, index) =>
-    <div key={ index }>
-      <div className="uk-card uk-card-secondary uk-card-body pp-button"
-           onClick={ event => GoToMeeting(event, meeting._id) }>
+    <div className="uk-margin-small" key={ index }>
+      <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={ () => goToMeeting(meeting._id) }>
         <h3 className="uk-card-title">{ meeting.name }</h3>
       </div>
     </div>
   );
-
-  function GoToMeeting(event, meetingId) {
-    event.preventDefault();
-    goToMeeting(meetingId);
-  }
 }
 
 function mapStateToProps(state) {
