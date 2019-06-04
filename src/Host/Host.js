@@ -1,39 +1,43 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { viewAddStory, viewMeeting, viewMeetings } from '../Navigation/route-actions';
+import { withHeader } from '../Common/Header';
+import { connect } from 'react-redux';
 
-export default function Host() {
-    
-    var alphabets = "ABCD";
+export function Host({ addStory, estimate }) {
 
-    return (
-        <>
-        <div>
-            <div className="uk-container uk-text-center@m">
-                <h1 className="uk-heading-divider uk-margin-top">Host</h1>
-                <div className="uk-align-center uk-width-1-2@m">
-                    <a href="#/meetings/">
-                        <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
-                    </a>
-                    <Link to="/estimate"><button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right">Estimate</button></Link>
+  let alphabets = 'ABCD';
 
-                    { Array.from(alphabets).map( (letter,i) =>
-                            <div key={i} className="uk-card uk-card-secondary uk-card-body uk-margin pp-button">
-                                <Link to={{pathname:'/story/' + letter, query: {storyId: letter}}}>
-                                    <div className="uk-card-badge uk-label">Points: 3</div>
-                                    <h3 className="uk-card-title">Story {letter}</h3>
-                                </Link>
-                            </div>
-                        )
-                    }
+  return (
+    <>
+      <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+              onClick={ () => estimate('') }>
+        Estimate
+      </button>
 
-                    <Link to="/tickets/add">
-                        <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button">
-                            <h3 className="uk-card-title">+</h3>
-                        </div>
-                    </Link>
-                </div>
-            </div>
+      { Array.from(alphabets).map((letter, i) =>
+        <div key={ i } className="uk-card uk-card-secondary uk-card-body uk-margin pp-button">
+          <Link to={ { pathname: '/story/' + letter, query: { storyId: letter } } }>
+            <div className="uk-card-badge uk-label">Points: 3</div>
+            <h3 className="uk-card-title">Story { letter }</h3>
+          </Link>
         </div>
-        </>
-    );
+      )
+      }
+
+      <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button" onClick={ addStory }>
+        <h3 className="uk-card-title">+</h3>
+      </div>
+    </>
+  );
 }
+
+function mapDispatchToProps(dispatch) {
+  return {
+    goBack: () => dispatch(viewMeetings()),
+    addStory: () => dispatch(viewAddStory()),
+    estimate: (meetingId) => dispatch(viewMeeting(meetingId))
+  };
+}
+
+export default connect(null, mapDispatchToProps)(withHeader(Host, 'Host'));

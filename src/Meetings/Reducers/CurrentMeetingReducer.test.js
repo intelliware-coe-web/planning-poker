@@ -1,5 +1,5 @@
 import CurrentMeetingReducer from './CurrentMeetingReducer';
-import {CURRENT_MEETING_SUCCESS} from "../Actions/CurrentMeetingAction";
+import { CURRENT_MEETING_SUCCESS } from "../Actions/CurrentMeetingActions";
 
 describe('Current Meeting Reducer ', () => {
     it('should set the GetMeeting to currentMeeting when it is a success', () => {

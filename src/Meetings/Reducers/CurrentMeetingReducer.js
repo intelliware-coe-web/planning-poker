@@ -1,4 +1,4 @@
-import { CURRENT_MEETING_SUCCESS } from "../Actions/CurrentMeetingAction";
+import { CURRENT_MEETING_SUCCESS } from "../Actions/CurrentMeetingActions";
 
 export default function CurrentMeetingReducer(state = null, action) {
     if (action.type === CURRENT_MEETING_SUCCESS ) {
