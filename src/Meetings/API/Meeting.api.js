@@ -1,7 +1,7 @@
-import {getData, postData} from '../../Fetch.api';
+import {API_URL, getData, postData} from '../../Fetch.api';
 
 export const MeetingAPI = {
-  all: () => getData(`https://planning-poker-241613.appspot.com/meetings`),
-  byId: meetingId => getData(`https://planning-poker-241613.appspot.com/meetings/${meetingId}`),
-  create: (body) => postData(`https://planning-poker-241613.appspot.com/meetings`, body)
+  all: () => getData(`${API_URL}/meetings`),
+  byId: meetingId => getData(`${API_URL}/meetings/${meetingId}`),
+  create: (body) => postData(`${API_URL}/meetings`, body)
 };

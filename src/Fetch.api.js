@@ -5,6 +5,8 @@ const defaultHeaderConfigs = {
   }
 };
 
+export const API_URL = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL : 'https://planning-poker-241613.appspot.com';
+
 export const getData = (url) => {
   return fetch(url, defaultHeaderConfigs)
   .then(response => {
