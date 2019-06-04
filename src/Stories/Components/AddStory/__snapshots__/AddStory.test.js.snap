@@ -1,22 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddStory renders correctly 1`] = `
-<div
-  className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom"
->
-  <h1
-    className="uk-heading-small uk-heading-divider"
-  >
-    Add Story
-  </h1>
-  <a
-    href="#/host"
-  >
-    <span
-      className="uk-position-large uk-position-top-left"
-      uk-icon="icon: arrow-left; ratio: 3"
-    />
-  </a>
+<React.Fragment>
   <div
     className="uk-align-center uk-width-1-2@m"
   >
@@ -48,5 +33,5 @@ exports[`AddStory renders correctly 1`] = `
       </div>
     </form>
   </div>
-</div>
+</React.Fragment>
 `;

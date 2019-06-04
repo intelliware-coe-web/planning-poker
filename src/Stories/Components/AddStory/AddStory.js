@@ -1,15 +1,12 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {viewHost} from '../../../Navigation/route-actions';
+import { connect } from 'react-redux';
+import { viewHost}  from '../../../Navigation/route-actions';
+import { withHeader } from '../../../Common/Header';
 
-export function AddStory(props) {
+export function AddStory({goToHost}) {
 
     return (        
-        <div className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom">
-            <h1 className="uk-heading-small uk-heading-divider">Add Story</h1>
-            <a href="#/host">
-                <span uk-icon="icon: arrow-left; ratio: 3" className="uk-position-large uk-position-top-left"></span>
-            </a>
+        <>
             <div className="uk-align-center uk-width-1-2@m">      
                 <form onSubmit={event => {AddStory(event)}}>
                     <div className="uk-margin">
@@ -23,12 +20,12 @@ export function AddStory(props) {
                     </div>
                 </form>
             </div>
-        </div>
+        </>
     );
 
     function AddStory(event) {
         event.preventDefault();
-        props.goToHost();
+        goToHost();
     }
 };
 
@@ -39,8 +36,9 @@ function mapStateToProps(state) {
  
  function mapDispatchToProps(dispatch) {
     return {
+        goBack: () => dispatch(viewHost()),
         goToHost: () => dispatch(viewHost())
     }
 };
  
-export default connect(mapStateToProps, mapDispatchToProps)(AddStory)
+export default connect(mapStateToProps, mapDispatchToProps)(withHeader(AddStory, 'Add Story'));
