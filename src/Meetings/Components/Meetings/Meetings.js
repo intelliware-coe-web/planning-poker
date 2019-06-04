@@ -1,15 +1,13 @@
 import React from 'react';
 import MeetingButtons from '../MeetingButtons/MeetingButtons';
 import CreateMeetingButton from '../CreateMeetingButton/CreateMeetingButton';
-import { withHeader } from '../../../Common/Header';
+import { Page } from '../../../Common/Header';
 
-export function Meetings() {
+export default function Meetings() {
   return (
-    <>
+    <Page title='Meetings'>
       <MeetingButtons/>
       <CreateMeetingButton/>
-    </>
+    </Page>
   );
 }
-
-export default withHeader(Meetings, 'Meetings')

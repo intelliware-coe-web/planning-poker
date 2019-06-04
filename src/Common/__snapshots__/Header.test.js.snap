@@ -10,13 +10,12 @@ exports[`Higher Order Component: withHeader should not render the back button wh
     <h1
       className="uk-heading-divider uk-margin-top"
     >
-      Fake Component
+      No back button
     </h1>
     <div
       className="uk-align-center uk-width-1-2@m"
     >
       <BackButton />
-      <FakeComponent />
     </div>
   </div>
 </div>
@@ -32,15 +31,16 @@ exports[`Higher Order Component: withHeader should render a Header on a componen
     <h1
       className="uk-heading-divider uk-margin-top"
     >
-      Fake Component
+      Foo
     </h1>
     <div
       className="uk-align-center uk-width-1-2@m"
     >
-      <BackButton />
-      <FakeComponent
-        onBack={[Function]}
+      <BackButton
+        goBack={[Function]}
       />
+      <div />
+      <div />
     </div>
   </div>
 </div>

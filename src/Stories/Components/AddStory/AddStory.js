@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { viewHost}  from '../../../Navigation/route-actions';
-import { withHeader } from '../../../Common/Header';
+import { viewHost } from '../../../Navigation/route-actions';
+import { Page } from '../../../Common/Header';
 
 export function AddStory({goToHost}) {
 
     return (        
-        <>
+        <Page title='Add Story' onBack={ goToHost }>
             <div className="uk-align-center uk-width-1-2@m">      
                 <form onSubmit={ goToHost }>
                     <div className="uk-margin">
                         <div className="uk-inline uk-width-1-2">
-                            <span className="uk-form-icon" uk-icon="icon: link"></span>
+                            <span className="uk-form-icon" data-uk-icon="icon: link"/>
                             <input name="storyInputName" className="uk-input" placeholder="Name" type="text"/>
                         </div>
                         <button className="uk-button uk-button-primary uk-width-1-4">
@@ -20,15 +20,14 @@ export function AddStory({goToHost}) {
                     </div>
                 </form>
             </div>
-        </>
+        </Page>
     );
-};
+}
  
 function mapDispatchToProps(dispatch) {
     return {
-        goBack: () => dispatch(viewHost()),
         goToHost: () => dispatch(viewHost())
     }
-};
+}
  
-export default connect(null, mapDispatchToProps)(withHeader(AddStory, 'Add Story'));
+export default connect(null, mapDispatchToProps)(AddStory);

@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AddStory renders correctly 1`] = `
-<React.Fragment>
+<Page
+  onBack={[MockFunction]}
+  title="Add Story"
+>
   <div
     className="uk-align-center uk-width-1-2@m"
   >
@@ -16,7 +19,7 @@ exports[`AddStory renders correctly 1`] = `
         >
           <span
             className="uk-form-icon"
-            uk-icon="icon: link"
+            data-uk-icon="icon: link"
           />
           <input
             className="uk-input"
@@ -33,5 +36,5 @@ exports[`AddStory renders correctly 1`] = `
       </div>
     </form>
   </div>
-</React.Fragment>
+</Page>
 `;
