@@ -8,6 +8,7 @@ import {watchUserAsync} from './User/Actions/UserActions';
 import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
 import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions';
 import { watchLocationAsync } from './Navigation/route-actions';
+import { watchStoriesAsync } from './Stories/Actions/StoriesActions';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -20,7 +21,8 @@ function* rootSaga() {
         watchUserAsync(),
         watchMeetingsAsync(),
         watchCurrentMeetingAsync(),
-        watchLocationAsync()
+        watchLocationAsync(),
+        watchStoriesAsync()
     ]);
 }
 
