@@ -1,6 +1,7 @@
 import {getUserAsync, postUserAsync, USER_ERROR, USER_SUCCESS} from "./UserActions";
 import {UserAPI} from "../API/User.api";
 import {call, put} from 'redux-saga/effects';
+import { viewMeetings } from '../../Navigation/route-actions';
 
 
 describe('Test action creators', () => {
@@ -20,6 +21,7 @@ describe('Test action creators', () => {
                     user: 'Fred'
                 }
             }));
+            expect(fixture.next().value).toEqual(put(viewMeetings()));
             expect(fixture.next().done).toBeTruthy();
         });
 
