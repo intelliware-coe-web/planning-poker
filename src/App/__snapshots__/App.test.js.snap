@@ -58,7 +58,7 @@ exports[`renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(CreateMeeting)",
+        "displayName": "Connect(Component)",
         "type": [Function],
       }
     }
