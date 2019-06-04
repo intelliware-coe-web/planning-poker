@@ -1,52 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CreateMeeting renders correctly 1`] = `
-<div
-  className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom"
+<Page
+  onBack={[MockFunction]}
+  title="Add Meeting"
 >
-  <h1
-    className="uk-heading-small uk-heading-divider"
+  <form
+    onSubmit={[Function]}
   >
-    Add Meeting
-  </h1>
-  <a
-    href="#/meetings"
-  >
-    <span
-      className="uk-position-large uk-position-top-left"
-      uk-icon="icon: arrow-left; ratio: 3"
-    />
-  </a>
-  <div
-    className="uk-align-center uk-width-1-2@m"
-  >
-    <form
-      onSubmit={[Function]}
+    <div
+      className="uk-margin"
     >
       <div
-        className="uk-margin"
+        className="uk-inline uk-width-1-2"
       >
-        <div
-          className="uk-inline uk-width-1-2"
-        >
-          <span
-            className="uk-form-icon"
-            uk-icon="icon: users"
-          />
-          <input
-            className="uk-input"
-            name="meetingInputName"
-            placeholder="Name"
-            type="text"
-          />
-        </div>
-        <button
-          className="uk-button uk-button-primary uk-width-1-4"
-        >
-          CREATE
-        </button>
+        <span
+          className="uk-form-icon"
+          data-uk-icon="icon: users"
+        />
+        <input
+          className="uk-input"
+          name="meetingInputName"
+          placeholder="Name"
+          type="text"
+        />
       </div>
-    </form>
-  </div>
-</div>
+      <button
+        className="uk-button uk-button-primary uk-width-1-4"
+      >
+        CREATE
+      </button>
+    </div>
+  </form>
+</Page>
 `;

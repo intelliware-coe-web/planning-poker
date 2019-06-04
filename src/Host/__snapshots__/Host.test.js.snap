@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Host renders correctly 1`] = `
-<React.Fragment>
+<Page
+  title="Host"
+>
   <button
     className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
     onClick={[Function]}
@@ -122,5 +124,5 @@ exports[`Host renders correctly 1`] = `
       +
     </h3>
   </div>
-</React.Fragment>
+</Page>
 `;

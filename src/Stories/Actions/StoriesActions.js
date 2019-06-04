@@ -11,39 +11,33 @@ export function* watchStoriesAsync() {
     yield takeLatest(STORIES_POST_REQUESTED, addStoryAsync);
 }
 
-export function GetStories(meetingId) {
+export function GetStories() {
     return {
-        type: STORIES_GET_REQUESTED,
-        payload: {
-            id: meetingId
-        }
+        type: STORIES_GET_REQUESTED
     }
 }
 
-export function* getStoriesAsync({payload}) {
+export function* getStoriesAsync() {
     try {
-        const stories = yield call(StoriesAPI.all, payload.id);
+        const stories = yield call(StoriesAPI.all, '123');
         yield put(StoriesSuccess(stories));
     } catch (error) {
         yield put(StoriesError(error));
     }
 }
 
-export function AddStory(meetingId, storyName) {
+export function AddStory(storyName) {
     return {
         type: STORIES_POST_REQUESTED,
         payload: {
-            id: meetingId, 
-            body: {
-                name: storyName
-            }
+            name: storyName
         }
     }
 }
 
 export function* addStoryAsync({payload}){
     try {
-        yield call(StoriesAPI.add, payload.id, payload.body);
+        yield call(StoriesAPI.add, payload);
     }
     catch (e) {
         yield put(StoriesError(e));
