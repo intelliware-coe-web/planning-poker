@@ -6,21 +6,19 @@ import { withHeader } from '../../../Common/Header';
 export function AddStory({goToHost}) {
 
     return (        
-        <>
-            <div className="uk-align-center uk-width-1-2@m">      
-                <form onSubmit={ goToHost }>
-                    <div className="uk-margin">
-                        <div className="uk-inline uk-width-1-2">
-                            <span className="uk-form-icon" uk-icon="icon: link"></span>
-                            <input name="storyInputName" className="uk-input" placeholder="Name" type="text"/>
-                        </div>
-                        <button className="uk-button uk-button-primary uk-width-1-4">
-                            ADD
-                        </button>
+        <div className="uk-align-center uk-width-1-1@m">      
+            <form onSubmit={ goToHost }>
+                <div className="uk-margin">
+                    <div className="uk-inline uk-width-1-2">
+                        <span className="uk-form-icon" uk-icon="icon: link"></span>
+                        <input name="storyInputName" className="uk-input" placeholder="Name" type="text"/>
                     </div>
-                </form>
-            </div>
-        </>
+                    <button className="uk-button uk-button-primary uk-width-1-4">
+                        ADD
+                    </button>
+                </div>
+            </form>
+        </div>
     );
 };
  
