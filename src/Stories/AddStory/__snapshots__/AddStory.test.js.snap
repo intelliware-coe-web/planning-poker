@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddTicket renders correctly 1`] = `
+exports[`AddStory renders correctly 1`] = `
 <div
   className="uk-container uk-text-center@m uk-margin-top uk-margin-bottom"
 >
   <h1
     className="uk-heading-small uk-heading-divider"
   >
-    Add Ticket
+    Add Story
   </h1>
   <a
     href="#/host"
@@ -35,7 +35,7 @@ exports[`AddTicket renders correctly 1`] = `
           />
           <input
             className="uk-input"
-            name="ticketInputName"
+            name="storyInputName"
             placeholder="Name"
             type="text"
           />
