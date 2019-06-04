@@ -1,5 +1,4 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import thunk from 'redux-thunk';
 import {createHashHistory} from 'history';
 import createRootReducer from './RootReducer';
 import {routerMiddleware} from "connected-react-router";
@@ -29,7 +28,6 @@ export default function store() {
         composeEnhancers(
             applyMiddleware(
                 routerMiddleware(history),
-                thunk,
                 sagaMiddleware
         ))
     );
