@@ -6,7 +6,7 @@ exports[`AddStory renders correctly 1`] = `
     className="uk-align-center uk-width-1-2@m"
   >
     <form
-      onSubmit={[Function]}
+      onSubmit={[MockFunction]}
     >
       <div
         className="uk-margin"

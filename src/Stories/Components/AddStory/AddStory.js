@@ -8,7 +8,7 @@ export function AddStory({goToHost}) {
     return (        
         <>
             <div className="uk-align-center uk-width-1-2@m">      
-                <form onSubmit={event => {AddStory(event)}}>
+                <form onSubmit={ goToHost }>
                     <div className="uk-margin">
                         <div className="uk-inline uk-width-1-2">
                             <span className="uk-form-icon" uk-icon="icon: link"></span>
@@ -22,23 +22,13 @@ export function AddStory({goToHost}) {
             </div>
         </>
     );
-
-    function AddStory(event) {
-        event.preventDefault();
-        goToHost();
-    }
-};
-
-function mapStateToProps(state) {
-    return {
-    }
 };
  
- function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return {
         goBack: () => dispatch(viewHost()),
         goToHost: () => dispatch(viewHost())
     }
 };
  
-export default connect(mapStateToProps, mapDispatchToProps)(withHeader(AddStory, 'Add Story'));
+export default connect(null, mapDispatchToProps)(withHeader(AddStory, 'Add Story'));
