@@ -22,4 +22,13 @@ describe('Error Reducer ', () => {
     expect(actualNextState).toEqual({error});
   });
 
+  it('should reset the error to the initial state on non-error messages', () => {
+    const initialState = null;
+    const error = "Page Not Found";
+    const action = { type: 'NOT_AN_ERROR', payload: { error: error } };
+
+    const actualNextState = ErrorReducer(initialState, action);
+    expect(actualNextState).toBeNull();
+  })
+
 });
