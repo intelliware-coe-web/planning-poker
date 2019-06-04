@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {viewHost} from '../../Navigation/route-actions';
+import {viewHost} from '../../../Navigation/route-actions';
 
 export function AddStory(props) {
 
