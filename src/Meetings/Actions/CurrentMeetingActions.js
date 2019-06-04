@@ -1,5 +1,5 @@
 import { MeetingAPI } from '../API/Meeting.api'
-import { takeLatest, call, put } from '@redux-saga/core/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 
 export const CURRENT_MEETING_SUCCESS = 'CURRENT_MEETING_SUCCESS';
 export const CURRENT_MEETING_ERROR = 'CURRENT_MEETING_ERROR';
