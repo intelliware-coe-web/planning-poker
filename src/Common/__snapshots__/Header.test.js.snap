@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Higher Order Component: withHeader should render a Header on a component correctly 1`] = `
+<div
+  className="default-background"
+>
+  <div
+    className="uk-container uk-text-center@m"
+  >
+    <h1
+      className="uk-heading-divider uk-margin-top"
+    >
+      Fake Component
+    </h1>
+    <div
+      className="uk-align-center uk-width-1-2@m"
+    >
+      <BackButton />
+      <FakeComponent
+        onBack={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
