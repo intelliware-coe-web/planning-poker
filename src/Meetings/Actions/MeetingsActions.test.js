@@ -1,6 +1,7 @@
 import {getMeetingsAsync, MEETINGS_ERROR, MEETINGS_SUCCESS, postMeetingAsync} from "./MeetingsActions";
 import {MeetingAPI} from "../API/Meeting.api";
 import {call, put} from 'redux-saga/effects';
+import { viewMeetings } from '../../Navigation/route-actions';
 
 describe('Meetings Actions', () => {
     let fixture;
@@ -42,6 +43,7 @@ describe('Meetings Actions', () => {
 
         it('should dispatch action', () => {
             expect(fixture.next().value).toEqual(call(MeetingAPI.create, {name: meetingName}));
+            expect(fixture.next().value).toEqual(put(viewMeetings()));
             expect(fixture.next().done).toBeTruthy();
         });
 

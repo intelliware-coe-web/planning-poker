@@ -1,5 +1,4 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import thunk from 'redux-thunk';
 import {createHashHistory} from 'history';
 import createRootReducer from './RootReducer';
 import {routerMiddleware} from "connected-react-router";
@@ -8,6 +7,7 @@ import {all} from 'redux-saga/effects';
 import {watchUserAsync} from './User/Actions/UserActions';
 import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
 import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions';
+import { watchLocationAsync } from './Navigation/route-actions';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,7 +19,8 @@ function* rootSaga() {
     yield all([
         watchUserAsync(),
         watchMeetingsAsync(),
-        watchCurrentMeetingAsync()
+        watchCurrentMeetingAsync(),
+        watchLocationAsync()
     ]);
 }
 
@@ -29,7 +30,6 @@ export default function store() {
         composeEnhancers(
             applyMiddleware(
                 routerMiddleware(history),
-                thunk,
                 sagaMiddleware
         ))
     );

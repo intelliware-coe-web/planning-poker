@@ -42,7 +42,7 @@ exports[`renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(Component)",
+        "displayName": "Connect(Host)",
         "type": [Function],
       }
     }
@@ -82,11 +82,11 @@ exports[`renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(AddTicket)",
+        "displayName": "Connect(AddStory)",
         "type": [Function],
       }
     }
-    path="/tickets/add"
+    path="/stories/add"
   />
   <Route
     component={[Function]}

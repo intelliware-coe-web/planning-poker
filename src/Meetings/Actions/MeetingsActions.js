@@ -1,5 +1,6 @@
-import { MeetingAPI } from '../API/Meeting.api'
-import { takeLatest, call, put } from '@redux-saga/core/effects';
+import { MeetingAPI } from '../API/Meeting.api';
+import { takeLatest, call, put } from 'redux-saga/effects';
+import { viewMeetings } from '../../Navigation/route-actions';
 
 export const MEETINGS_SUCCESS = 'MEETINGS_SUCCESS';
 export const MEETINGS_ERROR = 'MEETINGS_ERROR';
@@ -36,6 +37,7 @@ export function PostMeeting(meetingName) {
 export function* postMeetingAsync({payload: meetingName}){
     try {
         yield call(MeetingAPI.create, GenerateBody(meetingName));
+        yield put(viewMeetings())
     }
     catch (e) {
         yield put(MeetingsError(e));

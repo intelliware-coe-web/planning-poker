@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { viewAddStory, viewMeeting, viewMeetings } from '../Navigation/route-actions';
-import { withHeader } from '../Common/Header';
+import { Page } from '../Common/Header';
 import { connect } from 'react-redux';
 
-export function Host({ addStory, estimate }) {
+export function Host({ addStory, goToMeetings, estimate }) {
 
   let alphabets = 'ABCD';
 
   return (
-    <>
+    <Page title='Host' onBack={ goToMeetings }>
       <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
               onClick={ () => estimate('') }>
         Estimate
@@ -28,16 +28,16 @@ export function Host({ addStory, estimate }) {
       <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button" onClick={ addStory }>
         <h3 className="uk-card-title">+</h3>
       </div>
-    </>
+    </Page>
   );
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    goBack: () => dispatch(viewMeetings()),
+    goToMeetings: () => dispatch(viewMeetings()),
     addStory: () => dispatch(viewAddStory()),
     estimate: (meetingId) => dispatch(viewMeeting(meetingId))
   };
 }
 
-export default connect(null, mapDispatchToProps)(withHeader(Host, 'Host'));
+export default connect(null, mapDispatchToProps)(Host);

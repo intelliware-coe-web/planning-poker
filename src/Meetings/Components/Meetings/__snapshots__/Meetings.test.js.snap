@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Meetings renders correctly 1`] = `
-<React.Fragment>
+<Page
+  title="Meetings"
+>
   <Memo(ConnectFunction) />
   <Memo(ConnectFunction) />
-</React.Fragment>
+</Page>
 `;

@@ -8,6 +8,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Local Development Setup:
+- create a `.env.local` file in the root of the project
+- add variable `REACT_APP_API_URL='http://localhost:9000'`
+
 ## Available Scripts
 
 In the project directory, you can run:

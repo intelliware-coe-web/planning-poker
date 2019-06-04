@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Higher Order Component: withHeader should not render the back button when onBack is not provided 1`] = `
+<div
+  className="default-background"
+>
+  <div
+    className="uk-container uk-text-center@m"
+  >
+    <h1
+      className="uk-heading-divider uk-margin-top"
+    >
+      No back button
+    </h1>
+    <div
+      className="uk-align-center uk-width-1-2@m"
+    >
+      <BackButton />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Higher Order Component: withHeader should render a Header on a component correctly 1`] = `
+<div
+  className="default-background"
+>
+  <div
+    className="uk-container uk-text-center@m"
+  >
+    <h1
+      className="uk-heading-divider uk-margin-top"
+    >
+      Foo
+    </h1>
+    <div
+      className="uk-align-center uk-width-1-2@m"
+    >
+      <BackButton
+        goBack={[Function]}
+      />
+      <div />
+      <div />
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,4 @@
-import ErrorReducer, { errorActions } from './ErrorReducer';
+import ErrorReducer from './ErrorReducer';
 import { MEETINGS_ERROR } from './Meetings/Actions/MeetingsActions';
 import { USER_ERROR } from './User/Actions/UserActions';
 
@@ -21,5 +21,14 @@ describe('Error Reducer ', () => {
     const actualNextState = ErrorReducer(initialState, action);
     expect(actualNextState).toEqual({error});
   });
+
+  it('should reset the error to the initial state on non-error messages', () => {
+    const initialState = null;
+    const error = "Page Not Found";
+    const action = { type: 'NOT_AN_ERROR', payload: { error: error } };
+
+    const actualNextState = ErrorReducer(initialState, action);
+    expect(actualNextState).toBeNull();
+  })
 
 });
