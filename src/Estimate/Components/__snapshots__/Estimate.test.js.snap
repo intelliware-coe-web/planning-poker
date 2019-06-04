@@ -1,118 +1,103 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container: Estimate should render Estimate correctly 1`] = `
-<div>
-  <div
-    className="uk-container uk-text-center@m"
+<Page
+  onBack={[MockFunction]}
+  title="Estimate"
+>
+  <button
+    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+    onClick={[MockFunction]}
   >
-    <h1
-      className="uk-heading-divider uk-margin-top"
+    Host
+  </button>
+  <dl
+    className="uk-description-list"
+  >
+    <dt>
+      # 
+      123
+       :
+    </dt>
+    <dd>
+      blah
+    </dd>
+  </dl>
+  <div
+    className="uk-align-center uk-width-1-1@m"
+  >
+    <button
+      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button selected"
+      onClick={[Function]}
     >
-      Estimate
-    </h1>
-    <div
-      className="uk-align-center uk-width-1-2@m"
-    >
+      1
       <span
-        className="uk-position-large uk-position-top-left"
-        data-uk-icon="icon: arrow-left; ratio: 3"
-        onClick={[MockFunction]}
-      />
-      <button
-        className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-        onClick={[MockFunction]}
+        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+        hidden={false}
       >
-        Host
-      </button>
-      <dl
-        className="uk-description-list"
+        Selected
+      </span>
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+      onClick={[Function]}
+    >
+      2
+      <span
+        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+        hidden={true}
       >
-        <dt>
-          # 
-          123
-           :
-        </dt>
-        <dd>
-          blah
-        </dd>
-      </dl>
-      <div
-        className="uk-align-center uk-width-1-1@m"
+        Selected
+      </span>
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+      onClick={[Function]}
+    >
+      3
+      <span
+        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+        hidden={true}
       >
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button selected"
-          onClick={[Function]}
-        >
-          1
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={false}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-          onClick={[Function]}
-        >
-          2
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-          onClick={[Function]}
-        >
-          3
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-          onClick={[Function]}
-        >
-          5
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-          onClick={[Function]}
-        >
-          8
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-        <button
-          className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-          onClick={[Function]}
-        >
-          13
-          <span
-            className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-            hidden={true}
-          >
-            Selected
-          </span>
-        </button>
-      </div>
-    </div>
+        Selected
+      </span>
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+      onClick={[Function]}
+    >
+      5
+      <span
+        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+        hidden={true}
+      >
+        Selected
+      </span>
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+      onClick={[Function]}
+    >
+      8
+      <span
+        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+        hidden={true}
+      >
+        Selected
+      </span>
+    </button>
+    <button
+      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+      onClick={[Function]}
+    >
+      13
+      <span
+        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+        hidden={true}
+      >
+        Selected
+      </span>
+    </button>
   </div>
-</div>
+</Page>
 `;

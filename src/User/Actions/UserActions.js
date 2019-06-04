@@ -1,5 +1,6 @@
 import {UserAPI} from '../API/User.api';
 import {call, put, takeLatest} from 'redux-saga/effects';
+import { viewMeetings } from '../../Navigation/route-actions';
 
 export const USER_GET_REQUESTED = 'USER_GET_REQUESTED';
 export const USER_POST_REQUESTED = 'USER_POST_REQUESTED';
@@ -9,13 +10,6 @@ export const USER_ERROR = 'USER_ERROR';
 export function* watchUserAsync() {
     yield takeLatest(USER_GET_REQUESTED, getUserAsync);
     yield takeLatest(USER_POST_REQUESTED, postUserAsync);
-}
-
-export function GetUser(userId) {
-    return {
-        type: USER_GET_REQUESTED,
-        payload: userId
-    }
 }
 
 export function* getUserAsync({payload: userId}) {
@@ -38,6 +32,7 @@ export function* postUserAsync({payload: username}){
     try {
         const user = yield call(UserAPI.create, GenerateBody(username));
         yield put(UserSuccess(user));
+        yield put(viewMeetings());
     }
     catch (e) {
         yield put(UserError(e));
