@@ -1,5 +1,6 @@
 import {ESTIMATE_SUCCESS} from "../Actions/EstimateActions";
 
+// FIXME: put initial state of storyId to null --- for testing flow
 const initialState = {
     storyId: '5cf17bee1c5b5436764c5dbe',
     storyDescription: 'Story not selected yet',

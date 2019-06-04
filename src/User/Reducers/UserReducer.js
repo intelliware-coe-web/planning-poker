@@ -1,5 +1,6 @@
 import { USER_SUCCESS } from '../Actions/UserActions';
 
+// FIXME: put initial state of user to null --- for testing flow
 const initialState = {
     "_id": "5ceed54ad81884001f9df980",
     "name": "CigaretteDaydreams",
