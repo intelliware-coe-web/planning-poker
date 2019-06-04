@@ -2,154 +2,125 @@
 
 exports[`Host renders correctly 1`] = `
 <React.Fragment>
-  <div>
-    <div
-      className="uk-container uk-text-center@m"
+  <button
+    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+    onClick={[Function]}
+  >
+    Estimate
+  </button>
+  <div
+    className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
+  >
+    <Link
+      to={
+        Object {
+          "pathname": "/story/A",
+          "query": Object {
+            "storyId": "A",
+          },
+        }
+      }
     >
-      <h1
-        className="uk-heading-divider uk-margin-top"
-      >
-        Host
-      </h1>
       <div
-        className="uk-align-center uk-width-1-2@m"
+        className="uk-card-badge uk-label"
       >
-        <a
-          href="#/meetings/"
-        >
-          <span
-            className="uk-position-large uk-position-top-left"
-            uk-icon="icon: arrow-left; ratio: 3"
-          />
-        </a>
-        <Link
-          to="/estimate"
-        >
-          <button
-            className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-          >
-            Estimate
-          </button>
-        </Link>
-        <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
-        >
-          <Link
-            to={
-              Object {
-                "pathname": "/story/A",
-                "query": Object {
-                  "storyId": "A",
-                },
-              }
-            }
-          >
-            <div
-              className="uk-card-badge uk-label"
-            >
-              Points: 3
-            </div>
-            <h3
-              className="uk-card-title"
-            >
-              Story 
-              A
-            </h3>
-          </Link>
-        </div>
-        <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
-        >
-          <Link
-            to={
-              Object {
-                "pathname": "/story/B",
-                "query": Object {
-                  "storyId": "B",
-                },
-              }
-            }
-          >
-            <div
-              className="uk-card-badge uk-label"
-            >
-              Points: 3
-            </div>
-            <h3
-              className="uk-card-title"
-            >
-              Story 
-              B
-            </h3>
-          </Link>
-        </div>
-        <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
-        >
-          <Link
-            to={
-              Object {
-                "pathname": "/story/C",
-                "query": Object {
-                  "storyId": "C",
-                },
-              }
-            }
-          >
-            <div
-              className="uk-card-badge uk-label"
-            >
-              Points: 3
-            </div>
-            <h3
-              className="uk-card-title"
-            >
-              Story 
-              C
-            </h3>
-          </Link>
-        </div>
-        <div
-          className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
-        >
-          <Link
-            to={
-              Object {
-                "pathname": "/story/D",
-                "query": Object {
-                  "storyId": "D",
-                },
-              }
-            }
-          >
-            <div
-              className="uk-card-badge uk-label"
-            >
-              Points: 3
-            </div>
-            <h3
-              className="uk-card-title"
-            >
-              Story 
-              D
-            </h3>
-          </Link>
-        </div>
-        <Link
-          to="/tickets/add"
-        >
-          <div
-            className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
-          >
-            <h3
-              className="uk-card-title"
-            >
-              +
-            </h3>
-          </div>
-        </Link>
+        Points: 3
       </div>
-    </div>
+      <h3
+        className="uk-card-title"
+      >
+        Story 
+        A
+      </h3>
+    </Link>
+  </div>
+  <div
+    className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
+  >
+    <Link
+      to={
+        Object {
+          "pathname": "/story/B",
+          "query": Object {
+            "storyId": "B",
+          },
+        }
+      }
+    >
+      <div
+        className="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        className="uk-card-title"
+      >
+        Story 
+        B
+      </h3>
+    </Link>
+  </div>
+  <div
+    className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
+  >
+    <Link
+      to={
+        Object {
+          "pathname": "/story/C",
+          "query": Object {
+            "storyId": "C",
+          },
+        }
+      }
+    >
+      <div
+        className="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        className="uk-card-title"
+      >
+        Story 
+        C
+      </h3>
+    </Link>
+  </div>
+  <div
+    className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
+  >
+    <Link
+      to={
+        Object {
+          "pathname": "/story/D",
+          "query": Object {
+            "storyId": "D",
+          },
+        }
+      }
+    >
+      <div
+        className="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        className="uk-card-title"
+      >
+        Story 
+        D
+      </h3>
+    </Link>
+  </div>
+  <div
+    className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+    onClick={[Function]}
+  >
+    <h3
+      className="uk-card-title"
+    >
+      +
+    </h3>
   </div>
 </React.Fragment>
 `;
