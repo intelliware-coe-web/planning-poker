@@ -3,7 +3,7 @@
 exports[`AddMeetingButton renders correctly 1`] = `
 <div
   className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
-  onClick={[Function]}
+  onClick={[MockFunction]}
 >
   <h3
     className="uk-card-title"
