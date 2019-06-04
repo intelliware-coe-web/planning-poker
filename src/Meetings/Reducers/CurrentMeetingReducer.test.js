@@ -1,5 +1,5 @@
 import CurrentMeetingReducer from './CurrentMeetingReducer';
-import {CURRENT_MEETING_SUCCESS, CURRENT_MEETING_ERROR} from "../Actions/CurrentMeetingAction";
+import {CURRENT_MEETING_SUCCESS, CURRENT_MEETING_ERROR} from "../Actions/CurrentMeetingActions";
 
 describe('Current Meeting Reducer ', () => {
 
