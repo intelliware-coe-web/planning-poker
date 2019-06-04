@@ -1,4 +1,4 @@
-import ErrorReducer, { errorActions } from './ErrorReducer';
+import ErrorReducer from './ErrorReducer';
 import { MEETINGS_ERROR } from './Meetings/Actions/MeetingsActions';
 import { USER_ERROR } from './User/Actions/UserActions';
 

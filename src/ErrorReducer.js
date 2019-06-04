@@ -1,6 +1,6 @@
 import { MEETINGS_ERROR } from './Meetings/Actions/MeetingsActions';
 import { USER_ERROR } from './User/Actions/UserActions';
-import { CURRENT_MEETING_ERROR } from './Meetings/Actions/CurrentMeetingAction';
+import { CURRENT_MEETING_ERROR } from './Meetings/Actions/CurrentMeetingActions';
 
 const errorActions = [
   MEETINGS_ERROR,
