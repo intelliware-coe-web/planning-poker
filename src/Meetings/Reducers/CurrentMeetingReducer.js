@@ -10,7 +10,7 @@ export default function CurrentMeetingReducer(state = defaultState, action) {
         case CURRENT_MEETING_SUCCESS:
             return {
                 ...state,
-                currentMeeting: action.payload.meeting
+                currentMeeting: action.payload.currentMeeting
             };
         case CURRENT_MEETING_ERROR:
             return {
