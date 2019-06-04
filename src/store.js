@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import {all} from 'redux-saga/effects';
 import {watchUserAsync} from './User/Actions/UserActions';
 import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
-import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingAction';
+import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions';
 
 const sagaMiddleware = createSagaMiddleware();
 

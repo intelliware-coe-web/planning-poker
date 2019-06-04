@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {estimateStory} from "../Actions/EstimateActions";
-import {GetCurrentMeeting} from '../../Meetings/Actions/CurrentMeetingAction';
+import {GetCurrentMeeting} from '../../Meetings/Actions/CurrentMeetingActions';
 import {viewHost, viewMeetings} from "../../Navigation/route-actions";
 import queryString from 'query-string';
 

@@ -1,4 +1,4 @@
-import { CURRENT_MEETING_SUCCESS, CURRENT_MEETING_ERROR } from "../Actions/CurrentMeetingAction";
+import { CURRENT_MEETING_SUCCESS, CURRENT_MEETING_ERROR } from "../Actions/CurrentMeetingActions";
 
 const defaultState = {
     currentMeeting: null,
