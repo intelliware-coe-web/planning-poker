@@ -1,6 +1,6 @@
 import { StoriesSuccess, StoriesError, getStoriesAsync, createStoryAsync} from './StoriesActions';
 import { StoriesAPI } from "../API/Stories.api";
-import { call, put, select } from '@redux-saga/core/effects';
+import { call, put, select } from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
 
 describe('Stories Actions', () => {

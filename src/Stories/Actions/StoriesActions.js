@@ -1,5 +1,5 @@
 import { StoriesAPI } from '../API/Stories.api'
-import { takeLatest, call, put, select } from '@redux-saga/core/effects';
+import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { getCurrentMeetingId } from '../../Common/selectors';
 
 export const STORIES_SUCCESS = 'STORIES_SUCCESS';
