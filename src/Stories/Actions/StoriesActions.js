@@ -1,5 +1,6 @@
 import { StoriesAPI } from '../API/Stories.api'
 import { takeLatest, call, put, select } from '@redux-saga/core/effects';
+import { getCurrentMeetingId } from '../../Common/selectors';
 
 export const STORIES_SUCCESS = 'STORIES_SUCCESS';
 export const STORIES_ERROR = 'STORIES_ERROR';
@@ -19,8 +20,7 @@ export function GetStories() {
 
 export function* getStoriesAsync() {
     try {
-        const state = yield select();
-        const currentMeetingId = state.currentMeeting._id;
+        const currentMeetingId = yield select(getCurrentMeetingId);
         const stories = yield call(StoriesAPI.all, currentMeetingId);
         yield put(StoriesSuccess(stories));
     } catch (error) {
@@ -39,8 +39,7 @@ export function CreateStory(storyName) {
 
 export function* createStoryAsync({payload}){
     try {
-        const state = yield select();
-        const currentMeetingId = state.currentMeeting._id;
+        const currentMeetingId = yield select(getCurrentMeetingId);
         yield call(StoriesAPI.post, currentMeetingId, payload);
     }
     catch (e) {

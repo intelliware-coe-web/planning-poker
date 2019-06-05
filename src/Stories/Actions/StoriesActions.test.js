@@ -1,11 +1,13 @@
 import { StoriesSuccess, StoriesError, getStoriesAsync, createStoryAsync} from './StoriesActions';
 import { StoriesAPI } from "../API/Stories.api";
 import { call, put, select } from '@redux-saga/core/effects';
+import * as Selectors from '../../Common/selectors';
 
 describe('Stories Actions', () => {
     let fixture;
     const currentMeetingId = '123';
-
+    jest.spyOn(Selectors, 'getCurrentMeetingId').mockReturnValue(() => jest.fn());
+    
     describe('GetStories for currentMeeting', () => {
 
         beforeEach(() => { 
@@ -13,8 +15,8 @@ describe('Stories Actions', () => {
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(select());
-            expect(fixture.next({currentMeeting: {_id: currentMeetingId}}).value).toEqual(call(StoriesAPI.all, currentMeetingId));
+            expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
+            expect(fixture.next(currentMeetingId).value).toEqual(call(StoriesAPI.all, currentMeetingId));
             expect(fixture.next([]).value).toEqual(put(StoriesSuccess([])));
             expect(fixture.next().done).toBeTruthy();
         });
@@ -38,8 +40,8 @@ describe('Stories Actions', () => {
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(select());
-            expect(fixture.next({currentMeeting: {_id: currentMeetingId}}).value).toEqual(call(StoriesAPI.post, currentMeetingId, storyBody));
+            expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
+            expect(fixture.next(currentMeetingId).value).toEqual(call(StoriesAPI.post, currentMeetingId, storyBody));
             expect(fixture.next().done).toBeTruthy();
         });
 
