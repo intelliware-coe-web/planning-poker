@@ -1,4 +1,4 @@
-import { StoriesSuccess, StoriesError, getStoriesAsync, createStoryAsync} from './StoriesActions';
+import { StoriesSuccess, StoriesError, getStoriesAsync, postStoryAsync} from './StoriesActions';
 import { StoriesAPI } from "../API/Stories.api";
 import { call, put, select } from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
@@ -37,7 +37,7 @@ describe('Stories Actions', () => {
 
         beforeEach(() => { 
             const expectedPayload = storyBody;
-            fixture = createStoryAsync({payload: expectedPayload});
+            fixture = postStoryAsync({payload: expectedPayload});
         });
 
         it('should dispatch action', () => {

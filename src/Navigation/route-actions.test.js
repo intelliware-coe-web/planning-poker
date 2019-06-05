@@ -1,5 +1,5 @@
 import {
-  viewAddStory,
+  viewCreateStory,
   viewCreateMeeting,
   viewHost,
   viewMeeting,
@@ -43,8 +43,8 @@ describe('Route Actions', () => {
     expect(viewCreateMeeting()).toEqual(push('/meeting/create/'));
   });
 
-  it('should view add stories', () => {
-    expect(viewAddStory()).toEqual(push('/stories/add'));
+  it('should view create stories', () => {
+    expect(viewCreateStory()).toEqual(push('/stories/create/'));
   });
 
   it('should watch view actions', () => {

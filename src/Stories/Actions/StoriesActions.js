@@ -10,7 +10,7 @@ export const STORIES_POST_REQUESTED = 'STORIES_POST_REQUESTED';
 
 export function* watchStoriesAsync() {
     yield takeLatest(STORIES_GET_REQUESTED, getStoriesAsync);
-    yield takeLatest(STORIES_POST_REQUESTED, createStoryAsync);
+    yield takeLatest(STORIES_POST_REQUESTED, postStoryAsync);
 }
 
 export function GetStories() {
@@ -29,7 +29,7 @@ export function* getStoriesAsync() {
     }
 }
 
-export function CreateStory(storyName) {
+export function PostStory(storyName) {
     return {
         type: STORIES_POST_REQUESTED,
         payload: {
@@ -38,7 +38,7 @@ export function CreateStory(storyName) {
     }
 }
 
-export function* createStoryAsync({payload}){
+export function* postStoryAsync({payload}){
     try {
         const currentMeetingId = yield select(getCurrentMeetingId);
         yield call(StoriesAPI.post, currentMeetingId, payload);
