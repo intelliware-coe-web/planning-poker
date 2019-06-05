@@ -10,7 +10,7 @@ import {
 import { takeLatest, put } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
-import { GetCurrentMeeting } from '../Meetings/Actions/CurrentMeetingActions';
+import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 
 describe('Route Actions', () => {
   it('should route to the host', () => {

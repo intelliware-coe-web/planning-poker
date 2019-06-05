@@ -4,7 +4,7 @@ import user from './User/Reducers/UserReducer';
 import estimateStory from './Estimate/Reducers/EstimateStoryReducer';
 import meetings from './Meetings/Reducers/MeetingsReducer';
 import error from './ErrorReducer';
-import currentMeeting from './Meetings/Reducers/CurrentMeetingReducer';
+import currentMeeting from './CurrentMeeting/Reducers/CurrentMeetingReducer';
 
 export default (history) =>
   combineReducers({

@@ -1,4 +1,4 @@
-import { MeetingAPI } from '../API/Meeting.api'
+import { CurrentMeetingAPI } from '../API/CurrentMeeting.api'
 import { takeLatest, call, put } from 'redux-saga/effects';
 
 export const CURRENT_MEETING_SUCCESS = 'CURRENT_MEETING_SUCCESS';
@@ -18,7 +18,7 @@ export function GetCurrentMeeting(meetingId) {
 
 export function* getCurrentMeetingAsync({payload: meetingId}){
     try {
-        const meeting = yield call(MeetingAPI.byId, meetingId);
+        const meeting = yield call(CurrentMeetingAPI.byId, meetingId);
         yield put(CurrentMeetingSuccess(meeting));
     }
     catch (e) {

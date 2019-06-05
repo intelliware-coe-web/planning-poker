@@ -1,7 +1,7 @@
 import { push } from 'connected-react-router';
 import { put, takeLatest } from 'redux-saga/effects';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
-import { GetCurrentMeeting } from '../Meetings/Actions/CurrentMeetingActions';
+import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 
 export const viewHost = () => push('/host/');
 export const viewCreateMeeting = () => push('/meeting/create/');

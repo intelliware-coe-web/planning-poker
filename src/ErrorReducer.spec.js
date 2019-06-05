@@ -1,7 +1,7 @@
 import ErrorReducer from './ErrorReducer';
 import {MEETINGS_ERROR} from './Meetings/Actions/MeetingsActions';
 import {USER_ERROR} from './User/Actions/UserActions';
-import {CURRENT_MEETING_ERROR} from "./Meetings/Actions/CurrentMeetingActions";
+import {CURRENT_MEETING_ERROR} from "./CurrentMeeting/Actions/CurrentMeetingActions";
 import {ESTIMATE_ERROR} from "./Estimate/Actions/EstimateActions";
 import {STORIES_ERROR} from "./Stories/Actions/StoriesActions";
 
