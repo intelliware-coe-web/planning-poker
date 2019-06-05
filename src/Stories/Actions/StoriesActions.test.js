@@ -2,6 +2,7 @@ import { StoriesSuccess, StoriesError, getStoriesAsync, createStoryAsync} from '
 import { StoriesAPI } from "../API/Stories.api";
 import { call, put, select } from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
+import { viewHost } from '../../Navigation/route-actions';
 
 describe('Stories Actions', () => {
     let fixture;
@@ -42,6 +43,7 @@ describe('Stories Actions', () => {
         it('should dispatch action', () => {
             expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
             expect(fixture.next(currentMeetingId).value).toEqual(call(StoriesAPI.post, currentMeetingId, storyBody));
+            expect(fixture.next().value).toEqual(put(viewHost()));
             expect(fixture.next().done).toBeTruthy();
         });
 
