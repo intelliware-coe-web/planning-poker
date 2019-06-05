@@ -9,7 +9,7 @@ export function Estimate({ story, meeting, goToMeetings, goToHost, estimateStory
   const estimation = [1, 2, 3, 5, 8, 13];
   return (
     <Page title='Estimate' onBack={ goToMeetings }>
-      <HostButton hasHost={ meeting && !meeting.host } onHostClick={ goToHost }/>
+      <HostButton hasHost={ meeting && !!meeting.host } onHostClick={ goToHost }/>
       <StoryDescription { ...story } />
       <div className="uk-align-center uk-width-1-1@m">
         { estimation.map((estimate, i) =>
@@ -33,11 +33,13 @@ function StoryDescription({ storyId, storyDescription }) {
   </dl>);
 }
 
-function HostButton(hasHost, onHostClick) {
-  return !hasHost ?
-    (<button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-             onClick={ onHostClick }>Host</button>) :
-    (<></>);
+function HostButton({ hasHost, onHostClick }) {
+  if (hasHost) {
+    return <></>
+  } else {
+    return <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+                   onClick={ onHostClick }>Host</button>;
+  }
 }
 
 function mapStateToProps(state) {
