@@ -4,13 +4,13 @@ import { estimateStory } from '../Actions/EstimateActions';
 import { viewHost, viewMeetings } from '../../Navigation/route-actions';
 import { Page } from '../../Common/Header';
 
-export function Estimate({ story, currentMeeting, user, goToMeetings, goToHost, estimateStory }) {
+export function Estimate({ story, currentMeeting, user, currentStory, goToMeetings, goToHost, estimateStory }) {
   // TODO: Move estimations to store
   const estimation = [1, 2, 3, 5, 8, 13];
   return (
     <Page title={currentMeeting.name} onBack={ goToMeetings }>
       <HostButton hasHost={ currentMeeting && !!currentMeeting.host } onHostClick={ goToHost }/>
-      <StoryDescription { ...story } />
+      <StoryDescription { ...currentStory } />
       <div className="uk-align-center uk-width-1-1@m">
         { estimation.map((estimate, i) =>
           <button key={ i } onClick={ () => estimateStory(user._id, story.storyId, estimate) }
@@ -26,10 +26,10 @@ export function Estimate({ story, currentMeeting, user, goToMeetings, goToHost, 
   );
 }
 
-function StoryDescription({ storyId, storyDescription }) {
+function StoryDescription({ name, description }) {
   return (<dl className="uk-description-list">
-    <dt># { storyId } :</dt>
-    <dd>{ storyDescription }</dd>
+    <dt># { name } :</dt>
+    <dd>{ description }</dd>
   </dl>);
 }
 
@@ -46,7 +46,8 @@ function mapStateToProps(state) {
   return {
       story: state.estimateStory,
       currentMeeting: state.currentMeeting,
-      user: state.user
+      user: state.user,
+      currentStory: state.currentStory
   }
 }
 

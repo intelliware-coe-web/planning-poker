@@ -4,6 +4,7 @@ import {USER_ERROR} from './User/Actions/UserActions';
 import {CURRENT_MEETING_ERROR} from "./CurrentMeeting/Actions/CurrentMeetingActions";
 import {ESTIMATE_ERROR} from "./Estimate/Actions/EstimateActions";
 import {STORIES_ERROR} from "./Stories/Actions/StoriesActions";
+import {CURRENT_STORY_ERROR} from "./CurrentStory/Actions/CurrentStoryActions";
 
 describe('Error Reducer ', () => {
 
@@ -34,6 +35,15 @@ describe('Error Reducer ', () => {
       expect(actualNextState).toEqual({error});
   });
 
+  it('should set error on a current story error', () => {
+      const initialState = null;
+      const error = "Page Not Found";
+      const action = { type: CURRENT_STORY_ERROR, payload: { error: error } };
+
+      const actualNextState = ErrorReducer(initialState, action);
+      expect(actualNextState).toEqual({error});
+  });
+
   it('should set error on a estimate error', () => {
       const initialState = null;
       const error = "Page Not Found";
@@ -51,6 +61,7 @@ describe('Error Reducer ', () => {
       const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});
   });
+
 
   it('should reset the error to the initial state on non-error messages', () => {
     const initialState = null;
