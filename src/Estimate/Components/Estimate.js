@@ -4,7 +4,7 @@ import { estimateStory } from '../Actions/EstimateActions';
 import { viewHost, viewMeetings } from '../../Navigation/route-actions';
 import { Page } from '../../Common/Header';
 
-export function Estimate({ story, meeting, goToMeetings, goToHost, estimateStory }) {
+export function Estimate({ story, meeting, user, goToMeetings, goToHost, estimateStory }) {
   // TODO: Move estimations to store
   const estimation = [1, 2, 3, 5, 8, 13];
   return (
@@ -13,7 +13,7 @@ export function Estimate({ story, meeting, goToMeetings, goToHost, estimateStory
       <StoryDescription { ...story } />
       <div className="uk-align-center uk-width-1-1@m">
         { estimation.map((estimate, i) =>
-          <button key={ i } onClick={ () => estimateStory(estimate, story.storyId) }
+          <button key={ i } onClick={ () => estimateStory(user._id, story.storyId, estimate) }
                   className={ `uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${ story.estimate === estimate ? 'selected' : '' }` }>
             { estimate }
             <span
@@ -44,16 +44,17 @@ function HostButton({ hasHost, onHostClick }) {
 
 function mapStateToProps(state) {
   return {
-    story: state.estimateStory,
-    meeting: state.currentMeeting
+      story: state.estimateStory,
+      meeting: state.currentMeeting,
+      user: state.user
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    goToMeetings: () => dispatch(viewMeetings()),
-    goToHost: () => dispatch(viewHost()),
-    estimateStory: (estimate, storyId) => dispatch(estimateStory(estimate, storyId))
+      goToMeetings: () => dispatch(viewMeetings()),
+      goToHost: () => dispatch(viewHost()),
+      estimateStory: (userId, storyId, estimate) => dispatch(estimateStory(userId, storyId, estimate))
   };
 }
 

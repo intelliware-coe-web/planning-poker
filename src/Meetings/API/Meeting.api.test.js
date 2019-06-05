@@ -1,7 +1,7 @@
 import {MeetingAPI} from './Meeting.api';
 import * as FetchApi from '../../Fetch.api';
 
-describe('MeetingAPI', () => {
+describe('EstimateAPI', () => {
 
     it('all() should call getData() from FetchApi', () => {
         FetchApi.getData = jest.fn();

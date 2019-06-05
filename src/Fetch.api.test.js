@@ -1,4 +1,4 @@
-import {getData, postData} from './Fetch.api';
+import {getData, postData, putData} from './Fetch.api';
 
 describe('FetchApi', () => {
     const url = 'http://test.test';
@@ -81,5 +81,46 @@ describe('FetchApi', () => {
                 done();
             });
         });
-    });    
+    });
+
+    describe('putData', () => {
+        const data = {};
+
+        it('should return data when server returns ok response', (done) => {
+            const SUCCESS_RESPONSE = {
+                ok: true,
+                status: 200,
+                json: jest.fn()
+            };
+            jest.spyOn(global, 'fetch').mockImplementation(() => Promise.resolve(SUCCESS_RESPONSE));
+
+            putData(url, data).then(response => {
+                expect(SUCCESS_RESPONSE.json).toHaveBeenCalledTimes(1);
+                done();
+            });
+        });
+
+        it('should throw error when server returns not ok response', (done) => {
+            const ERROR_RESPONSE = {
+                ok: false,
+                status: 404,
+                json: jest.fn()
+            };
+            jest.spyOn(global, 'fetch').mockImplementation(() => Promise.resolve(ERROR_RESPONSE));
+
+            putData(url, data).catch(error => {
+                expect(ERROR_RESPONSE.json).toHaveBeenCalledTimes(0);
+                expect(error.message).toBe('HTTP status ' + ERROR_RESPONSE.status);
+                done();
+            });
+        });
+
+        it('should throw error when server throws an error', (done) => {
+            jest.spyOn(global, 'fetch').mockImplementation(() => Promise.reject());
+            putData(url, data).catch(error => {
+                expect(error.message).toBe('Post data failed to url ' + url);
+                done();
+            });
+        });
+    });
 });

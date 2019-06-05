@@ -41,3 +41,25 @@ export const postData = (url = '', data = {}) => {
      throw error ? error : Error('Post data failed to url ' + url);
   });
 };
+
+export const putData = (url = '', data = {}) => {
+    return fetch(url, {
+        method: 'PUT',
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+        .then(response => {
+            if(!response.ok) {
+                throw Error('HTTP status ' + response.status);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            throw error ? error : Error('Post data failed to url ' + url);
+        });
+};
