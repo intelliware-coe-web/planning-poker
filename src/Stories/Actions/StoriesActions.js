@@ -1,5 +1,5 @@
 import { StoriesAPI } from '../API/Stories.api'
-import { takeLatest, call, put } from '@redux-saga/core/effects';
+import { takeLatest, call, put, select } from '@redux-saga/core/effects';
 
 export const STORIES_SUCCESS = 'STORIES_SUCCESS';
 export const STORIES_ERROR = 'STORIES_ERROR';
@@ -8,7 +8,7 @@ export const STORIES_POST_REQUESTED = 'STORIES_POST_REQUESTED';
 
 export function* watchStoriesAsync() {
     yield takeLatest(STORIES_GET_REQUESTED, getStoriesAsync);
-    yield takeLatest(STORIES_POST_REQUESTED, addStoryAsync);
+    yield takeLatest(STORIES_POST_REQUESTED, createStoryAsync);
 }
 
 export function GetStories() {
@@ -19,14 +19,16 @@ export function GetStories() {
 
 export function* getStoriesAsync() {
     try {
-        const stories = yield call(StoriesAPI.all, '123');
+        const state = yield select();
+        const currentMeetingId = state.currentMeeting._id;
+        const stories = yield call(StoriesAPI.all, currentMeetingId);
         yield put(StoriesSuccess(stories));
     } catch (error) {
         yield put(StoriesError(error));
     }
 }
 
-export function AddStory(storyName) {
+export function CreateStory(storyName) {
     return {
         type: STORIES_POST_REQUESTED,
         payload: {
@@ -35,9 +37,11 @@ export function AddStory(storyName) {
     }
 }
 
-export function* addStoryAsync({payload}){
+export function* createStoryAsync({payload}){
     try {
-        yield call(StoriesAPI.add, payload);
+        const state = yield select();
+        const currentMeetingId = state.currentMeeting._id;
+        yield call(StoriesAPI.post, currentMeetingId, payload);
     }
     catch (e) {
         yield put(StoriesError(e));

@@ -5,24 +5,14 @@ exports[`Container: Estimate should render Estimate correctly 1`] = `
   onBack={[MockFunction]}
   title="Estimate"
 >
-  <button
-    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-    onClick={[MockFunction]}
-  >
-    Host
-  </button>
-  <dl
-    className="uk-description-list"
-  >
-    <dt>
-      # 
-      123
-       :
-    </dt>
-    <dd>
-      blah
-    </dd>
-  </dl>
+  <HostButton
+    onHostClick={[MockFunction]}
+  />
+  <StoryDescription
+    estimate={1}
+    storyDescription="blah"
+    storyId="123"
+  />
   <div
     className="uk-align-center uk-width-1-1@m"
   >

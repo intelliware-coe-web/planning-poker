@@ -5,7 +5,9 @@ exports[`AddStory renders correctly 1`] = `
   onBack={[MockFunction]}
   title="Add Story"
 >
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <div
       className="uk-margin"
     >

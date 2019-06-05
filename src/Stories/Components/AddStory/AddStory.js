@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { viewHost } from '../../../Navigation/route-actions';
 import { Page } from '../../../Common/Header';
+import { CreateStory } from '../../Actions/StoriesActions';
 
-export function AddStory({goToHost}) {
+export function AddStory({goToHost, postStory}) {
   return (
     <Page title='Add Story' onBack={goToHost}>
-      <form>
+      <form onSubmit={ event => { postNewStory(event, postStory) } }>
         <div className="uk-margin">
           <div className="uk-inline uk-width-1-2">
             <span className="uk-form-icon" data-uk-icon="icon: link"/>
@@ -19,11 +20,17 @@ export function AddStory({goToHost}) {
       </form>
     </Page>
   );
+
+  function postNewStory(event, onSubmit) {
+    event.preventDefault();
+    onSubmit(event.target.storyInputName.value.trim());
+  }
 }
   
 function mapDispatchToProps(dispatch) {
   return {
-    goToHost: () => dispatch(viewHost())
+    goToHost: () => dispatch(viewHost()),
+    postStory: (storyName) => dispatch(CreateStory(storyName))
   }
 }
 

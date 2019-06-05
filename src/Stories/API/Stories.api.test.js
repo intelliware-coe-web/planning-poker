@@ -11,7 +11,7 @@ describe('StoriesAPI', () => {
 
     it('create() should call postData() from FetchApi', () => {
         FetchApi.postData = jest.fn();
-        StoriesAPI.add({});
+        StoriesAPI.post({});
         expect(FetchApi.postData).toHaveBeenCalledTimes(1);
     });
 });

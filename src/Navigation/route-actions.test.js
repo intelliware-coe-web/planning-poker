@@ -1,19 +1,42 @@
-import { loadStoreState, viewAddStory, viewCreateMeeting, viewHost, viewMeeting, viewMeetings } from './route-actions';
-import { put } from 'redux-saga/effects';
+import {
+  viewAddStory,
+  viewCreateMeeting,
+  viewHost,
+  viewMeeting,
+  viewMeetings,
+  viewMeetingSaga,
+  viewMeetingsSaga, watchRouterAsync
+} from './route-actions';
+import { takeLatest, put } from 'redux-saga/effects';
 import { push } from 'connected-react-router';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
+import { GetCurrentMeeting } from '../Meetings/Actions/CurrentMeetingActions';
 
 describe('Route Actions', () => {
   it('should route to the host', () => {
     expect(viewHost()).toEqual(push('/host/'))
   });
 
+  it('should create a view meetings action', () => {
+    expect(viewMeetings()).toEqual({ type: 'VIEW_MEETINGS' });
+  });
+
   it('should route to meetings', () => {
-    expect(viewMeetings()).toEqual(push('/meetings/'));
+    const saga = viewMeetingsSaga();
+    expect(saga.next().value).toEqual(put(GetMeetings()));
+    expect(saga.next().value).toEqual(put(push('/meetings/')));
+    expect(saga.next().done).toBeTruthy();
+  });
+
+  it('should create a view meeting action', () => {
+    expect(viewMeeting('FOO')).toEqual({ type: 'VIEW_MEETING', payload: 'FOO' });
   });
 
   it('should route to estimations', () => {
-    expect(viewMeeting('Foo')).toEqual(push('/estimate?meetingId=Foo'));
+    const saga = viewMeetingSaga({ payload: 'Foo' });
+    expect(saga.next().value).toEqual(put(GetCurrentMeeting('Foo')));
+    expect(saga.next().value).toEqual(put(push('/estimate/Foo')));
+    expect(saga.next().done).toBeTruthy();
   });
 
   it('should view create meeting', () => {
@@ -24,14 +47,10 @@ describe('Route Actions', () => {
     expect(viewAddStory()).toEqual(push('/stories/add'));
   });
 
-  it('should fetch the meeting data when navigating to the meetings page', () => {
-    const saga = loadStoreState({ payload: { location: { pathname: '/meetings/' } } });
-    expect(saga.next().value).toEqual(put(GetMeetings()));
-    expect(saga.next().done).toBeTruthy();
-  });
-
-  it('should not fetch the data when navigating not to the meetings page', () => {
-    const saga = loadStoreState({ payload: { location: { pathname: '/current-meetings/' } } });
-    expect(saga.next().done).toBeTruthy();
+  it('should watch view actions', () => {
+    const watcher = watchRouterAsync();
+    expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
+    expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETING', viewMeetingSaga));
+    expect(watcher.next().done).toBeTruthy();
   });
 });

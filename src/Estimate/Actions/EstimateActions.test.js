@@ -52,7 +52,6 @@ describe('Estimate Actions', () => {
     describe('Estimate story', () => {
         it('should return json with payload', () => {
              const estimateStoryJSON = estimateStory(userId, storyId, estimate);
-             console.log(estimateStoryJSON);
              expect(estimateStoryJSON).toEqual({
                  type: ESTIMATE_STORY_REQUESTED,
                  payload: {
