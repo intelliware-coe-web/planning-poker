@@ -34,7 +34,7 @@ export function* viewMeetingsSaga() {
   yield put(push('/meetings/'));
 }
 
-export function* watchLocationAsync() {
+export function* watchRouterAsync() {
   yield takeLatest(VIEW_MEETINGS, viewMeetingsSaga);
   yield takeLatest(VIEW_MEETING, viewMeetingSaga);
 }
