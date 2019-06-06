@@ -4,14 +4,14 @@ import { viewAddStory, viewMeeting, viewMeetings } from '../Navigation/route-act
 import { Page } from '../Common/Header';
 import { connect } from 'react-redux';
 
-export function Host({ addStory, goToMeetings, estimate }) {
+export function Host({ currentMeeting, addStory, goToMeetings, estimate }) {
 
   let alphabets = 'ABCD';
 
   return (
     <Page title='Host' onBack={ goToMeetings }>
       <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-              onClick={ () => estimate('') }>
+              onClick={ () => estimate(currentMeeting._id) }>
         Estimate
       </button>
 
@@ -32,6 +32,12 @@ export function Host({ addStory, goToMeetings, estimate }) {
   );
 }
 
+function mapStateToProps(state) {
+    return {
+        currentMeeting: state.currentMeeting
+    };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     goToMeetings: () => dispatch(viewMeetings()),
@@ -40,4 +46,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(Host);
+export default connect(mapStateToProps, mapDispatchToProps)(Host);
