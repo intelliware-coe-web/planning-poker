@@ -37,7 +37,7 @@ export function* viewMeetingsSaga() {
 
 export function* routerActions(action){
   if(action.payload.location.pathname.startsWith("/estimate/")) {
-    yield put(GetCurrentStory(action.payload.location.pathname.split('/estimate/')[1]))
+    yield put(GetCurrentStory(action.payload.location.pathname.split('/estimate/')[1]));
   } else {
     yield put(StopCurrentStoryPolling());
   }
