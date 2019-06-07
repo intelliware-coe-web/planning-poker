@@ -1,12 +1,12 @@
 import {
-    routerActions,
-    viewAddStory,
-    viewCreateMeeting,
-    viewHost,
-    viewMeeting,
-    viewMeetings,
-    viewMeetingSaga,
-    viewMeetingsSaga, watchRouterAsync
+  routerActions,
+  viewCreateStory,
+  viewCreateMeeting,
+  viewHost,
+  viewMeeting,
+  viewMeetings,
+  viewMeetingSaga,
+  viewMeetingsSaga, watchRouterAsync
 } from './route-actions';
 import { takeLatest, put } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'connected-react-router';
@@ -23,8 +23,8 @@ describe('Route Actions', () => {
     expect(viewCreateMeeting()).toEqual(push('/meeting/create/'));
   });
 
-  it('should view add stories', () => {
-    expect(viewAddStory()).toEqual(push('/stories/add'));
+  it('should view create stories', () => {
+    expect(viewCreateStory()).toEqual(push('/stories/create/'));
   });
 
   it('should create a view meeting action', () => {

@@ -1,0 +1,1 @@
+export const getCurrentMeetingId = state => state.currentMeeting._id;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { viewAddStory, viewMeeting, viewMeetings } from '../Navigation/route-actions';
+import { viewCreateStory, viewMeeting, viewMeetings } from '../Navigation/route-actions';
 import { Page } from '../Common/Header';
 import { connect } from 'react-redux';
 
-export function Host({ currentMeeting, addStory, goToMeetings, estimate }) {
+export function Host({ currentMeeting, createStory, goToMeetings, estimate }) {
 
   let alphabets = 'ABCD';
 
@@ -25,7 +25,7 @@ export function Host({ currentMeeting, addStory, goToMeetings, estimate }) {
       )
       }
 
-      <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button" onClick={ addStory }>
+      <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button" onClick={ createStory }>
         <h3 className="uk-card-title">+</h3>
       </div>
     </Page>
@@ -41,7 +41,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     goToMeetings: () => dispatch(viewMeetings()),
-    addStory: () => dispatch(viewAddStory()),
+    createStory: () => dispatch(viewCreateStory()),
     estimate: (meetingId) => dispatch(viewMeeting(meetingId))
   };
 }

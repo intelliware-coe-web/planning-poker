@@ -6,7 +6,7 @@ import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Action
 
 export const viewHost = () => push('/host/');
 export const viewCreateMeeting = () => push('/meeting/create/');
-export const viewAddStory = () => push('/stories/add');
+export const viewCreateStory = () => push('/stories/create/');
 
 const VIEW_MEETING = 'VIEW_MEETING';
 
