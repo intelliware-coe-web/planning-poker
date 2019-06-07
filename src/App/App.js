@@ -5,7 +5,7 @@ import Meetings from '../Meetings/Components/Meetings/Meetings';
 import Estimate from '../Estimate/Components/Estimate';
 import CreateMeeting from '../Meetings/Components/CreateMeeting/CreateMeeting';
 import CreateUser from '../User/Components/CreateUser';
-import AddStory from '../Stories/Components/AddStory/AddStory';
+import CreateStory from '../Stories/Components/CreateStory/CreateStory';
 import Story from '../Stories/Components/Story/Story';
 import {history} from "../store";
 import {ConnectedRouter} from "connected-react-router";
@@ -19,7 +19,7 @@ export default function App() {
           <Route path="/meetings/" component={Meetings} />
           <Route path="/meeting/create" component={CreateMeeting} />
           <Route path="/estimate/:meetingId" component={Estimate} />
-          <Route path="/stories/add" component={AddStory} />
+          <Route path="/stories/create" component={CreateStory} />
           <Route path="/story/:storyId" component={Story} />
       </ConnectedRouter>
   );

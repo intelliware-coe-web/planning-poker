@@ -5,7 +5,7 @@ import { GetCurrentMeeting } from '../Meetings/Actions/CurrentMeetingActions';
 
 export const viewHost = () => push('/host/');
 export const viewCreateMeeting = () => push('/meeting/create/');
-export const viewAddStory = () => push('/stories/add');
+export const viewCreateStory = () => push('/stories/create/');
 
 const VIEW_MEETING = 'VIEW_MEETING';
 

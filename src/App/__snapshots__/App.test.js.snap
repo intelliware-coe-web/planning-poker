@@ -82,11 +82,11 @@ exports[`renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(AddStory)",
+        "displayName": "Connect(CreateStory)",
         "type": [Function],
       }
     }
-    path="/stories/add"
+    path="/stories/create"
   />
   <Route
     component={[Function]}
