@@ -1,7 +1,11 @@
-import {GetCurrentMeeting, CURRENT_MEETING_ERROR, CURRENT_MEETING_SUCCESS} from "./CurrentMeetingActions";
-import {MeetingAPI} from "../API/Meeting.api";
+import {
+    CURRENT_MEETING_ERROR,
+    CURRENT_MEETING_SUCCESS,
+    GetCurrentMeeting,
+    getCurrentMeetingAsync
+} from "./CurrentMeetingActions";
+import {CurrentMeetingAPI} from "../API/CurrentMeeting.api";
 import {call, put} from 'redux-saga/effects';
-import { getCurrentMeetingAsync } from "./CurrentMeetingActions";
 
 describe('CurrentMeeting Actions', () => {
     let fixture;
@@ -15,7 +19,7 @@ describe('CurrentMeeting Actions', () => {
 
         it('should dispatch action', () => {
             const ApiResponse = [];
-            expect(fixture.next().value).toEqual(call(MeetingAPI.byId, meetingId));
+            expect(fixture.next().value).toEqual(call(CurrentMeetingAPI.byId, meetingId));
             expect(fixture.next(ApiResponse).value).toEqual(put({
                 type: CURRENT_MEETING_SUCCESS,
                 payload: {currentMeeting: ApiResponse}

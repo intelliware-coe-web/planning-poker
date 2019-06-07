@@ -3,16 +3,13 @@
 exports[`Container: Estimate should render Estimate correctly 1`] = `
 <Page
   onBack={[MockFunction]}
-  title="Estimate"
+  title="mockConstructor"
 >
   <HostButton
+    hasHost={false}
     onHostClick={[MockFunction]}
   />
-  <StoryDescription
-    estimate={1}
-    storyDescription="blah"
-    storyId="123"
-  />
+  <StoryDescription />
   <div
     className="uk-align-center uk-width-1-1@m"
   >

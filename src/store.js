@@ -6,10 +6,11 @@ import createSagaMiddleware from 'redux-saga';
 import {all} from 'redux-saga/effects';
 import {watchUserAsync} from './User/Actions/UserActions';
 import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
-import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions';
+import {watchCurrentMeetingAsync} from './CurrentMeeting/Actions/CurrentMeetingActions';
 import {watchRouterAsync} from './Navigation/route-actions';
 import {watchStoriesAsync} from './Stories/Actions/StoriesActions';
 import {watchEstimateAsync} from './Estimate/Actions/EstimateActions';
+import {watchCurrentStoryAsync} from './CurrentStory/Actions/CurrentStoryActions'
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -24,6 +25,7 @@ function* rootSaga() {
         watchCurrentMeetingAsync(),
         watchEstimateAsync(),
         watchCurrentMeetingAsync(),
+        watchCurrentStoryAsync(),
         watchRouterAsync(),
         watchStoriesAsync()
     ]);
