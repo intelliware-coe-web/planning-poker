@@ -36,11 +36,11 @@ export function* getCurrentStoryAsync({payload: meetingId}){
         try {
             const story = yield call(CurrentStoryAPI.byId, meetingId);
             yield put(CurrentStorySuccess(story));
-            yield delay(CURRENT_STORY_GET_DELAY);
         }
         catch (e) {
             yield put(CurrentStoryError(e));
         }
+        yield delay(CURRENT_STORY_GET_DELAY);
     }
 }
 
