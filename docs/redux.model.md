@@ -1,21 +1,22 @@
 # Redux Model
+
 ```
 {
   User: {
-    id: String
-  },
-  Meeting: {
-	  id: String
-  },
-  Story: {
     id: String,
-    estimate: number,
-    description: String
+    name: String
   },
-  Estimation: number[],
-  Host: {
-    Stories: Story[],
-    Attendees: User[]
-  }
+  CurrentStory: {
+    id: String,
+    name: String
+  },
+  CurrentMeeting: {
+    id: String,
+    name: String
+  },
+  Meetings: Meeting[{id: String, name: String}],
+  Stories: Story[{id: String, name: String}],
+  Estimation: number,
+  EstimationSummary: Estimate[{username: String, estimate: number}]
 }
 ```
