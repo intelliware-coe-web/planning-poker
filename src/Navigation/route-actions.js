@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetStories } from '../Stories/Actions/StoriesActions';
 import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
+import { GetCurrentStory, StopCurrentStoryPolling, GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');
@@ -53,6 +53,12 @@ export function* routerActions(action){
     yield put(GetCurrentStory(action.payload.location.pathname.split('/estimate/')[1]));
   } else {
     yield put(StopCurrentStoryPolling());
+  }
+  
+  if (action.payload.location.pathname.startsWith("/story/summary/")) {
+    yield put(GetStoryEstimates(action.payload.location.pathname.split('/story/summary/')[1]));
+  } else {    
+    yield put(StopStoryEstimatesPolling());
   }
 }
 

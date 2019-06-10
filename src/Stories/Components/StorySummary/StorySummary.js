@@ -74,7 +74,8 @@ export function StorySummary({currentMeeting, goToHost}) {
 function mapStateToProps(state) {
     return {
         currentMeeting: state.currentMeeting,
-        currentStory: state.currentStory
+        currentStory: state.currentStory,
+        estimateList: state.estimateList
     }
   }
   

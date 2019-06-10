@@ -14,7 +14,7 @@ import { takeLatest, put } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'connected-react-router';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import { GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
+import { GetCurrentStory, GetStoryEstimates, StopCurrentStoryPolling, StopStoryEstimatesPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 
 describe('Route Actions', () => {
 
@@ -53,7 +53,7 @@ describe('Route Actions', () => {
   });
 
   describe('RouterActions', () => {
-    it('should dispatch GetCurrentStory if location is estimate', () => {
+    it('should dispatch GetCurrentStory and StopStoryEstimatesPolling if location is estimate', () => {
         const mockMeetingId = '13847gf81374gr183o4';
         const mockRouterPayload = {
             location: {
@@ -62,17 +62,32 @@ describe('Route Actions', () => {
         };
         const saga = routerActions({payload: mockRouterPayload});
         expect(saga.next().value).toEqual(put(GetCurrentStory(mockMeetingId)));
+        expect(saga.next().value).toEqual(put(StopStoryEstimatesPolling()));
         expect(saga.next().done).toBeTruthy();
     });
-    it('should dispatch StopCurrentStoryPolling if location is not estimate', () => {
+    it('should dispatch StopCurrentStoryPolling and StopStoryEstimatesPolling if location is not estimate or story summary', () => {
         const mockRouterPayload = {
             location: {
-                pathname: '/notEstimate/'
+                pathname: '/neither-path/'
             }
         };
         const saga = routerActions({payload: mockRouterPayload});
         expect(saga.next().value).toEqual(put(StopCurrentStoryPolling()));
+        expect(saga.next().value).toEqual(put(StopStoryEstimatesPolling()));
         expect(saga.next().done).toBeTruthy();
+    });
+
+    it('should dispatch GetStoryEstimates and StopCurrentStoryPolling if location is story summary', () => {
+      const mockStoryId = '13847gf81374gr183o4';
+      const mockRouterPayload = {
+          location: {
+            pathname: '/story/summary/'+mockStoryId
+          }
+      };
+      const saga = routerActions({payload: mockRouterPayload});
+      expect(saga.next().value).toEqual(put(StopCurrentStoryPolling()));
+      expect(saga.next().value).toEqual(put(GetStoryEstimates(mockStoryId)));
+      expect(saga.next().done).toBeTruthy();
     });
   });
 

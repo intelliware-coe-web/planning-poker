@@ -1,5 +1,6 @@
 import {API_URL, getData} from '../../Fetch.api';
 
 export const CurrentStoryAPI = {
-    byId: meetingId => getData(`${API_URL}/meetings/${meetingId}/currentStory`)
+    byMeetingId: meetingId => getData(`${API_URL}/meetings/${meetingId}/currentStory`),
+    estimateList: storyId => getData(`${API_URL}/stories/${storyId}/estimates`)
 };
