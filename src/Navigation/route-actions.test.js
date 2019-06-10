@@ -2,11 +2,13 @@ import {
   routerActions,
   viewCreateStory,
   viewCreateMeeting,
-  viewHost,
+  viewStories,
   viewMeeting,
   viewMeetings,
   viewMeetingSaga,
-  viewMeetingsSaga, watchRouterAsync
+  viewMeetingsSaga, 
+  viewStoriesSaga,
+  watchRouterAsync 
 } from './route-actions';
 import { takeLatest, put } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'connected-react-router';
@@ -15,16 +17,13 @@ import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActio
 import { GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
 
 describe('Route Actions', () => {
-  it('should route to the host', () => {
-    expect(viewHost()).toEqual(push('/host/'))
-  });
 
   it('should view create meeting', () => {
     expect(viewCreateMeeting()).toEqual(push('/meeting/create/'));
   });
 
-  it('should view create stories', () => {
-    expect(viewCreateStory()).toEqual(push('/stories/create/'));
+  it('should view create story', () => {
+    expect(viewCreateStory()).toEqual(push('/story/create/'));
   });
 
   it('should create a view meeting action', () => {
@@ -40,6 +39,10 @@ describe('Route Actions', () => {
 
   it('should create a view meetings action', () => {
     expect(viewMeetings()).toEqual({ type: 'VIEW_MEETINGS' });
+  });
+
+  it('should create a view stories action', () => {
+    expect(viewStories()).toEqual({ type: 'VIEW_STORIES' });
   });
 
   it('should route to meetings', () => {
@@ -77,6 +80,7 @@ describe('Route Actions', () => {
     const watcher = watchRouterAsync();
     expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
     expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETING', viewMeetingSaga));
+    expect(watcher.next().value).toEqual(takeLatest('VIEW_STORIES', viewStoriesSaga));
     expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));
     expect(watcher.next().done).toBeTruthy();
   });

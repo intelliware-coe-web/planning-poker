@@ -1,7 +1,7 @@
 import { StoriesAPI } from '../API/Stories.api'
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import { getCurrentMeetingId } from '../../Common/selectors';
-import { viewHost } from '../../Navigation/route-actions';
+import { viewStories } from '../../Navigation/route-actions';
 
 export const STORIES_SUCCESS = 'STORIES_SUCCESS';
 export const STORIES_ERROR = 'STORIES_ERROR';
@@ -22,9 +22,12 @@ export function GetStories() {
 export function* getStoriesAsync() {
     try {
         const currentMeetingId = yield select(getCurrentMeetingId);
+        console.log(currentMeetingId)
         const stories = yield call(StoriesAPI.all, currentMeetingId);
+        console.log(stories);
         yield put(StoriesSuccess(stories));
     } catch (error) {
+        console.log(error);
         yield put(StoriesError(error));
     }
 }
@@ -42,7 +45,7 @@ export function* postStoryAsync({payload}){
     try {
         const currentMeetingId = yield select(getCurrentMeetingId);
         yield call(StoriesAPI.post, currentMeetingId, payload);
-        yield put(viewHost());
+        yield put(viewStories());
     }
     catch (e) {
         yield put(StoriesError(e));

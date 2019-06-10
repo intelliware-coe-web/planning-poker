@@ -1,12 +1,12 @@
 import { push, LOCATION_CHANGE } from 'connected-react-router';
 import { put, takeLatest } from 'redux-saga/effects';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
+import { GetStories } from '../Stories/Actions/StoriesActions';
 import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 
-export const viewHost = () => push('/host/');
 export const viewCreateMeeting = () => push('/meeting/create/');
-export const viewCreateStory = () => push('/stories/create/');
+export const viewCreateStory = () => push('/story/create/');
 
 const VIEW_MEETING = 'VIEW_MEETING';
 
@@ -35,6 +35,19 @@ export function* viewMeetingsSaga() {
   yield put(push('/meetings/'));
 }
 
+const VIEW_STORIES = 'VIEW_STORIES';
+
+export function viewStories() {
+  return {
+    type: VIEW_STORIES
+  }
+}
+
+export function* viewStoriesSaga() {
+  yield put(GetStories());
+  yield put(push('/stories/'));
+}
+
 export function* routerActions(action){
   if(action.payload.location.pathname.startsWith("/estimate/")) {
     yield put(GetCurrentStory(action.payload.location.pathname.split('/estimate/')[1]));
@@ -46,5 +59,6 @@ export function* routerActions(action){
 export function* watchRouterAsync() {
   yield takeLatest(VIEW_MEETINGS, viewMeetingsSaga);
   yield takeLatest(VIEW_MEETING, viewMeetingSaga);
+  yield takeLatest(VIEW_STORIES, viewStoriesSaga);
   yield takeLatest(LOCATION_CHANGE, routerActions);
 }

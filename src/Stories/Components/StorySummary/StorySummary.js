@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Page } from '../../../Common/Page';
+import { viewStories } from '../../../Navigation/route-actions';
 
-export default function Story({match}) {
+export function StorySummary({currentMeeting, goToHost}) {
 
 
-    const storyId = match.params.storyId;
+    //const storyId = match.params.storyId;
 
     const data = [
         {
@@ -39,12 +42,8 @@ export default function Story({match}) {
     }
 
     return (
-        <div className="uk-container uk-text-center uk-margin-top">
-            <h1 className="uk-heading-small uk-heading-divider">Story {storyId}</h1>
-            <a href="#/host">
-                <span uk-icon="icon: arrow-left; ratio: 2" className="uk-position-small uk-position-top-left"></span>
-            </a>
 
+        <Page title={currentMeeting.name} onBack={ goToHost }>
             <div className="uk-align-center uk-width-1-2@m">
                 <table className="uk-table">
                     <thead>
@@ -66,10 +65,23 @@ export default function Story({match}) {
                         </tr>
                     </tbody>
                 </table>
-
-                <button className="uk-button uk-button-primary uk-width-3-4">Start/Stop</button>
             </div>
-        </div>
+        </Page>
     );
 
 }
+
+function mapStateToProps(state) {
+    return {
+        currentMeeting: state.currentMeeting,
+        currentStory: state.currentStory
+    }
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return {
+        goToHost: () => dispatch(viewStories()),
+    };
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(StorySummary)

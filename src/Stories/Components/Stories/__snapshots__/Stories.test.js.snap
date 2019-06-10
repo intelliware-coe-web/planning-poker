@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stories renders correctly 1`] = `
+<Page
+  title="Stories"
+>
+  <button
+    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+    onClick={[Function]}
+  >
+    Estimate
+  </button>
+  <div
+    className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+    onClick={[Function]}
+  >
+    <h3
+      className="uk-card-title"
+    >
+      +
+    </h3>
+  </div>
+</Page>
+`;

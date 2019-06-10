@@ -42,11 +42,11 @@ exports[`renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(Host)",
+        "displayName": "Connect(Stories)",
         "type": [Function],
       }
     }
-    path="/host"
+    path="/stories/"
   />
   <Route
     component={[Function]}
@@ -62,7 +62,7 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/meeting/create"
+    path="/meeting/create/"
   />
   <Route
     component={
@@ -74,7 +74,7 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/estimate/:meetingId"
+    path="/estimate/:meetingId/"
   />
   <Route
     component={
@@ -86,11 +86,19 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/stories/create"
+    path="/story/create/"
   />
   <Route
-    component={[Function]}
-    path="/story/:storyId"
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(StorySummary)",
+        "type": [Function],
+      }
+    }
+    path="/story/summary/:storyId/"
   />
 </Memo(ConnectFunction)>
 `;
