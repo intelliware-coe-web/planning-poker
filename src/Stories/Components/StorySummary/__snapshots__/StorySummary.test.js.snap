@@ -1,23 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Story renders correctly 1`] = `
-<div
-  className="uk-container uk-text-center uk-margin-top"
+exports[`StorySummary renders correctly 1`] = `
+<Page
+  onBack={[MockFunction]}
+  title="mockConstructor"
 >
-  <h1
-    className="uk-heading-small uk-heading-divider"
-  >
-    Story 
-    1
-  </h1>
-  <a
-    href="#/stories/"
-  >
-    <span
-      className="uk-position-small uk-position-top-left"
-      uk-icon="icon: arrow-left; ratio: 2"
-    />
-  </a>
   <div
     className="uk-align-center uk-width-1-2@m"
   >
@@ -99,11 +86,6 @@ exports[`Story renders correctly 1`] = `
         </tr>
       </tbody>
     </table>
-    <button
-      className="uk-button uk-button-primary uk-width-3-4"
-    >
-      Start/Stop
-    </button>
   </div>
-</div>
+</Page>
 `;

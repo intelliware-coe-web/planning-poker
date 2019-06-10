@@ -1,7 +1,7 @@
 import React from 'react';
 import MeetingButtons from '../MeetingButtons/MeetingButtons';
 import CreateMeetingButton from '../CreateMeetingButton/CreateMeetingButton';
-import { Page } from '../../../Common/Header';
+import { Page } from '../../../Common/Page';
 
 export default function Meetings() {
   return (
