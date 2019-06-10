@@ -22,9 +22,8 @@ describe('Estimate Actions', () => {
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(call(EstimateAPI.update, {
-                userId: userId,
-                storyId: storyId,
+            expect(fixture.next().value).toEqual(call(EstimateAPI.update, storyId, {
+                user: userId,
                 estimate: estimate
             }));
             expect(fixture.next().value).toEqual(put({

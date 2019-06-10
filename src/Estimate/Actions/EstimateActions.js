@@ -19,7 +19,7 @@ export function estimateStory(userId, storyId, estimate){
 
 export function* putEstimateAsync({payload: { userId, storyId, estimate } }){
     try {
-        yield call(EstimateAPI.update, GenerateBody(userId, storyId, estimate));
+        yield call(EstimateAPI.update, storyId, GenerateBody(userId, estimate));
         yield put(estimateSuccess(estimate));
     }
     catch (e) {
@@ -27,10 +27,9 @@ export function* putEstimateAsync({payload: { userId, storyId, estimate } }){
     }
 }
 
-function GenerateBody(userId, storyId, estimate) {
+function GenerateBody(userId, estimate) {
     return  {
-        userId: userId,
-        storyId: storyId,
+        user: userId,
         estimate: estimate
     };
 }

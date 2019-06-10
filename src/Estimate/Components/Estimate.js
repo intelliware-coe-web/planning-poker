@@ -13,7 +13,7 @@ export function Estimate({ story, currentMeeting, user, currentStory, goToMeetin
       <StoryDescription { ...currentStory } />
       <div className="uk-align-center uk-width-1-1@m">
         { estimation.map((estimate, i) =>
-          <button key={ i } onClick={ () => estimateStory(user._id, story.storyId, estimate) }
+          <button key={ i } onClick={ () => estimateStory(user._id, currentStory._id, estimate) }
                   className={ `uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${ story.estimate === estimate ? 'selected' : '' }` }>
             { estimate }
             <span
