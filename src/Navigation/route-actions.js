@@ -4,7 +4,7 @@ import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 
-export const viewHost = () => push('/host/');
+export const viewStories = () => push('/stories/');
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/stories/create/');
 

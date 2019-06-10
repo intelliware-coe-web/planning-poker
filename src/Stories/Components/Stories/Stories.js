@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { viewCreateStory, viewMeeting, viewMeetings } from '../Navigation/route-actions';
-import { Page } from '../Common/Header';
+import { viewCreateStory, viewMeeting, viewMeetings } from '../../../Navigation/route-actions';
+import { Page } from '../../../Common/Header';
 import { connect } from 'react-redux';
 
-export function Host({ currentMeeting, createStory, goToMeetings, estimate }) {
+export function Stories({ currentMeeting, createStory, goToMeetings, estimate }) {
 
   let alphabets = 'ABCD';
 
   return (
-    <Page title='Host' onBack={ goToMeetings }>
+    <Page title='Stories' onBack={ goToMeetings }>
       <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
               onClick={ () => estimate(currentMeeting._id) }>
         Estimate
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Host);
+export default connect(mapStateToProps, mapDispatchToProps)(Stories);

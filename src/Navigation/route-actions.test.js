@@ -2,7 +2,7 @@ import {
   routerActions,
   viewCreateStory,
   viewCreateMeeting,
-  viewHost,
+  viewStories,
   viewMeeting,
   viewMeetings,
   viewMeetingSaga,
@@ -15,15 +15,15 @@ import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActio
 import { GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
 
 describe('Route Actions', () => {
-  it('should route to the host', () => {
-    expect(viewHost()).toEqual(push('/host/'))
+  it('should route to the stories', () => {
+    expect(viewStories()).toEqual(push('/stories/'))
   });
 
   it('should view create meeting', () => {
     expect(viewCreateMeeting()).toEqual(push('/meeting/create/'));
   });
 
-  it('should view create stories', () => {
+  it('should view create story', () => {
     expect(viewCreateStory()).toEqual(push('/stories/create/'));
   });
 

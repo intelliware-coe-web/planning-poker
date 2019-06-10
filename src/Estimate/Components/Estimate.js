@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { estimateStory } from '../Actions/EstimateActions';
-import { viewHost, viewMeetings } from '../../Navigation/route-actions';
+import { viewStories, viewMeetings } from '../../Navigation/route-actions';
 import { Page } from '../../Common/Header';
 
-export function Estimate({ story, currentMeeting, user, currentStory, goToMeetings, goToHost, estimateStory }) {
+export function Estimate({ story, currentMeeting, user, currentStory, goToMeetings, goToStories, estimateStory }) {
   // TODO: Move estimations to store
   const estimation = [1, 2, 3, 5, 8, 13];
   return (
     <Page title={currentMeeting.name} onBack={ goToMeetings }>
-      <HostButton hasHost={ currentMeeting && !!currentMeeting.host } onHostClick={ goToHost }/>
+      <HostButton hasHost={ currentMeeting && !!currentMeeting.host } onHostClick={ goToStories }/>
       <StoryDescription { ...currentStory } />
       <div className="uk-align-center uk-width-1-1@m">
         { estimation.map((estimate, i) =>
@@ -54,7 +54,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
       goToMeetings: () => dispatch(viewMeetings()),
-      goToHost: () => dispatch(viewHost()),
+      goToStories: () => dispatch(viewStories()),
       estimateStory: (userId, storyId, estimate) => dispatch(estimateStory(userId, storyId, estimate))
   };
 }

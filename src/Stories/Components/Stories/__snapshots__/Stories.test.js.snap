@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Host renders correctly 1`] = `
+exports[`Stories renders correctly 1`] = `
 <Page
-  title="Host"
+  title="Stories"
 >
   <button
     className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
