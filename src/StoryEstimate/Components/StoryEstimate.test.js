@@ -1,22 +1,22 @@
-import { Estimate } from './Estimate';
+import { StoryEstimate } from './StoryEstimate';
 
-describe('Container: Estimate', () => {
+describe('Container: Story Estimate', () => {
   it('should render Estimate correctly', () => {
     const props = {
-      story: {
+      storyEstimate: {
         storyId: '123',
         storyDescription: 'blah',
         estimate: 1,
       },
       goToMeetings: jest.fn(),
       goToStories: jest.fn(),
-      estimateStory: jest.fn(),
+      updateStoryEstimate: jest.fn(),
       currentMeeting: jest.fn().mockReturnValue({
         host: 'user blah',
         name: 'Mock Meeting Name'
       })
     };
 
-    expect(Estimate(props)).toMatchSnapshot();
+    expect(StoryEstimate(props)).toMatchSnapshot();
   })
 });

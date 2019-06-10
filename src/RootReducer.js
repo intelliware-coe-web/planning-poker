@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import user from './User/Reducers/UserReducer';
-import estimateStory from './Estimate/Reducers/EstimateStoryReducer';
+import storyEstimate from './StoryEstimate/Reducers/StoryEstimateReducer';
 import meetings from './Meetings/Reducers/MeetingsReducer';
 import stories from './Stories/Reducers/StoriesReducer';
 import error from './ErrorReducer';
@@ -11,7 +11,7 @@ import currentStory from './CurrentStory/Reducers/CurrentStoryReducer'
 export default (history) =>
   combineReducers({
       router: connectRouter(history),
-      estimateStory,
+      storyEstimate,
       user,
       meetings,
       stories,

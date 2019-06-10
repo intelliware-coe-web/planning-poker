@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { estimateStory } from '../Actions/EstimateActions';
+import { putStoryEstimate } from '../Actions/StoryEstimateActions';
 import { viewStories, viewMeetings } from '../../Navigation/route-actions';
 import { Page } from '../../Common/Page';
 
-export function Estimate({ story, currentMeeting, user, currentStory, goToMeetings, goToStories, estimateStory }) {
+export function StoryEstimate({ storyEstimate, currentMeeting, user, currentStory, goToMeetings, goToStories, updateStoryEstimate }) {
   // TODO: Move estimations to store
   const estimation = [1, 2, 3, 5, 8, 13];
   return (
@@ -13,12 +13,12 @@ export function Estimate({ story, currentMeeting, user, currentStory, goToMeetin
       <StoryDescription { ...currentStory } />
       <div className="uk-align-center uk-width-1-1@m">
         { estimation.map((estimate, i) =>
-          <button key={ i } onClick={ () => estimateStory(user._id, currentStory._id, estimate) }
-                  className={ `uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${ story.estimate === estimate ? 'selected' : '' }` }>
+          <button key={ i } onClick={ () => updateStoryEstimate(user._id, currentStory._id, estimate) }
+                  className={ `uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${ storyEstimate.estimate === estimate ? 'selected' : '' }` }>
             { estimate }
             <span
               className={ 'uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right' }
-              hidden={ story.estimate !== estimate }>Selected</span>
+              hidden={ storyEstimate.estimate !== estimate }>Selected</span>
           </button>)
         }
       </div>
@@ -44,19 +44,19 @@ function HostButton({ hasHost, onHostClick }) {
 
 function mapStateToProps(state) {
   return {
-      story: state.estimateStory,
-      currentMeeting: state.currentMeeting,
-      user: state.user,
-      currentStory: state.currentStory
+    storyEstimate: state.storyEstimate,
+    currentMeeting: state.currentMeeting,
+    user: state.user,
+    currentStory: state.currentStory
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-      goToMeetings: () => dispatch(viewMeetings()),
-      goToStories: () => dispatch(viewStories()),
-      estimateStory: (userId, storyId, estimate) => dispatch(estimateStory(userId, storyId, estimate))
+    goToMeetings: () => dispatch(viewMeetings()),
+    goToStories: () => dispatch(viewStories()),
+    updateStoryEstimate: (userId, storyId, estimate) => dispatch(putStoryEstimate(userId, storyId, estimate))
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Estimate)
+export default connect(mapStateToProps, mapDispatchToProps)(StoryEstimate)

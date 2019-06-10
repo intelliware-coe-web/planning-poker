@@ -1,11 +1,11 @@
-import {EstimateAPI} from './Estimate.api';
+import {StoryEstimateAPI} from './StoryEstimate.api';
 import * as FetchApi from '../../Fetch.api';
 
-describe('UserAPI', () => {
+describe('StoryEstimateAPI', () => {
 
     it('update() should call puttData() from FetchApi', () => {
         FetchApi.putData = jest.fn();
-        EstimateAPI.update({});
+        StoryEstimateAPI.update({});
         expect(FetchApi.putData).toHaveBeenCalledTimes(1);
     });
 });
