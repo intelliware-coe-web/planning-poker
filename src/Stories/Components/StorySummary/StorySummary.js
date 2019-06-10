@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Page } from '../../../Common/Page';
+import { viewStories } from '../../../Navigation/route-actions';
 
 export function StorySummary({currentMeeting, goToHost}) {
 
@@ -79,7 +80,7 @@ function mapStateToProps(state) {
   
   function mapDispatchToProps(dispatch) {
     return {
-        goToHost: () => dispatch(viewHost()),
+        goToHost: () => dispatch(viewStories()),
     };
   }
   
