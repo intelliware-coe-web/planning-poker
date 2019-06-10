@@ -41,7 +41,7 @@ export default function Story({match}) {
     return (
         <div className="uk-container uk-text-center uk-margin-top">
             <h1 className="uk-heading-small uk-heading-divider">Story {storyId}</h1>
-            <a href="#/stories">
+            <a href="#/stories/">
                 <span uk-icon="icon: arrow-left; ratio: 2" className="uk-position-small uk-position-top-left"></span>
             </a>
 

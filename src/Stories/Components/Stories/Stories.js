@@ -17,7 +17,7 @@ export function Stories({ currentMeeting, createStory, goToMeetings, estimate })
 
       { Array.from(alphabets).map((letter, i) =>
         <div key={ i } className="uk-card uk-card-secondary uk-card-body uk-margin pp-button">
-          <Link to={ { pathname: '/story/' + letter, query: { storyId: letter } } }>
+          <Link to={ { pathname: '/story/summary/' + letter, query: { storyId: letter } } }>
             <div className="uk-card-badge uk-label">Points: 3</div>
             <h3 className="uk-card-title">Story { letter }</h3>
           </Link>

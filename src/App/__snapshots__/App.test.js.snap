@@ -62,7 +62,7 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/meeting/create"
+    path="/meeting/create/"
   />
   <Route
     component={
@@ -74,7 +74,7 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/estimate/:meetingId"
+    path="/estimate/:meetingId/"
   />
   <Route
     component={
@@ -86,11 +86,11 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/stories/create"
+    path="/story/create/"
   />
   <Route
     component={[Function]}
-    path="/story/:storyId"
+    path="/story/summary/:storyId/"
   />
 </Memo(ConnectFunction)>
 `;

@@ -16,7 +16,7 @@ exports[`Stories renders correctly 1`] = `
     <Link
       to={
         Object {
-          "pathname": "/story/A",
+          "pathname": "/story/summary/A",
           "query": Object {
             "storyId": "A",
           },
@@ -42,7 +42,7 @@ exports[`Stories renders correctly 1`] = `
     <Link
       to={
         Object {
-          "pathname": "/story/B",
+          "pathname": "/story/summary/B",
           "query": Object {
             "storyId": "B",
           },
@@ -68,7 +68,7 @@ exports[`Stories renders correctly 1`] = `
     <Link
       to={
         Object {
-          "pathname": "/story/C",
+          "pathname": "/story/summary/C",
           "query": Object {
             "storyId": "C",
           },
@@ -94,7 +94,7 @@ exports[`Stories renders correctly 1`] = `
     <Link
       to={
         Object {
-          "pathname": "/story/D",
+          "pathname": "/story/summary/D",
           "query": Object {
             "storyId": "D",
           },

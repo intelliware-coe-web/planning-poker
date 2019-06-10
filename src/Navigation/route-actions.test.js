@@ -24,7 +24,7 @@ describe('Route Actions', () => {
   });
 
   it('should view create story', () => {
-    expect(viewCreateStory()).toEqual(push('/stories/create/'));
+    expect(viewCreateStory()).toEqual(push('/story/create/'));
   });
 
   it('should create a view meeting action', () => {

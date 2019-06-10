@@ -17,10 +17,10 @@ export default function App() {
           <Route exact path="/" component={CreateUser}/>
           <Route path="/stories/" component={Stories} />
           <Route path="/meetings/" component={Meetings} />
-          <Route path="/meeting/create" component={CreateMeeting} />
-          <Route path="/estimate/:meetingId" component={Estimate} />
-          <Route path="/stories/create" component={CreateStory} />
-          <Route path="/story/:storyId" component={Story} />
+          <Route path="/meeting/create/" component={CreateMeeting} />
+          <Route path="/estimate/:meetingId/" component={Estimate} />
+          <Route path="/story/create/" component={CreateStory} />
+          <Route path="/story/summary/:storyId/" component={Story} />
       </ConnectedRouter>
   );
 }
