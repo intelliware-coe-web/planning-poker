@@ -6,7 +6,7 @@ import { PostUser } from '../Actions/UserActions';
 export function CreateUser({postUser}) {
 
     return (
-        <div className="uk-flex uk-flex-middle uk-height-viewport">
+        <div className="uk-flex uk-flex-middle">
             <div className="uk-width-1-1">
                 <img src={loginImg} alt="login"/>
             </div>
@@ -19,9 +19,7 @@ export function CreateUser({postUser}) {
                             <span className="uk-form-icon" data-uk-icon="icon: user"/>
                             <input name="userInputName" className="uk-input" placeholder="Name" type="text"/>
                         </div>
-                        <button className="uk-button uk-button-primary uk-width-1-4">
-                            CREATE
-                        </button>
+                        <input className="uk-button uk-button-primary uk-width-1-4" type="submit" value="CREATE"/>
                     </div>
                 </form>
             </div>
