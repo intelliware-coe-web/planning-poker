@@ -2,7 +2,7 @@
 
 exports[`Stories renders correctly 1`] = `
 <Page
-  title="Stories"
+  title="mockConstructor"
 >
   <button
     className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
@@ -11,8 +11,33 @@ exports[`Stories renders correctly 1`] = `
     Estimate
   </button>
   <div
+    className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
+  >
+    <Link
+      to={
+        Object {
+          "pathname": "/story/summary/undefined",
+          "query": Object {
+            "storyId": undefined,
+          },
+        }
+      }
+    >
+      <div
+        className="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        className="uk-card-title"
+      >
+        Mock Story Name
+      </h3>
+    </Link>
+  </div>
+  <div
     className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <h3
       className="uk-card-title"

@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { viewCreateStory, viewMeeting, viewMeetings } from '../../../Navigation/route-actions';
+import { viewCreateStory, viewMeeting } from '../../../Navigation/route-actions';
 import { Page } from '../../../Common/Page';
 import { connect } from 'react-redux';
 
-export function Stories({ currentMeeting, stories = [], createStory, goToMeetings, estimate }) {
+export function Stories({ currentMeeting, stories = [], createStory, goToEstimate }) {
 
   return (
-    <Page title='Stories' onBack={ goToMeetings }>
+    <Page title={currentMeeting.name}>
       <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-              onClick={ () => estimate(currentMeeting._id) }>
+              onClick={ () => goToEstimate(currentMeeting._id) }>
         Estimate
       </button>
 
@@ -32,15 +32,15 @@ export function Stories({ currentMeeting, stories = [], createStory, goToMeeting
 function mapStateToProps(state) {
     return {
         currentMeeting: state.currentMeeting,
-        stories: state.stories
+        stories: state.stories,
+        error: state.error
     };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    goToMeetings: () => dispatch(viewMeetings()),
     createStory: () => dispatch(viewCreateStory()),
-    estimate: (meetingId) => dispatch(viewMeeting(meetingId))
+    goToEstimate: (meetingId) => dispatch(viewMeeting(meetingId))
   };
 }
 
