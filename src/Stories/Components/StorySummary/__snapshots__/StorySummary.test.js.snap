@@ -107,3 +107,93 @@ exports[`Story renders correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`StorySummary renders correctly 1`] = `
+<Page
+  onBack={[MockFunction]}
+  title="mockConstructor"
+>
+  <div
+    className="uk-align-center uk-width-1-2@m"
+  >
+    <table
+      className="uk-table"
+    >
+      <thead>
+        <tr>
+          <th
+            className="uk-text-center"
+          >
+            Name
+          </th>
+          <th
+            className="uk-text-center"
+          >
+            Estimate
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Anson
+          </td>
+          <td>
+            5
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Nelson
+          </td>
+          <td>
+            4
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Ratul
+          </td>
+          <td>
+            3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Matt
+          </td>
+          <td>
+            2
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Raman
+          </td>
+          <td>
+            1
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Linna
+          </td>
+          <td>
+            3
+          </td>
+        </tr>
+        <tr
+          className="uk-text-bold"
+        >
+          <td>
+            Average
+          </td>
+          <td>
+            3
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</Page>
+`;

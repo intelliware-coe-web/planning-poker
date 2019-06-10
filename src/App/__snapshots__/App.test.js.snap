@@ -89,7 +89,15 @@ exports[`renders correctly 1`] = `
     path="/story/create/"
   />
   <Route
-    component={[Function]}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(StorySummary)",
+        "type": [Function],
+      }
+    }
     path="/story/summary/:storyId/"
   />
 </Memo(ConnectFunction)>

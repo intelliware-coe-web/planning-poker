@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { viewStories } from '../../../Navigation/route-actions';
-import { Page } from '../../../Common/Header';
+import { Page } from '../../../Common/Page';
 import { PostStory } from '../../Actions/StoriesActions';
 
 export function CreateStory({goToStories, postStory}) {

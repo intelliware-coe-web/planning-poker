@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { estimateStory } from '../Actions/EstimateActions';
 import { viewStories, viewMeetings } from '../../Navigation/route-actions';
-import { Page } from '../../Common/Header';
+import { Page } from '../../Common/Page';
 
 export function Estimate({ story, currentMeeting, user, currentStory, goToMeetings, goToStories, estimateStory }) {
   // TODO: Move estimations to store

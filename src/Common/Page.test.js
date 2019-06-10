@@ -1,5 +1,5 @@
 import { noop } from 'lodash';
-import { Page } from './Header';
+import { Page } from './Page';
 import React from 'react';
 
 describe('Higher Order Component: withHeader', () => {
