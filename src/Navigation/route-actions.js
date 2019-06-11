@@ -21,7 +21,7 @@ export function viewMeeting(meetingId) {
 
 export function* viewMeetingSaga(action) {
   yield put(GetCurrentMeeting(action.payload));
-  yield put(push(`/estimate/${ action.payload }`));
+  yield put(push(`/meeting/${ action.payload }/estimate/`));
 }
 
 const VIEW_MEETINGS = 'VIEW_MEETINGS';
@@ -75,16 +75,16 @@ export function* routerActions(action){
   }
 
   // Logic when landing on the estimate page
-  if(pathname.startsWith("/estimate/")) {
-    const meetingId = pathname.split('/estimate/')[1];
+  if(pathname.endsWith("/estimate/")) {
+    const meetingId = pathname.split('/')[2];
     yield put(GetCurrentMeeting(meetingId));
     yield put(GetCurrentStory(meetingId));
   } else {
     yield put(StopCurrentStoryPolling());
   }
 
-  if (action.payload.location.pathname.startsWith("/story/summary/")) {
-    yield put(GetStoryEstimates(action.payload.location.pathname.split('/story/summary/')[1]));
+  if (pathname.startsWith("/story/summary/")) {
+    yield put(GetStoryEstimates(pathname.split('/story/summary/')[1]));
   } else {
     yield put(StopStoryEstimatesPolling());
   }

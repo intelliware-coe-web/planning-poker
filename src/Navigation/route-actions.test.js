@@ -8,9 +8,9 @@ import {
     viewMeetings,
     viewMeetingsSaga,
     viewStories,
-  viewStoriesSaga,
-  viewStory,
-  viewStorySaga,
+    viewStoriesSaga,
+    viewStory,
+    viewStorySaga,
     watchRouterAsync,
 } from './route-actions';
 import {takeLatest, put, select, delay} from 'redux-saga/effects';
@@ -19,7 +19,7 @@ import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
 import {GetCurrentMeeting, UpdateCurrentStory} from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import {GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
 import {getCurrentUserId} from "../Common/selectors";
-import { GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/StoryEstimatesActions";
+import {GetStoryEstimates, StopStoryEstimatesPolling} from "../CurrentStory/Actions/StoryEstimatesActions";
 
 describe('Route Actions', () => {
 
@@ -36,11 +36,13 @@ describe('Route Actions', () => {
     });
 
     it('should create a view story action', () => {
-    expect(viewStory('FOO')).toEqual({ type: 'VIEW_STORY', payload: { storyId: 'FOO' } });
-  });it('should route to estimations', () => {
+        expect(viewStory('FOO')).toEqual({type: 'VIEW_STORY', payload: {storyId: 'FOO'}});
+    });
+
+    it('should route to estimations', () => {
         const saga = viewMeetingSaga({payload: 'Foo'});
         expect(saga.next().value).toEqual(put(GetCurrentMeeting('Foo')));
-        expect(saga.next().value).toEqual(put(push('/estimate/Foo')));
+        expect(saga.next().value).toEqual(put(push('/meeting/Foo/estimate/')));
         expect(saga.next().done).toBeTruthy();
     });
 
@@ -66,7 +68,7 @@ describe('Route Actions', () => {
         };
         const saga = viewMeetingSaga(mockAction);
         expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockAction.payload)));
-        expect(saga.next().value).toEqual(put(push(`/estimate/${ mockAction.payload }`)));
+        expect(saga.next().value).toEqual(put(push(`/meeting/${ mockAction.payload }/estimate/`)));
         expect(saga.next().done).toBeTruthy();
     });
 
@@ -88,20 +90,23 @@ describe('Route Actions', () => {
             const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
-                    pathname: '/estimate/' + mockMeetingId
+                    pathname: `/meeting/${mockMeetingId}/estimate/`
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(getCurrentUserId));
             expect(saga.next(null).value).toEqual(delay(1));
-            expect(saga.next().value).toEqual(put(replace({pathname: '/', state: { 'nextPathname': mockRouterPayload.location.pathname}})));
+            expect(saga.next().value).toEqual(put(replace({
+                pathname: '/',
+                state: {'nextPathname': mockRouterPayload.location.pathname}
+            })));
         });
 
         it('should dispatch GetCurrentStory and GetCurrentMeeting if location is estimate', () => {
             const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
-                    pathname: '/estimate/' + mockMeetingId
+                    pathname: `/meeting/${mockMeetingId}/estimate/`
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
@@ -125,7 +130,7 @@ describe('Route Actions', () => {
             const mockStoryId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
-                    pathname: '/story/summary/'+mockStoryId
+                    pathname: '/story/summary/' + mockStoryId
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
@@ -141,7 +146,8 @@ describe('Route Actions', () => {
         expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
         expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETING', viewMeetingSaga));
         expect(watcher.next().value).toEqual(takeLatest('VIEW_STORIES', viewStoriesSaga));
-        expect(watcher.next().value).toEqual(takeLatest('VIEW_STORY', viewStorySaga));expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));
+        expect(watcher.next().value).toEqual(takeLatest('VIEW_STORY', viewStorySaga));
+        expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));
         expect(watcher.next().done).toBeTruthy();
     });
 });

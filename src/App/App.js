@@ -18,7 +18,7 @@ export default function App() {
           <Route path="/stories/" component={Stories} />
           <Route path="/meetings/" component={Meetings} />
           <Route path="/meeting/create/" component={CreateMeeting} />
-          <Route path="/estimate/:meetingId/" component={StoryEstimate} />
+          <Route path="/meeting/:meetingId/estimate/" component={StoryEstimate} />
           <Route path="/story/create/" component={CreateStory} />
           <Route path="/story/summary/:storyId/" component={StorySummary} />
       </ConnectedRouter>

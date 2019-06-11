@@ -74,7 +74,7 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/estimate/:meetingId/"
+    path="/meeting/:meetingId/estimate/"
   />
   <Route
     component={
