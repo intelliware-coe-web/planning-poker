@@ -2,6 +2,7 @@
 
 exports[`Stories renders correctly 1`] = `
 <Page
+  onBack={[MockFunction]}
   title="mockConstructor"
 >
   <button

@@ -11,6 +11,7 @@ it('Stories renders correctly', () => {
       name: 'Mock Story Name'
     }],
     error: null,
+    goToMeetings: jest.fn(),  
     createStory: jest.fn(),  
     goToEstimate: jest.fn()
   }

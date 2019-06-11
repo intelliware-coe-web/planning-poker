@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { viewCreateStory, viewMeeting } from '../../../Navigation/route-actions';
+import { viewMeetings, viewCreateStory, viewMeeting } from '../../../Navigation/route-actions';
 import { Page } from '../../../Common/Page';
 import { connect } from 'react-redux';
 
-export function Stories({ currentMeeting, stories = [], createStory, goToEstimate }) {
+export function Stories({ currentMeeting, stories = [], goToMeetings, createStory, goToEstimate }) {
 
   return (
-    <Page title={currentMeeting.name}>
+    <Page title={currentMeeting.name} onBack={ goToMeetings }>
       <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
               onClick={ () => goToEstimate(currentMeeting._id) }>
         Estimate
@@ -39,6 +39,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    goToMeetings: () => dispatch(viewMeetings()),
     createStory: () => dispatch(viewCreateStory()),
     goToEstimate: (meetingId) => dispatch(viewMeeting(meetingId))
   };
