@@ -17,7 +17,7 @@ export function StoryEstimate({ storyEstimate, currentMeeting, user, currentStor
               resetStoryEstimate();
           };
       },
-      [],
+      [getCurrentStory, stopCurrentStoryPolling, resetStoryEstimate, match],
   );
 
   return (
