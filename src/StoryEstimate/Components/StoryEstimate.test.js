@@ -12,7 +12,11 @@ describe('Container: Story Estimate', () => {
       currentStory: jest.fn(),
       getCurrentStory: jest.fn(),
       stopCurrentStoryPolling: jest.fn(),
-      match: jest.fn(),
+      match: jest.fn().mockReturnValue({
+          params: {
+            meetingId: 'Mock meeting id'
+          }
+      }),
       currentMeeting: jest.fn().mockReturnValue({
         name: 'Mock Meeting Name'
       })
