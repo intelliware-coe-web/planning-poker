@@ -8,7 +8,6 @@ describe('Container: Story Estimate', () => {
       goToStories: jest.fn(),
       updateStoryEstimate: jest.fn(),
       currentMeeting: jest.fn().mockReturnValue({
-        host: 'user blah',
         name: 'Mock Meeting Name'
       })
     };

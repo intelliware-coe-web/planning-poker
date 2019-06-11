@@ -3,7 +3,6 @@ import { Stories } from './Stories';
 it('Stories renders correctly', () => {
   const props = {
     currentMeeting: jest.fn().mockReturnValue({
-        host: 'user blah',
         name: 'Mock Meeting Name'
       }),
     stories: [{
