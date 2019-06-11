@@ -3,9 +3,17 @@ import * as FetchApi from '../../Fetch.api';
 
 describe('CurrenMeetingAPI', () => {
 
-    it('byId() should call getData() from FetchApi', () => {
+    it('byMeetingId() should call getData() from FetchApi', () => {
         FetchApi.getData = jest.fn();
-        CurrentStoryAPI.byId('123');
+        CurrentStoryAPI.byMeetingId('123');
         expect(FetchApi.getData).toHaveBeenCalledTimes(1);
+        expect(FetchApi.getData).toHaveBeenCalledWith(`${FetchApi.API_URL}/meetings/123/currentStory`);
+    });
+
+    it('storyEstimates() should call getData() from FetchApi', () => {
+        FetchApi.getData = jest.fn();
+        CurrentStoryAPI.storyEstimates('123');
+        expect(FetchApi.getData).toHaveBeenCalledTimes(1);
+        expect(FetchApi.getData).toHaveBeenCalledWith(`${FetchApi.API_URL}/stories/123/estimates`);
     });
 });

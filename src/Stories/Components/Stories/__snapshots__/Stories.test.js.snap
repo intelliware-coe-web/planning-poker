@@ -2,7 +2,8 @@
 
 exports[`Stories renders correctly 1`] = `
 <Page
-  title="Stories"
+  onBack={[MockFunction]}
+  title="mockConstructor"
 >
   <button
     className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
@@ -11,8 +12,27 @@ exports[`Stories renders correctly 1`] = `
     Estimate
   </button>
   <div
+    className="uk-margin-small"
+  >
+    <div
+      className="uk-card uk-card-secondary uk-card-body pp-button"
+      onClick={[Function]}
+    >
+      <div
+        className="uk-card-badge uk-label"
+      >
+        Points: 3
+      </div>
+      <h3
+        className="uk-card-title"
+      >
+        Mock Story Name
+      </h3>
+    </div>
+  </div>
+  <div
     className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     <h3
       className="uk-card-title"

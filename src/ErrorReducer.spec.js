@@ -1,10 +1,10 @@
 import ErrorReducer from './ErrorReducer';
 import {MEETINGS_ERROR} from './Meetings/Actions/MeetingsActions';
 import {USER_ERROR} from './User/Actions/UserActions';
-import {CURRENT_MEETING_ERROR} from "./CurrentMeeting/Actions/CurrentMeetingActions";
-import {ESTIMATE_ERROR} from "./Estimate/Actions/EstimateActions";
-import {STORIES_ERROR} from "./Stories/Actions/StoriesActions";
-import {CURRENT_STORY_ERROR} from "./CurrentStory/Actions/CurrentStoryActions";
+import {CURRENT_MEETING_ERROR} from './CurrentMeeting/Actions/CurrentMeetingActions';
+import {STORY_ESTIMATE_ERROR} from './StoryEstimate/Actions/StoryEstimateActions';
+import {STORIES_ERROR} from './Stories/Actions/StoriesActions';
+import {CURRENT_STORY_ERROR} from './CurrentStory/Actions/CurrentStoryActions';
 
 describe('Error Reducer ', () => {
 
@@ -47,7 +47,7 @@ describe('Error Reducer ', () => {
   it('should set error on a estimate error', () => {
       const initialState = null;
       const error = "Page Not Found";
-      const action = { type: ESTIMATE_ERROR, payload: { error: error } };
+      const action = { type: STORY_ESTIMATE_ERROR, payload: { error: error } };
 
       const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});

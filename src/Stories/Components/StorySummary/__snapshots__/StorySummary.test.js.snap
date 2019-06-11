@@ -26,61 +26,86 @@ exports[`StorySummary renders correctly 1`] = `
         </tr>
       </thead>
       <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+</Page>
+`;
+
+exports[`StorySummary renders estimates withs names 1`] = `
+<Page
+  onBack={[MockFunction]}
+  title="mockConstructor"
+>
+  <div
+    className="uk-align-center uk-width-1-2@m"
+  >
+    <table
+      className="uk-table"
+    >
+      <thead>
         <tr>
-          <td>
-            Anson
-          </td>
-          <td>
-            5
-          </td>
+          <th
+            className="uk-text-center"
+          >
+            Name
+          </th>
+          <th
+            className="uk-text-center"
+          >
+            Estimate
+          </th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
-          <td>
-            Nelson
+          <td
+            className="uk-text-center"
+          >
+            Bob
           </td>
-          <td>
-            4
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Ratul
-          </td>
-          <td>
-            3
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Matt
-          </td>
-          <td>
-            2
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Raman
-          </td>
-          <td>
+          <td
+            className="uk-text-center"
+          >
             1
           </td>
         </tr>
         <tr>
-          <td>
-            Linna
+          <td
+            className="uk-text-center"
+          >
+            Andy
           </td>
-          <td>
+          <td
+            className="uk-text-center"
+          >
+            5
+          </td>
+        </tr>
+        <tr>
+          <td
+            className="uk-text-center"
+          >
+            Joe
+          </td>
+          <td
+            className="uk-text-center"
+          >
             3
           </td>
         </tr>
         <tr
           className="uk-text-bold"
         >
-          <td>
+          <td
+            className="uk-text-center"
+          >
             Average
           </td>
-          <td>
+          <td
+            className="uk-text-center"
+          >
             3
           </td>
         </tr>

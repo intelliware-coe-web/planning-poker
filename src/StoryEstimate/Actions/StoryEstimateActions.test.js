@@ -1,14 +1,14 @@
-import {EstimateAPI} from "../API/Estimate.api";
+import {StoryEstimateAPI} from "../API/StoryEstimate.api";
 import {call, put} from 'redux-saga/effects';
 import {
-    ESTIMATE_ERROR,
-    ESTIMATE_STORY_REQUESTED,
-    ESTIMATE_SUCCESS,
-    estimateStory,
-    putEstimateAsync
-} from "./EstimateActions";
+    STORY_ESTIMATE_ERROR,
+    STORY_ESTIMATE_SUCCESS,
+    STORY_ESTIMATE_REQUESTED,
+    putStoryEstimate,
+    putStoryEstimateAsync
+} from "./StoryEstimateActions";
 
-describe('Estimate Actions', () => {
+describe('Story Estimate Actions', () => {
 
     let fixture;
     const userId = 'fakeUserId';
@@ -18,16 +18,16 @@ describe('Estimate Actions', () => {
     describe('Put action', () => {
 
         beforeEach(() => {
-            fixture = putEstimateAsync({payload: { userId, storyId, estimate } });
+            fixture = putStoryEstimateAsync({payload: { userId, storyId, estimate } });
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(call(EstimateAPI.update, storyId, {
+            expect(fixture.next().value).toEqual(call(StoryEstimateAPI.update, storyId, {
                 user: userId,
                 estimate: estimate
             }));
             expect(fixture.next().value).toEqual(put({
-                type: ESTIMATE_SUCCESS,
+                type: STORY_ESTIMATE_SUCCESS,
                 payload: {
                     estimate: estimate
                 }
@@ -39,7 +39,7 @@ describe('Estimate Actions', () => {
             fixture.next();
             let e = {message: 'Unable to update estimate'};
             expect(fixture.throw(e).value).toEqual(put({
-                type: ESTIMATE_ERROR,
+                type: STORY_ESTIMATE_ERROR,
                 payload: {
                     error: e
                 }
@@ -48,15 +48,15 @@ describe('Estimate Actions', () => {
         });
     });
 
-    describe('Estimate story', () => {
+    describe('Story Estimate', () => {
         it('should return json with payload', () => {
-             const estimateStoryJSON = estimateStory(userId, storyId, estimate);
-             expect(estimateStoryJSON).toEqual({
-                 type: ESTIMATE_STORY_REQUESTED,
+             const storyEstimateJSON = putStoryEstimate(userId, storyId, estimate);
+             expect(storyEstimateJSON).toEqual({
+                 type: STORY_ESTIMATE_REQUESTED,
                  payload: {
-                     userId: userId,
-                     storyId:storyId,
-                     estimate: estimate
+                    userId: userId,
+                    storyId:storyId,
+                    estimate: estimate
                  }
              });
 

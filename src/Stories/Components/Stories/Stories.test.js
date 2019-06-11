@@ -1,6 +1,19 @@
 import { Stories } from './Stories';
-import { noop } from 'lodash';
 
 it('Stories renders correctly', () => {
-  expect(Stories({ createStory: noop, estimate: noop })).toMatchSnapshot();
+  const props = {
+    currentMeeting: jest.fn().mockReturnValue({
+        name: 'Mock Meeting Name'
+      }),
+    stories: [{
+      id: 'id',
+      name: 'Mock Story Name'
+    }],
+    error: null,
+    goToMeetings: jest.fn(),  
+    goToStory: jest.fn(),  
+    createStory: jest.fn(),  
+    goToEstimate: jest.fn()
+  }
+  expect(Stories(props)).toMatchSnapshot();
 });

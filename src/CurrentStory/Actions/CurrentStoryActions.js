@@ -6,7 +6,7 @@ export const CURRENT_STORY_ERROR = 'CURRENT_STORY_ERROR';
 export const CURRENT_STORY_GET_REQUESTED = 'CURRENT_STORY_GET_REQUESTED';
 export const CURRENT_STORY_STOP_POLLING_REQUESTED = 'CURRENT_STORY_STOP_POLLING_REQUESTED';
 
-export const CURRENT_STORY_GET_DELAY = 4000;
+export const POLLING_DELAY = 4000;
 
 export function* watchCurrentStoryAsync() {
     while (true) {
@@ -34,13 +34,13 @@ export function StopCurrentStoryPolling() {
 export function* getCurrentStoryAsync({payload: meetingId}){
     while(true) {
         try {
-            const story = yield call(CurrentStoryAPI.byId, meetingId);
+            const story = yield call(CurrentStoryAPI.byMeetingId, meetingId);
             yield put(CurrentStorySuccess(story));
         }
         catch (e) {
             yield put(CurrentStoryError(e));
         }
-        yield delay(CURRENT_STORY_GET_DELAY);
+        yield delay(POLLING_DELAY);
     }
 }
 
