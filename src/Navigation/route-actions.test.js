@@ -10,12 +10,12 @@ import {
     viewStoriesSaga,
     watchRouterAsync
 } from './route-actions';
-import {takeLatest, put, select} from 'redux-saga/effects';
-import {push, LOCATION_CHANGE} from 'connected-react-router';
+import {takeLatest, put, select, delay} from 'redux-saga/effects';
+import {push, LOCATION_CHANGE, replace} from 'connected-react-router';
 import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
 import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import {GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
-import {getCurrentMeetingId, getCurrentUserId} from "../Common/selectors";
+import {getCurrentUserId} from "../Common/selectors";
 
 describe('Route Actions', () => {
 
@@ -63,13 +63,11 @@ describe('Route Actions', () => {
             };
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(getCurrentUserId));
-            expect(saga.next().value).toEqual(select(getCurrentMeetingId));
-            expect(saga.next(mockMeetingId).value).toEqual(null);
-            expect(saga.next().value).toEqual(put(GetCurrentStory(mockMeetingId)));
-            expect(saga.next().done).toBeTruthy();
+            expect(saga.next(null).value).toEqual(delay(1));
+            expect(saga.next().value).toEqual(put(replace({pathname: '/', state: { 'nextPathname': mockRouterPayload.location.pathname}})));
         });
 
-        it('should dispatch GetCurrentStory if location is estimate', () => {
+        it('should dispatch GetCurrentStory and GetCurrentMeeting if location is estimate', () => {
             const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
@@ -78,23 +76,7 @@ describe('Route Actions', () => {
             };
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(getCurrentUserId));
-            expect(saga.next().value).toEqual(select(getCurrentMeetingId));
-            expect(saga.next(mockMeetingId).value).toEqual(null);
-            expect(saga.next().value).toEqual(put(GetCurrentStory(mockMeetingId)));
-            expect(saga.next().done).toBeTruthy();
-        });
-
-        it('should dispatch GetCurrentMeeting if currentMeeting is null and GetCurrentStory if location is estimate', () => {
-            const mockMeetingId = '13847gf81374gr183o4';
-            const mockRouterPayload = {
-                location: {
-                    pathname: '/estimate/' + mockMeetingId
-                }
-            };
-            const saga = routerActions({payload: mockRouterPayload});
-            expect(saga.next().value).toEqual(select(getCurrentUserId));
-            expect(saga.next().value).toEqual(select(getCurrentMeetingId));
-            expect(saga.next(null).value).toEqual(put(GetCurrentMeeting(mockMeetingId)));
+            expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockMeetingId)));
             expect(saga.next().value).toEqual(put(GetCurrentStory(mockMeetingId)));
             expect(saga.next().done).toBeTruthy();
         });

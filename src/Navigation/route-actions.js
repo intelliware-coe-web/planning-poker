@@ -4,7 +4,7 @@ import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
 import {GetStories} from '../Stories/Actions/StoriesActions';
 import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import {GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
-import {getCurrentMeetingId, getCurrentUserId} from "../Common/selectors";
+import {getCurrentUserId} from "../Common/selectors";
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');
@@ -52,7 +52,6 @@ export function* viewStoriesSaga() {
 export function* routerActions(action){
   const currentUserId = yield select(getCurrentUserId);
   const pathname = action.payload.location.pathname;
-
   if(currentUserId === null && pathname !== '/') {
     yield delay(1);
     yield put(replace({pathname: '/', state: { 'nextPathname': pathname}}));
@@ -60,9 +59,8 @@ export function* routerActions(action){
 
   // Logic when landing on the estimate page
   if(pathname.startsWith("/estimate/")) {
-    const currentMeeting = yield select(getCurrentMeetingId);
     const meetingId = pathname.split('/estimate/')[1];
-    yield currentMeeting === null ? put(GetCurrentMeeting(meetingId)) : null;
+    yield put(GetCurrentMeeting(meetingId));
     yield put(GetCurrentStory(meetingId));
   } else {
     yield put(StopCurrentStoryPolling());
