@@ -1,9 +1,10 @@
-import { push, LOCATION_CHANGE } from 'connected-react-router';
-import { put, takeLatest } from 'redux-saga/effects';
-import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
-import { GetStories } from '../Stories/Actions/StoriesActions';
-import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
+import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
+import {delay, put, select, takeLatest} from 'redux-saga/effects';
+import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
+import {GetStories} from '../Stories/Actions/StoriesActions';
+import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
+import {GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
+import {getCurrentMeetingId, getCurrentUserId} from "../Common/selectors";
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');
@@ -49,8 +50,20 @@ export function* viewStoriesSaga() {
 }
 
 export function* routerActions(action){
-  if(action.payload.location.pathname.startsWith("/estimate/")) {
-    yield put(GetCurrentStory(action.payload.location.pathname.split('/estimate/')[1]));
+  const currentUserId = yield select(getCurrentUserId);
+  const pathname = action.payload.location.pathname;
+
+  if(currentUserId === null && pathname !== '/') {
+    yield delay(1);
+    yield put(replace({pathname: '/', state: { 'nextPathname': pathname}}));
+  }
+
+  // Logic when landing on the estimate page
+  if(pathname.startsWith("/estimate/")) {
+    const currentMeeting = yield select(getCurrentMeetingId);
+    const meetingId = pathname.split('/estimate/')[1];
+    yield currentMeeting === null ? put(GetCurrentMeeting(meetingId)) : null;
+    yield put(GetCurrentStory(meetingId));
   } else {
     yield put(StopCurrentStoryPolling());
   }

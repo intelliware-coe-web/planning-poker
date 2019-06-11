@@ -22,12 +22,9 @@ export function GetStories() {
 export function* getStoriesAsync() {
     try {
         const currentMeetingId = yield select(getCurrentMeetingId);
-        console.log(currentMeetingId)
         const stories = yield call(StoriesAPI.all, currentMeetingId);
-        console.log(stories);
         yield put(StoriesSuccess(stories));
     } catch (error) {
-        console.log(error);
         yield put(StoriesError(error));
     }
 }

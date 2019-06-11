@@ -1,11 +1,8 @@
 import { CURRENT_MEETING_SUCCESS } from "../Actions/CurrentMeetingActions";
 
 const initialState = {
-    "attendees": [],
     "_id": null,
     "name": "Loading Meeting...",
-    "created_date": null,
-    "__v": null,
     "current_story": null
 };
 
