@@ -3,7 +3,8 @@ import { put, takeLatest } from 'redux-saga/effects';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetStories } from '../Stories/Actions/StoriesActions';
 import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import { GetCurrentStory, StopCurrentStoryPolling, GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/CurrentStoryActions";
+import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
+import { GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/StoryEstimatesActions"
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');

@@ -14,7 +14,8 @@ import { takeLatest, put } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'connected-react-router';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import { GetCurrentStory, GetStoryEstimates, StopCurrentStoryPolling, StopStoryEstimatesPolling } from "../CurrentStory/Actions/CurrentStoryActions";
+import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
+import { GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/StoryEstimatesActions";
 
 describe('Route Actions', () => {
 
