@@ -1,12 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { putStoryEstimate } from '../Actions/StoryEstimateActions';
-import { viewStories, viewMeetings } from '../../Navigation/route-actions';
-import { Page } from '../../Common/Page';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
+import {PutStoryEstimate, ResetStoryEstimate} from '../Actions/StoryEstimateActions';
+import {viewMeetings, viewStories} from '../../Navigation/route-actions';
+import {Page} from '../../Common/Page';
+import {GetCurrentStory, StopCurrentStoryPolling} from "../../CurrentStory/Actions/CurrentStoryActions";
 
-export function StoryEstimate({ storyEstimate, currentMeeting, user, currentStory, goToMeetings, goToStories, updateStoryEstimate }) {
+export function StoryEstimate({ storyEstimate, currentMeeting, user, currentStory, goToMeetings, goToStories, updateStoryEstimate, resetStoryEstimate, getCurrentStory, stopCurrentStoryPolling, match }) {
   // TODO: Move estimations to store
   const estimation = [1, 2, 3, 5, 8, 13];
+
+  useEffect(
+      () => {
+          getCurrentStory(match.params.meetingId);
+          return () => {
+              stopCurrentStoryPolling();
+              resetStoryEstimate();
+          };
+      },
+      [],
+  );
+
   return (
     <Page title={currentMeeting.name} onBack={ goToMeetings }>
       <HostButton onHostClick={ goToStories }/>
@@ -40,7 +53,7 @@ function HostButton({ onHostClick }) {
 
 function mapStateToProps(state) {
   return {
-    estimate: state.estimate,
+    storyEstimate: state.storyEstimate,
     currentMeeting: state.currentMeeting,
     user: state.user,
     currentStory: state.currentStory
@@ -51,7 +64,10 @@ function mapDispatchToProps(dispatch) {
   return {
     goToMeetings: () => dispatch(viewMeetings()),
     goToStories: () => dispatch(viewStories()),
-    updateStoryEstimate: (userId, storyId, estimate) => dispatch(putStoryEstimate(userId, storyId, estimate))
+    updateStoryEstimate: (userId, storyId, estimate) => dispatch(PutStoryEstimate(userId, storyId, estimate)),
+    resetStoryEstimate: () => dispatch(ResetStoryEstimate()),
+    getCurrentStory: (meetingId) => dispatch(GetCurrentStory(meetingId)),
+    stopCurrentStoryPolling: () => dispatch(StopCurrentStoryPolling()),
   };
 }
 

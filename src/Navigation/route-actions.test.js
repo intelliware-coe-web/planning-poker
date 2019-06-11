@@ -102,28 +102,28 @@ describe('Route Actions', () => {
             })));
         });
 
-        it('should dispatch GetCurrentStory and GetCurrentMeeting if location is estimate', () => {
+        it('should dispatch GetCurrentMeeting if location starts with /meeting/', () => {
             const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
-                    pathname: `/meeting/${mockMeetingId}/estimate/`
+                    pathname: '/meeting/' + mockMeetingId
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(getCurrentUserId));
             expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockMeetingId)));
-            expect(saga.next().value).toEqual(put(GetCurrentStory(mockMeetingId)));
         });
 
-        it('should dispatch StopCurrentStoryPolling if location is not estimate', () => {
+        it('should not dispatch GetCurrentMeeting if location does not start with /meeting/', () => {
+            const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
-                    pathname: '/notEstimate/'
+                    pathname: '/notmeeting/' + mockMeetingId
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(getCurrentUserId));
-            expect(saga.next().value).toEqual(put(StopCurrentStoryPolling()));
+            expect(saga.next().value).not.toEqual(put(GetCurrentMeeting(mockMeetingId)));
         });
 
         it('should dispatch GetStoryEstimates and StopCurrentStoryPolling if location is story summary', () => {
@@ -135,7 +135,6 @@ describe('Route Actions', () => {
             };
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(getCurrentUserId));
-            expect(saga.next().value).toEqual(put(StopCurrentStoryPolling()));
             expect(saga.next().value).toEqual(put(GetStoryEstimates(mockStoryId)));
             expect(saga.next().done).toBeTruthy();
         });

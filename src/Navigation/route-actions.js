@@ -3,7 +3,6 @@ import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
 import {GetStories} from '../Stories/Actions/StoriesActions';
 import {GetCurrentMeeting, UpdateCurrentStory} from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import {GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
 import {getCurrentUserId} from "../Common/selectors";
 import {GetStoryEstimates, StopStoryEstimatesPolling} from "../CurrentStory/Actions/StoryEstimatesActions"
 
@@ -74,13 +73,9 @@ export function* routerActions(action){
     yield put(replace({pathname: '/', state: { 'nextPathname': pathname}}));
   }
 
-  // Logic when landing on the estimate page
-  if(pathname.endsWith("/estimate/")) {
-    const meetingId = pathname.split('/')[2];
-    yield put(GetCurrentMeeting(meetingId));
-    yield put(GetCurrentStory(meetingId));
-  } else {
-    yield put(StopCurrentStoryPolling());
+  if(pathname.startsWith("/meeting/")) {
+      const meetingId = pathname.split('/')[2];
+      yield put(GetCurrentMeeting(meetingId));
   }
 
   if (pathname.startsWith("/story/summary/")) {
