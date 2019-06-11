@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Page } from '../../../Common/Page';
 import { viewStories } from '../../../Navigation/route-actions';
 
-export function StorySummary({currentMeeting, estimateList, goToHost}) {
+export function StorySummary({currentMeeting, storyEstimates, goToHost}) {
 
 
     //const storyId = match.params.storyId;
@@ -44,7 +44,7 @@ export function StorySummary({currentMeeting, estimateList, goToHost}) {
     return (
 
         <Page title={currentMeeting.name} onBack={ goToHost }>
-            {estimateList}
+            {storyEstimates}
             <div className="uk-align-center uk-width-1-2@m">
                 <table className="uk-table">
                     <thead>
@@ -76,7 +76,7 @@ function mapStateToProps(state) {
     return {
         currentMeeting: state.currentMeeting,
         currentStory: state.currentStory,
-        estimateList: state.estimateList
+        storyEstimates: state.storyEstimates
     }
   }
   

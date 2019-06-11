@@ -24,10 +24,10 @@ describe('StoryEstimates Actions', () => {
     
             it('should dispatch action', () => {
                 const ApiResponse = [];
-                expect(fixture.next().value).toEqual(call(CurrentStoryAPI.estimateList, storyId));
+                expect(fixture.next().value).toEqual(call(CurrentStoryAPI.storyEstimates, storyId));
                 expect(fixture.next(ApiResponse).value).toEqual(put({
                     type: STORY_ESTIMATES_SUCCESS,
-                    payload: {estimateList: ApiResponse}
+                    payload: {storyEstimates: ApiResponse}
                 }));
                 expect(fixture.next().value).toEqual(delay(POLLING_DELAY));
                 expect(fixture.next().done).toBeFalsy();

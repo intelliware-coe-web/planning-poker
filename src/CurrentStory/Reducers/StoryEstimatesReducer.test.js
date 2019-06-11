@@ -2,18 +2,18 @@ import { STORY_ESTIMATES_SUCCESS } from "../Actions/StoryEstimatesActions";
 import StoryEstimatesReducer from "./StoryEstimatesReducer";
 
 describe('StoryEstimates Reducer ', () => {
-    it('should set the GetStoryEstimates to estimateLists when it is a success', () => {
+    it('should set the GetStoryEstimates to storyEstimatess when it is a success', () => {
         const initialState = [];
-        const estimateList = [
+        const storyEstimates = [
             {
                 user: { _id: '123' },
                 estimate: 5
             }
         ];
-        const action = { type: STORY_ESTIMATES_SUCCESS, payload: { estimateList: estimateList } };
+        const action = { type: STORY_ESTIMATES_SUCCESS, payload: { storyEstimates: storyEstimates } };
 
         const actualNextState = StoryEstimatesReducer(initialState, action);
-        expect(actualNextState).toEqual(estimateList);
+        expect(actualNextState).toEqual(storyEstimates);
     });
 
     it('should keep state on other messages', () => {

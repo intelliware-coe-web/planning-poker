@@ -4,7 +4,7 @@ const initialState = [];
 
 export default function StoryEstimatesReducer(state = initialState, action) {
     if (action.type === STORY_ESTIMATES_SUCCESS ) {
-        return action.payload.estimateList;
+        return action.payload.storyEstimates;
     } else {
         return state;
     }

@@ -18,7 +18,7 @@ export function* watchStoryEstimatesAsync() {
   }
 }
 
-export function GetStoryEstimates(storyId) {
+export function GetStoryEstimates(storyId) {  
   return {
       type: STORY_ESTIMATES_GET_REQUESTED,
       payload: storyId
@@ -34,7 +34,7 @@ export function StopStoryEstimatesPolling() {
 export function* getStoryEstimatesAsync({payload: storyId}){
   while(true) {
       try {
-          const story = yield call(CurrentStoryAPI.estimateList, storyId);
+          const story = yield call(CurrentStoryAPI.storyEstimates, storyId);
           yield put(StoryEstimatesSuccess(story));
       }
       catch (e) {
@@ -47,7 +47,7 @@ export function* getStoryEstimatesAsync({payload: storyId}){
 export function StoryEstimatesSuccess(storyEstimates) {
   return {
       type: STORY_ESTIMATES_SUCCESS,
-      payload: {estimateList: storyEstimates}
+      payload: {storyEstimates: storyEstimates}
   };
 }
 
