@@ -40,7 +40,7 @@ function HostButton({ onHostClick }) {
 
 function mapStateToProps(state) {
   return {
-    storyEstimate: state.storyEstimate,
+    estimate: state.estimate,
     currentMeeting: state.currentMeeting,
     user: state.user,
     currentStory: state.currentStory

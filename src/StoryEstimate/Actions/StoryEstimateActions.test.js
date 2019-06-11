@@ -13,23 +13,23 @@ describe('Story Estimate Actions', () => {
     let fixture;
     const userId = 'fakeUserId';
     const storyId = 'fakeStoryId';
-    const storyEstimate = 8;
+    const estimate = 8;
 
     describe('Put action', () => {
 
         beforeEach(() => {
-            fixture = putStoryEstimateAsync({payload: { userId, storyId, storyEstimate } });
+            fixture = putStoryEstimateAsync({payload: { userId, storyId, estimate } });
         });
 
         it('should dispatch action', () => {
             expect(fixture.next().value).toEqual(call(StoryEstimateAPI.update, storyId, {
                 user: userId,
-                storyEstimate: storyEstimate
+                estimate: estimate
             }));
             expect(fixture.next().value).toEqual(put({
                 type: STORY_ESTIMATE_SUCCESS,
                 payload: {
-                    storyEstimate: storyEstimate
+                    estimate: estimate
                 }
             }));
             expect(fixture.next().done).toBeTruthy();
@@ -50,13 +50,13 @@ describe('Story Estimate Actions', () => {
 
     describe('Story Estimate', () => {
         it('should return json with payload', () => {
-             const storyEstimateJSON = putStoryEstimate(userId, storyId, storyEstimate);
+             const storyEstimateJSON = putStoryEstimate(userId, storyId, estimate);
              expect(storyEstimateJSON).toEqual({
                  type: STORY_ESTIMATE_REQUESTED,
                  payload: {
                     userId: userId,
                     storyId:storyId,
-                    storyEstimate: storyEstimate
+                    estimate: estimate
                  }
              });
 
