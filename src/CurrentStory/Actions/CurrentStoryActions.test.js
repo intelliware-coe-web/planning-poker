@@ -3,19 +3,11 @@ import {
     CURRENT_STORY_SUCCESS,
     CURRENT_STORY_GET_REQUESTED,
     CURRENT_STORY_STOP_POLLING_REQUESTED,
-    STORY_ESTIMATES_SUCCESS,
-    STORY_ESTIMATES_ERROR,
-    STORY_ESTIMATES_GET_REQUESTED,
-    STORY_ESTIMATES_STOP_POLLING_REQUESTED,
     POLLING_DELAY,
     GetCurrentStory,
     StopCurrentStoryPolling,
-    GetStoryEstimates,
-    StopStoryEstimatesPolling,
     getCurrentStoryAsync,
-    getStoryEstimatesAsync,
     watchCurrentStoryAsync,
-    watchStoryEstimatesAsync
 } from "./CurrentStoryActions";
 import {CurrentStoryAPI} from "../API/CurrentStory.api";
 import {call, put, take, race, delay} from 'redux-saga/effects';
@@ -92,52 +84,6 @@ describe('CurrentStory Actions', () => {
                 ]));
                 expect(watcher.next().done).toBeFalsy();
             });
-        });
-    });
-
-    describe('GetStoryEstimates', () => {
-        describe('GetStoryEstimatesAsync', () => {
-            const storyId = '2342nioewro2342';
-    
-            beforeEach(() => {
-                fixture = getStoryEstimatesAsync({payload: storyId});
-            });
-    
-            it('should dispatch action', () => {
-                const ApiResponse = [];
-                expect(fixture.next().value).toEqual(call(CurrentStoryAPI.estimateList, storyId));
-                expect(fixture.next(ApiResponse).value).toEqual(put({
-                    type: STORY_ESTIMATES_SUCCESS,
-                    payload: {estimateList: ApiResponse}
-                }));
-                expect(fixture.next().value).toEqual(delay(POLLING_DELAY));
-                expect(fixture.next().done).toBeFalsy();
-            });
-    
-            it('should handle errors', () => {
-                fixture.next();
-                let e = {message: 'Failed!'};
-                expect(fixture.throw(e).value).toEqual(put({
-                    type: STORY_ESTIMATES_ERROR,
-                    payload: {
-                        error: e
-                    }
-                }));
-                expect(fixture.next().done).toBeFalsy();
-            });
-        });
-    
-        describe('GetStoryEstimates', () => {
-           it('should return correct JSON', () => {
-               const mockStoryId = 'MockMeetingId';
-               const expectedGetStoryEstimatesJSON = {
-                   type: STORY_ESTIMATES_GET_REQUESTED,
-                   payload: mockStoryId
-               };
-               const actualGetStoryEstimateJSON = GetStoryEstimates(mockStoryId);
-               expect(actualGetStoryEstimateJSON).toEqual(expectedGetStoryEstimatesJSON);
-    
-           });
         });
     });
 });

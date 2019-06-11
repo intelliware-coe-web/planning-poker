@@ -6,7 +6,7 @@ import { PostUser } from '../Actions/UserActions';
 export function CreateUser({postUser}) {
 
     return (
-        <div className="uk-flex uk-flex-middle">
+        <div className="uk-flex uk-flex-middle uk-height-viewport">
             <div className="uk-width-1-1">
                 <img src={loginImg} alt="login"/>
             </div>

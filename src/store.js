@@ -11,6 +11,7 @@ import {watchRouterAsync} from './Navigation/route-actions';
 import {watchStoriesAsync} from './Stories/Actions/StoriesActions';
 import {watchStoryEstimateAsync} from './StoryEstimate/Actions/StoryEstimateActions';
 import {watchCurrentStoryAsync} from './CurrentStory/Actions/CurrentStoryActions'
+import {watchStoryEstimatesAsync} from './CurrentStory/Actions/StoryEstimatesActions';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -26,6 +27,7 @@ function* rootSaga() {
         watchStoryEstimateAsync(),
         watchCurrentMeetingAsync(),
         watchCurrentStoryAsync(),
+        watchStoryEstimatesAsync(),
         watchRouterAsync(),
         watchStoriesAsync()
     ]);

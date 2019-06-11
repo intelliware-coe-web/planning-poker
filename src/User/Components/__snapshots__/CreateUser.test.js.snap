@@ -2,7 +2,7 @@
 
 exports[`Container: User should render CreateUser correctly 1`] = `
 <div
-  className="uk-flex uk-flex-middle"
+  className="uk-flex uk-flex-middle uk-height-viewport"
 >
   <div
     className="uk-width-1-1"
