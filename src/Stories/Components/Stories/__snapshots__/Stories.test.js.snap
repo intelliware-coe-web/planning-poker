@@ -12,17 +12,11 @@ exports[`Stories renders correctly 1`] = `
     Estimate
   </button>
   <div
-    className="uk-card uk-card-secondary uk-card-body uk-margin pp-button"
+    className="uk-margin-small"
   >
-    <Link
-      to={
-        Object {
-          "pathname": "/story/summary/undefined",
-          "query": Object {
-            "storyId": undefined,
-          },
-        }
-      }
+    <div
+      className="uk-card uk-card-secondary uk-card-body pp-button"
+      onClick={[Function]}
     >
       <div
         className="uk-card-badge uk-label"
@@ -34,7 +28,7 @@ exports[`Stories renders correctly 1`] = `
       >
         Mock Story Name
       </h3>
-    </Link>
+    </div>
   </div>
   <div
     className="uk-card uk-card-secondary uk-card-body pp-secondary-button"

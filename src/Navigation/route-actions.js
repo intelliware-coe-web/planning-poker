@@ -49,6 +49,19 @@ export function* viewStoriesSaga() {
   yield put(push('/stories/'));
 }
 
+const VIEW_STORY = 'VIEW_STORY';
+
+export function viewStory(storyId) {
+  return {
+    type: VIEW_STORY,
+    payload: storyId
+  }
+}
+
+export function* viewStorySaga(action) {
+  yield put(push(`/story/summary/${ action.payload }`));
+}
+
 export function* routerActions(action){
   if(action.payload.location.pathname.startsWith("/estimate/")) {
     yield put(GetCurrentStory(action.payload.location.pathname.split('/estimate/')[1]));
@@ -67,5 +80,6 @@ export function* watchRouterAsync() {
   yield takeLatest(VIEW_MEETINGS, viewMeetingsSaga);
   yield takeLatest(VIEW_MEETING, viewMeetingSaga);
   yield takeLatest(VIEW_STORIES, viewStoriesSaga);
+  yield takeLatest(VIEW_STORY, viewStorySaga);
   yield takeLatest(LOCATION_CHANGE, routerActions);
 }

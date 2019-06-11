@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { viewMeetings, viewCreateStory, viewMeeting } from '../../../Navigation/route-actions';
+import { viewMeetings, viewStory, viewCreateStory, viewMeeting } from '../../../Navigation/route-actions';
 import { Page } from '../../../Common/Page';
 import { connect } from 'react-redux';
 
-export function Stories({ currentMeeting, stories = [], goToMeetings, createStory, goToEstimate }) {
+export function Stories({ currentMeeting, stories = [], goToMeetings, goToStory, createStory, goToEstimate }) {
 
   return (
     <Page title={currentMeeting.name} onBack={ goToMeetings }>
@@ -13,12 +13,12 @@ export function Stories({ currentMeeting, stories = [], goToMeetings, createStor
         Estimate
       </button>
 
-      { stories.map((story, i) =>
-        <div key={ i } className="uk-card uk-card-secondary uk-card-body uk-margin pp-button">
-          <Link to={ { pathname: '/story/summary/' + story._id, query: { storyId: story._id } } }>
+      { stories.map((story, index) =>
+        <div className="uk-margin-small" key={ index }>
+          <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={ () => goToStory(story._id) }>
             <div className="uk-card-badge uk-label">Points: 3</div>
-            <h3 className="uk-card-title">{story.name}</h3>
-          </Link>
+            <h3 className="uk-card-title">{ story.name }</h3>
+          </div>
         </div>
       )}
 
@@ -40,6 +40,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     goToMeetings: () => dispatch(viewMeetings()),
+    goToStory: (storyId) => dispatch(viewStory(storyId)),
     createStory: () => dispatch(viewCreateStory()),
     goToEstimate: (meetingId) => dispatch(viewMeeting(meetingId))
   };

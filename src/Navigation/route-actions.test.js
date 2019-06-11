@@ -2,13 +2,15 @@ import {
   routerActions,
   viewCreateStory,
   viewCreateMeeting,
-  viewStories,
   viewMeeting,
-  viewMeetings,
   viewMeetingSaga,
+  viewMeetings,
   viewMeetingsSaga, 
+  viewStories,
   viewStoriesSaga,
-  watchRouterAsync 
+  viewStory,
+  viewStorySaga,
+  watchRouterAsync, 
 } from './route-actions';
 import { takeLatest, put } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'connected-react-router';
@@ -29,6 +31,10 @@ describe('Route Actions', () => {
 
   it('should create a view meeting action', () => {
     expect(viewMeeting('FOO')).toEqual({ type: 'VIEW_MEETING', payload: 'FOO' });
+  });
+
+  it('should create a view story action', () => {
+    expect(viewStory('FOO')).toEqual({ type: 'VIEW_STORY', payload: 'FOO' });
   });
 
   it('should route to estimations', () => {
@@ -97,6 +103,7 @@ describe('Route Actions', () => {
     expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
     expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETING', viewMeetingSaga));
     expect(watcher.next().value).toEqual(takeLatest('VIEW_STORIES', viewStoriesSaga));
+    expect(watcher.next().value).toEqual(takeLatest('VIEW_STORY', viewStorySaga));
     expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));
     expect(watcher.next().done).toBeTruthy();
   });
