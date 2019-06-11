@@ -15,7 +15,7 @@ import {
 import { takeLatest, put } from 'redux-saga/effects';
 import { push, LOCATION_CHANGE } from 'connected-react-router';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
-import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
+import { GetCurrentMeeting, UpdateCurrentStory } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 import { GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/StoryEstimatesActions";
 
@@ -34,7 +34,7 @@ describe('Route Actions', () => {
   });
 
   it('should create a view story action', () => {
-    expect(viewStory('FOO')).toEqual({ type: 'VIEW_STORY', payload: 'FOO' });
+    expect(viewStory('FOO')).toEqual({ type: 'VIEW_STORY', payload: { storyId: 'FOO' } });
   });
 
   it('should route to estimations', () => {
@@ -56,6 +56,30 @@ describe('Route Actions', () => {
     const saga = viewMeetingsSaga();
     expect(saga.next().value).toEqual(put(GetMeetings()));
     expect(saga.next().value).toEqual(put(push('/meetings/')));
+    expect(saga.next().done).toBeTruthy();
+  });
+
+  it('should route to meeting', () => {
+    const mockAction = {
+      type: 'VIEW_MEETING',
+      payload: ''
+    };
+    const saga = viewMeetingSaga(mockAction);
+    expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockAction.payload)));
+    expect(saga.next().value).toEqual(put(push(`/estimate/${ mockAction.payload }`)));
+    expect(saga.next().done).toBeTruthy();
+  });
+
+  it('should route to story', () => {
+    const mockAction = {
+      type: 'VIEW_STORY',
+      payload: {
+        storyId: 'story13847gf81374gr183o4'
+      }
+    };
+    const saga = viewStorySaga(mockAction);
+    expect(saga.next().value).toEqual(put(UpdateCurrentStory(mockAction.payload)));
+    expect(saga.next().value).toEqual(put(push(`/story/summary/${ mockAction.payload.storyId }`)));
     expect(saga.next().done).toBeTruthy();
   });
 

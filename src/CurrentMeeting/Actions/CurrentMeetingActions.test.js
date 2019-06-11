@@ -1,11 +1,12 @@
 import {
     CURRENT_MEETING_ERROR,
     CURRENT_MEETING_SUCCESS,
-    GetCurrentMeeting,
-    getCurrentMeetingAsync
+    getCurrentMeetingAsync,
+    updateCurrentStoryAsync
 } from "./CurrentMeetingActions";
-import {CurrentMeetingAPI} from "../API/CurrentMeeting.api";
-import {call, put} from 'redux-saga/effects';
+import { CurrentMeetingAPI } from "../API/CurrentMeeting.api";
+import { call, put, select } from 'redux-saga/effects';
+import * as Selectors from '../../Common/selectors';
 
 describe('CurrentMeeting Actions', () => {
     let fixture;
@@ -40,4 +41,34 @@ describe('CurrentMeeting Actions', () => {
         });
     });
 
+    describe('UpdateCurrentStory', () => {
+        const currentMeetingId = '123';
+        jest.spyOn(Selectors, 'getCurrentMeetingId').mockReturnValue(() => jest.fn());
+        const storyBody = {
+            storyId: 'story12342'
+        };
+
+        beforeEach(() => {
+            fixture = updateCurrentStoryAsync({payload: storyBody});
+        });
+
+        it('should dispatch action', () => {
+            const ApiResponse = [];
+            expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
+            expect(fixture.next(currentMeetingId).value).toEqual(call(CurrentMeetingAPI.update, currentMeetingId, storyBody));
+            expect(fixture.next().done).toBeTruthy();
+        });
+
+        it('should handle errors', () => {
+            fixture.next();
+            let e = {message: 'Failed!'};
+            expect(fixture.throw(e).value).toEqual(put({
+                type: CURRENT_MEETING_ERROR,
+                payload: {
+                    error: e
+                }
+            }));
+            expect(fixture.next().done).toBeTruthy();
+        });
+    });
 });

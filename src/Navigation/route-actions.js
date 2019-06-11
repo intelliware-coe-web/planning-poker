@@ -2,7 +2,7 @@ import { push, LOCATION_CHANGE } from 'connected-react-router';
 import { put, takeLatest } from 'redux-saga/effects';
 import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetStories } from '../Stories/Actions/StoriesActions';
-import { GetCurrentMeeting } from '../CurrentMeeting/Actions/CurrentMeetingActions';
+import { GetCurrentMeeting, UpdateCurrentStory } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 import { GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/StoryEstimatesActions"
 
@@ -54,12 +54,15 @@ const VIEW_STORY = 'VIEW_STORY';
 export function viewStory(storyId) {
   return {
     type: VIEW_STORY,
-    payload: storyId
+    payload: {
+      storyId: storyId
+    }
   }
 }
 
 export function* viewStorySaga(action) {
-  yield put(push(`/story/summary/${ action.payload }`));
+  yield put(UpdateCurrentStory(action.payload));
+  yield put(push(`/story/summary/${ action.payload.storyId }`));
 }
 
 export function* routerActions(action){
