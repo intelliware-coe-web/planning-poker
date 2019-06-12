@@ -19,15 +19,11 @@ exports[`Meetings renders correctly 1`] = `
         <div
           class="uk-card uk-card-primary uk-card-body uk-margin-small"
         >
-          <h3
-            class="uk-card-title"
+          <button
+            class="pp-button"
           >
-            <a
-              class="uk-link-heading"
-            >
-              test
-            </a>
-          </h3>
+            test
+          </button>
           <button
             class="uk-position-center-right uk-margin-small-right"
             data-uk-icon="icon: trash"

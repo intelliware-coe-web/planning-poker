@@ -33,15 +33,11 @@ exports[`Stories renders correctly 1`] = `
           >
             Points: 3
           </div>
-          <h3
-            class="uk-card-title"
+          <button
+            class="pp-button"
           >
-            <a
-              class="uk-link-heading"
-            >
-              Mock Story Name
-            </a>
-          </h3>
+            Mock Story Name
+          </button>
           <button
             class="uk-position-center-right uk-margin-small-right"
             data-uk-icon="icon: trash"
