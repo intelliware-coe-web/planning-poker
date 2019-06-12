@@ -15,7 +15,7 @@ exports[`Stories renders correctly 1`] = `
     className="uk-card uk-card-primary uk-card-body uk-margin-small"
   >
     <div
-      className="uk-card-badge uk-label"
+      className="uk-position-center-left uk-margin-small-left uk-label"
     >
       Points: 3
     </div>
@@ -23,11 +23,7 @@ exports[`Stories renders correctly 1`] = `
       className="uk-card-title"
       onClick={[Function]}
     >
-      <a
-        className="uk-link-heading"
-      >
-        Mock Story Name
-      </a>
+      Mock Story Name
     </h3>
     <button
       className="uk-position-center-right uk-margin-small-right"
