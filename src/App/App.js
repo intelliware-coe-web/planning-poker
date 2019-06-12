@@ -20,7 +20,7 @@ export default function App() {
           <Route path="/meeting/:meetingId/estimate/" component={StoryEstimate} />
           <Route path="/meeting/:meetingId/stories/" component={Stories} />
           <Route path="/story/create/" component={CreateStory} />
-          <Route path="/story/summary/:storyId/" component={StorySummary} />
+          <Route path="/meeting/:meetingId/story/:storyId/summary/" component={StorySummary} />
       </ConnectedRouter>
   );
 }

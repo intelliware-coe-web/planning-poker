@@ -40,10 +40,11 @@ export function* viewStoriesSaga(action) {
 
 const VIEW_STORY = 'VIEW_STORY';
 
-export function viewStory(storyId) {
+export function viewStory(meetingId, storyId) {
     return {
         type: VIEW_STORY,
         payload: {
+            meetingId: meetingId,
             storyId: storyId
         }
     }
@@ -51,7 +52,7 @@ export function viewStory(storyId) {
 
 export function* viewStorySaga(action) {
     yield put(UpdateCurrentStory(action.payload));
-    yield put(push(`/story/summary/${ action.payload.storyId }`));
+    yield put(push(`/meeting/${ action.payload.meetingId }/story/${ action.payload.storyId }/summary/`));
 }
 
 export function* routerActions(action) {

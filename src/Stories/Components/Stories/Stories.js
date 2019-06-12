@@ -14,7 +14,7 @@ export function Stories({ currentMeeting, stories = [], goToMeetings, goToStory,
 
       { stories.map((story, index) =>
         <div className="uk-margin-small" key={ index }>
-          <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={ () => goToStory(story._id) }>
+          <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={ () => goToStory(currentMeeting._id, story._id) }>
             <div className="uk-card-badge uk-label">Points: 3</div>
             <h3 className="uk-card-title">{ story.name }</h3>
           </div>
@@ -39,7 +39,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     goToMeetings: () => dispatch(viewMeetings()),
-    goToStory: (storyId) => dispatch(viewStory(storyId)),
+    goToStory: (meetingId, storyId) => dispatch(viewStory(meetingId, storyId)),
     createStory: () => dispatch(viewCreateStory()),
     goToEstimate: (meetingId) => dispatch(viewMeeting(meetingId))
   };

@@ -106,7 +106,7 @@ exports[`renders correctly 1`] = `
         "type": [Function],
       }
     }
-    path="/story/summary/:storyId/"
+    path="/meeting/:meetingId/story/:storyId/summary/"
   />
 </Memo(ConnectFunction)>
 `;

@@ -34,7 +34,7 @@ describe('Route Actions', () => {
     });
 
     it('should create a view story action', () => {
-        expect(viewStory('FOO')).toEqual({type: 'VIEW_STORY', payload: {storyId: 'FOO'}});
+        expect(viewStory('BAR', 'FOO')).toEqual({type: 'VIEW_STORY', payload: {meetingId: 'BAR', storyId: 'FOO'}});
     });
 
     it('should create a view meetings action', () => {
@@ -56,12 +56,13 @@ describe('Route Actions', () => {
         const mockAction = {
             type: 'VIEW_STORY',
             payload: {
+                meetingId: 'meeting23847623874',
                 storyId: 'story13847gf81374gr183o4'
             }
         };
         const saga = viewStorySaga(mockAction);
         expect(saga.next().value).toEqual(put(UpdateCurrentStory(mockAction.payload)));
-        expect(saga.next().value).toEqual(put(push(`/story/summary/${ mockAction.payload.storyId }`)));
+        expect(saga.next().value).toEqual(put(push(`/meeting/${ mockAction.payload.meetingId }/story/${ mockAction.payload.storyId }/summary/`)));
         expect(saga.next().done).toBeTruthy();
     });
 
