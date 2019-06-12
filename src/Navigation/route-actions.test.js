@@ -1,11 +1,10 @@
 import {
     routerActions,
-    viewCreateStory,
     viewCreateMeeting,
-
+    viewCreateStory,
     viewMeeting,
-    viewMeetingSaga,
     viewMeetings,
+    viewMeetingSaga,
     viewMeetingsSaga,
     viewStories,
     viewStoriesSaga,
@@ -13,14 +12,12 @@ import {
     viewStorySaga,
     watchRouterAsync,
 } from './route-actions';
-import {takeLatest, put, select, delay} from 'redux-saga/effects';
-import {push, LOCATION_CHANGE, replace} from 'connected-react-router';
+import {put, takeLatest, select, delay} from 'redux-saga/effects';
+import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
 import {GetCurrentMeeting, UpdateCurrentStory} from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import {GetCurrentStory, StopCurrentStoryPolling} from "../CurrentStory/Actions/CurrentStoryActions";
+import {GetStoryEstimates} from "../CurrentStory/Actions/StoryEstimatesActions";
 import {getCurrentUserId} from "../Common/selectors";
-import {GetStoryEstimates, StopStoryEstimatesPolling} from "../CurrentStory/Actions/StoryEstimatesActions";
-import { GetStories } from "../Stories/Actions/StoriesActions";
 
 describe('Route Actions', () => {
 
@@ -33,18 +30,11 @@ describe('Route Actions', () => {
     });
 
     it('should create a view meeting action', () => {
-        expect(viewMeeting('FOO')).toEqual({type: 'VIEW_MEETING', payload: 'FOO'});
+        expect(viewMeeting('FOO')).toEqual(push('/meeting/FOO/estimate/'));
     });
 
     it('should create a view story action', () => {
         expect(viewStory('FOO')).toEqual({type: 'VIEW_STORY', payload: {storyId: 'FOO'}});
-    });
-
-    it('should route to estimations', () => {
-        const saga = viewMeetingSaga({payload: 'Foo'});
-        expect(saga.next().value).toEqual(put(GetCurrentMeeting('Foo')));
-        expect(saga.next().value).toEqual(put(push('/meeting/Foo/estimate/')));
-        expect(saga.next().done).toBeTruthy();
     });
 
     it('should create a view meetings action', () => {
@@ -62,29 +52,6 @@ describe('Route Actions', () => {
         expect(saga.next().done).toBeTruthy();
     });
 
-    it('should route to meeting', () => {
-        const mockAction = {
-            type: 'VIEW_MEETING',
-            payload: ''
-        };
-        const saga = viewMeetingSaga(mockAction);
-        expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockAction.payload)));
-        expect(saga.next().value).toEqual(put(push(`/meeting/${ mockAction.payload }/estimate/`)));
-        expect(saga.next().done).toBeTruthy();
-    });
-
-  it('should route to stories', () => {
-    const mockAction = {
-      type: 'VIEW_STORIES',
-      payload: ''
-    };
-    const saga = viewStoriesSaga(mockAction);
-    expect(saga.next().value).toEqual(put(GetStories()));
-    expect(saga.next().value).toEqual(put(UpdateCurrentStory({})));
-    expect(saga.next().value).toEqual(put(push(`/stories/`)));
-    expect(saga.next().done).toBeTruthy();
-  });
-
     it('should route to story', () => {
         const mockAction = {
             type: 'VIEW_STORY',
@@ -99,6 +66,7 @@ describe('Route Actions', () => {
     });
 
     describe('RouterActions', () => {
+
         it('should dispatch replace to create page with nextPathName equal to current path name when landing not on create page', () => {
             const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
@@ -156,7 +124,6 @@ describe('Route Actions', () => {
     it('should watch view actions', () => {
         const watcher = watchRouterAsync();
         expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
-        expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETING', viewMeetingSaga));
         expect(watcher.next().value).toEqual(takeLatest('VIEW_STORIES', viewStoriesSaga));
         expect(watcher.next().value).toEqual(takeLatest('VIEW_STORY', viewStorySaga));
         expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));

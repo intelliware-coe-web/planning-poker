@@ -22,7 +22,7 @@ export function GetCurrentMeeting(meetingId) {
 export function* getCurrentMeetingAsync({payload: meetingId}){
     try {
         let currentMeetingId = yield select(getCurrentMeetingId);
-        if(currentMeetingId === null){
+        if(currentMeetingId === null || currentMeetingId !== meetingId){
             const meeting = yield call(CurrentMeetingAPI.byId, meetingId);
             yield put(CurrentMeetingSuccess(meeting));
         }

@@ -22,7 +22,7 @@ export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory
 
     return (
         <Page title={currentMeeting.name} onBack={goToMeetings}>
-            <HostButton onHostClick={goToStories}/>
+            <HostButton onHostClick={() => goToStories(currentMeeting._id)}/>
             <StoryDescription {...currentStory} />
             <div className="uk-align-center uk-width-1-1@m">
                 {estimation.map((estimate, i) =>
@@ -63,7 +63,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         goToMeetings: () => dispatch(viewMeetings()),
-        goToStories: () => dispatch(viewStories()),
+        goToStories: (meetingId) => dispatch(viewStories(meetingId)),
         updateStoryEstimate: (userId, storyId, estimate) => dispatch(PutStoryEstimate(userId, storyId, estimate)),
         resetStoryEstimate: () => dispatch(ResetStoryEstimate()),
         getCurrentStory: (meetingId) => dispatch(GetCurrentStory(meetingId)),

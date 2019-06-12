@@ -42,18 +42,6 @@ exports[`renders correctly 1`] = `
         "$$typeof": Symbol(react.memo),
         "WrappedComponent": [Function],
         "compare": null,
-        "displayName": "Connect(Stories)",
-        "type": [Function],
-      }
-    }
-    path="/stories/"
-  />
-  <Route
-    component={
-      Object {
-        "$$typeof": Symbol(react.memo),
-        "WrappedComponent": [Function],
-        "compare": null,
         "displayName": "Connect(Meetings)",
         "type": [Function],
       }
@@ -83,6 +71,18 @@ exports[`renders correctly 1`] = `
       }
     }
     path="/meeting/:meetingId/estimate/"
+  />
+  <Route
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(Stories)",
+        "type": [Function],
+      }
+    }
+    path="/meeting/:meetingId/stories/"
   />
   <Route
     component={

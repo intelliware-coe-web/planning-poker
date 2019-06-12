@@ -8,20 +8,7 @@ import {GetStoryEstimates, StopStoryEstimatesPolling} from "../CurrentStory/Acti
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');
-
-const VIEW_MEETING = 'VIEW_MEETING';
-
-export function viewMeeting(meetingId) {
-    return {
-        type: VIEW_MEETING,
-        payload: meetingId
-    }
-}
-
-export function* viewMeetingSaga(action) {
-    yield put(GetCurrentMeeting(action.payload));
-    yield put(push(`/meeting/${ action.payload }/estimate/`));
-}
+export const viewMeeting = (meetingId) => push(`/meeting/${ meetingId }/estimate/`);
 
 const VIEW_MEETINGS = 'VIEW_MEETINGS';
 
@@ -38,16 +25,17 @@ export function* viewMeetingsSaga() {
 
 const VIEW_STORIES = 'VIEW_STORIES';
 
-export function viewStories() {
+export function viewStories(meetingId) {
     return {
-        type: VIEW_STORIES
+        type: VIEW_STORIES,
+        payload: meetingId
     }
 }
 
-export function* viewStoriesSaga() {
+export function* viewStoriesSaga(action) {
     yield put(GetStories());
     yield put(UpdateCurrentStory({}));
-    yield put(push('/stories/'));
+    yield put(push(`/meeting/${action.payload}/stories/`));
 }
 
 const VIEW_STORY = 'VIEW_STORY';
@@ -88,7 +76,6 @@ export function* routerActions(action) {
 
 export function* watchRouterAsync() {
     yield takeLatest(VIEW_MEETINGS, viewMeetingsSaga);
-    yield takeLatest(VIEW_MEETING, viewMeetingSaga);
     yield takeLatest(VIEW_STORIES, viewStoriesSaga);
     yield takeLatest(VIEW_STORY, viewStorySaga);
     yield takeLatest(LOCATION_CHANGE, routerActions);
