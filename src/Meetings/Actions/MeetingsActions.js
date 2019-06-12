@@ -6,10 +6,12 @@ export const MEETINGS_SUCCESS = 'MEETINGS_SUCCESS';
 export const MEETINGS_ERROR = 'MEETINGS_ERROR';
 export const MEETINGS_GET_REQUESTED = 'MEETINGS_GET_REQUESTED';
 export const MEETING_POST_REQUESTED = 'MEETING_POST_REQUESTED';
+export const MEETING_DELETE_REQUESTED = 'MEETING_DELETE_REQUESTED';
 
 export function* watchMeetingsAsync() {
     yield takeLatest(MEETINGS_GET_REQUESTED, getMeetingsAsync);
     yield takeLatest(MEETING_POST_REQUESTED, postMeetingAsync);
+    yield takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync);
 }
 
 export function GetMeetings() {
@@ -44,10 +46,21 @@ export function* postMeetingAsync({payload: meetingName}){
     }
 }
 
-function GenerateBody(meetingName) {
-    return  {
-        name: meetingName
-    };
+export function DeleteMeeting(meetingId) {
+    return {
+        type: MEETING_DELETE_REQUESTED,
+        payload: meetingId
+    }
+}
+
+export function* deleteMeetingAsync({payload: meetingId}){
+    try {
+        yield call(MeetingAPI.delete, meetingId);
+        yield put(viewMeetings())
+    }
+    catch (e) {
+        yield put(MeetingsError(e));
+    }
 }
 
 export function MeetingsSuccess(meetings) {
@@ -61,5 +74,11 @@ export function MeetingsError(error) {
     return {
         type: MEETINGS_ERROR,
         payload: {error}
+    };
+}
+
+function GenerateBody(meetingName) {
+    return  {
+        name: meetingName
     };
 }

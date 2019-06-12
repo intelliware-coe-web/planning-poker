@@ -8,6 +8,7 @@ it('Meetings renders correctly', () => {
         error: null,
         goToMeeting: jest.fn(),
         goToCreateMeeting: jest.fn(),
+        deleteMeeting: jest.fn(),
         getMeetings: jest.fn()
     };
     const {container} = render(<Meetings  {...props}/>);

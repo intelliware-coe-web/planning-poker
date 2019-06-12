@@ -1,7 +1,8 @@
-import {API_URL, getData, postData} from '../../Fetch.api';
+import {API_URL, getData, postData, deleteData} from '../../Fetch.api';
 
 export const MeetingAPI = {
   all: () => getData(`${API_URL}/meetings`),
   byId: meetingId => getData(`${API_URL}/meetings/${meetingId}`),
-  create: (body) => postData(`${API_URL}/meetings`, body)
+  create: (body) => postData(`${API_URL}/meetings`, body),
+  delete: meetingId => deleteData(`${API_URL}/meetings/${meetingId}`)
 };

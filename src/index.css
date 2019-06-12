@@ -33,6 +33,14 @@ a:hover {
     font-family: 'Mandali', sans-serif;
 }
 
+.uk-card-primary {
+    background-color: var(--primary-color);
+}
+
+.uk-card-secondary {
+    background-color: var(--secondary-color);
+}
+
 .uk-button-primary {
     background-color: var(--primary-color);
 }

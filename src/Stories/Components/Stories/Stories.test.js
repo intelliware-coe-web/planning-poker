@@ -14,6 +14,7 @@ it('Stories renders correctly', () => {
         error: null,
         goToMeetings: jest.fn(),
         goToStory: jest.fn(),
+        deleteStory: jest.fn(),
         createStory: jest.fn(),
         goToEstimate: jest.fn(),
         getStories: jest.fn()

@@ -26,25 +26,29 @@ exports[`Stories renders correctly 1`] = `
           Estimate
         </button>
         <div
-          class="uk-margin-small"
+          class="uk-card uk-card-primary uk-card-body uk-margin-small"
         >
           <div
-            class="uk-card uk-card-secondary uk-card-body pp-button"
+            class="uk-card-badge uk-label"
           >
-            <div
-              class="uk-card-badge uk-label"
-            >
-              Points: 3
-            </div>
-            <h3
-              class="uk-card-title"
+            Points: 3
+          </div>
+          <h3
+            class="uk-card-title"
+          >
+            <a
+              class="uk-link-heading"
             >
               Mock Story Name
-            </h3>
-          </div>
+            </a>
+          </h3>
+          <button
+            class="uk-position-center-right uk-margin-small-right"
+            data-uk-icon="icon: trash"
+          />
         </div>
         <div
-          class="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+          class="uk-card uk-card-secondary uk-card-body"
         >
           <h3
             class="uk-card-title"
