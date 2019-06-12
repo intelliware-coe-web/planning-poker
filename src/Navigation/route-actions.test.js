@@ -18,6 +18,7 @@ import { GetMeetings } from '../Meetings/Actions/MeetingsActions';
 import { GetCurrentMeeting, UpdateCurrentStory } from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import { GetCurrentStory, StopCurrentStoryPolling } from "../CurrentStory/Actions/CurrentStoryActions";
 import { GetStoryEstimates, StopStoryEstimatesPolling } from "../CurrentStory/Actions/StoryEstimatesActions";
+import { GetStories } from "../Stories/Actions/StoriesActions";
 
 describe('Route Actions', () => {
 
@@ -67,6 +68,18 @@ describe('Route Actions', () => {
     const saga = viewMeetingSaga(mockAction);
     expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockAction.payload)));
     expect(saga.next().value).toEqual(put(push(`/estimate/${ mockAction.payload }`)));
+    expect(saga.next().done).toBeTruthy();
+  });
+
+  it('should route to stories', () => {
+    const mockAction = {
+      type: 'VIEW_STORIES',
+      payload: ''
+    };
+    const saga = viewStoriesSaga(mockAction);
+    expect(saga.next().value).toEqual(put(GetStories()));
+    expect(saga.next().value).toEqual(put(UpdateCurrentStory({})));
+    expect(saga.next().value).toEqual(put(push(`/stories/`)));
     expect(saga.next().done).toBeTruthy();
   });
 

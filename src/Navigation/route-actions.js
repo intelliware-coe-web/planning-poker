@@ -46,6 +46,7 @@ export function viewStories() {
 
 export function* viewStoriesSaga() {
   yield put(GetStories());
+  yield put(UpdateCurrentStory({}));
   yield put(push('/stories/'));
 }
 
