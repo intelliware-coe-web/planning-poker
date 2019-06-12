@@ -63,3 +63,21 @@ export const putData = (url = '', data = {}) => {
             throw error ? error : Error('Post data failed to url ' + url);
         });
 };
+
+export const deleteData = (url) => {
+  return fetch(url, {
+    method: 'DELETE',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin'
+  })
+  .then(response => {
+    if(!response.ok) {
+        throw Error('HTTP status ' + response.status);
+    }
+    return response.json();
+  })
+  .catch(error => {
+    throw error ? error : Error('Delete data failed to url ' + url);
+  });
+};
