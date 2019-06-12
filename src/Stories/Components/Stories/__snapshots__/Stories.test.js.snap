@@ -29,7 +29,7 @@ exports[`Stories renders correctly 1`] = `
           class="uk-card uk-card-primary uk-card-body uk-margin-small"
         >
           <div
-            class="uk-card-badge uk-label"
+            class="uk-position-center-left uk-margin-small-left uk-label"
           >
             Points: 3
           </div>

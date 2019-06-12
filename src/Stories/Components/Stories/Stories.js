@@ -22,7 +22,7 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
 
             {stories.map((story, index) =>
                 <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small">
-                    <div className="uk-card-badge uk-label">Points: 3</div>
+                    <div className="uk-position-center-left uk-margin-small-left uk-label">Points: 3</div>
                     <h3 className="uk-card-title" onClick={() => goToStory(currentMeeting._id, story._id)}>
                         <a className="uk-link-heading">{story.name}</a>
                     </h3>
