@@ -78,6 +78,6 @@ export const deleteData = (url) => {
     return response.json();
   })
   .catch(error => {
-    throw error ? error : Error('Delete data failed to url ' + url);
+    throw error ? error : Error('Delete data failed from url ' + url);
   });
 };

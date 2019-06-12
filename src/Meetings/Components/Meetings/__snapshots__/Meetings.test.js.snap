@@ -5,21 +5,26 @@ exports[`Meetings renders correctly 1`] = `
   title="Meetings"
 >
   <div
-    className="uk-margin-small"
+    className="uk-card uk-card-primary uk-card-body uk-margin-small"
   >
-    <div
-      className="uk-card uk-card-secondary uk-card-body pp-button"
+    <h3
+      className="uk-card-title"
       onClick={[Function]}
     >
-      <h3
-        className="uk-card-title"
+      <a
+        className="uk-link-heading"
       >
         test
-      </h3>
-    </div>
+      </a>
+    </h3>
+    <button
+      className="uk-position-center-right uk-margin-small-right"
+      data-uk-icon="icon: trash"
+      onClick={[Function]}
+    />
   </div>
   <div
-    className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+    className="uk-card uk-card-secondary uk-card-body"
     onClick={[MockFunction]}
   >
     <h3
