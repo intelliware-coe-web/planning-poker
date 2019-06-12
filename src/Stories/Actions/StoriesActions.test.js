@@ -42,7 +42,7 @@ describe('Stories Actions', () => {
         it('should dispatch action', () => {
             expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
             expect(fixture.next(currentMeetingId).value).toEqual(call(StoriesAPI.post, currentMeetingId, storyBody));
-            expect(fixture.next().value).toEqual(put(viewStories()));
+            expect(fixture.next().value).toEqual(put(viewStories(currentMeetingId)));
             expect(fixture.next().done).toBeTruthy();
         });
 

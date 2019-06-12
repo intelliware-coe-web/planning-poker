@@ -42,7 +42,7 @@ export function* postStoryAsync({payload}){
     try {
         const currentMeetingId = yield select(getCurrentMeetingId);
         yield call(StoriesAPI.post, currentMeetingId, payload);
-        yield put(viewStories());
+        yield put(viewStories(currentMeetingId));
     }
     catch (e) {
         yield put(StoriesError(e));
