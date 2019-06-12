@@ -50,3 +50,7 @@ a:hover {
     color: #fff;
     background-color: var(--primary-color);
 }
+
+.pp-button.selected {
+    background-color: var(--secondary-color);
+}
