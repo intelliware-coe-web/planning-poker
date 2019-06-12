@@ -18,10 +18,8 @@ export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateM
     return (
         <Page title='Meetings'>
             {meetings.map((meeting, index) =>
-                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small">
-                    <button className="pp-button" onClick={() => goToMeeting(meeting._id)}>
-                        {meeting.name}
-                    </button>
+                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={() => goToMeeting(meeting._id)}>
+                    {meeting.name}
                     <button
                         className="uk-position-center-right uk-margin-small-right"
                         data-uk-icon="icon: trash"

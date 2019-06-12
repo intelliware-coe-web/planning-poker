@@ -21,11 +21,9 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
             </button>
 
             {stories.map((story, index) =>
-                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small">
+                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={ () => goToStory(currentMeeting._id, story._id) }>
                     <div className="uk-position-center-left uk-margin-small-left uk-label">Points: 3</div>
-                    <button className="pp-button" onClick={ () => goToStory(currentMeeting._id, story._id) }>
-                        { story.name }
-                    </button>
+                    { story.name }
                     <button
                         className="uk-position-center-right uk-margin-small-right"
                         data-uk-icon="icon: trash"
@@ -39,7 +37,6 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
             </div>
         </Page>
     );
-
 }
 
 function mapStateToProps(state) {
