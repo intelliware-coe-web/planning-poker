@@ -15,12 +15,12 @@ export default function App() {
   return (
       <ConnectedRouter history={history}>
           <Route exact path="/" component={CreateUser}/>
-          <Route path="/stories/" component={Stories} />
           <Route path="/meetings/" component={Meetings} />
           <Route path="/meeting/create/" component={CreateMeeting} />
-          <Route path="/estimate/:meetingId/" component={StoryEstimate} />
+          <Route path="/meeting/:meetingId/estimate/" component={StoryEstimate} />
+          <Route path="/meeting/:meetingId/stories/" component={Stories} />
           <Route path="/story/create/" component={CreateStory} />
-          <Route path="/story/summary/:storyId/" component={StorySummary} />
+          <Route path="/meeting/:meetingId/story/:storyId/summary/" component={StorySummary} />
       </ConnectedRouter>
   );
 }

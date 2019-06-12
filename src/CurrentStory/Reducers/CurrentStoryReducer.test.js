@@ -1,8 +1,8 @@
 import CurrentStoryReducer from './CurrentStoryReducer';
 import { CURRENT_STORY_SUCCESS } from "../Actions/CurrentStoryActions";
 
-describe('Current Meeting Reducer ', () => {
-    it('should set the GetMeeting to currentMeeting when it is a success', () => {
+describe('Current Story Reducer ', () => {
+    it('should set the GetCurrentStory to currentStory when it is a success', () => {
         const initialState = [];
         const currentStory = {
             name: 'Story A',
@@ -12,6 +12,19 @@ describe('Current Meeting Reducer ', () => {
 
         const actualNextState = CurrentStoryReducer(initialState, action);
         expect(actualNextState).toEqual(currentStory);
+    });
+
+    it('should set the GetCurrentStory to the initial state when it is a success but response is null', () => {
+        const initialState = {
+            "_id": null,
+            "name": "No story selected",
+            "description": "No story selected"
+        };
+        const currentStory = null;
+        const action = { type: CURRENT_STORY_SUCCESS, payload: { currentStory } };
+
+        const actualNextState = CurrentStoryReducer(initialState, action);
+        expect(actualNextState).toEqual(initialState);
     });
 
     it('should keep state on other messages', () => {

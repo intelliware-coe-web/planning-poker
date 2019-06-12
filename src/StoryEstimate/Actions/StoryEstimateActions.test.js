@@ -4,7 +4,7 @@ import {
     STORY_ESTIMATE_ERROR,
     STORY_ESTIMATE_SUCCESS,
     STORY_ESTIMATE_REQUESTED,
-    putStoryEstimate,
+    PutStoryEstimate,
     putStoryEstimateAsync
 } from "./StoryEstimateActions";
 
@@ -50,7 +50,7 @@ describe('Story Estimate Actions', () => {
 
     describe('Story Estimate', () => {
         it('should return json with payload', () => {
-             const storyEstimateJSON = putStoryEstimate(userId, storyId, estimate);
+             const storyEstimateJSON = PutStoryEstimate(userId, storyId, estimate);
              expect(storyEstimateJSON).toEqual({
                  type: STORY_ESTIMATE_REQUESTED,
                  payload: {

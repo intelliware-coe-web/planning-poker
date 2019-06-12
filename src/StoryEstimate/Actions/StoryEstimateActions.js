@@ -2,15 +2,17 @@ import {StoryEstimateAPI} from "../API/StoryEstimate.api";
 import {call, put, takeLatest} from 'redux-saga/effects';
 
 export const STORY_ESTIMATE_REQUESTED = 'STORY_ESTIMATE_REQUESTED';
+export const RESET_STORY_ESTIMATE_REQUESTED = 'RESET_STORY_ESTIMATE_REQUESTED';
 export const STORY_ESTIMATE_SUCCESS = 'STORY_ESTIMATE_SUCCESS';
 export const STORY_ESTIMATE_ERROR = 'STORY_ESTIMATE_ERROR';
 
 
 export function* watchStoryEstimateAsync() {
-    yield takeLatest(STORY_ESTIMATE_REQUESTED, putStoryEstimateAsync)
+    yield takeLatest(STORY_ESTIMATE_REQUESTED, putStoryEstimateAsync);
+    yield takeLatest(RESET_STORY_ESTIMATE_REQUESTED, resetStoryEstimateAsync);
 }
 
-export function putStoryEstimate(userId, storyId, estimate){
+export function PutStoryEstimate(userId, storyId, estimate){
     return {
         type: STORY_ESTIMATE_REQUESTED,
         payload: { userId, storyId, estimate }
@@ -19,7 +21,7 @@ export function putStoryEstimate(userId, storyId, estimate){
 
 export function* putStoryEstimateAsync({payload: { userId, storyId, estimate } }){
     try {
-        yield call(StoryEstimateAPI.update, storyId, GenerateBody(userId, estimate));
+        yield call(StoryEstimateAPI.update, storyId, generateBody(userId, estimate));
         yield put(storyEstimateSuccess(estimate));
     }
     catch (e) {
@@ -27,7 +29,17 @@ export function* putStoryEstimateAsync({payload: { userId, storyId, estimate } }
     }
 }
 
-function GenerateBody(userId, estimate) {
+export function ResetStoryEstimate(){
+    return {
+        type: RESET_STORY_ESTIMATE_REQUESTED
+    }
+}
+
+export function* resetStoryEstimateAsync(){
+    yield put(storyEstimateSuccess(0));
+}
+
+function generateBody(userId, estimate) {
     return  {
         user: userId,
         estimate: estimate

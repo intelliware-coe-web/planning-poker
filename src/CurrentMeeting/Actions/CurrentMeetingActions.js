@@ -1,6 +1,6 @@
 import { CurrentMeetingAPI } from '../API/CurrentMeeting.api'
 import { takeLatest, call, put, select } from 'redux-saga/effects';
-import { getCurrentMeetingId } from '../../Common/selectors';
+import {getCurrentMeetingId} from "../../Common/selectors";
 
 export const CURRENT_MEETING_SUCCESS = 'CURRENT_MEETING_SUCCESS';
 export const CURRENT_MEETING_ERROR = 'CURRENT_MEETING_ERROR';
@@ -21,8 +21,11 @@ export function GetCurrentMeeting(meetingId) {
 
 export function* getCurrentMeetingAsync({payload: meetingId}){
     try {
-        const meeting = yield call(CurrentMeetingAPI.byId, meetingId);
-        yield put(CurrentMeetingSuccess(meeting));
+        let currentMeetingId = yield select(getCurrentMeetingId);
+        if(currentMeetingId === null || currentMeetingId !== meetingId){
+            const meeting = yield call(CurrentMeetingAPI.byId, meetingId);
+            yield put(CurrentMeetingSuccess(meeting));
+        }
     }
     catch (e) {
         yield put(CurrentMeetingError(e));
