@@ -2,13 +2,13 @@ import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
 import {GetStories} from '../Stories/Actions/StoriesActions';
-import {GetCurrentMeeting, UpdateCurrentStory} from '../CurrentMeeting/Actions/CurrentMeetingActions';
+import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import {getCurrentUserId} from "../Common/selectors";
-import {GetStoryEstimates, StopStoryEstimatesPolling} from "../CurrentStory/Actions/StoryEstimatesActions"
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');
 export const viewMeeting = (meetingId) => push(`/meeting/${ meetingId }/estimate/`);
+export const viewStory = (meetingId, storyId) => push(`/meeting/${ meetingId }/story/${ storyId }/summary/`);
 
 const VIEW_MEETINGS = 'VIEW_MEETINGS';
 
@@ -34,25 +34,7 @@ export function viewStories(meetingId) {
 
 export function* viewStoriesSaga(action) {
     yield put(GetStories());
-    yield put(UpdateCurrentStory({}));
     yield put(push(`/meeting/${action.payload}/stories/`));
-}
-
-const VIEW_STORY = 'VIEW_STORY';
-
-export function viewStory(meetingId, storyId) {
-    return {
-        type: VIEW_STORY,
-        payload: {
-            meetingId: meetingId,
-            storyId: storyId
-        }
-    }
-}
-
-export function* viewStorySaga(action) {
-    yield put(UpdateCurrentStory(action.payload));
-    yield put(push(`/meeting/${ action.payload.meetingId }/story/${ action.payload.storyId }/summary/`));
 }
 
 export function* routerActions(action) {
@@ -67,17 +49,10 @@ export function* routerActions(action) {
         const meetingId = pathname.split('/')[2];
         yield put(GetCurrentMeeting(meetingId));
     }
-
-    if (pathname.startsWith("/story/summary/")) {
-        yield put(GetStoryEstimates(pathname.split('/story/summary/')[1]));
-    } else {
-        yield put(StopStoryEstimatesPolling());
-    }
 }
 
 export function* watchRouterAsync() {
     yield takeLatest(VIEW_MEETINGS, viewMeetingsSaga);
     yield takeLatest(VIEW_STORIES, viewStoriesSaga);
-    yield takeLatest(VIEW_STORY, viewStorySaga);
     yield takeLatest(LOCATION_CHANGE, routerActions);
 }

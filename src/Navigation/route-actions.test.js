@@ -34,7 +34,7 @@ describe('Route Actions', () => {
     });
 
     it('should create a view story action', () => {
-        expect(viewStory('BAR', 'FOO')).toEqual({type: 'VIEW_STORY', payload: {meetingId: 'BAR', storyId: 'FOO'}});
+        expect(viewStory('BAR', 'FOO')).toEqual(push('/meeting/BAR/story/FOO/summary/'));
     });
 
     it('should create a view meetings action', () => {
@@ -49,20 +49,6 @@ describe('Route Actions', () => {
         const saga = viewMeetingsSaga();
         expect(saga.next().value).toEqual(put(GetMeetings()));
         expect(saga.next().value).toEqual(put(push('/meetings/')));
-        expect(saga.next().done).toBeTruthy();
-    });
-
-    it('should route to story', () => {
-        const mockAction = {
-            type: 'VIEW_STORY',
-            payload: {
-                meetingId: 'meeting23847623874',
-                storyId: 'story13847gf81374gr183o4'
-            }
-        };
-        const saga = viewStorySaga(mockAction);
-        expect(saga.next().value).toEqual(put(UpdateCurrentStory(mockAction.payload)));
-        expect(saga.next().value).toEqual(put(push(`/meeting/${ mockAction.payload.meetingId }/story/${ mockAction.payload.storyId }/summary/`)));
         expect(saga.next().done).toBeTruthy();
     });
 
@@ -108,25 +94,12 @@ describe('Route Actions', () => {
             expect(saga.next().value).not.toEqual(put(GetCurrentMeeting(mockMeetingId)));
         });
 
-        it('should dispatch GetStoryEstimates and StopCurrentStoryPolling if location is story summary', () => {
-            const mockStoryId = '13847gf81374gr183o4';
-            const mockRouterPayload = {
-                location: {
-                    pathname: '/story/summary/' + mockStoryId
-                }
-            };
-            const saga = routerActions({payload: mockRouterPayload});
-            expect(saga.next().value).toEqual(select(getCurrentUserId));
-            expect(saga.next().value).toEqual(put(GetStoryEstimates(mockStoryId)));
-            expect(saga.next().done).toBeTruthy();
-        });
     });
 
     it('should watch view actions', () => {
         const watcher = watchRouterAsync();
         expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
         expect(watcher.next().value).toEqual(takeLatest('VIEW_STORIES', viewStoriesSaga));
-        expect(watcher.next().value).toEqual(takeLatest('VIEW_STORY', viewStorySaga));
         expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));
         expect(watcher.next().done).toBeTruthy();
     });
