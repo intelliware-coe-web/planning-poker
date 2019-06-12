@@ -49,7 +49,15 @@ exports[`renders correctly 1`] = `
     path="/stories/"
   />
   <Route
-    component={[Function]}
+    component={
+      Object {
+        "$$typeof": Symbol(react.memo),
+        "WrappedComponent": [Function],
+        "compare": null,
+        "displayName": "Connect(Meetings)",
+        "type": [Function],
+      }
+    }
     path="/meetings/"
   />
   <Route

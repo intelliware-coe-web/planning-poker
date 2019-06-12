@@ -4,7 +4,29 @@ exports[`Meetings renders correctly 1`] = `
 <Page
   title="Meetings"
 >
-  <Memo(ConnectFunction) />
-  <Memo(ConnectFunction) />
+  <div
+    className="uk-margin-small"
+  >
+    <div
+      className="uk-card uk-card-secondary uk-card-body pp-button"
+      onClick={[Function]}
+    >
+      <h3
+        className="uk-card-title"
+      >
+        test
+      </h3>
+    </div>
+  </div>
+  <div
+    className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+    onClick={[MockFunction]}
+  >
+    <h3
+      className="uk-card-title"
+    >
+      +
+    </h3>
+  </div>
 </Page>
 `;
