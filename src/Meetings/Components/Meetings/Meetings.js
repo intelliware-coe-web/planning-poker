@@ -1,15 +1,18 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {viewCreateMeeting, viewMeeting} from '../../../Navigation/route-actions';
-import {DeleteMeeting, GetMeetings} from '../../Actions/MeetingsActions';
+import {DeleteMeeting, GetMeetings, StopMeetingsPolling} from '../../Actions/MeetingsActions';
 import {Page} from '../../../Common/Page';
 
-export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateMeeting, getMeetings}) {
+export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateMeeting, getMeetings, stopMeetingsPolling}) {
     useEffect(
         () => {
             getMeetings();
+            return () => {
+                stopMeetingsPolling();
+            };
         },
-        [getMeetings]
+        [getMeetings, stopMeetingsPolling]
     );
 
     return (
@@ -47,7 +50,8 @@ function mapDispatchToProps(dispatch) {
         getMeetings: () => dispatch(GetMeetings()),
         goToMeeting: (meetingId) => dispatch(viewMeeting(meetingId)),
         deleteMeeting: (meetingId) => dispatch(DeleteMeeting(meetingId)),
-        goToCreateMeeting: () => dispatch(viewCreateMeeting())
+        goToCreateMeeting: () => dispatch(viewCreateMeeting()),
+        stopMeetingsPolling: () => dispatch(StopMeetingsPolling())
     }
 }
 

@@ -9,7 +9,8 @@ it('Meetings renders correctly', () => {
         goToMeeting: jest.fn(),
         goToCreateMeeting: jest.fn(),
         deleteMeeting: jest.fn(),
-        getMeetings: jest.fn()
+        getMeetings: jest.fn(),
+        stopMeetingsPolling: jest.fn()
     };
     const {container} = render(<Meetings  {...props}/>);
     expect(container).toMatchSnapshot();
