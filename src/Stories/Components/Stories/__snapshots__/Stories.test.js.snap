@@ -13,18 +13,14 @@ exports[`Stories renders correctly 1`] = `
   </button>
   <div
     className="uk-card uk-card-primary uk-card-body uk-margin-small"
+    onClick={[Function]}
   >
     <div
       className="uk-position-center-left uk-margin-small-left uk-label"
     >
       Points: 3
     </div>
-    <button
-      className="pp-button"
-      onClick={[Function]}
-    >
-      Mock Story Name
-    </button>
+    Mock Story Name
     <button
       className="uk-position-center-right uk-margin-small-right"
       data-uk-icon="icon: trash"

@@ -6,13 +6,9 @@ exports[`Meetings renders correctly 1`] = `
 >
   <div
     className="uk-card uk-card-primary uk-card-body uk-margin-small"
+    onClick={[Function]}
   >
-    <button
-      className="pp-button"
-      onClick={[Function]}
-    >
-      test
-    </button>
+    test
     <button
       className="uk-position-center-right uk-margin-small-right"
       data-uk-icon="icon: trash"

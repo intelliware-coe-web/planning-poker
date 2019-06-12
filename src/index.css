@@ -49,18 +49,4 @@ a:hover {
     min-height: 50px;
     color: #fff;
     background-color: var(--primary-color);
-    border: 0;
-    font-family: 'Arbutus Slab';
-}
-
-.pp-button.selected {
-    background-color: var(--secondary-color);
-}
-
-.pp-button:hover, .pp-secondary-button:hover {
-    background-color: var(--accent-color);
-}
-
-.pp-secondary-button {
-    background-color: var(--secondary-color);
 }
