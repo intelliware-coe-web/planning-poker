@@ -41,7 +41,7 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories, updat
 
     return (
 
-        <Page title={currentMeeting.name} onBack={ goToStories }>
+        <Page title={currentMeeting.name} onBack={ () => goToStories(currentMeeting._id) }>
             <div className="uk-align-center uk-width-1-2@m">
                 <table className="uk-table">
                     <thead>
@@ -78,7 +78,7 @@ function mapStateToProps(state) {
   
   function mapDispatchToProps(dispatch) {
     return {
-        goToStories: () => dispatch(viewStories()),
+        goToStories: (meetingId) => dispatch(viewStories(meetingId)),
         updateCurrentStory: (storyId) => dispatch(UpdateCurrentStory(storyId)),
         stopStoryEstimatesPolling: () => dispatch(StopStoryEstimatesPolling()),
         getStoryEstimates: (storyId) => dispatch(GetStoryEstimates(storyId))

@@ -12,11 +12,10 @@ import {
     viewStorySaga,
     watchRouterAsync,
 } from './route-actions';
-import {put, takeLatest, select, delay} from 'redux-saga/effects';
+import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {GetMeetings} from '../Meetings/Actions/MeetingsActions';
-import {GetCurrentMeeting, UpdateCurrentStory} from '../CurrentMeeting/Actions/CurrentMeetingActions';
-import {GetStoryEstimates} from "../CurrentStory/Actions/StoryEstimatesActions";
+import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
 import {getCurrentUserId} from "../Common/selectors";
 
 describe('Route Actions', () => {
@@ -29,20 +28,20 @@ describe('Route Actions', () => {
         expect(viewCreateStory()).toEqual(push('/story/create/'));
     });
 
-    it('should create a view meeting action', () => {
+    it('should view meeting estimate', () => {
         expect(viewMeeting('FOO')).toEqual(push('/meeting/FOO/estimate/'));
     });
 
-    it('should create a view story action', () => {
+    it('should view story summary', () => {
         expect(viewStory('BAR', 'FOO')).toEqual(push('/meeting/BAR/story/FOO/summary/'));
+    });
+
+    it('should view stories', () => {
+        expect(viewStories('mockMeetingId')).toEqual(push('/meeting/mockMeetingId/stories/'));
     });
 
     it('should create a view meetings action', () => {
         expect(viewMeetings()).toEqual({type: 'VIEW_MEETINGS'});
-    });
-
-    it('should create a view stories action', () => {
-        expect(viewStories()).toEqual({type: 'VIEW_STORIES'});
     });
 
     it('should route to meetings', () => {
@@ -99,7 +98,6 @@ describe('Route Actions', () => {
     it('should watch view actions', () => {
         const watcher = watchRouterAsync();
         expect(watcher.next().value).toEqual(takeLatest('VIEW_MEETINGS', viewMeetingsSaga));
-        expect(watcher.next().value).toEqual(takeLatest('VIEW_STORIES', viewStoriesSaga));
         expect(watcher.next().value).toEqual(takeLatest(LOCATION_CHANGE, routerActions));
         expect(watcher.next().done).toBeTruthy();
     });

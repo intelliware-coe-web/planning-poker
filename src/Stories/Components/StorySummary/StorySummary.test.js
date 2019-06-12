@@ -1,6 +1,5 @@
 import {StorySummary} from "./StorySummary";
 import {render} from "@testing-library/react";
-import {StoryEstimate} from "../../../StoryEstimate/Components/StoryEstimate";
 import React from "react";
 
 it('StorySummary renders correctly', () => {

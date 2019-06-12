@@ -1,44 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stories renders correctly 1`] = `
-<Page
-  onBack={[MockFunction]}
-  title="mockConstructor"
->
-  <button
-    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-    onClick={[Function]}
-  >
-    Estimate
-  </button>
+<div>
   <div
-    className="uk-margin-small"
+    class="default-background"
   >
     <div
-      className="uk-card uk-card-secondary uk-card-body pp-button"
-      onClick={[Function]}
+      class="uk-container uk-text-center@m"
     >
+      <h1
+        class="uk-heading-divider uk-margin-top"
+      >
+        mockConstructor
+      </h1>
       <div
-        className="uk-card-badge uk-label"
+        class="uk-align-center uk-width-1-2@m"
       >
-        Points: 3
+        <span
+          class="uk-position-large uk-position-top-left"
+          data-uk-icon="icon: arrow-left; ratio: 3"
+        />
+        <button
+          class="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+        >
+          Estimate
+        </button>
+        <div
+          class="uk-margin-small"
+        >
+          <div
+            class="uk-card uk-card-secondary uk-card-body pp-button"
+          >
+            <div
+              class="uk-card-badge uk-label"
+            >
+              Points: 3
+            </div>
+            <h3
+              class="uk-card-title"
+            >
+              Mock Story Name
+            </h3>
+          </div>
+        </div>
+        <div
+          class="uk-card uk-card-secondary uk-card-body pp-secondary-button"
+        >
+          <h3
+            class="uk-card-title"
+          >
+            +
+          </h3>
+        </div>
       </div>
-      <h3
-        className="uk-card-title"
-      >
-        Mock Story Name
-      </h3>
     </div>
   </div>
-  <div
-    className="uk-card uk-card-secondary uk-card-body pp-secondary-button"
-    onClick={[MockFunction]}
-  >
-    <h3
-      className="uk-card-title"
-    >
-      +
-    </h3>
-  </div>
-</Page>
+</div>
 `;

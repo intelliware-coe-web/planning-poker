@@ -13,16 +13,16 @@ export function* watchStoriesAsync() {
     yield takeLatest(STORIES_POST_REQUESTED, postStoryAsync);
 }
 
-export function GetStories() {
+export function GetStories(meetingId) {
     return {
-        type: STORIES_GET_REQUESTED
+        type: STORIES_GET_REQUESTED,
+        payload: meetingId
     }
 }
 
-export function* getStoriesAsync() {
+export function* getStoriesAsync({payload: meetingId}) {
     try {
-        const currentMeetingId = yield select(getCurrentMeetingId);
-        const stories = yield call(StoriesAPI.all, currentMeetingId);
+        const stories = yield call(StoriesAPI.all, meetingId);
         yield put(StoriesSuccess(stories));
     } catch (error) {
         yield put(StoriesError(error));
