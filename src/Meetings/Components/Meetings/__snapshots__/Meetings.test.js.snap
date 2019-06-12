@@ -7,16 +7,12 @@ exports[`Meetings renders correctly 1`] = `
   <div
     className="uk-card uk-card-primary uk-card-body uk-margin-small"
   >
-    <h3
-      className="uk-card-title"
+    <button
+      className="pp-button"
       onClick={[Function]}
     >
-      <a
-        className="uk-link-heading"
-      >
-        test
-      </a>
-    </h3>
+      test
+    </button>
     <button
       className="uk-position-center-right uk-margin-small-right"
       data-uk-icon="icon: trash"

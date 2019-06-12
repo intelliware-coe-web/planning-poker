@@ -49,6 +49,8 @@ a:hover {
     min-height: 50px;
     color: #fff;
     background-color: var(--primary-color);
+    border: 0;
+    font-family: 'Arbutus Slab';
 }
 
 .pp-button.selected {

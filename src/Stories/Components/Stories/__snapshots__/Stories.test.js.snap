@@ -19,12 +19,12 @@ exports[`Stories renders correctly 1`] = `
     >
       Points: 3
     </div>
-    <h3
-      className="uk-card-title"
+    <button
+      className="pp-button"
       onClick={[Function]}
     >
       Mock Story Name
-    </h3>
+    </button>
     <button
       className="uk-position-center-right uk-margin-small-right"
       data-uk-icon="icon: trash"

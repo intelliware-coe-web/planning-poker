@@ -9,9 +9,9 @@ export function Meetings({ meetings = [], goToMeeting, deleteMeeting, goToCreate
     <Page title='Meetings'>
       { meetings.map((meeting, index) =>
         <div key={ index } className="uk-card uk-card-primary uk-card-body uk-margin-small">
-          <h3 className="uk-card-title" onClick={ () => goToMeeting(meeting._id) }>
-            <a className="uk-link-heading">{ meeting.name }</a>
-          </h3>
+          <button className="pp-button" onClick={ () => goToMeeting(meeting._id) }>
+            { meeting.name }
+          </button>
           <button
             className="uk-position-center-right uk-margin-small-right" 
             data-uk-icon="icon: trash"
