@@ -34,7 +34,12 @@ it('StorySummary renders estimates withs names', () => {
             },
             estimate: 3
         },
-        {}
+        {
+            user: {
+                name: null
+            },
+            estimate: 'bad data'
+        }
         ], 
         goToStories: jest.fn()
     }

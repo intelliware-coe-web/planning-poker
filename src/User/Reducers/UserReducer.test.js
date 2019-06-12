@@ -11,4 +11,20 @@ describe('User Reducer ', () => {
         expect(actualNextState).toEqual(user);
     });
 
+    it('should keep state on other messages', () =>{
+        const inititalState = [];
+        const stories = [{
+            name: 'Test Story',
+            id: '12345'
+        }];
+        const action = {
+            type: 'FOO_STORIES',
+            payload: {
+                stories: stories
+            }
+        };
+
+        const actualNextState = UserReducer(inititalState, action);
+        expect(actualNextState).toBe(inititalState);
+    });
 });

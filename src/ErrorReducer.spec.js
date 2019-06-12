@@ -5,6 +5,7 @@ import {CURRENT_MEETING_ERROR} from './CurrentMeeting/Actions/CurrentMeetingActi
 import {STORY_ESTIMATE_ERROR} from './StoryEstimate/Actions/StoryEstimateActions';
 import {STORIES_ERROR} from './Stories/Actions/StoriesActions';
 import {CURRENT_STORY_ERROR} from './CurrentStory/Actions/CurrentStoryActions';
+import {STORY_ESTIMATES_ERROR} from './CurrentStory/Actions/StoryEstimatesActions';
 
 describe('Error Reducer ', () => {
 
@@ -61,6 +62,15 @@ describe('Error Reducer ', () => {
       const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});
   });
+
+  it('should set error on a STORY_ESTIMATES_ERROR', () => {
+    const initialState = null;
+    const error = "Page Not Found";
+    const action = { type: STORY_ESTIMATES_ERROR, payload: { error: error } };
+
+    const actualNextState = ErrorReducer(initialState, action);
+    expect(actualNextState).toEqual({error});
+});
 
 
   it('should reset the error to the initial state on non-error messages', () => {

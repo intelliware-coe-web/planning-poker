@@ -1,5 +1,11 @@
-import Meetings from "./Meetings";
+import { Meetings } from "./Meetings";
 
 it('Meetings renders correctly', () => {
-    expect(Meetings()).toMatchSnapshot(); 
+    const props = {
+        meetings: [{_id: 'id', name: 'test'}],
+        error: null,
+        goToMeeting: jest.fn(),
+        goToCreateMeeting: jest.fn()
+    }
+    expect(Meetings(props)).toMatchSnapshot();
 });
