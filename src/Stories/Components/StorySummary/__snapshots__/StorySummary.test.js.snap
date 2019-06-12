@@ -1,116 +1,152 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StorySummary renders correctly 1`] = `
-<Page
-  onBack={[MockFunction]}
-  title="mockConstructor"
->
+<div>
   <div
-    className="uk-align-center uk-width-1-2@m"
+    class="default-background"
   >
-    <table
-      className="uk-table"
+    <div
+      class="uk-container uk-text-center@m"
     >
-      <thead>
-        <tr>
-          <th
-            className="uk-text-center"
+      <h1
+        class="uk-heading-divider uk-margin-top"
+      >
+        mockConstructor
+      </h1>
+      <div
+        class="uk-align-center uk-width-1-2@m"
+      >
+        <span
+          class="uk-position-large uk-position-top-left"
+          data-uk-icon="icon: arrow-left; ratio: 3"
+        />
+        <div
+          class="uk-align-center uk-width-1-2@m"
+        >
+          <table
+            class="uk-table"
           >
-            Name
-          </th>
-          <th
-            className="uk-text-center"
-          >
-            Estimate
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
+            <thead>
+              <tr>
+                <th
+                  class="uk-text-center"
+                >
+                  Name
+                </th>
+                <th
+                  class="uk-text-center"
+                >
+                  Estimate
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-</Page>
+</div>
 `;
 
 exports[`StorySummary renders estimates withs names 1`] = `
-<Page
-  onBack={[MockFunction]}
-  title="mockConstructor"
->
+<div>
   <div
-    className="uk-align-center uk-width-1-2@m"
+    class="default-background"
   >
-    <table
-      className="uk-table"
+    <div
+      class="uk-container uk-text-center@m"
     >
-      <thead>
-        <tr>
-          <th
-            className="uk-text-center"
-          >
-            Name
-          </th>
-          <th
-            className="uk-text-center"
-          >
-            Estimate
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td
-            className="uk-text-center"
-          >
-            Bob
-          </td>
-          <td
-            className="uk-text-center"
-          >
-            1
-          </td>
-        </tr>
-        <tr>
-          <td
-            className="uk-text-center"
-          >
-            Andy
-          </td>
-          <td
-            className="uk-text-center"
-          >
-            5
-          </td>
-        </tr>
-        <tr>
-          <td
-            className="uk-text-center"
-          >
-            Joe
-          </td>
-          <td
-            className="uk-text-center"
-          >
-            3
-          </td>
-        </tr>
-        <tr
-          className="uk-text-bold"
+      <h1
+        class="uk-heading-divider uk-margin-top"
+      >
+        mockConstructor
+      </h1>
+      <div
+        class="uk-align-center uk-width-1-2@m"
+      >
+        <span
+          class="uk-position-large uk-position-top-left"
+          data-uk-icon="icon: arrow-left; ratio: 3"
+        />
+        <div
+          class="uk-align-center uk-width-1-2@m"
         >
-          <td
-            className="uk-text-center"
+          <table
+            class="uk-table"
           >
-            Average
-          </td>
-          <td
-            className="uk-text-center"
-          >
-            3
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <thead>
+              <tr>
+                <th
+                  class="uk-text-center"
+                >
+                  Name
+                </th>
+                <th
+                  class="uk-text-center"
+                >
+                  Estimate
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="uk-text-center"
+                >
+                  Bob
+                </td>
+                <td
+                  class="uk-text-center"
+                >
+                  1
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="uk-text-center"
+                >
+                  Andy
+                </td>
+                <td
+                  class="uk-text-center"
+                >
+                  5
+                </td>
+              </tr>
+              <tr>
+                <td
+                  class="uk-text-center"
+                >
+                  Joe
+                </td>
+                <td
+                  class="uk-text-center"
+                >
+                  3
+                </td>
+              </tr>
+              <tr
+                class="uk-text-bold"
+              >
+                <td
+                  class="uk-text-center"
+                >
+                  Average
+                </td>
+                <td
+                  class="uk-text-center"
+                >
+                  3
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-</Page>
+</div>
 `;

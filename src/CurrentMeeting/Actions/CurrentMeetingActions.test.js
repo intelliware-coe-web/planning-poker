@@ -4,8 +4,8 @@ import {
     getCurrentMeetingAsync,
     updateCurrentStoryAsync
 } from "./CurrentMeetingActions";
-import { CurrentMeetingAPI } from "../API/CurrentMeeting.api";
-import { call, put, select } from 'redux-saga/effects';
+import {CurrentMeetingAPI} from "../API/CurrentMeeting.api";
+import {call, put, select} from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
 
 describe('CurrentMeeting Actions', () => {
@@ -18,14 +18,20 @@ describe('CurrentMeeting Actions', () => {
             fixture = getCurrentMeetingAsync({payload: meetingId});
         });
 
-        it('should dispatch action', () => {
+        it('should dispatch action when meeting not in store', () => {
             const ApiResponse = [];
-            expect(fixture.next().value).toEqual(call(CurrentMeetingAPI.byId, meetingId));
+            expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
+            expect(fixture.next(null).value).toEqual(call(CurrentMeetingAPI.byId, meetingId));
             expect(fixture.next(ApiResponse).value).toEqual(put({
                 type: CURRENT_MEETING_SUCCESS,
                 payload: {currentMeeting: ApiResponse}
             }));
             expect(fixture.next().done).toBeTruthy();
+        });
+
+        it('should not dispatch action when meeting is in store', () => {
+            expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
+            expect(fixture.next(meetingId).done).toBeTruthy();
         });
 
         it('should handle errors', () => {

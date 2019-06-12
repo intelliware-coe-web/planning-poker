@@ -1,29 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Meetings renders correctly 1`] = `
-<Page
-  title="Meetings"
->
+<div>
   <div
-    className="uk-card uk-card-primary uk-card-body uk-margin-small"
-    onClick={[Function]}
+    class="default-background"
   >
-    test
-    <button
-      className="uk-position-center-right uk-margin-small-right"
-      data-uk-icon="icon: trash"
-      onClick={[Function]}
-    />
-  </div>
-  <div
-    className="uk-card uk-card-secondary uk-card-body"
-    onClick={[MockFunction]}
-  >
-    <h3
-      className="uk-card-title"
+    <div
+      class="uk-container uk-text-center@m"
     >
-      +
-    </h3>
+      <h1
+        class="uk-heading-divider uk-margin-top"
+      >
+        Meetings
+      </h1>
+      <div
+        class="uk-align-center uk-width-1-2@m"
+      >
+        <div
+          class="uk-card uk-card-primary uk-card-body uk-margin-small"
+        >
+          test
+          <button
+            class="uk-position-center-right uk-margin-small-right"
+            data-uk-icon="icon: trash"
+          />
+        </div>
+        <div
+          class="uk-card uk-card-secondary uk-card-body"
+        >
+          <h3
+            class="uk-card-title"
+          >
+            +
+          </h3>
+        </div>
+      </div>
+    </div>
   </div>
-</Page>
+</div>
 `;

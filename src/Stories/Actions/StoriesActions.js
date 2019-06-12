@@ -15,16 +15,16 @@ export function* watchStoriesAsync() {
     yield takeLatest(STORY_DELETE_REQUESTED, deleteStoryAsync);
 }
 
-export function GetStories() {
+export function GetStories(meetingId) {
     return {
-        type: STORIES_GET_REQUESTED
+        type: STORIES_GET_REQUESTED,
+        payload: meetingId
     }
 }
 
-export function* getStoriesAsync() {
+export function* getStoriesAsync({payload: meetingId}) {
     try {
-        const currentMeetingId = yield select(getCurrentMeetingId);
-        const stories = yield call(StoriesAPI.all, currentMeetingId);
+        const stories = yield call(StoriesAPI.all, meetingId);
         yield put(StoriesSuccess(stories));
     } catch (error) {
         yield put(StoriesError(error));
@@ -44,7 +44,7 @@ export function* postStoryAsync({payload}){
     try {
         const currentMeetingId = yield select(getCurrentMeetingId);
         yield call(StoriesAPI.post, currentMeetingId, payload);
-        yield put(viewStories());
+        yield put(viewStories(currentMeetingId));
     }
     catch (e) {
         yield put(StoriesError(e));

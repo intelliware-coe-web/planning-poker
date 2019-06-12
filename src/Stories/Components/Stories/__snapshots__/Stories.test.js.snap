@@ -1,41 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stories renders correctly 1`] = `
-<Page
-  onBack={[MockFunction]}
-  title="mockConstructor"
->
-  <button
-    className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-    onClick={[Function]}
-  >
-    Estimate
-  </button>
+<div>
   <div
-    className="uk-card uk-card-primary uk-card-body uk-margin-small"
-    onClick={[Function]}
+    class="default-background"
   >
     <div
-      className="uk-position-center-left uk-margin-small-left uk-label"
+      class="uk-container uk-text-center@m"
     >
-      Points: 3
+      <h1
+        class="uk-heading-divider uk-margin-top"
+      >
+        mockConstructor
+      </h1>
+      <div
+        class="uk-align-center uk-width-1-2@m"
+      >
+        <span
+          class="uk-position-large uk-position-top-left"
+          data-uk-icon="icon: arrow-left; ratio: 3"
+        />
+        <button
+          class="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+        >
+          Estimate
+        </button>
+        <div
+          class="uk-card uk-card-primary uk-card-body uk-margin-small"
+        >
+          <div
+            class="uk-position-center-left uk-margin-small-left uk-label"
+          >
+            Points: 3
+          </div>
+          Mock Story Name
+          <button
+            class="uk-position-center-right uk-margin-small-right"
+            data-uk-icon="icon: trash"
+          />
+        </div>
+        <div
+          class="uk-card uk-card-secondary uk-card-body"
+        >
+          <h3
+            class="uk-card-title"
+          >
+            +
+          </h3>
+        </div>
+      </div>
     </div>
-    Mock Story Name
-    <button
-      className="uk-position-center-right uk-margin-small-right"
-      data-uk-icon="icon: trash"
-      onClick={[Function]}
-    />
   </div>
-  <div
-    className="uk-card uk-card-secondary uk-card-body"
-    onClick={[MockFunction]}
-  >
-    <h3
-      className="uk-card-title"
-    >
-      +
-    </h3>
-  </div>
-</Page>
+</div>
 `;
