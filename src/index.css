@@ -16,7 +16,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: calc(10px + 5vmin);
     margin-bottom: 15px;
 }
 
