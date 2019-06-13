@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stories renders correctly 1`] = `
+exports[`Container: Story should render correctly 1`] = `
 <div>
   <div
     class="default-background"

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Meetings renders correctly 1`] = `
+exports[`Container: Meetings should render correctly 1`] = `
 <div>
   <div
     class="default-background"
