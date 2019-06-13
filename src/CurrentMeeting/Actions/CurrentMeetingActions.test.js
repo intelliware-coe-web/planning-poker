@@ -1,11 +1,14 @@
 import {
     CURRENT_MEETING_ERROR,
     CURRENT_MEETING_SUCCESS,
+    CURRENT_MEETING_GET_REQUESTED,
+    UPDATE_CURRENT_STORY_REQUESTED,
+    watchCurrentMeetingAsync,
     getCurrentMeetingAsync,
     updateCurrentStoryAsync
 } from "./CurrentMeetingActions";
 import {CurrentMeetingAPI} from "../API/CurrentMeeting.api";
-import {call, put, select} from 'redux-saga/effects';
+import {call, put, select, takeLatest} from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
 
 describe('CurrentMeeting Actions', () => {
@@ -76,5 +79,12 @@ describe('CurrentMeeting Actions', () => {
             }));
             expect(fixture.next().done).toBeTruthy();
         });
+    });
+
+    describe('watchCurrentMeetingAsync', () => {
+        const watcher = watchCurrentMeetingAsync();
+
+        expect(watcher.next().value).toEqual(takeLatest(CURRENT_MEETING_GET_REQUESTED, getCurrentMeetingAsync));
+        expect(watcher.next().value).toEqual(takeLatest(UPDATE_CURRENT_STORY_REQUESTED, updateCurrentStoryAsync));
     });
 });
