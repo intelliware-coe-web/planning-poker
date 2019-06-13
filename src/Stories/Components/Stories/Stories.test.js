@@ -9,7 +9,11 @@ it('Stories renders correctly', () => {
         }),
         stories: [{
             id: 'id',
-            name: 'Mock Story Name'
+            name: 'Mock Story Name',
+            estimate_avg: 3
+        }, {
+            id: 'id2',
+            name: 'Mock Story Name 2'
         }],
         error: null,
         goToMeetings: jest.fn(),

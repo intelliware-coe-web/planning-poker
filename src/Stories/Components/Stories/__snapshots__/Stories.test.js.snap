@@ -31,9 +31,23 @@ exports[`Stories renders correctly 1`] = `
           <div
             class="uk-position-center-left uk-margin-small-left uk-label"
           >
-            Not estimated
+            Points: 3
           </div>
           Mock Story Name
+          <button
+            class="uk-position-center-right uk-margin-small-right"
+            data-uk-icon="icon: trash"
+          />
+        </div>
+        <div
+          class="uk-card uk-card-primary uk-card-body uk-margin-small"
+        >
+          <div
+            class="uk-position-center-left uk-margin-small-left uk-label"
+          >
+            Not estimated
+          </div>
+          Mock Story Name 2
           <button
             class="uk-position-center-right uk-margin-small-right"
             data-uk-icon="icon: trash"
