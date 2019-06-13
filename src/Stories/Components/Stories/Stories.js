@@ -15,7 +15,7 @@ export function Stories({ currentMeeting, stories = [], goToMeetings, goToStory,
       { stories.map((story, index) =>
         <div className="uk-margin-small" key={ index }>
           <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={ () => goToStory(story._id) }>
-            <div className="uk-card-badge uk-label">Points: 3</div>
+            <div className="uk-card-badge uk-label">Points: { story.estimate_avg }</div>
             <h3 className="uk-card-title">{ story.name }</h3>
           </div>
         </div>
