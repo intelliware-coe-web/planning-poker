@@ -8,8 +8,11 @@ exports[`Meetings renders correctly 1`] = `
     <div
       class="uk-container uk-text-center@m"
     >
+      <div
+        class="uk-section uk-section-xsmall"
+      />
       <h1
-        class="uk-heading-divider uk-margin-top"
+        class="uk-heading-divider uk-margin-small-top"
       >
         Meetings
       </h1>
