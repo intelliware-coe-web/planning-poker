@@ -29,6 +29,10 @@ a:hover {
     text-decoration: none;
 }
 
+.uk-card {
+    cursor: pointer;
+}
+
 .uk-card-title {
     font-family: 'Mandali', sans-serif;
 }
