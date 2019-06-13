@@ -1,7 +1,16 @@
-import {getUserAsync, postUserAsync, USER_ERROR, USER_SUCCESS} from "./UserActions";
+import {
+    getUserAsync,
+    PostUser,
+    postUserAsync,
+    USER_ERROR,
+    USER_GET_REQUESTED,
+    USER_POST_REQUESTED,
+    USER_SUCCESS,
+    watchUserAsync
+} from "./UserActions";
 import {UserAPI} from "../API/User.api";
-import {call, put, select} from 'redux-saga/effects';
-import { viewMeetings } from '../../Navigation/route-actions';
+import {call, put, select, takeLatest} from 'redux-saga/effects';
+import {viewMeetings} from '../../Navigation/route-actions';
 import {getLocationState} from "../../Common/selectors";
 import {push} from "connected-react-router";
 
@@ -84,6 +93,29 @@ describe('Test action creators', () => {
                 }
             }));
             expect(fixture.next().done).toBeTruthy();
+        });
+    });
+
+    describe('Watch Users', () => {
+        it('', () => {
+            fixture = watchUserAsync();
+
+            expect(fixture.next().value).toEqual(takeLatest(USER_GET_REQUESTED, getUserAsync));
+            expect(fixture.next().value).toEqual(takeLatest(USER_POST_REQUESTED, postUserAsync));
+        });
+    });
+
+    describe('Public Functions', () => {
+        let actualResponse, expectedResponse;
+
+        it('should return proper JSON response for PostUser', () => {
+            const userName = 'mockUserName';
+            expectedResponse = {
+                type: USER_POST_REQUESTED,
+                payload: userName
+            };
+            actualResponse = PostUser(userName);
+            expect(expectedResponse).toEqual(actualResponse);
         });
     });
 
