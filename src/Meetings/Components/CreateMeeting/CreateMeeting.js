@@ -7,7 +7,7 @@ import { Page } from '../../../Common/Page';
 export function CreateMeeting({postMeeting, goToMeetings}) {
   return (
     <Page title='Add Meeting' onBack={goToMeetings}>
-      <form onSubmit={ event => { postNewMeeting(event, postMeeting) } }>
+      <form onSubmit={ (event) => { event.preventDefault(); postMeeting(event.target.meetingInputName.value.trim()); } }>
         <div className="uk-margin">
           <div className="uk-inline uk-width-1-2">
             <span className="uk-form-icon" data-uk-icon="icon: users"/>
@@ -20,11 +20,6 @@ export function CreateMeeting({postMeeting, goToMeetings}) {
       </form>
     </Page>
   );
-
-  function postNewMeeting(event, onSubmit) {
-    event.preventDefault();
-    onSubmit(event.target.meetingInputName.value.trim());
-  }
 }
 
 function mapDispatchToProps(dispatch) {

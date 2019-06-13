@@ -74,7 +74,7 @@ function mapStateToProps(state) {
         currentStory: state.currentStory,
         storyEstimates: state.storyEstimates
     }
-  }
+  };
   
   function mapDispatchToProps(dispatch) {
     return {

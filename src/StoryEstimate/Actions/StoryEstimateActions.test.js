@@ -1,11 +1,15 @@
 import {StoryEstimateAPI} from "../API/StoryEstimate.api";
-import {call, put} from 'redux-saga/effects';
+import {call, put, takeLatest} from 'redux-saga/effects';
 import {
-    STORY_ESTIMATE_ERROR,
-    STORY_ESTIMATE_SUCCESS,
-    STORY_ESTIMATE_REQUESTED,
     PutStoryEstimate,
-    putStoryEstimateAsync
+    putStoryEstimateAsync,
+    RESET_STORY_ESTIMATE_REQUESTED,
+    ResetStoryEstimate,
+    resetStoryEstimateAsync,
+    STORY_ESTIMATE_ERROR,
+    STORY_ESTIMATE_REQUESTED,
+    STORY_ESTIMATE_SUCCESS,
+    watchStoryEstimateAsync
 } from "./StoryEstimateActions";
 
 describe('Story Estimate Actions', () => {
@@ -48,18 +52,49 @@ describe('Story Estimate Actions', () => {
         });
     });
 
-    describe('Story Estimate', () => {
-        it('should return json with payload', () => {
-             const storyEstimateJSON = PutStoryEstimate(userId, storyId, estimate);
-             expect(storyEstimateJSON).toEqual({
-                 type: STORY_ESTIMATE_REQUESTED,
-                 payload: {
+    describe('Watch', () => {
+        it('Story Estimates', () => {
+            fixture = watchStoryEstimateAsync();
+
+            expect(fixture.next().value).toEqual(takeLatest(STORY_ESTIMATE_REQUESTED, putStoryEstimateAsync));
+            expect(fixture.next().value).toEqual(takeLatest(RESET_STORY_ESTIMATE_REQUESTED, resetStoryEstimateAsync));
+        });
+    });
+
+    describe('Public methods', () => {
+        let actualResponse, expectedResponse;
+
+        it('should return proper JSON response for PutStoryEstimate', () => {
+            expectedResponse = {
+                type: STORY_ESTIMATE_REQUESTED,
+                payload: {
                     userId: userId,
                     storyId:storyId,
                     estimate: estimate
-                 }
-             });
+                }
+            };
+            actualResponse = PutStoryEstimate(userId, storyId, estimate);
+            expect(expectedResponse).toEqual(actualResponse);
+        });
 
+        it('should return proper JSON response for ResetStoryEstimate', () => {
+            expectedResponse = {type: RESET_STORY_ESTIMATE_REQUESTED};
+            actualResponse = ResetStoryEstimate();
+            expect(expectedResponse).toEqual(actualResponse);
         });
     });
+
+    describe('resetStoryEstimateAsync', () => {
+        it('', () => {
+            fixture = resetStoryEstimateAsync();
+            expect(fixture.next().value).toEqual(put({
+                type: STORY_ESTIMATE_SUCCESS,
+                payload: {
+                    estimate: 0
+                }
+            }));
+        });
+    });
+
+
 });
