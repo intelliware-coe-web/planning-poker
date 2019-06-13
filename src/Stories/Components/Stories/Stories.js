@@ -21,20 +21,22 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
             </button>
 
             {stories.map((story, index) =>
-                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={ () => goToStory(currentMeeting._id, story._id) }>
-                    <div className="uk-position-center-left uk-margin-small-left uk-label">Points: 3</div>
-                    { story.name }
+                <div key={index} className="uk-flex uk-flex-column uk-card uk-card-primary uk-card-body uk-margin-small uk-padding-small uk-text-center" onClick={() => goToStory(currentMeeting._id, story._id)}>
+                    <div className="uk-margin-right uk-margin-left">{story.name}</div>
+                    <div className="uk-align-center uk-width-auto uk-label uk-margin-small">Points: 3</div>
                     <button
-                        className="uk-position-center-right uk-margin-small-right"
+                        className="uk-position-top-right uk-margin-small-right uk-margin-small-top"
                         data-uk-icon="icon: trash"
-                        onClick={() => deleteStory(story._id)}>
+                        onClick={() => deleteStory(story._id)}
+                        >
                     </button>
                 </div>
             )}
 
-            <div className="uk-card uk-card-secondary uk-card-body" onClick={createStory}>
+            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-text-center" onClick={createStory}>
                 <h3 className="uk-card-title">+</h3>
             </div>
+
         </Page>
     );
 }
