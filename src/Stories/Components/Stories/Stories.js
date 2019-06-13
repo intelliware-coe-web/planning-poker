@@ -19,10 +19,13 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
                     onClick={() => goToEstimate(currentMeeting._id)}>
                 Estimate
             </button>
-
             {stories.map((story, index) =>
                 <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={ () => goToStory(currentMeeting._id, story._id) }>
-                    <div className="uk-position-center-left uk-margin-small-left uk-label">Points: { story.estimate_avg }</div>
+                    <div className="uk-position-center-left uk-margin-small-left uk-label">
+                      { story.estimate_avg ? 'Points: ' + story.estimate_avg : 'Not estimated' }
+                        
+                      
+                    </div>
                     { story.name }
                     <button
                         className="uk-position-center-right uk-margin-small-right"
