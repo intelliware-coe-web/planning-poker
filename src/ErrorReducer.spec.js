@@ -1,4 +1,4 @@
-import errorReducer from './errorReducer';
+import ErrorReducer from './ErrorReducer';
 import {MEETINGS_ERROR} from './Meetings/Actions/MeetingsActions';
 import {USER_ERROR} from './User/Actions/UserActions';
 import {CURRENT_MEETING_ERROR} from './CurrentMeeting/Actions/CurrentMeetingActions';
@@ -14,7 +14,7 @@ describe('Error Reducer ', () => {
     const error = 'Page Not Found';
     const action = { type: MEETINGS_ERROR, payload: { error: error } };
 
-    const actualNextState = errorReducer(initialState, action);
+    const actualNextState = ErrorReducer(initialState, action);
     expect(actualNextState).toEqual({error});
   });
 
@@ -23,7 +23,7 @@ describe('Error Reducer ', () => {
     const error = "Page Not Found";
     const action = { type: USER_ERROR, payload: { error: error } };
 
-    const actualNextState = errorReducer(initialState, action);
+    const actualNextState = ErrorReducer(initialState, action);
     expect(actualNextState).toEqual({error});
   });
 
@@ -32,7 +32,7 @@ describe('Error Reducer ', () => {
       const error = "Page Not Found";
       const action = { type: CURRENT_MEETING_ERROR, payload: { error: error } };
 
-      const actualNextState = errorReducer(initialState, action);
+      const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});
   });
 
@@ -41,7 +41,7 @@ describe('Error Reducer ', () => {
       const error = "Page Not Found";
       const action = { type: CURRENT_STORY_ERROR, payload: { error: error } };
 
-      const actualNextState = errorReducer(initialState, action);
+      const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});
   });
 
@@ -50,7 +50,7 @@ describe('Error Reducer ', () => {
       const error = "Page Not Found";
       const action = { type: STORY_ESTIMATE_ERROR, payload: { error: error } };
 
-      const actualNextState = errorReducer(initialState, action);
+      const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});
   });
 
@@ -59,7 +59,7 @@ describe('Error Reducer ', () => {
       const error = "Page Not Found";
       const action = { type: STORIES_ERROR, payload: { error: error } };
 
-      const actualNextState = errorReducer(initialState, action);
+      const actualNextState = ErrorReducer(initialState, action);
       expect(actualNextState).toEqual({error});
   });
 
@@ -68,7 +68,7 @@ describe('Error Reducer ', () => {
     const error = "Page Not Found";
     const action = { type: STORY_ESTIMATES_ERROR, payload: { error: error } };
 
-    const actualNextState = errorReducer(initialState, action);
+    const actualNextState = ErrorReducer(initialState, action);
     expect(actualNextState).toEqual({error});
 });
 
@@ -78,7 +78,7 @@ describe('Error Reducer ', () => {
     const error = "Page Not Found";
     const action = { type: 'NOT_AN_ERROR', payload: { error: error } };
 
-    const actualNextState = errorReducer(initialState, action);
+    const actualNextState = ErrorReducer(initialState, action);
     expect(actualNextState).toBeNull();
   })
 
