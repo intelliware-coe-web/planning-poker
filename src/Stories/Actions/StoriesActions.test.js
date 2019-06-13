@@ -1,6 +1,6 @@
 import {
     DeleteStory,
-    deleteStoryAsync,
+    deleteStoryAsync, GetStories,
     getStoriesAsync,
     PostStory,
     postStoryAsync,
@@ -98,6 +98,12 @@ describe('Stories Actions', () => {
 
     describe('Public methods', () => {
         let actualResponse, expectedResponse;
+
+        it('should return proper JSON response for GetStories', () => {
+            expectedResponse = {type: STORIES_GET_REQUESTED, payload: currentMeetingId};
+            actualResponse = GetStories(currentMeetingId);
+            expect(expectedResponse).toEqual(actualResponse);
+        });
 
         it('should return proper JSON response for PostStory', () => {
             const storyName = 'mockStoryName';
