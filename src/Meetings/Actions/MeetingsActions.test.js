@@ -108,13 +108,13 @@ describe('Meetings Actions', () => {
 
             const payload = {};
 
+            expect(fixture.next().value).toEqual(takeLatest(MEETING_POST_REQUESTED, postMeetingAsync));
+            expect(fixture.next().value).toEqual(takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync));
             expect(fixture.next().value).toEqual(take(MEETINGS_GET_REQUESTED));
             expect(fixture.next(payload).value).toEqual(race([
                 call(getMeetingsAsync, payload),
                 take(MEETINGS_STOP_POLLING_REQUESTED)
             ]));
-            expect(fixture.next().value).toEqual(takeLatest(MEETING_POST_REQUESTED, postMeetingAsync));
-            expect(fixture.next().value).toEqual(takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync));
         });
     });
 

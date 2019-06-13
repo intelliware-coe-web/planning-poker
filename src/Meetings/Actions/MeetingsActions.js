@@ -12,14 +12,14 @@ export const MEETINGS_STOP_POLLING_REQUESTED = 'MEETINGS_STOP_POLLING_REQUESTED'
 export const POLLING_DELAY = 4000;
 
 export function* watchMeetingsAsync() {
+    yield takeLatest(MEETING_POST_REQUESTED, postMeetingAsync);
+    yield takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync);
     while (true) {
         let payload = yield take(MEETINGS_GET_REQUESTED);
         yield race([
             call(getMeetingsAsync, payload),
             take(MEETINGS_STOP_POLLING_REQUESTED)
         ]);
-        yield takeLatest(MEETING_POST_REQUESTED, postMeetingAsync);
-        yield takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync);
     }
 }
 

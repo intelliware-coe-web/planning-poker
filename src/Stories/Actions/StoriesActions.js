@@ -1,5 +1,5 @@
 import { StoriesAPI } from '../API/Stories.api'
-import { takeLatest, call, put, select } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { getCurrentMeetingId } from '../../Common/selectors';
 import { viewStories } from '../../Navigation/route-actions';
 
