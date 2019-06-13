@@ -1,39 +1,56 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { viewMeeting, viewCreateMeeting } from '../../../Navigation/route-actions';
-import { Page } from '../../../Common/Page';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
+import {viewCreateMeeting, viewMeeting} from '../../../Navigation/route-actions';
+import {DeleteMeeting, GetMeetings, StopMeetingsPolling} from '../../Actions/MeetingsActions';
+import {Page} from '../../../Common/Page';
 
-export function Meetings({ meetings = [], goToMeeting, goToCreateMeeting }) {
-  return (
-    <Page title='Meetings'>
-      
-      { meetings.map((meeting, index) =>
-        <div className="uk-margin-small" key={ index }>
-          <div className="uk-card uk-card-secondary uk-card-body pp-button" onClick={ () => goToMeeting(meeting._id) }>
-            <h3 className="uk-card-title">{ meeting.name }</h3>
-          </div>
-        </div>
-      )}
+export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateMeeting, getMeetings, stopMeetingsPolling}) {
+    useEffect(
+        () => {
+            getMeetings();
+            return () => {
+                stopMeetingsPolling();
+            };
+        },
+        [getMeetings, stopMeetingsPolling]
+    );
 
-      <div className="uk-card uk-card-secondary uk-card-body pp-secondary-button" onClick={ goToCreateMeeting }>
-        <h3 className="uk-card-title">+</h3>
-      </div>
-    </Page>
-  );
+    return (
+        <Page title='Meetings'>
+            {meetings.map((meeting, index) =>
+                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={() => goToMeeting(meeting._id)}>
+                    {meeting.name}
+                    <button
+                        className="uk-position-center-right uk-margin-small-right"
+                        data-uk-icon="icon: trash"
+                        onClick={() => deleteMeeting(meeting._id)}>
+                    </button>
+                </div>
+            )}
+
+            <div className="uk-card uk-card-secondary uk-card-body" onClick={goToCreateMeeting}>
+                <h3 className="uk-card-title">+</h3>
+            </div>
+        </Page>
+    );
+
 }
 
 function mapStateToProps(state) {
-  return {
-    meetings: state.meetings,
-    error: state.error
-  }
+    return {
+        meetings: state.meetings,
+        error: state.error
+    }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    goToMeeting: (meetingId) => dispatch(viewMeeting(meetingId)),
-    goToCreateMeeting: () => dispatch(viewCreateMeeting())
-  }
+    return {
+        getMeetings: () => dispatch(GetMeetings()),
+        goToMeeting: (meetingId) => dispatch(viewMeeting(meetingId)),
+        deleteMeeting: (meetingId) => dispatch(DeleteMeeting(meetingId)),
+        goToCreateMeeting: () => dispatch(viewCreateMeeting()),
+        stopMeetingsPolling: () => dispatch(StopMeetingsPolling())
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Meetings)

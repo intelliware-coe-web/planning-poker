@@ -2,7 +2,7 @@
 
 exports[`CreateStory renders correctly 1`] = `
 <Page
-  onBack={[MockFunction]}
+  onBack={[Function]}
   title="Create Story"
 >
   <form

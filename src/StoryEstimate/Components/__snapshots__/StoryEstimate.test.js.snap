@@ -1,89 +1,110 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Container: Story Estimate should render Estimate correctly 1`] = `
-<Page
-  onBack={[MockFunction]}
-  title="mockConstructor"
->
-  <HostButton
-    onHostClick={[MockFunction]}
-  />
-  <StoryDescription />
+<div>
   <div
-    className="uk-align-center uk-width-1-1@m"
+    class="default-background"
   >
-    <button
-      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button selected"
-      onClick={[Function]}
+    <div
+      class="uk-container uk-text-center@m"
     >
-      1
-      <span
-        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-        hidden={false}
+      <h1
+        class="uk-heading-divider uk-margin-top"
       >
-        Selected
-      </span>
-    </button>
-    <button
-      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-      onClick={[Function]}
-    >
-      2
-      <span
-        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-        hidden={true}
+        mockConstructor
+      </h1>
+      <div
+        class="uk-align-center uk-width-1-2@m"
       >
-        Selected
-      </span>
-    </button>
-    <button
-      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-      onClick={[Function]}
-    >
-      3
-      <span
-        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-        hidden={true}
-      >
-        Selected
-      </span>
-    </button>
-    <button
-      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-      onClick={[Function]}
-    >
-      5
-      <span
-        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-        hidden={true}
-      >
-        Selected
-      </span>
-    </button>
-    <button
-      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-      onClick={[Function]}
-    >
-      8
-      <span
-        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-        hidden={true}
-      >
-        Selected
-      </span>
-    </button>
-    <button
-      className="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
-      onClick={[Function]}
-    >
-      13
-      <span
-        className="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
-        hidden={true}
-      >
-        Selected
-      </span>
-    </button>
+        <span
+          class="uk-position-large uk-position-top-left"
+          data-uk-icon="icon: arrow-left; ratio: 3"
+        />
+        <button
+          class="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+        >
+          Host
+        </button>
+        <dl
+          class="uk-description-list"
+        >
+          <dt>
+            # 
+             :
+          </dt>
+          <dd />
+        </dl>
+        <div
+          class="uk-align-center uk-width-1-1@m"
+        >
+          <button
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button selected"
+          >
+            1
+            <span
+              class="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+            >
+              Selected
+            </span>
+          </button>
+          <button
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+          >
+            2
+            <span
+              class="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+              hidden=""
+            >
+              Selected
+            </span>
+          </button>
+          <button
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+          >
+            3
+            <span
+              class="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+              hidden=""
+            >
+              Selected
+            </span>
+          </button>
+          <button
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+          >
+            5
+            <span
+              class="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+              hidden=""
+            >
+              Selected
+            </span>
+          </button>
+          <button
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+          >
+            8
+            <span
+              class="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+              hidden=""
+            >
+              Selected
+            </span>
+          </button>
+          <button
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+          >
+            13
+            <span
+              class="uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right"
+              hidden=""
+            >
+              Selected
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-</Page>
+</div>
 `;

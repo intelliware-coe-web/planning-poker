@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Page } from '../../../Common/Page';
 import { viewStories } from '../../../Navigation/route-actions';
+import {UpdateCurrentStory} from "../../../CurrentMeeting/Actions/CurrentMeetingActions";
+import {GetStoryEstimates, StopStoryEstimatesPolling} from "../../../CurrentStory/Actions/StoryEstimatesActions";
 
-export function StorySummary({currentMeeting, storyEstimates, goToStories}) {
+export function StorySummary({currentMeeting, storyEstimates, goToStories, updateCurrentStory, getStoryEstimates, stopStoryEstimatesPolling, match}) {
+
+    useEffect(
+        () => {
+            updateCurrentStory({storyId: match.params.storyId});
+            getStoryEstimates(match.params.storyId);
+            return () => {
+                updateCurrentStory({});
+                stopStoryEstimatesPolling();
+            };
+        },
+        [updateCurrentStory, stopStoryEstimatesPolling, getStoryEstimates, match],
+    );
 
     const sum = (a,b) => a + b;
 
@@ -27,7 +41,7 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories}) {
 
     return (
 
-        <Page title={currentMeeting.name} onBack={ goToStories }>
+        <Page title={currentMeeting.name} onBack={ () => goToStories(currentMeeting._id) }>
             <div className="uk-align-center uk-width-1-2@m">
                 <table className="uk-table">
                     <thead>
@@ -38,7 +52,7 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories}) {
                     </thead>
                     <tbody>
                         {storyEstimates.filter(hasValidEstimate).map((estimate, index) => {
-                            return (                                
+                            return (
                                 <tr key={index}>
                                     <td className="uk-text-center">{estimate.user.name}</td>
                                     <td className="uk-text-center">{estimate.estimate}</td>
@@ -64,7 +78,10 @@ function mapStateToProps(state) {
   
   function mapDispatchToProps(dispatch) {
     return {
-        goToStories: () => dispatch(viewStories()),
+        goToStories: (meetingId) => dispatch(viewStories(meetingId)),
+        updateCurrentStory: (storyId) => dispatch(UpdateCurrentStory(storyId)),
+        stopStoryEstimatesPolling: () => dispatch(StopStoryEstimatesPolling()),
+        getStoryEstimates: (storyId) => dispatch(GetStoryEstimates(storyId))
     };
   }
   

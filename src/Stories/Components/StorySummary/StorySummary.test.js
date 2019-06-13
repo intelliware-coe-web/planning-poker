@@ -1,14 +1,20 @@
 import {StorySummary} from "./StorySummary";
+import {render} from "@testing-library/react";
+import React from "react";
 
 it('StorySummary renders correctly', () => {
     const props = {
         currentMeeting: jest.fn().mockReturnValue({
             name: 'Mock Meeting Name'
         }),
-        storyEstimates: [], 
-        goToStories: jest.fn()
-    }
-    expect(StorySummary(props)).toMatchSnapshot();
+        storyEstimates: [],
+        goToStories: jest.fn(),
+        updateCurrentStory: jest.fn(),
+        getStoryEstimates: jest.fn(),
+        stopStoryEstimatesPolling: jest.fn()
+    };
+    const {container} = render(<StorySummary  {...props} match={{'params': {'storyId': 'Mock story id'}}}/>);
+    expect(container).toMatchSnapshot();
 });
 
 it('StorySummary renders estimates withs names', () => {
@@ -22,26 +28,30 @@ it('StorySummary renders estimates withs names', () => {
             },
             estimate: 1
         },
-        {
-            user: {
-                name: 'Andy'
+            {
+                user: {
+                    name: 'Andy'
+                },
+                estimate: 5
             },
-            estimate: 5
-        },
-        {
-            user: {
-                name: 'Joe'
+            {
+                user: {
+                    name: 'Joe'
+                },
+                estimate: 3
             },
-            estimate: 3
-        },
-        {
-            user: {
-                name: null
-            },
-            estimate: 'bad data'
-        }
-        ], 
-        goToStories: jest.fn()
-    }
-    expect(StorySummary(props)).toMatchSnapshot();
+            {
+                user: {
+                    name: null
+                },
+                estimate: 'bad data'
+            }
+        ],
+        goToStories: jest.fn(),
+        updateCurrentStory: jest.fn(),
+        getStoryEstimates: jest.fn(),
+        stopStoryEstimatesPolling: jest.fn()
+    };
+    const {container} = render(<StorySummary  {...props} match={{'params': {'storyId': 'Mock story id'}}}/>);
+    expect(container).toMatchSnapshot();
 });
