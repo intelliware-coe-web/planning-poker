@@ -54,3 +54,7 @@ a:hover {
 .pp-button.selected {
     background-color: var(--secondary-color);
 }
+
+.uk-button-primary.selected {
+    background-color: var(--secondary-color);
+}

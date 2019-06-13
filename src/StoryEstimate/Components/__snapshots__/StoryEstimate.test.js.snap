@@ -38,7 +38,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
           class="uk-align-center uk-width-1-1@m"
         >
           <button
-            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button selected"
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary selected"
           >
             1
             <span
@@ -48,7 +48,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
             </span>
           </button>
           <button
-            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary "
           >
             2
             <span
@@ -59,7 +59,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
             </span>
           </button>
           <button
-            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary "
           >
             3
             <span
@@ -70,7 +70,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
             </span>
           </button>
           <button
-            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary "
           >
             5
             <span
@@ -81,7 +81,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
             </span>
           </button>
           <button
-            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary "
           >
             8
             <span
@@ -92,7 +92,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
             </span>
           </button>
           <button
-            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button "
+            class="uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary "
           >
             13
             <span

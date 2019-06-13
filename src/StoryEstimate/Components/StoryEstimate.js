@@ -27,7 +27,7 @@ export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory
             <div className="uk-align-center uk-width-1-1@m">
                 {estimation.map((estimate, i) =>
                     <button key={i} onClick={() => updateStoryEstimate(user._id, currentStory._id, estimate)}
-                            className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline pp-button ${ storyEstimate === estimate ? 'selected' : '' }`}>
+                            className={`uk-button uk-margin-small-top uk-width-1-1 uk-inline uk-button-primary ${ storyEstimate === estimate ? 'selected' : '' }`} disabled={currentStory._id === null}>
                         {estimate}
                         <span
                             className={'uk-position-center-right uk-background-muted uk-text-emphasis uk-label uk-margin-small-right'}
