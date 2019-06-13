@@ -96,8 +96,8 @@ describe('Test action creators', () => {
         });
     });
 
-    describe('Watch Users', () => {
-        it('', () => {
+    describe('Watch ', () => {
+        it('Users', () => {
             fixture = watchUserAsync();
 
             expect(fixture.next().value).toEqual(takeLatest(USER_GET_REQUESTED, getUserAsync));

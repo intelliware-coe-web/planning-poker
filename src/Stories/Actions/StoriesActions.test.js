@@ -86,8 +86,8 @@ describe('Stories Actions', () => {
         });
     });
 
-    describe('Watch Stories', () => {
-        it('', () => {
+    describe('Watch ', () => {
+        it('Stories', () => {
             fixture = watchStoriesAsync();
 
             expect(fixture.next().value).toEqual(takeLatest(STORIES_GET_REQUESTED, getStoriesAsync));
