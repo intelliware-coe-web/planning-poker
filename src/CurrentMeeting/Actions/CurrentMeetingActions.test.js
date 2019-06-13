@@ -1,11 +1,12 @@
 import {
     CURRENT_MEETING_ERROR,
-    CURRENT_MEETING_SUCCESS,
     CURRENT_MEETING_GET_REQUESTED,
-    UPDATE_CURRENT_STORY_REQUESTED,
-    watchCurrentMeetingAsync,
+    CURRENT_MEETING_SUCCESS,
     getCurrentMeetingAsync,
-    updateCurrentStoryAsync
+    UPDATE_CURRENT_STORY_REQUESTED,
+    UpdateCurrentStory,
+    updateCurrentStoryAsync,
+    watchCurrentMeetingAsync
 } from "./CurrentMeetingActions";
 import {CurrentMeetingAPI} from "../API/CurrentMeeting.api";
 import {call, put, select, takeLatest} from 'redux-saga/effects';
@@ -62,7 +63,6 @@ describe('CurrentMeeting Actions', () => {
         });
 
         it('should dispatch action', () => {
-            const ApiResponse = [];
             expect(fixture.next().value).toEqual(select(Selectors.getCurrentMeetingId));
             expect(fixture.next(currentMeetingId).value).toEqual(call(CurrentMeetingAPI.update, currentMeetingId, storyBody));
             expect(fixture.next().done).toBeTruthy();
@@ -86,5 +86,16 @@ describe('CurrentMeeting Actions', () => {
 
         expect(watcher.next().value).toEqual(takeLatest(CURRENT_MEETING_GET_REQUESTED, getCurrentMeetingAsync));
         expect(watcher.next().value).toEqual(takeLatest(UPDATE_CURRENT_STORY_REQUESTED, updateCurrentStoryAsync));
+    });
+
+    describe('Public Functions', () => {
+        let expectedResponse, actualResponse;
+
+        it('should return correct JSON resonse for UpdateCurrentStory',() => {
+            const body = 'mock Body';
+            expectedResponse = {type: UPDATE_CURRENT_STORY_REQUESTED, payload: body};
+            actualResponse = UpdateCurrentStory(body);
+            expect(expectedResponse).toEqual(actualResponse);
+        });
     });
 });
