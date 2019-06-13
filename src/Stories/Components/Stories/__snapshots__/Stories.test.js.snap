@@ -31,7 +31,7 @@ exports[`Stories renders correctly 1`] = `
           <div
             class="uk-position-center-left uk-margin-small-left uk-label"
           >
-            Points: 3
+            Not estimated
           </div>
           Mock Story Name
           <button
