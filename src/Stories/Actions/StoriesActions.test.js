@@ -15,6 +15,7 @@ import {StoriesAPI} from "../API/Stories.api";
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
 import {viewStories} from '../../Navigation/route-actions';
+import {getCurrentMeetingId} from "../../Common/selectors";
 
 describe('Stories Actions', () => {
     let fixture;
@@ -73,8 +74,9 @@ describe('Stories Actions', () => {
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(call(StoriesAPI.delete, storyId));
-            expect(fixture.next().value).toEqual(put(viewStories()));
+            expect(fixture.next().value).toEqual(select(getCurrentMeetingId));
+            expect(fixture.next(currentMeetingId).value).toEqual(call(StoriesAPI.delete, storyId));
+            expect(fixture.next().value).toEqual(put(viewStories(currentMeetingId)));
             expect(fixture.next().done).toBeTruthy();
         });
 

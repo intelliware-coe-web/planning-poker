@@ -7,16 +7,19 @@ exports[`Higher Order Component: withHeader should not render the back button wh
   <div
     className="uk-container uk-text-center@m"
   >
+    <div
+      className="uk-section uk-section-xsmall"
+    >
+      <BackButton />
+    </div>
     <h1
-      className="uk-heading-divider uk-margin-top"
+      className="uk-heading-divider uk-margin-small-top"
     >
       No back button
     </h1>
     <div
       className="uk-align-center uk-width-1-2@m"
-    >
-      <BackButton />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -28,17 +31,21 @@ exports[`Higher Order Component: withHeader should render a Header on a componen
   <div
     className="uk-container uk-text-center@m"
   >
+    <div
+      className="uk-section uk-section-xsmall"
+    >
+      <BackButton
+        goBack={[Function]}
+      />
+    </div>
     <h1
-      className="uk-heading-divider uk-margin-top"
+      className="uk-heading-divider uk-margin-small-top"
     >
       Foo
     </h1>
     <div
       className="uk-align-center uk-width-1-2@m"
     >
-      <BackButton
-        goBack={[Function]}
-      />
       <div />
       <div />
     </div>

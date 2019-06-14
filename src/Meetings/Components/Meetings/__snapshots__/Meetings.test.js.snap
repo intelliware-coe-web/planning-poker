@@ -8,8 +8,11 @@ exports[`Container: Meetings should render correctly 1`] = `
     <div
       class="uk-container uk-text-center@m"
     >
+      <div
+        class="uk-section uk-section-xsmall"
+      />
       <h1
-        class="uk-heading-divider uk-margin-top"
+        class="uk-heading-divider uk-margin-small-top"
       >
         Meetings
       </h1>
@@ -21,12 +24,12 @@ exports[`Container: Meetings should render correctly 1`] = `
         >
           test
           <button
-            class="uk-position-center-right uk-margin-small-right"
+            class="uk-position-top-right uk-margin-small-right uk-margin-small-top"
             data-uk-icon="icon: trash"
           />
         </div>
         <div
-          class="uk-card uk-card-secondary uk-card-body"
+          class="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-text-center"
         >
           <h3
             class="uk-card-title"

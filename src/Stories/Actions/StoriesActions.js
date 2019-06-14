@@ -60,8 +60,9 @@ export function DeleteStory(storyId) {
 
 export function* deleteStoryAsync({payload: storyId}){
     try {
+        const currentMeetingId = yield select(getCurrentMeetingId);
         yield call(StoriesAPI.delete, storyId);
-        yield put(viewStories())
+        yield put(viewStories(currentMeetingId));
     }
     catch (e) {
         yield put(StoriesError(e));
