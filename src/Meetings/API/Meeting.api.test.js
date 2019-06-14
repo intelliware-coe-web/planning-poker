@@ -17,7 +17,7 @@ describe('EstimateAPI', () => {
 
     it('create() should call postData() from FetchApi', () => {
         FetchApi.postData = jest.fn();
-        MeetingAPI.create({});
+        MeetingAPI.create('123', {});
         expect(FetchApi.postData).toHaveBeenCalledTimes(1);
     });
 
