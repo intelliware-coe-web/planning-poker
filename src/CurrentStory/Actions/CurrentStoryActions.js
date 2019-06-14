@@ -1,6 +1,6 @@
 import { MeetingAPI } from '../../Meetings/API/Meeting.api'
 import { take, call, put, race, delay, select } from 'redux-saga/effects';
-import {ResetStoryEstimate} from "../../StoryEstimate/Actions/StoryEstimateActions";
+import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";
 import {CurrentStory} from "../../Common/selectors";
 
 export const CURRENT_STORY_SUCCESS = 'CURRENT_STORY_SUCCESS';

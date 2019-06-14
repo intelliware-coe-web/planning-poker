@@ -1,5 +1,5 @@
 import { MEETINGS_ERROR } from './Meetings/Actions/MeetingsActions';
-import { STORY_ESTIMATE_ERROR } from './StoryEstimate/Actions/StoryEstimateActions';
+import { STORY_ESTIMATE_ERROR } from './Stories/Actions/StoryEstimateActions';
 import { CURRENT_MEETING_ERROR } from './Meetings/Actions/CurrentMeetingActions';
 import { STORIES_ERROR } from './Stories/Actions/StoriesActions';
 import { USER_ERROR } from './User/Actions/UserActions';

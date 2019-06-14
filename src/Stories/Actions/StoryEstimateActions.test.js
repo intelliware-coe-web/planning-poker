@@ -1,5 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import { StoriesAPI } from '../../Stories/API/Stories.api';
+import { StoriesAPI } from '../API/Stories.api';
 import {
     PutStoryEstimate,
     putStoryEstimateAsync,

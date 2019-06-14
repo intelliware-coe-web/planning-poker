@@ -9,7 +9,7 @@ import {watchMeetingsAsync} from './Meetings/Actions/MeetingsActions';
 import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions';
 import {watchRouterAsync} from './Navigation/route-actions';
 import {watchStoriesAsync} from './Stories/Actions/StoriesActions';
-import {watchStoryEstimateAsync} from './StoryEstimate/Actions/StoryEstimateActions';
+import {watchStoryEstimateAsync} from './Stories/Actions/StoryEstimateActions';
 import {watchCurrentStoryAsync} from './CurrentStory/Actions/CurrentStoryActions'
 import {watchStoryEstimatesAsync} from './CurrentStory/Actions/StoryEstimatesActions';
 

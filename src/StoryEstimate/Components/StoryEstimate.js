@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {PutStoryEstimate, ResetStoryEstimate} from '../Actions/StoryEstimateActions';
+import {PutStoryEstimate, ResetStoryEstimate} from '../../Stories/Actions/StoryEstimateActions';
 import {viewMeetings, viewStories} from '../../Navigation/route-actions';
 import {Page} from '../../Common/Page';
 import {GetCurrentStory, StopCurrentStoryPolling} from "../../CurrentStory/Actions/CurrentStoryActions";

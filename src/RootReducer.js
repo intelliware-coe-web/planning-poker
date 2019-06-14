@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import user from './User/Reducers/UserReducer';
-import storyEstimate from './StoryEstimate/Reducers/StoryEstimateReducer';
+import storyEstimate from './Stories/Reducers/StoryEstimateReducer';
 import meetings from './Meetings/Reducers/MeetingsReducer';
 import stories from './Stories/Reducers/StoriesReducer';
 import error from './ErrorReducer';

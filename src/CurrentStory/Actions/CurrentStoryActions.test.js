@@ -12,7 +12,7 @@ import {
 import {MeetingAPI} from "../../Meetings/API/Meeting.api";
 import {call, put, take, race, delay, select} from 'redux-saga/effects';
 import {CurrentStory} from "../../Common/selectors";
-import {ResetStoryEstimate} from "../../StoryEstimate/Actions/StoryEstimateActions";
+import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";
 
 describe('CurrentStory Actions', () => {
     let fixture;

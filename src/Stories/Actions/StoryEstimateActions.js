@@ -1,5 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import { StoriesAPI } from '../../Stories/API/Stories.api';
+import { StoriesAPI } from '../API/Stories.api';
 
 export const STORY_ESTIMATE_REQUESTED = 'STORY_ESTIMATE_REQUESTED';
 export const RESET_STORY_ESTIMATE_REQUESTED = 'RESET_STORY_ESTIMATE_REQUESTED';

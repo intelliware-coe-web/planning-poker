@@ -2,7 +2,7 @@ import ErrorReducer from './ErrorReducer';
 import {MEETINGS_ERROR} from './Meetings/Actions/MeetingsActions';
 import {USER_ERROR} from './User/Actions/UserActions';
 import {CURRENT_MEETING_ERROR} from './Meetings/Actions/CurrentMeetingActions';
-import {STORY_ESTIMATE_ERROR} from './StoryEstimate/Actions/StoryEstimateActions';
+import {STORY_ESTIMATE_ERROR} from './Stories/Actions/StoryEstimateActions';
 import {STORIES_ERROR} from './Stories/Actions/StoriesActions';
 import {CURRENT_STORY_ERROR} from './CurrentStory/Actions/CurrentStoryActions';
 import {STORY_ESTIMATES_ERROR} from './CurrentStory/Actions/StoryEstimatesActions';
