@@ -12,7 +12,7 @@ exports[`StorySummary renders correctly 1`] = `
         class="uk-section uk-section-xsmall"
       >
         <span
-          class="uk-position-small uk-position-top-left"
+          class="uk-position-small uk-position-top-left pp-back-arrow"
           data-uk-icon="icon: arrow-left; ratio: 1.75"
         />
       </div>
@@ -67,7 +67,7 @@ exports[`StorySummary renders estimates withs names 1`] = `
         class="uk-section uk-section-xsmall"
       >
         <span
-          class="uk-position-small uk-position-top-left"
+          class="uk-position-small uk-position-top-left pp-back-arrow"
           data-uk-icon="icon: arrow-left; ratio: 1.75"
         />
       </div>
