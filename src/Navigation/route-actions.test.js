@@ -14,7 +14,7 @@ import {
 } from './route-actions';
 import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
-import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
+import {GetCurrentMeeting} from '../Meetings/Actions/CurrentMeetingActions';
 import {getCurrentUserId} from "../Common/selectors";
 
 describe('Route Actions', () => {

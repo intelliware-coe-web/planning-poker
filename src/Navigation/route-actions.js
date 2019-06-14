@@ -1,6 +1,6 @@
 import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {delay, put, select, takeLatest} from 'redux-saga/effects';
-import {GetCurrentMeeting} from '../CurrentMeeting/Actions/CurrentMeetingActions';
+import {GetCurrentMeeting} from '../Meetings/Actions/CurrentMeetingActions';
 import {getCurrentUserId} from "../Common/selectors";
 
 export const viewCreateMeeting = () => push('/meeting/create/');

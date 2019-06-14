@@ -5,7 +5,7 @@ import storyEstimate from './StoryEstimate/Reducers/StoryEstimateReducer';
 import meetings from './Meetings/Reducers/MeetingsReducer';
 import stories from './Stories/Reducers/StoriesReducer';
 import error from './ErrorReducer';
-import currentMeeting from './CurrentMeeting/Reducers/CurrentMeetingReducer';
+import currentMeeting from './Meetings/Reducers/CurrentMeetingReducer';
 import currentStory from './CurrentStory/Reducers/CurrentStoryReducer'
 import storyEstimates from './CurrentStory/Reducers/StoryEstimatesReducer';
 
