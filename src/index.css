@@ -76,7 +76,7 @@ a:hover {
 }
 
 @media screen and (max-width: 860px) {
-    .login {
+    .pp-login {
         flex-direction: column;
     }
 }
