@@ -11,7 +11,7 @@ import {
 import {UserAPI} from "../API/User.api";
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import {viewMeetings} from '../../Navigation/route-actions';
-import {getLocationState} from "../../Common/selectors";
+import {LocationState} from "../../Common/selectors";
 import {push} from "connected-react-router";
 
 
@@ -32,7 +32,7 @@ describe('Test action creators', () => {
                     user: 'Fred'
                 }
             }));
-            expect(fixture.next().value).toEqual(select(getLocationState));
+            expect(fixture.next().value).toEqual(select(LocationState));
             expect(fixture.next(undefined).value).toEqual(put(viewMeetings()));
             expect(fixture.next().done).toBeTruthy();
         });
@@ -47,7 +47,7 @@ describe('Test action creators', () => {
                     user: 'Fred'
                 }
             }));
-            expect(fixture.next().value).toEqual(select(getLocationState));
+            expect(fixture.next().value).toEqual(select(LocationState));
             expect(fixture.next(locationState).value).toEqual(put(push(locationState.nextPathname)));
             expect(fixture.next().done).toBeTruthy();
         });

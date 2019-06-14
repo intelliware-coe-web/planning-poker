@@ -1,6 +1,6 @@
 import { StoriesAPI } from '../API/Stories.api'
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { getCurrentMeetingId } from '../../Common/selectors';
+import { CurrentMeetingId } from '../../Common/selectors';
 import { viewStories } from '../../Navigation/route-actions';
 
 export const STORIES_SUCCESS = 'STORIES_SUCCESS';
@@ -42,7 +42,7 @@ export function PostStory(storyName) {
 
 export function* postStoryAsync({payload}){
     try {
-        const currentMeetingId = yield select(getCurrentMeetingId);
+        const currentMeetingId = yield select(CurrentMeetingId);
         yield call(StoriesAPI.post, currentMeetingId, payload);
         yield put(viewStories(currentMeetingId));
     }
@@ -60,7 +60,7 @@ export function DeleteStory(storyId) {
 
 export function* deleteStoryAsync({payload: storyId}){
     try {
-        const currentMeetingId = yield select(getCurrentMeetingId);
+        const currentMeetingId = yield select(CurrentMeetingId);
         yield call(StoriesAPI.delete, storyId);
         yield put(viewStories(currentMeetingId));
     }

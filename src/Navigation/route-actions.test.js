@@ -15,7 +15,7 @@ import {
 import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {GetCurrentMeeting} from '../Meetings/Actions/CurrentMeetingActions';
-import {getCurrentUserId} from "../Common/selectors";
+import {CurrentUserId} from "../Common/selectors";
 
 describe('Route Actions', () => {
 
@@ -53,7 +53,7 @@ describe('Route Actions', () => {
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
-            expect(saga.next().value).toEqual(select(getCurrentUserId));
+            expect(saga.next().value).toEqual(select(CurrentUserId));
             expect(saga.next(null).value).toEqual(delay(1));
             expect(saga.next().value).toEqual(put(replace({
                 pathname: '/',
@@ -69,7 +69,7 @@ describe('Route Actions', () => {
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
-            expect(saga.next().value).toEqual(select(getCurrentUserId));
+            expect(saga.next().value).toEqual(select(CurrentUserId));
             expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockMeetingId)));
         });
 
@@ -81,7 +81,7 @@ describe('Route Actions', () => {
                 }
             };
             const saga = routerActions({payload: mockRouterPayload});
-            expect(saga.next().value).toEqual(select(getCurrentUserId));
+            expect(saga.next().value).toEqual(select(CurrentUserId));
             expect(saga.next().value).not.toEqual(put(GetCurrentMeeting(mockMeetingId)));
         });
 

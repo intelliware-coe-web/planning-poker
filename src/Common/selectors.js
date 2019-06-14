@@ -1,4 +1,4 @@
-export const getCurrentMeetingId = state => state.currentMeeting._id;
-export const getCurrentStory = state => state.currentStory;
-export const getCurrentUserId = state => state.user._id;
-export const getLocationState = state => state.router.location.state;
+export const CurrentMeetingId = state => state.currentMeeting._id;
+export const CurrentStory = state => state.currentStory;
+export const CurrentUserId = state => state.user._id;
+export const LocationState = state => state.router.location.state;
