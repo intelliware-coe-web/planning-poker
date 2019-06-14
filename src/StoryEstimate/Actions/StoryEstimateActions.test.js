@@ -1,5 +1,5 @@
-import {StoryEstimateAPI} from "../API/StoryEstimate.api";
 import {call, put, takeLatest} from 'redux-saga/effects';
+import { StoriesAPI } from '../../Stories/API/Stories.api';
 import {
     PutStoryEstimate,
     putStoryEstimateAsync,
@@ -26,7 +26,7 @@ describe('Story Estimate Actions', () => {
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(call(StoryEstimateAPI.update, storyId, {
+            expect(fixture.next().value).toEqual(call(StoriesAPI.updateStoryEstimate, storyId, {
                 user: userId,
                 estimate: estimate
             }));

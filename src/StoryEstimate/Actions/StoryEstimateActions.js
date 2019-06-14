@@ -1,5 +1,5 @@
-import {StoryEstimateAPI} from "../API/StoryEstimate.api";
 import {call, put, takeLatest} from 'redux-saga/effects';
+import { StoriesAPI } from '../../Stories/API/Stories.api';
 
 export const STORY_ESTIMATE_REQUESTED = 'STORY_ESTIMATE_REQUESTED';
 export const RESET_STORY_ESTIMATE_REQUESTED = 'RESET_STORY_ESTIMATE_REQUESTED';
@@ -21,7 +21,7 @@ export function PutStoryEstimate(userId, storyId, estimate){
 
 export function* putStoryEstimateAsync({payload: { userId, storyId, estimate } }){
     try {
-        yield call(StoryEstimateAPI.update, storyId, generateBody(userId, estimate));
+        yield call(StoriesAPI.updateStoryEstimate, storyId, generateBody(userId, estimate));
         yield put(storyEstimateSuccess(estimate));
     }
     catch (e) {
