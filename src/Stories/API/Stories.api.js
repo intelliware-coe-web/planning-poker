@@ -14,5 +14,6 @@ export const StoriesAPI = {
     return postData(url, body)
   },
   delete: storyId => deleteData(`${API_URL}/stories/${storyId}`),
+  getStoryEstimates: storyId => getData(`${API_URL}/stories/${storyId}/estimates`),
   updateStoryEstimate: (storyId, body) => putData(`${API_URL}/stories/${storyId}/estimates`, body)
 };

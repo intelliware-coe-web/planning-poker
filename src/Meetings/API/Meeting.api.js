@@ -5,5 +5,6 @@ export const MeetingAPI = {
   byId: meetingId => getData(`${API_URL}/meetings/${meetingId}`),
   create: (body) => postData(`${API_URL}/meetings`, body),
   delete: meetingId => deleteData(`${API_URL}/meetings/${meetingId}`),
-  updateCurrentStory: (meetingId, body) => putData(`${API_URL}/meetings/${meetingId}/currentStory`, body),
+  getCurrentStory: meetingId => getData(`${API_URL}/meetings/${meetingId}/currentStory`),
+  updateCurrentStory: (meetingId, body) => putData(`${API_URL}/meetings/${meetingId}/currentStory`, body)
 };
