@@ -4,7 +4,7 @@ import { CURRENT_MEETING_ERROR } from './Meetings/Actions/CurrentMeetingActions'
 import { STORIES_ERROR } from './Stories/Actions/StoriesActions';
 import { USER_ERROR } from './User/Actions/UserActions';
 import { CURRENT_STORY_ERROR } from './CurrentStory/Actions/CurrentStoryActions';
-import { STORY_ESTIMATES_ERROR } from './CurrentStory/Actions/StoryEstimatesActions';
+import { STORY_ESTIMATES_ERROR } from './Stories/Actions/StoryEstimatesActions';
 
 const errorActions = [
   MEETINGS_ERROR,

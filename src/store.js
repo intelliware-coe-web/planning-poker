@@ -11,7 +11,7 @@ import {watchRouterAsync} from './Navigation/route-actions';
 import {watchStoriesAsync} from './Stories/Actions/StoriesActions';
 import {watchStoryEstimateAsync} from './Stories/Actions/StoryEstimateActions';
 import {watchCurrentStoryAsync} from './CurrentStory/Actions/CurrentStoryActions'
-import {watchStoryEstimatesAsync} from './CurrentStory/Actions/StoryEstimatesActions';
+import {watchStoryEstimatesAsync} from './Stories/Actions/StoryEstimatesActions';
 
 const sagaMiddleware = createSagaMiddleware();
 

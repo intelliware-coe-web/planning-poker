@@ -9,7 +9,7 @@ import {
     watchStoryEstimatesAsync,
     getStoryEstimatesAsync
 } from "./StoryEstimatesActions";
-import {StoriesAPI} from "../../Stories/API/Stories.api";
+import {StoriesAPI} from "../API/Stories.api";
 import {call, put, take, race, delay} from 'redux-saga/effects';
 
 describe('StoryEstimates Actions', () => {

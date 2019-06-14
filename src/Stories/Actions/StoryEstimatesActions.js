@@ -1,4 +1,4 @@
-import { StoriesAPI } from '../../Stories/API/Stories.api'
+import { StoriesAPI } from '../API/Stories.api'
 import { take, call, put, race, delay } from 'redux-saga/effects';
 
 export const STORY_ESTIMATES_SUCCESS = 'STORY_ESTIMATES_SUCCESS';
