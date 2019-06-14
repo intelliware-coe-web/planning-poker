@@ -6,7 +6,7 @@ import {PostUser} from '../Actions/UserActions';
 export function CreateUser({postUser}) {
 
     return (
-        <div className="uk-container uk-flex uk-flex-middle uk-height-viewport login">
+        <div className="uk-container uk-flex uk-flex-middle uk-height-viewport pp-login">
             <div className="uk-animation-slide-left-medium uk-text-center"><h2>Welcome to planning poker</h2></div>
             <div className="uk-animation-scale-up uk-width-1-2@s uk-width-3-4@m"><img src={loginImg} alt="login"/></div>
             <div>
