@@ -1,7 +1,7 @@
 import {UserAPI} from '../API/User.api';
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import {push} from 'connected-react-router';
-import {getLocationState} from "../../Common/selectors";
+import {LocationState} from "../../Common/selectors";
 import {viewMeetings} from "../../Navigation/route-actions";
 
 
@@ -35,7 +35,7 @@ export function* postUserAsync({payload: username}){
     try {
         const user = yield call(UserAPI.create, GenerateBody(username));
         yield put(UserSuccess(user));
-        const locationState = yield select(getLocationState);
+        const locationState = yield select(LocationState);
         yield locationState !== undefined ? put(push(locationState.nextPathname)) : put(viewMeetings());
     }
     catch (e) {

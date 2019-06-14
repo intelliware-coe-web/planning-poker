@@ -1,4 +1,4 @@
-import { CurrentStoryAPI } from '../API/CurrentStory.api'
+import { StoriesAPI } from '../API/Stories.api'
 import { take, call, put, race, delay } from 'redux-saga/effects';
 
 export const STORY_ESTIMATES_SUCCESS = 'STORY_ESTIMATES_SUCCESS';
@@ -34,7 +34,7 @@ export function StopStoryEstimatesPolling() {
 export function* getStoryEstimatesAsync({payload: storyId}){
   while(true) {
       try {
-          const story = yield call(CurrentStoryAPI.storyEstimates, storyId);
+          const story = yield call(StoriesAPI.getStoryEstimates, storyId);
           yield put(StoryEstimatesSuccess(story));
       }
       catch (e) {

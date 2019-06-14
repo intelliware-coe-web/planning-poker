@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {Page} from '../../../Common/Page';
 import {viewStories} from '../../../Navigation/route-actions';
-import {UpdateCurrentStory} from "../../../CurrentMeeting/Actions/CurrentMeetingActions";
-import {GetStoryEstimates, StopStoryEstimatesPolling} from "../../../CurrentStory/Actions/StoryEstimatesActions";
+import {UpdateCurrentStory} from "../../../Meetings/Actions/CurrentMeetingActions";
+import {GetStoryEstimates, StopStoryEstimatesPolling} from "../../Actions/StoryEstimatesActions";
 
 export function StorySummary({currentMeeting, storyEstimates, goToStories, updateCurrentStory, getStoryEstimates, stopStoryEstimatesPolling, match}) {
 

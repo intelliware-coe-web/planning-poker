@@ -2,7 +2,7 @@ import {Route} from "react-router-dom";
 import React from 'react';
 import Meetings from '../Meetings/Components/Meetings/Meetings';
 import Stories from '../Stories/Components/Stories/Stories';
-import StoryEstimate from '../StoryEstimate/Components/StoryEstimate';
+import StoryEstimate from '../Stories/Components/StoryEstimate/StoryEstimate';
 import CreateMeeting from '../Meetings/Components/CreateMeeting/CreateMeeting';
 import CreateUser from '../User/Components/CreateUser';
 import CreateStory from '../Stories/Components/CreateStory/CreateStory';

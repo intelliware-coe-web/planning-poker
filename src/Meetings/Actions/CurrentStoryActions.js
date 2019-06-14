@@ -1,7 +1,7 @@
-import { CurrentStoryAPI } from '../API/CurrentStory.api'
+import { MeetingAPI } from '../API/Meeting.api'
 import { take, call, put, race, delay, select } from 'redux-saga/effects';
-import {ResetStoryEstimate} from "../../StoryEstimate/Actions/StoryEstimateActions";
-import {getCurrentStory} from "../../Common/selectors";
+import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";
+import {CurrentStory} from "../../Common/selectors";
 
 export const CURRENT_STORY_SUCCESS = 'CURRENT_STORY_SUCCESS';
 export const CURRENT_STORY_ERROR = 'CURRENT_STORY_ERROR';
@@ -36,8 +36,8 @@ export function StopCurrentStoryPolling() {
 export function* getCurrentStoryAsync({payload: meetingId}){
     while(true) {
         try {
-            const currentStory = yield select(getCurrentStory);
-            const story = yield call(CurrentStoryAPI.byMeetingId, meetingId);
+            const currentStory = yield select(CurrentStory);
+            const story = yield call(MeetingAPI.getCurrentStory, meetingId);
 
             if(story) { yield currentStory._id !== story._id ? put(ResetStoryEstimate()) : ''; }
             else      { yield currentStory._id !== null      ? put(ResetStoryEstimate()) : ''; }

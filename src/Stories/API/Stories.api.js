@@ -1,4 +1,4 @@
-import {API_URL, getData, postData, deleteData} from '../../Fetch.api';
+import {API_URL, getData, postData, putData, deleteData} from '../../Fetch.api';
 
 export const StoriesAPI = {
   all: (meetingId) => {
@@ -13,5 +13,7 @@ export const StoriesAPI = {
     url.search = new URLSearchParams(params);
     return postData(url, body)
   },
-  delete: storyId => deleteData(`${API_URL}/stories/${storyId}`)
+  delete: storyId => deleteData(`${API_URL}/stories/${storyId}`),
+  getStoryEstimates: storyId => getData(`${API_URL}/stories/${storyId}/estimates`),
+  updateStoryEstimate: (storyId, body) => putData(`${API_URL}/stories/${storyId}/estimates`, body)
 };

@@ -11,7 +11,7 @@ describe('StoriesAPI', () => {
 
     it('create() should call postData() from FetchApi', () => {
         FetchApi.postData = jest.fn();
-        StoriesAPI.post({});
+        StoriesAPI.post('1234', {});
         expect(FetchApi.postData).toHaveBeenCalledTimes(1);
     });
 
@@ -19,5 +19,17 @@ describe('StoriesAPI', () => {
         FetchApi.deleteData = jest.fn();
         StoriesAPI.delete('123');
         expect(FetchApi.deleteData).toHaveBeenCalledTimes(1);
+    });
+
+    it('getStoryEstimates() should call getData() from FetchApi', () => {
+        FetchApi.getData = jest.fn();
+        StoriesAPI.getStoryEstimates('1234');
+        expect(FetchApi.getData).toHaveBeenCalledTimes(1);
+    });
+
+    it('updateStoryEstimate() should call putData() from FetchApi', () => {
+        FetchApi.putData = jest.fn();
+        StoriesAPI.updateStoryEstimate('1234', {});
+        expect(FetchApi.putData).toHaveBeenCalledTimes(1);
     });
 });
