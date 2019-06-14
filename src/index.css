@@ -1,7 +1,7 @@
 html {
     --app-background-color: #ebedfc;
     --primary-color: #2359fa;
-    --secondary-color: #c702a9;  
+    --secondary-color: #c702a9;
     --accent-color: #b1bafc;
 }
 
@@ -16,7 +16,7 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: calc(10px + 5vmin);
     margin-bottom: 15px;
 }
 
@@ -27,6 +27,10 @@ h3 {
 
 a:hover {
     text-decoration: none;
+}
+
+.uk-card, .pp-back-arrow {
+    cursor: pointer;
 }
 
 .uk-card-title {
@@ -52,5 +56,9 @@ a:hover {
 }
 
 .pp-button.selected {
+    background-color: var(--secondary-color);
+}
+
+.uk-button-primary.selected {
     background-color: var(--secondary-color);
 }

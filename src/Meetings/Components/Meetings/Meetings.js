@@ -21,14 +21,14 @@ export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateM
                 <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={() => goToMeeting(meeting._id)}>
                     {meeting.name}
                     <button
-                        className="uk-position-center-right uk-margin-small-right"
+                        className="uk-position-top-right uk-margin-small-right uk-margin-small-top"
                         data-uk-icon="icon: trash"
                         onClick={() => deleteMeeting(meeting._id)}>
                     </button>
                 </div>
             )}
 
-            <div className="uk-card uk-card-secondary uk-card-body" onClick={goToCreateMeeting}>
+            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-text-center" onClick={goToCreateMeeting}>
                 <h3 className="uk-card-title">+</h3>
             </div>
         </Page>
