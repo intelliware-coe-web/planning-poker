@@ -1,4 +1,4 @@
-import { MeetingAPI } from '../../Meetings/API/Meeting.api'
+import { MeetingAPI } from '../API/Meeting.api'
 import { take, call, put, race, delay, select } from 'redux-saga/effects';
 import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";
 import {CurrentStory} from "../../Common/selectors";

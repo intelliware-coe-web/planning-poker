@@ -6,7 +6,7 @@ import meetings from './Meetings/Reducers/MeetingsReducer';
 import stories from './Stories/Reducers/StoriesReducer';
 import error from './ErrorReducer';
 import currentMeeting from './Meetings/Reducers/CurrentMeetingReducer';
-import currentStory from './CurrentStory/Reducers/CurrentStoryReducer'
+import currentStory from './Meetings/Reducers/CurrentStoryReducer'
 import storyEstimates from './Stories/Reducers/StoryEstimatesReducer';
 
 export default (history) =>

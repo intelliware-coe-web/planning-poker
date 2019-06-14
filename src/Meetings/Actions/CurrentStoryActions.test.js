@@ -9,7 +9,7 @@ import {
     getCurrentStoryAsync,
     watchCurrentStoryAsync
 } from "./CurrentStoryActions";
-import {MeetingAPI} from "../../Meetings/API/Meeting.api";
+import {MeetingAPI} from "../API/Meeting.api";
 import {call, put, take, race, delay, select} from 'redux-saga/effects';
 import {CurrentStory} from "../../Common/selectors";
 import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";

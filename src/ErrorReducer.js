@@ -3,7 +3,7 @@ import { STORY_ESTIMATE_ERROR } from './Stories/Actions/StoryEstimateActions';
 import { CURRENT_MEETING_ERROR } from './Meetings/Actions/CurrentMeetingActions';
 import { STORIES_ERROR } from './Stories/Actions/StoriesActions';
 import { USER_ERROR } from './User/Actions/UserActions';
-import { CURRENT_STORY_ERROR } from './CurrentStory/Actions/CurrentStoryActions';
+import { CURRENT_STORY_ERROR } from './Meetings/Actions/CurrentStoryActions';
 import { STORY_ESTIMATES_ERROR } from './Stories/Actions/StoryEstimatesActions';
 
 const errorActions = [

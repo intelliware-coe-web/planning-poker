@@ -10,7 +10,7 @@ import {watchCurrentMeetingAsync} from './Meetings/Actions/CurrentMeetingActions
 import {watchRouterAsync} from './Navigation/route-actions';
 import {watchStoriesAsync} from './Stories/Actions/StoriesActions';
 import {watchStoryEstimateAsync} from './Stories/Actions/StoryEstimateActions';
-import {watchCurrentStoryAsync} from './CurrentStory/Actions/CurrentStoryActions'
+import {watchCurrentStoryAsync} from './Meetings/Actions/CurrentStoryActions'
 import {watchStoryEstimatesAsync} from './Stories/Actions/StoryEstimatesActions';
 
 const sagaMiddleware = createSagaMiddleware();
