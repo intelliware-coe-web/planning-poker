@@ -17,7 +17,7 @@ describe('EstimateAPI', () => {
 
     it('create() should call postData() from FetchApi', () => {
         FetchApi.postData = jest.fn();
-        MeetingAPI.create({});
+        MeetingAPI.create('123', {});
         expect(FetchApi.postData).toHaveBeenCalledTimes(1);
     });
 
@@ -25,5 +25,19 @@ describe('EstimateAPI', () => {
         FetchApi.deleteData = jest.fn();
         MeetingAPI.delete('123');
         expect(FetchApi.deleteData).toHaveBeenCalledTimes(1);
+    });
+
+    it('getCurrentStory() should call getData() from FetchApi', () => {
+        FetchApi.getData = jest.fn();
+        MeetingAPI.getCurrentStory('123');
+        expect(FetchApi.getData).toHaveBeenCalledWith(`${FetchApi.API_URL}/meetings/123/currentStory`);
+        expect(FetchApi.getData).toHaveBeenCalledTimes(1);
+    });
+
+    it('updateCurrentStory() should call putData() from FetchApi', () => {
+        FetchApi.putData = jest.fn();
+        MeetingAPI.updateCurrentStory('123', {storyId: '321'});
+        expect(FetchApi.putData).toHaveBeenCalledWith(`${FetchApi.API_URL}/meetings/123/currentStory`, {storyId: '321'});
+        expect(FetchApi.putData).toHaveBeenCalledTimes(1);
     });
 });

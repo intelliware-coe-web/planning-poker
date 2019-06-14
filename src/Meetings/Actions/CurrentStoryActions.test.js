@@ -9,10 +9,10 @@ import {
     getCurrentStoryAsync,
     watchCurrentStoryAsync
 } from "./CurrentStoryActions";
-import {CurrentStoryAPI} from "../API/CurrentStory.api";
+import {MeetingAPI} from "../API/Meeting.api";
 import {call, put, take, race, delay, select} from 'redux-saga/effects';
-import {getCurrentStory} from "../../Common/selectors";
-import {ResetStoryEstimate} from "../../StoryEstimate/Actions/StoryEstimateActions";
+import {CurrentStory} from "../../Common/selectors";
+import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";
 
 describe('CurrentStory Actions', () => {
     let fixture;
@@ -28,8 +28,8 @@ describe('CurrentStory Actions', () => {
     
             it('should dispatch action and reset story estimate when story and currentStory ids are not the same', () => {
                 const ApiResponse = {_id: 'sdfkgjhsdkjfh'};
-                expect(fixture.next().value).toEqual(select(getCurrentStory));
-                expect(fixture.next(currentStory).value).toEqual(call(CurrentStoryAPI.byMeetingId, meetingId));
+                expect(fixture.next().value).toEqual(select(CurrentStory));
+                expect(fixture.next(currentStory).value).toEqual(call(MeetingAPI.getCurrentStory, meetingId));
                 expect(fixture.next(ApiResponse).value).toEqual(put(ResetStoryEstimate()));
                 expect(fixture.next().value).toEqual(put({
                     type: CURRENT_STORY_SUCCESS,
@@ -42,8 +42,8 @@ describe('CurrentStory Actions', () => {
             it('should dispatch action and not reset story estimate when story and currentStory ids are the same', () => {
                 const ApiResponse = {_id: 'thesameid'};
                 currentStory      = {_id: 'thesameid'};
-                expect(fixture.next().value).toEqual(select(getCurrentStory));
-                expect(fixture.next(currentStory).value).toEqual(call(CurrentStoryAPI.byMeetingId, meetingId));
+                expect(fixture.next().value).toEqual(select(CurrentStory));
+                expect(fixture.next(currentStory).value).toEqual(call(MeetingAPI.getCurrentStory, meetingId));
                 expect(fixture.next(ApiResponse).value).toEqual('');
                 expect(fixture.next().value).toEqual(put({
                     type: CURRENT_STORY_SUCCESS,
@@ -55,8 +55,8 @@ describe('CurrentStory Actions', () => {
 
             it('should dispatch action and reset story estimate when story is null and currentStory is not null', () => {
                 const ApiResponse = {_id: 'sdfkgjhsdkjfh'};
-                expect(fixture.next().value).toEqual(select(getCurrentStory));
-                expect(fixture.next(currentStory).value).toEqual(call(CurrentStoryAPI.byMeetingId, meetingId));
+                expect(fixture.next().value).toEqual(select(CurrentStory));
+                expect(fixture.next(currentStory).value).toEqual(call(MeetingAPI.getCurrentStory, meetingId));
                 expect(fixture.next(ApiResponse).value).toEqual(put(ResetStoryEstimate()));
                 expect(fixture.next().value).toEqual(put({
                     type: CURRENT_STORY_SUCCESS,
@@ -69,8 +69,8 @@ describe('CurrentStory Actions', () => {
             it('should dispatch action and not reset story estimate when story and currentStory._id are null', () => {
                 const ApiResponse = null;
                 currentStory = {_id: null};
-                expect(fixture.next().value).toEqual(select(getCurrentStory));
-                expect(fixture.next(currentStory).value).toEqual(call(CurrentStoryAPI.byMeetingId, meetingId));
+                expect(fixture.next().value).toEqual(select(CurrentStory));
+                expect(fixture.next(currentStory).value).toEqual(call(MeetingAPI.getCurrentStory, meetingId));
                 expect(fixture.next(ApiResponse).value).toEqual('');
                 expect(fixture.next().value).toEqual(put({
                     type: CURRENT_STORY_SUCCESS,

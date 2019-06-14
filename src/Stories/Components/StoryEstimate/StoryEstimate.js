@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {PutStoryEstimate, ResetStoryEstimate} from '../Actions/StoryEstimateActions';
-import {viewMeetings, viewStories} from '../../Navigation/route-actions';
-import {Page} from '../../Common/Page';
-import {GetCurrentStory, StopCurrentStoryPolling} from "../../CurrentStory/Actions/CurrentStoryActions";
+import {PutStoryEstimate, ResetStoryEstimate} from '../../Actions/StoryEstimateActions';
+import {viewMeetings, viewStories} from '../../../Navigation/route-actions';
+import {Page} from '../../../Common/Page';
+import {GetCurrentStory, StopCurrentStoryPolling} from "../../../Meetings/Actions/CurrentStoryActions";
 
 export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory, goToMeetings, goToStories, updateStoryEstimate, resetStoryEstimate, getCurrentStory, stopCurrentStoryPolling, match}) {
     // TODO: Move estimations to store

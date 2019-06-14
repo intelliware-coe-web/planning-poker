@@ -9,7 +9,7 @@ import {
     watchStoryEstimatesAsync,
     getStoryEstimatesAsync
 } from "./StoryEstimatesActions";
-import {CurrentStoryAPI} from "../API/CurrentStory.api";
+import {StoriesAPI} from "../API/Stories.api";
 import {call, put, take, race, delay} from 'redux-saga/effects';
 
 describe('StoryEstimates Actions', () => {
@@ -24,7 +24,7 @@ describe('StoryEstimates Actions', () => {
     
             it('should dispatch action', () => {
                 const ApiResponse = [];
-                expect(fixture.next().value).toEqual(call(CurrentStoryAPI.storyEstimates, storyId));
+                expect(fixture.next().value).toEqual(call(StoriesAPI.getStoryEstimates, storyId));
                 expect(fixture.next(ApiResponse).value).toEqual(put({
                     type: STORY_ESTIMATES_SUCCESS,
                     payload: {storyEstimates: ApiResponse}
