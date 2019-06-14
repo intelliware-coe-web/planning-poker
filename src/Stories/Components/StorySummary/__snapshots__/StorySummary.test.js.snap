@@ -8,18 +8,22 @@ exports[`Container: StorySummary should render correctly 1`] = `
     <div
       class="uk-container uk-text-center@m"
     >
+      <div
+        class="uk-section uk-section-xsmall"
+      >
+        <span
+          class="uk-position-small uk-position-top-left pp-back-arrow"
+          data-uk-icon="icon: arrow-left; ratio: 1.75"
+        />
+      </div>
       <h1
-        class="uk-heading-divider uk-margin-top"
+        class="uk-heading-divider uk-margin-small-top"
       >
         mockConstructor
       </h1>
       <div
         class="uk-align-center uk-width-1-2@m"
       >
-        <span
-          class="uk-position-large uk-position-top-left"
-          data-uk-icon="icon: arrow-left; ratio: 3"
-        />
         <div
           class="uk-align-center uk-width-1-2@m"
         >
@@ -59,18 +63,22 @@ exports[`Container: StorySummary should renders estimates withs names 1`] = `
     <div
       class="uk-container uk-text-center@m"
     >
+      <div
+        class="uk-section uk-section-xsmall"
+      >
+        <span
+          class="uk-position-small uk-position-top-left pp-back-arrow"
+          data-uk-icon="icon: arrow-left; ratio: 1.75"
+        />
+      </div>
       <h1
-        class="uk-heading-divider uk-margin-top"
+        class="uk-heading-divider uk-margin-small-top"
       >
         mockConstructor
       </h1>
       <div
         class="uk-align-center uk-width-1-2@m"
       >
-        <span
-          class="uk-position-large uk-position-top-left"
-          data-uk-icon="icon: arrow-left; ratio: 3"
-        />
         <div
           class="uk-align-center uk-width-1-2@m"
         >
