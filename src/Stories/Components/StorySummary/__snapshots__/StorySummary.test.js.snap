@@ -12,8 +12,8 @@ exports[`Container: StorySummary should render correctly 1`] = `
         class="uk-section uk-section-xsmall"
       >
         <span
-          class="uk-position-small uk-position-top-left pp-back-arrow"
-          data-uk-icon="icon: arrow-left; ratio: 1.75"
+          class="uk-icon-button uk-position-small uk-position-top-left pp-back-arrow"
+          data-uk-icon="icon: arrow-left; ratio: 1.25"
         />
       </div>
       <h1
@@ -28,7 +28,7 @@ exports[`Container: StorySummary should render correctly 1`] = `
           class="uk-align-center uk-width-1-2@m"
         >
           <table
-            class="uk-table"
+            class="uk-table uk-table-divider"
           >
             <thead>
               <tr>
@@ -67,8 +67,8 @@ exports[`Container: StorySummary should renders estimates withs names 1`] = `
         class="uk-section uk-section-xsmall"
       >
         <span
-          class="uk-position-small uk-position-top-left pp-back-arrow"
-          data-uk-icon="icon: arrow-left; ratio: 1.75"
+          class="uk-icon-button uk-position-small uk-position-top-left pp-back-arrow"
+          data-uk-icon="icon: arrow-left; ratio: 1.25"
         />
       </div>
       <h1
@@ -83,7 +83,7 @@ exports[`Container: StorySummary should renders estimates withs names 1`] = `
           class="uk-align-center uk-width-1-2@m"
         >
           <table
-            class="uk-table"
+            class="uk-table uk-table-divider"
           >
             <thead>
               <tr>

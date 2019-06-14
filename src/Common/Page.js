@@ -2,7 +2,7 @@ import React from 'react';
 
 function BackButton({goBack}) {
     return goBack ?
-        (<span data-uk-icon="icon: arrow-left; ratio: 1.75" className="uk-position-small uk-position-top-left pp-back-arrow"
+        (<span data-uk-icon="icon: arrow-left; ratio: 1.25" className="uk-icon-button uk-position-small uk-position-top-left pp-back-arrow"
                onClick={goBack}/>) :
         (<></>);
 }

@@ -9,11 +9,11 @@ export function CreateMeeting({postMeeting, goToMeetings}) {
     <Page title='Add Meeting' onBack={goToMeetings}>
       <form onSubmit={ (event) => { event.preventDefault(); postMeeting(event.target.meetingInputName.value.trim()); } }>
         <div className="uk-margin">
-          <div className="uk-inline uk-width-1-2">
+          <div className="uk-inline uk-width-1-1">
             <span className="uk-form-icon" data-uk-icon="icon: users"/>
             <input name="meetingInputName" className="uk-input" placeholder="Name" type="text"/>
           </div>
-          <button className="uk-button uk-button-primary uk-width-1-4">
+          <button className="uk-button uk-button-primary uk-margin-small-top uk-width-1-1">
             CREATE
           </button>
         </div>
