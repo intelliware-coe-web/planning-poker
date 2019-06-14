@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StorySummary renders correctly 1`] = `
+exports[`Container: StorySummary should render correctly 1`] = `
 <div>
   <div
     class="default-background"
@@ -55,7 +55,7 @@ exports[`StorySummary renders correctly 1`] = `
 </div>
 `;
 
-exports[`StorySummary renders estimates withs names 1`] = `
+exports[`Container: StorySummary should renders estimates withs names 1`] = `
 <div>
   <div
     class="default-background"

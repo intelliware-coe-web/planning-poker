@@ -22,8 +22,12 @@ export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory
 
     return (
         <Page title={currentMeeting.name} onBack={goToMeetings}>
-            <HostButton onHostClick={() => goToStories(currentMeeting._id)}/>
-            <StoryDescription {...currentStory} />
+            <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+                    onClick={() => goToStories(currentMeeting._id)}>Host</button>
+            <dl className="uk-description-list">
+                <dt># {currentStory.name} :</dt>
+                <dd>{currentStory.description}</dd>
+            </dl>
             <div className="uk-align-center uk-width-1-1@m">
                 {estimation.map((estimate, i) =>
                     <button key={i} onClick={() => updateStoryEstimate(user._id, currentStory._id, estimate)}
@@ -37,18 +41,6 @@ export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory
             </div>
         </Page>
     );
-}
-
-function StoryDescription({name, description}) {
-    return (<dl className="uk-description-list">
-        <dt># {name} :</dt>
-        <dd>{description}</dd>
-    </dl>);
-}
-
-function HostButton({onHostClick}) {
-    return <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
-                   onClick={onHostClick}>Host</button>;
 }
 
 function mapStateToProps(state) {

@@ -34,6 +34,7 @@ exports[`Container: Story Estimate should render Estimate correctly 1`] = `
         >
           <dt>
             # 
+            mockConstructor
              :
           </dt>
           <dd />

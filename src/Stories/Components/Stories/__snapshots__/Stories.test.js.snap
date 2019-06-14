@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stories renders correctly 1`] = `
+exports[`Container: Story should render correctly 1`] = `
 <div>
   <div
     class="default-background"
@@ -41,6 +41,24 @@ exports[`Stories renders correctly 1`] = `
             class="uk-align-center uk-width-auto uk-label uk-margin-small"
           >
             Points: 3
+          </div>
+          <button
+            class="uk-position-top-right uk-margin-small-right uk-margin-small-top"
+            data-uk-icon="icon: trash"
+          />
+        </div>
+        <div
+          class="uk-flex uk-flex-column uk-card uk-card-primary uk-card-body uk-margin-small uk-padding-small uk-text-center"
+        >
+          <div
+            class="uk-margin-right uk-margin-left"
+          >
+            Mock Story Name 2
+          </div>
+          <div
+            class="uk-align-center uk-width-auto uk-label uk-margin-small"
+          >
+            Not estimated
           </div>
           <button
             class="uk-position-top-right uk-margin-small-right uk-margin-small-top"
