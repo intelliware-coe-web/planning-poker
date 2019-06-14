@@ -11,11 +11,11 @@ export function CreateStory({goToStories, postStory, currentMeeting}) {
                 postNewStory(event, postStory)
             }}>
                 <div className="uk-margin">
-                    <div className="uk-inline uk-width-1-2">
-                        <span className="uk-form-icon" data-uk-icon="icon: link"/>
+                    <div className="uk-inline uk-width-1-1">
+                        <span className="uk-form-icon" data-uk-icon="icon: file-edit"/>
                         <input name="storyInputName" className="uk-input" placeholder="Name" type="text"/>
                     </div>
-                    <button className="uk-button uk-button-primary uk-width-1-4">
+                    <button className="uk-button uk-button-primary uk-margin-small-top uk-width-1-1">
                         CREATE
                     </button>
                 </div>
