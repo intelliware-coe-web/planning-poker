@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import { connect } from 'react-redux';
-import { Page } from '../../../Common/Page';
-import { viewStories } from '../../../Navigation/route-actions';
+import {connect} from 'react-redux';
+import {Page} from '../../../Common/Page';
+import {viewStories} from '../../../Navigation/route-actions';
 import {UpdateCurrentStory} from "../../../CurrentMeeting/Actions/CurrentMeetingActions";
 import {GetStoryEstimates, StopStoryEstimatesPolling} from "../../../CurrentStory/Actions/StoryEstimatesActions";
 
@@ -19,10 +19,10 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories, updat
         [updateCurrentStory, stopStoryEstimatesPolling, getStoryEstimates, match],
     );
 
-    const sum = (a,b) => a + b;
+    const sum = (a, b) => a + b;
 
     function average(numbers) {
-        return numbers && sum ? Math.ceil(numbers.reduce(sum, 0)/numbers.length) : 0;
+        return numbers && sum ? Math.ceil(numbers.reduce(sum, 0) / numbers.length) : 0;
     }
 
     function hasValidEstimate(estimate) {
@@ -32,34 +32,33 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories, updat
     function showAverage() {
         const estimates = storyEstimates.filter(hasValidEstimate);
         return estimates.length > 0 ? (
-        <tr className="uk-text-bold" key={'average'}>
-            <td className="uk-text-center">Average</td>
-            <td className="uk-text-center">{average(estimates.map( estimate => estimate.estimate)).toString()}</td>
-        </tr>
+            <tr className="uk-text-bold" key={'average'}>
+                <td className="uk-text-center">Average</td>
+                <td className="uk-text-center">{average(estimates.map(estimate => estimate.estimate)).toString()}</td>
+            </tr>
         ) : '';
     }
 
     return (
-
-        <Page title={currentMeeting.name} onBack={ () => goToStories(currentMeeting._id) }>
+        <Page title={currentMeeting.name} onBack={() => goToStories(currentMeeting._id)}>
             <div className="uk-align-center uk-width-1-2@m">
-                <table className="uk-table">
+                <table className="uk-table uk-table-divider">
                     <thead>
-                        <tr>
-                            <th className="uk-text-center">Name</th>
-                            <th className="uk-text-center">Estimate</th>
-                        </tr>
+                    <tr>
+                        <th className="uk-text-center">Name</th>
+                        <th className="uk-text-center">Estimate</th>
+                    </tr>
                     </thead>
                     <tbody>
-                        {storyEstimates.filter(hasValidEstimate).map((estimate, index) => {
-                            return (
-                                <tr key={index}>
-                                    <td className="uk-text-center">{estimate.user.name}</td>
-                                    <td className="uk-text-center">{estimate.estimate}</td>
-                                </tr>
-                            );
-                        })}
-                        {showAverage()}
+                    {storyEstimates.filter(hasValidEstimate).map((estimate, index) => {
+                        return (
+                            <tr key={index}>
+                                <td className="uk-text-center">{estimate.user.name}</td>
+                                <td className="uk-text-center">{estimate.estimate}</td>
+                            </tr>
+                        );
+                    })}
+                    {showAverage()}
                     </tbody>
                 </table>
             </div>
@@ -74,15 +73,15 @@ function mapStateToProps(state) {
         currentStory: state.currentStory,
         storyEstimates: state.storyEstimates
     }
-  };
-  
-  function mapDispatchToProps(dispatch) {
+};
+
+function mapDispatchToProps(dispatch) {
     return {
         goToStories: (meetingId) => dispatch(viewStories(meetingId)),
         updateCurrentStory: (storyId) => dispatch(UpdateCurrentStory(storyId)),
         stopStoryEstimatesPolling: () => dispatch(StopStoryEstimatesPolling()),
         getStoryEstimates: (storyId) => dispatch(GetStoryEstimates(storyId))
     };
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(StorySummary)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StorySummary)

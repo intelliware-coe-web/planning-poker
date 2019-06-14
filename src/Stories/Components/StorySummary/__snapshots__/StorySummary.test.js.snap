@@ -28,7 +28,7 @@ exports[`Container: StorySummary should render correctly 1`] = `
           class="uk-align-center uk-width-1-2@m"
         >
           <table
-            class="uk-table"
+            class="uk-table uk-table-divider"
           >
             <thead>
               <tr>
@@ -83,7 +83,7 @@ exports[`Container: StorySummary should renders estimates withs names 1`] = `
           class="uk-align-center uk-width-1-2@m"
         >
           <table
-            class="uk-table"
+            class="uk-table uk-table-divider"
           >
             <thead>
               <tr>
