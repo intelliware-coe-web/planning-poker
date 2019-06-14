@@ -18,7 +18,7 @@ export function* routerActions(action) {
         yield put(replace({pathname: '/', state: {'nextPathname': pathname}}));
     }
 
-    if (pathname.startsWith("/meeting/")) {
+    if (pathname.startsWith("/meeting/") && !pathname.endsWith('create/')) {
         const meetingId = pathname.split('/')[2];
         yield put(GetCurrentMeeting(meetingId));
     }

@@ -61,7 +61,7 @@ describe('Route Actions', () => {
             })));
         });
 
-        it('should dispatch GetCurrentMeeting if location starts with /meeting/', () => {
+        it('should dispatch GetCurrentMeeting if location starts with /meeting/ and does not end in create/', () => {
             const mockMeetingId = '13847gf81374gr183o4';
             const mockRouterPayload = {
                 location: {
@@ -71,6 +71,18 @@ describe('Route Actions', () => {
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(CurrentUserId));
             expect(saga.next().value).toEqual(put(GetCurrentMeeting(mockMeetingId)));
+        });
+
+        it('should not dispatch GetCurrentMeeting if location starts with /meeting/ but ends in create/', () => {
+            const mockMeetingId = '13847gf81374gr183o4';
+            const mockRouterPayload = {
+                location: {
+                    pathname: '/meeting/create/'
+                }
+            };
+            const saga = routerActions({payload: mockRouterPayload});
+            expect(saga.next().value).toEqual(select(CurrentUserId));
+            expect(saga.next().value).not.toEqual(put(GetCurrentMeeting(mockMeetingId)));
         });
 
         it('should not dispatch GetCurrentMeeting if location does not start with /meeting/', () => {
