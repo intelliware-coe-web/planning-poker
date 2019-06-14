@@ -12,6 +12,7 @@ import {
     POLLING_DELAY,
     PostMeeting,
     postMeetingAsync,
+    StopMeetingsPolling,
     watchMeetingsAsync
 } from "./MeetingsActions";
 import {MeetingAPI} from "../API/Meeting.api";
@@ -136,6 +137,12 @@ describe('Meetings Actions', () => {
         it('should return proper JSON response for DeleteMeetings', () => {
             expectedResponse = {type: MEETING_DELETE_REQUESTED};
             actualResponse = DeleteMeeting();
+            expect(expectedResponse).toEqual(actualResponse);
+        });
+
+        it('should return proper JSON response for StopMeetingsPolling', () => {
+            expectedResponse = {type: MEETINGS_STOP_POLLING_REQUESTED};
+            actualResponse = StopMeetingsPolling();
             expect(expectedResponse).toEqual(actualResponse);
         });
     });

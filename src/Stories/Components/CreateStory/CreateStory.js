@@ -7,9 +7,7 @@ import {PostStory} from '../../Actions/StoriesActions';
 export function CreateStory({goToStories, postStory, currentMeeting}) {
     return (
         <Page title='Create Story' onBack={() => goToStories(currentMeeting._id)}>
-            <form onSubmit={event => {
-                postNewStory(event, postStory)
-            }}>
+            <form onSubmit={ (event) => { event.preventDefault(); postStory(event.target.storyInputName.value.trim()); } }>
                 <div className="uk-margin">
                     <div className="uk-inline uk-width-1-2">
                         <span className="uk-form-icon" data-uk-icon="icon: link"/>
@@ -22,11 +20,6 @@ export function CreateStory({goToStories, postStory, currentMeeting}) {
             </form>
         </Page>
     );
-
-    function postNewStory(event, onSubmit) {
-        event.preventDefault();
-        onSubmit(event.target.storyInputName.value.trim());
-    }
 }
 
 function mapStateToProps(state) {
