@@ -5,6 +5,7 @@ import { STORIES_ERROR } from './Stories/Actions/StoriesActions';
 import { USER_ERROR } from './User/Actions/UserActions';
 import { CURRENT_STORY_ERROR } from './CurrentStory/Actions/CurrentStoryActions';
 import { STORY_ESTIMATES_ERROR } from './CurrentStory/Actions/StoryEstimatesActions';
+import uikit from "uikit";
 
 const errorActions = [
   MEETINGS_ERROR,
@@ -18,7 +19,8 @@ const errorActions = [
 
 export default function errorReducer(state = null, action) {
   if (errorActions.some(type => type === action.type)) {
-    return action.payload;
+      uikit.notification({message: '¯\\_(ツ)_/¯ Something went wrong...', status: 'danger', timeout: 4000});
+      return action.payload;
   }
   return null;
 }
