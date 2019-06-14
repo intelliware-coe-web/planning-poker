@@ -21,6 +21,12 @@ describe('StoriesAPI', () => {
         expect(FetchApi.deleteData).toHaveBeenCalledTimes(1);
     });
 
+    it('getStoryEstimates() should call getData() from FetchApi', () => {
+        FetchApi.getData = jest.fn();
+        StoriesAPI.getStoryEstimates('1234');
+        expect(FetchApi.getData).toHaveBeenCalledTimes(1);
+    });
+
     it('updateStoryEstimate() should call putData() from FetchApi', () => {
         FetchApi.putData = jest.fn();
         StoriesAPI.updateStoryEstimate('1234', {});
