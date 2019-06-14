@@ -1,7 +1,7 @@
 html {
     --app-background-color: #ebedfc;
     --primary-color: #2359fa;
-    --secondary-color: #c702a9;  
+    --secondary-color: #c702a9;
     --accent-color: #b1bafc;
 }
 
@@ -62,9 +62,3 @@ a:hover {
 .uk-button-primary.selected {
     background-color: var(--secondary-color);
 }
-
-data-uk-icon {
-    color: orange;
-}
-
-
