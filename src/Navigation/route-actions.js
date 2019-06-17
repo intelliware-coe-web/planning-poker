@@ -8,7 +8,9 @@ export const viewCreateStory = () => push('/story/create/');
 export const viewMeeting = (meetingId) => push(`/meeting/${ meetingId }/estimate/`);
 export const viewStory = (meetingId, storyId) => push(`/meeting/${ meetingId }/story/${ storyId }/summary/`);
 export const viewStories = (meetingId) => push(`/meeting/${ meetingId }/stories/`);
+export const refreshStories = (meetingId) => replace(`/meeting/${ meetingId }/stories/`);
 export const viewMeetings = () => push('/meetings/');
+export const refreshMeetings = () => replace('/meetings/');
 
 export function* routerActions(action) {
     const currentUserId = yield select(CurrentUserId);

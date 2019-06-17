@@ -18,20 +18,29 @@ export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateM
     return (
         <Page title='Meetings'>
             {meetings.map((meeting, index) =>
-                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-small" onClick={() => goToMeeting(meeting._id)}>
-                    {meeting.name}
-                    <button
-                        className="uk-position-top-right uk-margin-small-right uk-margin-small-top"
-                        data-uk-icon="icon: trash"
-                        onClick={() => deleteMeeting(meeting._id)}>
-                    </button>
+                <div key={index} data-uk-grid>
+                    <div className="uk-width-5-6">
+                        <div className="uk-card uk-card-primary uk-card-body"
+                             onClick={() => goToMeeting(meeting._id)}>
+                            {meeting.name}
+                        </div>
+                    </div>
+                    <div className="uk-flex uk-flex-middle uk-width-1-6">
+                        <button
+                            className="uk-icon-button pp-delete-button"
+                            data-uk-icon="icon: trash"
+                            onClick={() => deleteMeeting(meeting._id)}>
+                        </button>
+                    </div>
                 </div>
             )}
 
-            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-text-center" onClick={goToCreateMeeting}>
+            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-margin-top uk-text-center"
+                 onClick={goToCreateMeeting}>
                 <h3 className="uk-card-title">+</h3>
             </div>
         </Page>
+
     );
 
 }

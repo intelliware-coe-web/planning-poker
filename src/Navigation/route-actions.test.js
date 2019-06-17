@@ -1,4 +1,5 @@
 import {
+    refreshMeetings, refreshStories,
     routerActions,
     viewCreateMeeting,
     viewCreateStory,
@@ -39,8 +40,17 @@ describe('Route Actions', () => {
         expect(viewStories('mockMeetingId')).toEqual(push('/meeting/mockMeetingId/stories/'));
     });
 
-    it('should create a view meetings action', () => {
+    it('should refresh stories', () => {
+        expect(refreshStories('mockMeetingId')).toEqual(replace('/meeting/mockMeetingId/stories/'));
+    });
+
+
+    it('should view meetings', () => {
         expect(viewMeetings()).toEqual(push('/meetings/'));
+    });
+
+    it('should refresh meetings', () => {
+        expect(refreshMeetings()).toEqual(replace('/meetings/'));
     });
 
     describe('RouterActions', () => {

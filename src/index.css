@@ -3,6 +3,7 @@ html {
     --primary-color: #2359fa;
     --secondary-color: #c702a9;
     --accent-color: #b1bafc;
+    --delete-color: #ff4500;
 }
 
 body {
@@ -59,6 +60,16 @@ a:hover {
 
 .uk-icon-button {
     color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.pp-delete-button {
+    color: var(--delete-color);
+    border: 1px solid var(--delete-color);
+}
+
+.pp-delete-button:hover {
+    color: var(--delete-color);
 }
 
 .pp-login {

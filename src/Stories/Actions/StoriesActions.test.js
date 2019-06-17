@@ -1,6 +1,7 @@
 import {
     DeleteStory,
-    deleteStoryAsync, GetStories,
+    deleteStoryAsync,
+    GetStories,
     getStoriesAsync,
     PostStory,
     postStoryAsync,
@@ -14,8 +15,8 @@ import {
 import {StoriesAPI} from "../API/Stories.api";
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import * as Selectors from '../../Common/selectors';
-import {viewStories} from '../../Navigation/route-actions';
-import {CurrentMeetingId} from "../../Common/selectors";
+import {CurrentMeetingId} from '../../Common/selectors';
+import {refreshStories, viewStories} from '../../Navigation/route-actions';
 
 describe('Stories Actions', () => {
     let fixture;
@@ -76,7 +77,7 @@ describe('Stories Actions', () => {
         it('should dispatch action', () => {
             expect(fixture.next().value).toEqual(select(CurrentMeetingId));
             expect(fixture.next(currentMeetingId).value).toEqual(call(StoriesAPI.delete, storyId));
-            expect(fixture.next().value).toEqual(put(viewStories(currentMeetingId)));
+            expect(fixture.next().value).toEqual(put(refreshStories(currentMeetingId)));
             expect(fixture.next().done).toBeTruthy();
         });
 
@@ -112,7 +113,7 @@ describe('Stories Actions', () => {
             expectedResponse = {
                 type: STORIES_POST_REQUESTED,
                 payload: {
-                    name : storyName
+                    name: storyName
                 }
             };
             actualResponse = PostStory(storyName);

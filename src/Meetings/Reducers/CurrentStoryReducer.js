@@ -2,8 +2,7 @@ import { CURRENT_STORY_SUCCESS } from "../Actions/CurrentStoryActions";
 
 const initialState = {
     "_id": null,
-    "name": "No story selected",
-    "description": "No story selected"
+    "name": "No story selected"
 };
 
 export default function CurrentStoryReducer(state = initialState, action) {

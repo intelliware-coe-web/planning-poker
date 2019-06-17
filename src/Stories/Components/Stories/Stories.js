@@ -21,23 +21,28 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
             </button>
 
             {stories.map((story, index) =>
-                <div key={index}
-                     className="uk-flex uk-flex-column uk-card uk-card-primary uk-card-body uk-margin-small uk-padding-small uk-text-center"
-                     onClick={() => goToStory(currentMeeting._id, story._id)}>
-                    <div className="uk-margin-right uk-margin-left">{story.name}</div>
-                    <div className="uk-align-center uk-width-auto uk-label uk-margin-small">
-                        {story.estimate_avg ? 'Points: ' + story.estimate_avg : 'Not estimated'}
+                <div key={index} data-uk-grid>
+                    <div className="uk-width-5-6">
+                        <div
+                            className="uk-flex uk-flex-column uk-card uk-card-primary uk-card-body uk-margin-small uk-padding-small uk-text-center"
+                            onClick={() => goToStory(currentMeeting._id, story._id)}>
+                            <div className="uk-margin-right uk-margin-left">{story.name}</div>
+                            <div className="uk-align-center uk-width-auto uk-label uk-margin-small">
+                                {story.estimate_avg ? 'Points: ' + story.estimate_avg : 'Not estimated'}
+                            </div>
+                        </div>
                     </div>
-                    <button
-                        className="uk-position-top-right uk-margin-small-right uk-margin-small-top"
-                        data-uk-icon="icon: trash"
-                        onClick={() => deleteStory(story._id)}
-                    >
-                    </button>
+                    <div className="uk-flex uk-flex-middle uk-width-1-6">
+                        <button
+                            className="uk-icon-button pp-delete-button"
+                            data-uk-icon="icon: trash"
+                            onClick={() => deleteStory(story._id)}>
+                        </button>
+                    </div>
                 </div>
             )}
 
-            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-text-center"
+            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-margin-top uk-text-center"
                  onClick={createStory}>
                 <h3 className="uk-card-title">+</h3>
             </div>

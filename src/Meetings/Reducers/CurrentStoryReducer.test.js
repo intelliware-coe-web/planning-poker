@@ -17,8 +17,7 @@ describe('Current Story Reducer ', () => {
     it('should set the GetCurrentStory to the initial state when it is a success but response is null', () => {
         const initialState = {
             "_id": null,
-            "name": "No story selected",
-            "description": "No story selected"
+            "name": "No story selected"
         };
         const currentStory = null;
         const action = { type: CURRENT_STORY_SUCCESS, payload: { currentStory } };

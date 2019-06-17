@@ -17,7 +17,7 @@ import {
 } from "./MeetingsActions";
 import {MeetingAPI} from "../API/Meeting.api";
 import {call, delay, put, race, take, takeLatest} from 'redux-saga/effects';
-import {viewMeetings} from '../../Navigation/route-actions';
+import {viewMeetings, refreshMeetings} from '../../Navigation/route-actions';
 
 describe('Meetings Actions', () => {
     let fixture;
@@ -86,7 +86,7 @@ describe('Meetings Actions', () => {
 
         it('should dispatch action', () => {
             expect(fixture.next().value).toEqual(call(MeetingAPI.delete, meetingId));
-            expect(fixture.next().value).toEqual(put(viewMeetings()));
+            expect(fixture.next().value).toEqual(put(refreshMeetings()));
             expect(fixture.next().done).toBeTruthy();
         });
 

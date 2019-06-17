@@ -26,7 +26,6 @@ export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory
                     onClick={() => goToStories(currentMeeting._id)}>Host</button>
             <dl className="uk-description-list">
                 <dt># {currentStory.name} :</dt>
-                <dd>{currentStory.description}</dd>
             </dl>
             <div className="uk-align-center uk-width-1-1@m">
                 {estimation.map((estimate, i) =>

@@ -20,16 +20,28 @@ exports[`Container: Meetings should render correctly 1`] = `
         class="uk-align-center uk-width-1-2@m"
       >
         <div
-          class="uk-card uk-card-primary uk-card-body uk-margin-small"
+          data-uk-grid="true"
         >
-          test
-          <button
-            class="uk-position-top-right uk-margin-small-right uk-margin-small-top"
-            data-uk-icon="icon: trash"
-          />
+          <div
+            class="uk-width-5-6"
+          >
+            <div
+              class="uk-card uk-card-primary uk-card-body"
+            >
+              test
+            </div>
+          </div>
+          <div
+            class="uk-flex uk-flex-middle uk-width-1-6"
+          >
+            <button
+              class="uk-icon-button pp-delete-button"
+              data-uk-icon="icon: trash"
+            />
+          </div>
         </div>
         <div
-          class="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-text-center"
+          class="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-margin-top uk-text-center"
         >
           <h3
             class="uk-card-title"

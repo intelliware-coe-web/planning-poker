@@ -1,6 +1,6 @@
 import {MeetingAPI} from '../API/Meeting.api';
 import {call, delay, put, race, take, takeLatest} from 'redux-saga/effects';
-import {viewMeetings} from '../../Navigation/route-actions';
+import {viewMeetings, refreshMeetings} from '../../Navigation/route-actions';
 
 export const MEETINGS_SUCCESS = 'MEETINGS_SUCCESS';
 export const MEETINGS_ERROR = 'MEETINGS_ERROR';
@@ -74,7 +74,7 @@ export function DeleteMeeting(meetingId) {
 export function* deleteMeetingAsync({payload: meetingId}) {
     try {
         yield call(MeetingAPI.delete, meetingId);
-        yield put(viewMeetings())
+        yield put(refreshMeetings())
     }
     catch (e) {
         yield put(MeetingsError(e));
