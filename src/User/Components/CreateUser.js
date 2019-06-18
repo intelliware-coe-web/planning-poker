@@ -1,4 +1,4 @@
-import loginImg from '../../resources/images/learning_small.jpg';
+import loginImg from '../../resources/images/pp_logo_transaparent.png';
 import React from 'react';
 import {connect} from 'react-redux';
 import {PostUser} from '../Actions/UserActions';

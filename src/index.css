@@ -1,9 +1,11 @@
 html {
-    --app-background-color: #ebedfc;
-    --primary-color: #2359fa;
-    --secondary-color: #c702a9;
-    --accent-color: #b1bafc;
-    --delete-color: #ff4500;
+    --app-background-color: #282c34;
+    --primary-color: #379683;
+    --secondary-color: #5cdb95;
+    --accent-color-primary: #edf5e1;
+    --accent-color-secondary: #8ee4af;
+    --accent-color-tertiary: #999;
+    --danger: #ff033e;
 }
 
 body {
@@ -19,6 +21,7 @@ h1, h2, h3 {
 h1 {
     font-size: calc(10px + 5vmin);
     margin-bottom: 15px;
+    padding-top: 10px;
 }
 
 h2 {
@@ -38,10 +41,6 @@ a:hover {
     cursor: pointer;
 }
 
-.uk-card-title {
-    font-family: 'Mandali', sans-serif;
-}
-
 .uk-card-primary {
     background-color: var(--primary-color);
 }
@@ -55,25 +54,53 @@ a:hover {
 }
 
 .uk-button-primary.selected {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color-secondary);
+    color: var(--app-background-color);
 }
 
-.uk-icon-button {
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+.uk-card.uk-card-primary.uk-card-body .uk-icon-button, .uk-icon-button, .uk-button-secondary {
+    color: var(--accent-color-tertiary);
+    background-color: var(--accent-color-primary);
+    border: 1px solid var(--accent-color-tertiary);
 }
 
-.pp-delete-button {
-    color: var(--delete-color);
-    border: 1px solid var(--delete-color);
+.uk-card, .uk-button {
+    border-radius: 10px;
 }
 
-.pp-delete-button:hover {
-    color: var(--delete-color);
+.uk-card:hover , .uk-button:hover:not(:disabled) {
+    background-color: var(--accent-color-secondary);
+
+    color: var(--app-background-color);
+}
+
+/*.uk-button:hover:not(:disabled) {*/
+    /*background-color: #151515;*/
+    /*color: #ffffff;*/
+/*}*/
+
+.uk-card.uk-card-primary.uk-card-body button:hover {
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.uk-description-list > dt {
+    color: var(--accent-color-primary);
+}
+
+.uk-table th, td {
+    color: var(--accent-color-primary);
+}
+
+.uk-table tr:last-child td{
+    color: var(--accent-color-secondary);
 }
 
 .pp-login {
     justify-content: center;
+}
+.pp-margin-top-30 {
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 860px) {

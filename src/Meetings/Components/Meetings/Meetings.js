@@ -18,26 +18,34 @@ export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateM
     return (
         <Page title='Meetings'>
             {meetings.map((meeting, index) =>
-                <div key={index} data-uk-grid>
-                    <div className="uk-width-5-6">
-                        <div className="uk-card uk-card-primary uk-card-body"
-                             onClick={() => goToMeeting(meeting._id)}>
-                            {meeting.name}
+                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-top"
+                     onClick={() => goToMeeting(meeting._id)}>
+                    <div className="uk-flex uk-flex-middle" data-uk-grid>
+                        <div className="uk-width-5-6">
+                            <span className="">{meeting.name}</span>
                         </div>
-                    </div>
-                    <div className="uk-flex uk-flex-middle uk-width-1-6">
-                        <button
-                            className="uk-icon-button pp-delete-button"
-                            data-uk-icon="icon: trash"
-                            onClick={() => deleteMeeting(meeting._id)}>
-                        </button>
+                        <div className="uk-padding-remove-left uk-flex uk-flex-right uk-width-1-6">
+                            <button
+                                className="uk-icon-button"
+                                data-uk-icon="icon: trash"
+                                uk-tooltip="title: Delete Meeting"
+                                onClick={event => {
+                                    event.stopPropagation();
+                                    deleteMeeting(meeting._id);
+                                }}>
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
 
-            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-margin-top uk-text-center"
-                 onClick={goToCreateMeeting}>
-                <h3 className="uk-card-title">+</h3>
+            <div className="uk-align-center uk-flex uk-flex-center">
+                <button
+                    className="uk-icon-button"
+                    data-uk-icon="icon: plus"
+                    uk-tooltip="title: Add Meeting"
+                    onClick={goToCreateMeeting}>
+                </button>
             </div>
         </Page>
 

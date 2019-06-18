@@ -15,36 +15,43 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
 
     return (
         <Page title={currentMeeting.name} onBack={goToMeetings}>
-            <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+            <button className="uk-button uk-button-secondary uk-button-small uk-position-small uk-position-top-right"
                     onClick={() => goToEstimate(currentMeeting._id)}>
                 Estimate
             </button>
 
             {stories.map((story, index) =>
-                <div key={index} data-uk-grid>
-                    <div className="uk-width-5-6">
-                        <div
-                            className="uk-flex uk-flex-column uk-card uk-card-primary uk-card-body uk-margin-small uk-padding-small uk-text-center"
-                            onClick={() => goToStory(currentMeeting._id, story._id)}>
-                            <div className="uk-margin-right uk-margin-left">{story.name}</div>
-                            <div className="uk-align-center uk-width-auto uk-label uk-margin-small">
-                                {story.estimate_avg ? 'Points: ' + story.estimate_avg : 'Not estimated'}
+                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-top uk-padding-small">
+                    <div className="uk-flex uk-flex-middle" data-uk-grid>
+                        <div className="uk-flex uk-flex-left uk-width-5-6">
+                            <div
+                                className="uk-flex uk-flex-column"
+                                onClick={() => goToStory(currentMeeting._id, story._id)}>
+                                <div className="uk-text-left">{story.name}</div>
+                                <div className="uk-align-left uk-text-center uk-width-auto uk-label uk-margin-small uk-margin-remove-bottom">
+                                    {story.estimate_avg ? 'Points: ' + story.estimate_avg : 'Not estimated'}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="uk-flex uk-flex-middle uk-width-1-6">
-                        <button
-                            className="uk-icon-button pp-delete-button"
-                            data-uk-icon="icon: trash"
-                            onClick={() => deleteStory(story._id)}>
-                        </button>
+                        <div className="uk-padding-remove-left uk-flex uk-flex-middle uk-flex-right uk-width-1-6">
+                            <button
+                                className="uk-icon-button"
+                                data-uk-icon="icon: trash"
+                                uk-tooltip="title: Delete Story"
+                                onClick={event => { event.stopPropagation(); deleteStory(story._id); }}>
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
 
-            <div className="uk-card uk-card-secondary uk-card-body uk-margin-bottom uk-margin-top uk-text-center"
-                 onClick={createStory}>
-                <h3 className="uk-card-title">+</h3>
+            <div className="uk-align-center uk-flex uk-flex-center">
+                <button
+                    className="uk-icon-button"
+                    data-uk-icon="icon: plus"
+                    uk-tooltip="title: Add Story"
+                    onClick={createStory}>
+                </button>
             </div>
 
         </Page>

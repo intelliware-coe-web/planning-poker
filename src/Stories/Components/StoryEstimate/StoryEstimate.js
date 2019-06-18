@@ -22,7 +22,7 @@ export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory
 
     return (
         <Page title={currentMeeting.name} onBack={goToMeetings}>
-            <button className="uk-button uk-button-primary uk-button-small uk-position-small uk-position-top-right"
+            <button className="uk-button uk-button-secondary uk-button-small uk-position-small uk-position-top-right"
                     onClick={() => goToStories(currentMeeting._id)}>Host</button>
             <dl className="uk-description-list">
                 <dt># {currentStory.name} :</dt>

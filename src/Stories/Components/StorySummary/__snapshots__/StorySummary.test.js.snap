@@ -12,12 +12,12 @@ exports[`Container: StorySummary should render correctly 1`] = `
         class="uk-section uk-section-xsmall"
       >
         <span
-          class="uk-icon-button uk-position-small uk-position-top-left pp-back-arrow"
+          class="uk-button uk-button-secondary uk-button-small uk-position-small uk-position-top-left pp-back-arrow"
           data-uk-icon="icon: arrow-left; ratio: 1.25"
         />
       </div>
       <h1
-        class="uk-heading-divider uk-margin-small-top"
+        class="uk-heading-divider uk-margin-top"
       >
         mockConstructor
       </h1>
@@ -67,12 +67,12 @@ exports[`Container: StorySummary should renders estimates withs names 1`] = `
         class="uk-section uk-section-xsmall"
       >
         <span
-          class="uk-icon-button uk-position-small uk-position-top-left pp-back-arrow"
+          class="uk-button uk-button-secondary uk-button-small uk-position-small uk-position-top-left pp-back-arrow"
           data-uk-icon="icon: arrow-left; ratio: 1.25"
         />
       </div>
       <h1
-        class="uk-heading-divider uk-margin-small-top"
+        class="uk-heading-divider uk-margin-top"
       >
         mockConstructor
       </h1>
