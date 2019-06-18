@@ -16,7 +16,7 @@ exports[`Container: User should render CreateUser correctly 1`] = `
   >
     <img
       alt="login"
-      src="learning_small.jpg"
+      src="pp_logo_transaparent.png"
     />
   </div>
   <div>

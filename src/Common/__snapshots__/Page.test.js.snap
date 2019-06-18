@@ -13,7 +13,7 @@ exports[`Higher Order Component: withHeader should not render the back button wh
       <BackButton />
     </div>
     <h1
-      className="uk-heading-divider uk-margin-small-top"
+      className="uk-heading-divider uk-margin-top"
     >
       No back button
     </h1>
@@ -39,7 +39,7 @@ exports[`Higher Order Component: withHeader should render a Header on a componen
       />
     </div>
     <h1
-      className="uk-heading-divider uk-margin-small-top"
+      className="uk-heading-divider uk-margin-top"
     >
       Foo
     </h1>
