@@ -1,6 +1,6 @@
-import { MeetingAPI } from '../API/Meeting.api';
-import { takeLatest, call, put, select } from 'redux-saga/effects';
-import { CurrentMeetingId } from '../../Common/selectors';
+import {MeetingAPI} from '../API/Meeting.api';
+import {call, put, select, takeLatest} from 'redux-saga/effects';
+import {CurrentMeetingId} from '../../Common/selectors';
 
 export const CURRENT_MEETING_SUCCESS = 'CURRENT_MEETING_SUCCESS';
 export const CURRENT_MEETING_ERROR = 'CURRENT_MEETING_ERROR';
@@ -19,10 +19,10 @@ export function GetCurrentMeeting(meetingId) {
     }
 }
 
-export function* getCurrentMeetingAsync({payload: meetingId}){
+export function* getCurrentMeetingAsync({payload: meetingId}) {
     try {
         let currentMeetingId = yield select(CurrentMeetingId);
-        if(currentMeetingId === null || currentMeetingId !== meetingId){
+        if (currentMeetingId === null || currentMeetingId !== meetingId) {
             const meeting = yield call(MeetingAPI.byId, meetingId);
             yield put(CurrentMeetingSuccess(meeting));
         }
@@ -32,17 +32,16 @@ export function* getCurrentMeetingAsync({payload: meetingId}){
     }
 }
 
-export function UpdateCurrentStory(body) {
+export function UpdateCurrentStory(meetingId, storyId) {
     return {
         type: UPDATE_CURRENT_STORY_REQUESTED,
-        payload: body
+        payload: {meetingId, storyId}
     }
 }
 
-export function* updateCurrentStoryAsync({payload: body}){
+export function* updateCurrentStoryAsync({payload: {meetingId, storyId}}) {
     try {
-        const currentMeetingId = yield select(CurrentMeetingId);
-        yield call(MeetingAPI.updateCurrentStory, currentMeetingId, body);
+        yield call(MeetingAPI.updateCurrentStory, meetingId, GenerateBody(storyId));
     }
     catch (e) {
         yield put(CurrentMeetingError(e));
@@ -61,4 +60,10 @@ export function CurrentMeetingError(error) {
         type: CURRENT_MEETING_ERROR,
         payload: {error}
     };
+}
+
+function GenerateBody(storyId) {
+    return {
+        storyId: storyId
+    }
 }

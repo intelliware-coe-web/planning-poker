@@ -8,9 +8,9 @@ import {
     updateCurrentStoryAsync,
     watchCurrentMeetingAsync
 } from "./CurrentMeetingActions";
-import { MeetingAPI } from "../API/Meeting.api";
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import * as Selectors from '../../Common/selectors';
+import {MeetingAPI} from "../API/Meeting.api";
+import {call, put, select, takeLatest} from 'redux-saga/effects';
+import {CurrentMeetingId} from '../../Common/selectors';
 
 describe('CurrentMeeting Actions', () => {
     let fixture;
@@ -24,7 +24,7 @@ describe('CurrentMeeting Actions', () => {
 
         it('should dispatch action when meeting not in store', () => {
             const ApiResponse = [];
-            expect(fixture.next().value).toEqual(select(Selectors.CurrentMeetingId));
+            expect(fixture.next().value).toEqual(select(CurrentMeetingId));
             expect(fixture.next(null).value).toEqual(call(MeetingAPI.byId, meetingId));
             expect(fixture.next(ApiResponse).value).toEqual(put({
                 type: CURRENT_MEETING_SUCCESS,
@@ -34,7 +34,7 @@ describe('CurrentMeeting Actions', () => {
         });
 
         it('should not dispatch action when meeting is in store', () => {
-            expect(fixture.next().value).toEqual(select(Selectors.CurrentMeetingId));
+            expect(fixture.next().value).toEqual(select(CurrentMeetingId));
             expect(fixture.next(meetingId).done).toBeTruthy();
         });
 
@@ -52,19 +52,15 @@ describe('CurrentMeeting Actions', () => {
     });
 
     describe('UpdateCurrentStory', () => {
-        const currentMeetingId = '123';
-        jest.spyOn(Selectors, 'CurrentMeetingId').mockReturnValue(() => jest.fn());
-        const storyBody = {
-            storyId: 'story12342'
-        };
+        const meetingId = '123';
+        const storyId = 'story12342';
 
         beforeEach(() => {
-            fixture = updateCurrentStoryAsync({payload: storyBody});
+            fixture = updateCurrentStoryAsync({payload: {meetingId, storyId}});
         });
 
         it('should dispatch action', () => {
-            expect(fixture.next().value).toEqual(select(Selectors.CurrentMeetingId));
-            expect(fixture.next(currentMeetingId).value).toEqual(call(MeetingAPI.updateCurrentStory, currentMeetingId, storyBody));
+            expect(fixture.next(meetingId).value).toEqual(call(MeetingAPI.updateCurrentStory, meetingId, {storyId: storyId}));
             expect(fixture.next().done).toBeTruthy();
         });
 
@@ -91,10 +87,12 @@ describe('CurrentMeeting Actions', () => {
     describe('Public Functions', () => {
         let expectedResponse, actualResponse;
 
-        it('should return correct JSON resonse for UpdateCurrentStory',() => {
-            const body = 'mock Body';
-            expectedResponse = {type: UPDATE_CURRENT_STORY_REQUESTED, payload: body};
-            actualResponse = UpdateCurrentStory(body);
+        it('should return correct JSON resonse for UpdateCurrentStory', () => {
+            const meetingId = '123';
+            const storyId = 'story12342';
+
+            expectedResponse = {type: UPDATE_CURRENT_STORY_REQUESTED, payload: {meetingId, storyId}};
+            actualResponse = UpdateCurrentStory(meetingId, storyId);
             expect(expectedResponse).toEqual(actualResponse);
         });
     });

@@ -9,10 +9,10 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories, updat
 
     useEffect(
         () => {
-            updateCurrentStory({storyId: match.params.storyId});
+            updateCurrentStory(match.params.meetingId, match.params.storyId);
             getStoryEstimates(match.params.storyId);
             return () => {
-                updateCurrentStory({});
+                updateCurrentStory(match.params.meetingId, null);
                 stopStoryEstimatesPolling();
             };
         },
@@ -78,7 +78,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         goToStories: (meetingId) => dispatch(viewStories(meetingId)),
-        updateCurrentStory: (storyId) => dispatch(UpdateCurrentStory(storyId)),
+        updateCurrentStory: (meetingId, storyId) => dispatch(UpdateCurrentStory(meetingId, storyId)),
         stopStoryEstimatesPolling: () => dispatch(StopStoryEstimatesPolling()),
         getStoryEstimates: (storyId) => dispatch(GetStoryEstimates(storyId))
     };
