@@ -1,7 +1,7 @@
 import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {GetCurrentMeeting} from '../Meetings/Actions/CurrentMeetingActions';
-import {CurrentUserId} from "../Common/selectors";
+import {CurrentMeetingId, CurrentUserId} from "../Common/selectors";
 
 export const viewCreateMeeting = () => push('/meeting/create/');
 export const viewCreateStory = () => push('/story/create/');
@@ -23,6 +23,14 @@ export function* routerActions(action) {
     if (pathname.startsWith("/meeting/") && !pathname.endsWith('create/')) {
         const meetingId = pathname.split('/')[2];
         yield put(GetCurrentMeeting(meetingId));
+    }
+
+    if (pathname.startsWith("/story/create/")) {
+        const currentMeetingId = yield select(CurrentMeetingId);
+        if (!currentMeetingId) {
+            yield delay(1);
+            yield put(refreshMeetings());
+        }
     }
 }
 

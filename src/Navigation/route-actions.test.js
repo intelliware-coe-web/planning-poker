@@ -1,5 +1,6 @@
 import {
-    refreshMeetings, refreshStories,
+    refreshMeetings,
+    refreshStories,
     routerActions,
     viewCreateMeeting,
     viewCreateStory,
@@ -16,7 +17,7 @@ import {
 import {delay, put, select, takeLatest} from 'redux-saga/effects';
 import {LOCATION_CHANGE, push, replace} from 'connected-react-router';
 import {GetCurrentMeeting} from '../Meetings/Actions/CurrentMeetingActions';
-import {CurrentUserId} from "../Common/selectors";
+import {CurrentMeetingId, CurrentUserId} from "../Common/selectors";
 
 describe('Route Actions', () => {
 
@@ -105,6 +106,51 @@ describe('Route Actions', () => {
             const saga = routerActions({payload: mockRouterPayload});
             expect(saga.next().value).toEqual(select(CurrentUserId));
             expect(saga.next().value).not.toEqual(put(GetCurrentMeeting(mockMeetingId)));
+        });
+
+        it('should dispatch replace to meetings when landing on create story page with no currentMeetingId', () => {
+            const mockRouterPayload = {
+                location: {
+                    pathname: '/story/create/'
+                }
+            };
+
+            const saga = routerActions({payload: mockRouterPayload});
+            expect(saga.next().value).toEqual(select(CurrentUserId));
+
+            expect(saga.next().value).toEqual(select(CurrentMeetingId));
+            expect(saga.next(null).value).toEqual(delay(1));
+            expect(saga.next().value).toEqual(put(refreshMeetings()));
+            expect(saga.next().done).toBeTruthy();
+
+        });
+
+        it('should not dispatch replace to meetings when landing on create story page with currentMeetingId', () => {
+            const currentMeetingId = 'mockCurrentMeetingId';
+            const mockRouterPayload = {
+                location: {
+                    pathname: '/story/create/'
+                }
+            };
+
+            const saga = routerActions({payload: mockRouterPayload});
+            expect(saga.next().value).toEqual(select(CurrentUserId));
+
+            expect(saga.next().value).toEqual(select(CurrentMeetingId));
+            expect(saga.next(currentMeetingId).done).toBeTruthy();
+        });
+
+        it('should not get currentMeetingId when path does not start with /story/create/', () => {
+            const currentMeetingId = 'mockCurrentMeetingId';
+            const mockRouterPayload = {
+                location: {
+                    pathname: '/notStoryCreate/'
+                }
+            };
+
+            const saga = routerActions({payload: mockRouterPayload});
+            expect(saga.next().value).toEqual(select(CurrentUserId));
+            expect(saga.next().done).toBeTruthy();
         });
 
     });
