@@ -77,10 +77,10 @@ describe('StoryEstimates Actions', () => {
                 const watcher = watchStoryEstimatesAsync();
                 expect(watcher.next().value).toEqual(take(STORY_ESTIMATES_GET_REQUESTED));
                 const payload = 'meetingId';
-                expect(watcher.next(payload).value).toEqual(race([
-                    call(getStoryEstimatesAsync, payload),
-                    take(STORY_ESTIMATES_STOP_POLLING_REQUESTED)
-                ]));
+                expect(watcher.next(payload).value).toEqual(race({
+                    task: call(getStoryEstimatesAsync, payload),
+                    cancel: take(STORY_ESTIMATES_STOP_POLLING_REQUESTED)
+                }));
                 expect(watcher.next().done).toBeFalsy();
             });
         });

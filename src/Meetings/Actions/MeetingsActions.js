@@ -16,10 +16,10 @@ export function* watchMeetingsAsync() {
     yield takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync);
     while (true) {
         let payload = yield take(MEETINGS_GET_REQUESTED);
-        yield race([
-            call(getMeetingsAsync, payload),
-            take(MEETINGS_STOP_POLLING_REQUESTED)
-        ]);
+        yield race({
+            task: call(getMeetingsAsync, payload),
+            cancel: take(MEETINGS_STOP_POLLING_REQUESTED)
+        });
     }
 }
 

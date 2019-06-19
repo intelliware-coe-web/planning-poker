@@ -11,10 +11,10 @@ export const POLLING_DELAY = 4000;
 export function* watchStoryEstimatesAsync() {
   while (true) {
       let payload = yield take(STORY_ESTIMATES_GET_REQUESTED);
-      yield race([
-          call(getStoryEstimatesAsync, payload),
-          take(STORY_ESTIMATES_STOP_POLLING_REQUESTED)
-      ]);
+      yield race({
+          task: call(getStoryEstimatesAsync, payload),
+          cancel: take(STORY_ESTIMATES_STOP_POLLING_REQUESTED)
+      });
   }
 }
 
