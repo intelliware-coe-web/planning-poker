@@ -22,7 +22,7 @@ describe('Container: Story Estimate', () => {
             })
         };
 
-        const {container}  = render(<StoryEstimate  {...props} match={{'params': { 'meetingId': 'Mock meeting id'}}}/>);
+        const {container} = render(<StoryEstimate  {...props} match={{'params': {'meetingId': 'Mock meeting id'}}}/>);
         expect(container).toMatchSnapshot();
     });
 });

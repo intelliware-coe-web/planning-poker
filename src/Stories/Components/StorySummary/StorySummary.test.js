@@ -37,6 +37,9 @@ describe('Container: StorySummary', () => {
                     estimate: 'bad data'
                 }
             ],
+            currentStory: {
+                name: 'Mock Story Name'
+            },
             goToStories: jest.fn(),
             updateCurrentStory: jest.fn(),
             startPollingStoryEstimates: jest.fn(),

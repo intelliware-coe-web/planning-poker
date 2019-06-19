@@ -1,6 +1,7 @@
 import {MeetingAPI} from '../API/Meeting.api';
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import {CurrentMeetingId} from '../../Common/selectors';
+import {GetCurrentStory} from "./CurrentStoryActions";
 
 export const CURRENT_MEETING_SUCCESS = 'CURRENT_MEETING_SUCCESS';
 export const CURRENT_MEETING_ERROR = 'CURRENT_MEETING_ERROR';
@@ -42,6 +43,7 @@ export function UpdateCurrentStory(meetingId, storyId) {
 export function* updateCurrentStoryAsync({payload: {meetingId, storyId}}) {
     try {
         yield call(MeetingAPI.updateCurrentStory, meetingId, GenerateBody(storyId));
+        yield put(GetCurrentStory(meetingId));
     }
     catch (e) {
         yield put(CurrentMeetingError(e));

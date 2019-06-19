@@ -11,6 +11,7 @@ import {
 import {MeetingAPI} from "../API/Meeting.api";
 import {call, put, select, takeLatest} from 'redux-saga/effects';
 import {CurrentMeetingId} from '../../Common/selectors';
+import {GetCurrentStory} from "./CurrentStoryActions";
 
 describe('CurrentMeeting Actions', () => {
     let fixture;
@@ -61,6 +62,7 @@ describe('CurrentMeeting Actions', () => {
 
         it('should dispatch action', () => {
             expect(fixture.next(meetingId).value).toEqual(call(MeetingAPI.updateCurrentStory, meetingId, {storyId: storyId}));
+            expect(fixture.next().value).toEqual(put(GetCurrentStory(meetingId)));
             expect(fixture.next().done).toBeTruthy();
         });
 

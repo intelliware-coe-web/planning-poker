@@ -5,7 +5,7 @@ import {viewStories} from '../../../Navigation/route-actions';
 import {UpdateCurrentStory} from "../../../Meetings/Actions/CurrentMeetingActions";
 import {StartPollingStoryEstimates, StopPollingStoryEstimates} from "../../Actions/StoryEstimatesActions";
 
-export function StorySummary({currentMeeting, storyEstimates, goToStories, updateCurrentStory, startPollingStoryEstimates, stopPollingStoryEstimates, match}) {
+export function StorySummary({currentMeeting, currentStory, storyEstimates, goToStories, updateCurrentStory, startPollingStoryEstimates, stopPollingStoryEstimates, match}) {
 
     useEffect(
         () => {
@@ -41,6 +41,9 @@ export function StorySummary({currentMeeting, storyEstimates, goToStories, updat
 
     return (
         <Page title={currentMeeting.name} onBack={() => goToStories(currentMeeting._id)}>
+            <dl className="uk-description-list">
+                <dt># {currentStory.name} :</dt>
+            </dl>
             <div className="uk-align-center uk-width-1-2@m">
                 <table className="uk-table uk-table-divider">
                     <thead>

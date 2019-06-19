@@ -24,6 +24,15 @@ exports[`Container: StorySummary should render correctly with estimates and name
       <div
         class="uk-align-center uk-width-1-2@m"
       >
+        <dl
+          class="uk-description-list"
+        >
+          <dt>
+            # 
+            Mock Story Name
+             :
+          </dt>
+        </dl>
         <div
           class="uk-align-center uk-width-1-2@m"
         >
