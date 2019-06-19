@@ -1,18 +1,18 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {viewCreateMeeting, viewMeeting} from '../../../Navigation/route-actions';
-import {DeleteMeeting, GetMeetings, StopMeetingsPolling} from '../../Actions/MeetingsActions';
+import {DeleteMeeting, StartPollingMeetings, StopPollingMeetings} from '../../Actions/MeetingsActions';
 import {Page} from '../../../Common/Page';
 
-export function Meetings({meetings = [], goToMeeting, deleteMeeting, goToCreateMeeting, getMeetings, stopMeetingsPolling}) {
+export function Meetings({meetings = [], startPollingMeetings, stopPollingMeetings, deleteMeeting, goToMeeting, goToCreateMeeting}) {
     useEffect(
         () => {
-            getMeetings();
+            startPollingMeetings();
             return () => {
-                stopMeetingsPolling();
+                stopPollingMeetings();
             };
         },
-        [getMeetings, stopMeetingsPolling]
+        [startPollingMeetings, stopPollingMeetings]
     );
 
     return (
@@ -62,11 +62,11 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        getMeetings: () => dispatch(GetMeetings()),
-        goToMeeting: (meetingId) => dispatch(viewMeeting(meetingId)),
+        startPollingMeetings: () => dispatch(StartPollingMeetings()),
+        stopPollingMeetings: () => dispatch(StopPollingMeetings()),
         deleteMeeting: (meetingId) => dispatch(DeleteMeeting(meetingId)),
-        goToCreateMeeting: () => dispatch(viewCreateMeeting()),
-        stopMeetingsPolling: () => dispatch(StopMeetingsPolling())
+        goToMeeting: (meetingId) => dispatch(viewMeeting(meetingId)),
+        goToCreateMeeting: () => dispatch(viewCreateMeeting())
     }
 }
 

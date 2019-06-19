@@ -4,9 +4,9 @@ import {viewMeetings, refreshMeetings} from '../../Navigation/route-actions';
 
 export const MEETINGS_SUCCESS = 'MEETINGS_SUCCESS';
 export const MEETINGS_ERROR = 'MEETINGS_ERROR';
-export const MEETINGS_GET_REQUESTED = 'MEETINGS_GET_REQUESTED';
 export const MEETING_POST_REQUESTED = 'MEETING_POST_REQUESTED';
 export const MEETING_DELETE_REQUESTED = 'MEETING_DELETE_REQUESTED';
+export const MEETINGS_START_POLLING_REQUESTED = 'MEETINGS_START_POLLING_REQUESTED';
 export const MEETINGS_STOP_POLLING_REQUESTED = 'MEETINGS_STOP_POLLING_REQUESTED';
 
 export const POLLING_DELAY = 4000;
@@ -15,21 +15,21 @@ export function* watchMeetingsAsync() {
     yield takeLatest(MEETING_POST_REQUESTED, postMeetingAsync);
     yield takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync);
     while (true) {
-        let payload = yield take(MEETINGS_GET_REQUESTED);
+        let payload = yield take(MEETINGS_START_POLLING_REQUESTED);
         yield race({
-            task: call(getMeetingsAsync, payload),
+            task: call(pollMeetingsAsync, payload),
             cancel: take(MEETINGS_STOP_POLLING_REQUESTED)
         });
     }
 }
 
-export function GetMeetings() {
+export function StartPollingMeetings() {
     return {
-        type: MEETINGS_GET_REQUESTED
+        type: MEETINGS_START_POLLING_REQUESTED
     }
 }
 
-export function* getMeetingsAsync() {
+export function* pollMeetingsAsync() {
     while (true) {
         try {
             const meetings = yield call(MeetingAPI.all);
@@ -41,7 +41,7 @@ export function* getMeetingsAsync() {
     }
 }
 
-export function StopMeetingsPolling() {
+export function StopPollingMeetings() {
     return {
         type: MEETINGS_STOP_POLLING_REQUESTED
     }

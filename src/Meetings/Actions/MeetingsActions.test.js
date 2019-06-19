@@ -1,18 +1,18 @@
 import {
     DeleteMeeting,
     deleteMeetingAsync,
-    GetMeetings,
-    getMeetingsAsync,
+    StartPollingMeetings,
+    pollMeetingsAsync,
     MEETING_DELETE_REQUESTED,
     MEETING_POST_REQUESTED,
     MEETINGS_ERROR,
-    MEETINGS_GET_REQUESTED,
+    MEETINGS_START_POLLING_REQUESTED,
     MEETINGS_STOP_POLLING_REQUESTED,
     MEETINGS_SUCCESS,
     POLLING_DELAY,
     PostMeeting,
     postMeetingAsync,
-    StopMeetingsPolling,
+    StopPollingMeetings,
     watchMeetingsAsync
 } from "./MeetingsActions";
 import {MeetingAPI} from "../API/Meeting.api";
@@ -25,7 +25,7 @@ describe('Meetings Actions', () => {
     describe('GetMeetings', () => {
 
         beforeEach(() => {
-            fixture = getMeetingsAsync();
+            fixture = pollMeetingsAsync();
         });
 
         it('should dispatch action', () => {
@@ -111,9 +111,9 @@ describe('Meetings Actions', () => {
 
             expect(fixture.next().value).toEqual(takeLatest(MEETING_POST_REQUESTED, postMeetingAsync));
             expect(fixture.next().value).toEqual(takeLatest(MEETING_DELETE_REQUESTED, deleteMeetingAsync));
-            expect(fixture.next().value).toEqual(take(MEETINGS_GET_REQUESTED));
+            expect(fixture.next().value).toEqual(take(MEETINGS_START_POLLING_REQUESTED));
             expect(fixture.next(payload).value).toEqual(race({
-                task: call(getMeetingsAsync, payload),
+                task: call(pollMeetingsAsync, payload),
                 cancel: take(MEETINGS_STOP_POLLING_REQUESTED)
             }));
         });
@@ -123,8 +123,8 @@ describe('Meetings Actions', () => {
         let actualResponse, expectedResponse;
 
         it('should return proper JSON response for GetMeetings', () => {
-            expectedResponse = {type: MEETINGS_GET_REQUESTED};
-            actualResponse = GetMeetings();
+            expectedResponse = {type: MEETINGS_START_POLLING_REQUESTED};
+            actualResponse = StartPollingMeetings();
             expect(expectedResponse).toEqual(actualResponse);
         });
 
@@ -142,7 +142,7 @@ describe('Meetings Actions', () => {
 
         it('should return proper JSON response for StopMeetingsPolling', () => {
             expectedResponse = {type: MEETINGS_STOP_POLLING_REQUESTED};
-            actualResponse = StopMeetingsPolling();
+            actualResponse = StopPollingMeetings();
             expect(expectedResponse).toEqual(actualResponse);
         });
     });
