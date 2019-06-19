@@ -3,21 +3,21 @@ import {connect} from 'react-redux';
 import {PutStoryEstimate, ResetStoryEstimate} from '../../Actions/StoryEstimateActions';
 import {viewMeetings, viewStories} from '../../../Navigation/route-actions';
 import {Page} from '../../../Common/Page';
-import {GetCurrentStory, StopCurrentStoryPolling} from "../../../Meetings/Actions/CurrentStoryActions";
+import {StartPollingCurrentStory, StopPollingCurrentStory} from "../../../Meetings/Actions/CurrentStoryActions";
 
-export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory, goToMeetings, goToStories, updateStoryEstimate, resetStoryEstimate, getCurrentStory, stopCurrentStoryPolling, match}) {
+export function StoryEstimate({storyEstimate, currentMeeting, user, currentStory, goToMeetings, goToStories, updateStoryEstimate, resetStoryEstimate, startPollingCurrentStory, stopPollingCurrentStory, match}) {
     // TODO: Move estimations to store
     const estimation = [1, 2, 3, 5, 8, 13];
 
     useEffect(
         () => {
-            getCurrentStory(match.params.meetingId);
+            startPollingCurrentStory(match.params.meetingId);
             return () => {
-                stopCurrentStoryPolling();
+                stopPollingCurrentStory();
                 resetStoryEstimate();
             };
         },
-        [getCurrentStory, stopCurrentStoryPolling, resetStoryEstimate, match],
+        [startPollingCurrentStory, stopPollingCurrentStory, resetStoryEstimate, match],
     );
 
     return (
@@ -57,8 +57,8 @@ function mapDispatchToProps(dispatch) {
         goToStories: (meetingId) => dispatch(viewStories(meetingId)),
         updateStoryEstimate: (userId, storyId, estimate) => dispatch(PutStoryEstimate(userId, storyId, estimate)),
         resetStoryEstimate: () => dispatch(ResetStoryEstimate()),
-        getCurrentStory: (meetingId) => dispatch(GetCurrentStory(meetingId)),
-        stopCurrentStoryPolling: () => dispatch(StopCurrentStoryPolling()),
+        startPollingCurrentStory: (meetingId) => dispatch(StartPollingCurrentStory(meetingId)),
+        stopPollingCurrentStory: () => dispatch(StopPollingCurrentStory()),
     };
 }
 

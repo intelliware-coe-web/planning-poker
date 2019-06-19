@@ -1,12 +1,12 @@
 import {
     CURRENT_STORY_ERROR,
     CURRENT_STORY_SUCCESS,
-    CURRENT_STORY_GET_REQUESTED,
+    CURRENT_STORY_START_POLLING_REQUESTED,
     CURRENT_STORY_STOP_POLLING_REQUESTED,
     POLLING_DELAY,
-    GetCurrentStory,
-    StopCurrentStoryPolling,
-    getCurrentStoryAsync,
+    StartPollingCurrentStory,
+    StopPollingCurrentStory,
+    pollCurrentStoryAsync,
     watchCurrentStoryAsync
 } from "./CurrentStoryActions";
 import {MeetingAPI} from "../API/Meeting.api";
@@ -23,7 +23,7 @@ describe('CurrentStory Actions', () => {
             let currentStory = {_id: '2342nioewro2342'};
     
             beforeEach(() => {
-                fixture = getCurrentStoryAsync({payload: meetingId});
+                fixture = pollCurrentStoryAsync({payload: meetingId});
             });
     
             it('should dispatch action and reset story estimate when story and currentStory ids are not the same', () => {
@@ -97,10 +97,10 @@ describe('CurrentStory Actions', () => {
            it('should return correct JSON', () => {
                const mockMeetingId = 'MockMeetingId';
                const expectedGetCurrentStoryJSON = {
-                   type: CURRENT_STORY_GET_REQUESTED,
+                   type: CURRENT_STORY_START_POLLING_REQUESTED,
                    payload: mockMeetingId
                };
-               const actualGetCurrentStoryJSON = GetCurrentStory(mockMeetingId);
+               const actualGetCurrentStoryJSON = StartPollingCurrentStory(mockMeetingId);
                expect(actualGetCurrentStoryJSON).toEqual(expectedGetCurrentStoryJSON);
     
            });
@@ -113,7 +113,7 @@ describe('CurrentStory Actions', () => {
                 const expectedStopCurrentStoryPollingJSON = {
                     type: CURRENT_STORY_STOP_POLLING_REQUESTED
                 };
-                const actualStopCurrentStoryPollingJSON = StopCurrentStoryPolling();
+                const actualStopCurrentStoryPollingJSON = StopPollingCurrentStory();
                 expect(actualStopCurrentStoryPollingJSON).toEqual(expectedStopCurrentStoryPollingJSON);
     
             });
@@ -122,10 +122,10 @@ describe('CurrentStory Actions', () => {
         describe('WatchCurrentStoryAsync', () => {
             it('should watch view actions', () => {
                 const watcher = watchCurrentStoryAsync();
-                expect(watcher.next().value).toEqual(take(CURRENT_STORY_GET_REQUESTED));
+                expect(watcher.next().value).toEqual(take(CURRENT_STORY_START_POLLING_REQUESTED));
                 const payload = 'meetingId';
                 expect(watcher.next(payload).value).toEqual(race({
-                    task: call(getCurrentStoryAsync, payload),
+                    task: call(pollCurrentStoryAsync, payload),
                     cancel: take(CURRENT_STORY_STOP_POLLING_REQUESTED)
                 }));
                 expect(watcher.next().done).toBeFalsy();

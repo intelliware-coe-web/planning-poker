@@ -1,46 +1,47 @@
-import { MeetingAPI } from '../API/Meeting.api'
-import { take, call, put, race, delay, select } from 'redux-saga/effects';
+import {MeetingAPI} from '../API/Meeting.api'
+import {call, delay, put, race, select, take} from 'redux-saga/effects';
 import {ResetStoryEstimate} from "../../Stories/Actions/StoryEstimateActions";
 import {CurrentStory} from "../../Common/selectors";
 
 export const CURRENT_STORY_SUCCESS = 'CURRENT_STORY_SUCCESS';
 export const CURRENT_STORY_ERROR = 'CURRENT_STORY_ERROR';
-export const CURRENT_STORY_GET_REQUESTED = 'CURRENT_STORY_GET_REQUESTED';
+export const CURRENT_STORY_START_POLLING_REQUESTED = 'CURRENT_STORY_START_POLLING_REQUESTED';
 export const CURRENT_STORY_STOP_POLLING_REQUESTED = 'CURRENT_STORY_STOP_POLLING_REQUESTED';
+
 
 export const POLLING_DELAY = 4000;
 
 export function* watchCurrentStoryAsync() {
     while (true) {
-        let payload = yield take(CURRENT_STORY_GET_REQUESTED);
+        let payload = yield take(CURRENT_STORY_START_POLLING_REQUESTED);
         yield race({
-            task: call(getCurrentStoryAsync, payload),
+            task: call(pollCurrentStoryAsync, payload),
             cancel: take(CURRENT_STORY_STOP_POLLING_REQUESTED)
         });
     }
 }
 
-export function GetCurrentStory(meetingId) {
+export function StartPollingCurrentStory(meetingId) {
     return {
-        type: CURRENT_STORY_GET_REQUESTED,
+        type: CURRENT_STORY_START_POLLING_REQUESTED,
         payload: meetingId
     }
 }
 
-export function StopCurrentStoryPolling() {
+export function StopPollingCurrentStory() {
     return {
         type: CURRENT_STORY_STOP_POLLING_REQUESTED
     }
 }
 
-export function* getCurrentStoryAsync({payload: meetingId}){
-    while(true) {
+export function* pollCurrentStoryAsync({payload: meetingId}) {
+    while (true) {
         try {
             const currentStory = yield select(CurrentStory);
             const story = yield call(MeetingAPI.getCurrentStory, meetingId);
 
-            if(story) { yield currentStory._id !== story._id ? put(ResetStoryEstimate()) : ''; }
-            else      { yield currentStory._id !== null      ? put(ResetStoryEstimate()) : ''; }
+            if (story) { yield currentStory._id !== story._id ? put(ResetStoryEstimate()) : ''; }
+            else       { yield currentStory._id !== null      ? put(ResetStoryEstimate()) : ''; }
 
             yield put(CurrentStorySuccess(story));
         }

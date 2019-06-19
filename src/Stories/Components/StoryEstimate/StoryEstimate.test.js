@@ -15,8 +15,8 @@ describe('Container: Story Estimate', () => {
             resetStoryEstimate: jest.fn(),
             user: jest.fn(),
             currentStory: jest.fn(),
-            getCurrentStory: jest.fn(),
-            stopCurrentStoryPolling: jest.fn(),
+            startPollingCurrentStory: jest.fn(),
+            stopPollingCurrentStory: jest.fn(),
             currentMeeting: jest.fn().mockReturnValue({
                 name: 'Mock Meeting Name'
             })
