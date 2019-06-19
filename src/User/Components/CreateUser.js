@@ -18,7 +18,9 @@ export function CreateUser({postUser}) {
                             <span className="uk-form-icon" data-uk-icon="icon: user"/>
                             <input name="userInputName" className="uk-input" placeholder="Name" type="text"/>
                         </div>
-                        <input className="uk-animation-slide-bottom uk-button uk-button-primary uk-width-1-1 uk-margin-small-top" type="submit" value="LOGIN / CREATE"/>
+                        <button className="uk-animation-slide-bottom uk-button uk-button-primary uk-width-1-1 uk-margin-small-top">
+                            LOGIN / CREATE
+                        </button>
                     </div>
                 </form>
             </div>
