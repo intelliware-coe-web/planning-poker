@@ -39,8 +39,8 @@ describe('Container: StorySummary', () => {
             ],
             goToStories: jest.fn(),
             updateCurrentStory: jest.fn(),
-            getStoryEstimates: jest.fn(),
-            stopStoryEstimatesPolling: jest.fn()
+            startPollingStoryEstimates: jest.fn(),
+            stopPollingStoryEstimates: jest.fn()
         };
         const {container} = render(<StorySummary  {...props} match={{'params': {'storyId': 'Mock story id'}}}/>);
         expect(container).toMatchSnapshot();

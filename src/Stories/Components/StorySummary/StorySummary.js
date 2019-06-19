@@ -3,20 +3,20 @@ import {connect} from 'react-redux';
 import {Page} from '../../../Common/Page';
 import {viewStories} from '../../../Navigation/route-actions';
 import {UpdateCurrentStory} from "../../../Meetings/Actions/CurrentMeetingActions";
-import {GetStoryEstimates, StopStoryEstimatesPolling} from "../../Actions/StoryEstimatesActions";
+import {StartPollingStoryEstimates, StopPollingStoryEstimates} from "../../Actions/StoryEstimatesActions";
 
-export function StorySummary({currentMeeting, storyEstimates, goToStories, updateCurrentStory, getStoryEstimates, stopStoryEstimatesPolling, match}) {
+export function StorySummary({currentMeeting, storyEstimates, goToStories, updateCurrentStory, startPollingStoryEstimates, stopPollingStoryEstimates, match}) {
 
     useEffect(
         () => {
             updateCurrentStory(match.params.meetingId, match.params.storyId);
-            getStoryEstimates(match.params.storyId);
+            startPollingStoryEstimates(match.params.storyId);
             return () => {
                 updateCurrentStory(match.params.meetingId, null);
-                stopStoryEstimatesPolling();
+                stopPollingStoryEstimates();
             };
         },
-        [updateCurrentStory, stopStoryEstimatesPolling, getStoryEstimates, match],
+        [updateCurrentStory, startPollingStoryEstimates, stopPollingStoryEstimates, match],
     );
 
     const sum = (a, b) => a + b;
@@ -73,14 +73,14 @@ function mapStateToProps(state) {
         currentStory: state.currentStory,
         storyEstimates: state.storyEstimates
     }
-};
+}
 
 function mapDispatchToProps(dispatch) {
     return {
         goToStories: (meetingId) => dispatch(viewStories(meetingId)),
         updateCurrentStory: (meetingId, storyId) => dispatch(UpdateCurrentStory(meetingId, storyId)),
-        stopStoryEstimatesPolling: () => dispatch(StopStoryEstimatesPolling()),
-        getStoryEstimates: (storyId) => dispatch(GetStoryEstimates(storyId))
+        startPollingStoryEstimates: (storyId) => dispatch(StartPollingStoryEstimates(storyId)),
+        stopPollingStoryEstimates: () => dispatch(StopPollingStoryEstimates())
     };
 }
 

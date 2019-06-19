@@ -1,4 +1,4 @@
-import { StoriesAPI } from './Stories.api';
+import {StoriesAPI} from './Stories.api';
 import * as FetchApi from '../../Fetch.api';
 
 describe('StoriesAPI', () => {
