@@ -1,61 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Container: StorySummary should render correctly 1`] = `
-<div>
-  <div
-    class="default-background"
-  >
-    <div
-      class="uk-container uk-text-center@m"
-    >
-      <div
-        class="uk-section uk-section-xsmall"
-      >
-        <span
-          class="uk-button uk-button-secondary uk-button-small uk-position-small uk-position-top-left pp-back-arrow"
-          data-uk-icon="icon: arrow-left; ratio: 1.25"
-        />
-      </div>
-      <h1
-        class="uk-heading-divider uk-margin-top"
-      >
-        mockConstructor
-      </h1>
-      <div
-        class="uk-align-center uk-width-1-2@m"
-      >
-        <div
-          class="uk-align-center uk-width-1-2@m"
-        >
-          <table
-            class="uk-table uk-table-divider"
-          >
-            <thead>
-              <tr>
-                <th
-                  class="uk-text-center"
-                >
-                  Name
-                </th>
-                <th
-                  class="uk-text-center"
-                >
-                  Estimate
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Container: StorySummary should renders estimates withs names 1`] = `
+exports[`Container: StorySummary should render correctly with estimates and names 1`] = `
 <div>
   <div
     class="default-background"
