@@ -21,12 +21,11 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
             </button>
 
             {stories.map((story, index) =>
-                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-top uk-padding-small">
+                <div key={index} className="uk-card uk-card-primary uk-card-body uk-margin-top uk-padding-small"
+                     onClick={() => goToStory(currentMeeting._id, story._id)}>
                     <div className="uk-flex uk-flex-middle" data-uk-grid>
                         <div className="uk-flex uk-flex-left uk-width-5-6">
-                            <div
-                                className="uk-flex uk-flex-column"
-                                onClick={() => goToStory(currentMeeting._id, story._id)}>
+                            <div className="uk-flex uk-flex-column">
                                 <div className="uk-text-left">{story.name}</div>
                                 <div className="uk-align-left uk-text-center uk-width-auto uk-label uk-margin-small uk-margin-remove-bottom">
                                     {story.estimate_avg ? 'Points: ' + story.estimate_avg : 'Not estimated'}
@@ -38,7 +37,10 @@ export function Stories({currentMeeting, stories = [], goToMeetings, goToStory, 
                                 className="uk-icon-button"
                                 data-uk-icon="icon: trash"
                                 uk-tooltip="title: Delete Story"
-                                onClick={event => { event.stopPropagation(); deleteStory(story._id); }}>
+                                onClick={event => {
+                                    event.stopPropagation();
+                                    deleteStory(story._id);
+                                }}>
                             </button>
                         </div>
                     </div>
