@@ -68,16 +68,10 @@ a:hover {
     border-radius: 10px;
 }
 
-.uk-card:hover , .uk-button:hover:not(:disabled) {
+.uk-card:hover, .uk-button:hover:not(:disabled) {
     background-color: var(--accent-color-secondary);
-
     color: var(--app-background-color);
 }
-
-/*.uk-button:hover:not(:disabled) {*/
-    /*background-color: #151515;*/
-    /*color: #ffffff;*/
-/*}*/
 
 .uk-card.uk-card-primary.uk-card-body button:hover {
     color: var(--danger);
@@ -92,13 +86,24 @@ a:hover {
     color: var(--accent-color-primary);
 }
 
-.uk-table tr:last-child td{
+.uk-table tr:last-child td {
     color: var(--accent-color-secondary);
+}
+
+::selection {
+    color: var(--accent-color-primary);
+    background: var(--primary-color);
+}
+
+::-moz-selection { /* For Firefox */
+    color: var(--accent-color-primary);
+    background: var(--primary-color);
 }
 
 .pp-login {
     justify-content: center;
 }
+
 .pp-margin-top-30 {
     margin-top: 30px;
 }
